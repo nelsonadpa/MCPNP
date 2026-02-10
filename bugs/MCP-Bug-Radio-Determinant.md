@@ -1,8 +1,9 @@
-# Bug Report: Two Issues with Radio Determinants and Effects in MCP
+# Bug Report: Determinant Creation and Effect Linking Issues in MCP
 
-**Date**: 2026-02-10
+**Date**: 2026-02-10 (updated 2026-02-10)
 **MCP Server**: `mcp-eregistrations-bpa` v0.15.0
 **Severity**: High - Blocks automation of service configuration
+**Bugs reported**: 5 (Bugs 1-3: radio determinant, Bugs 4-5: grid determinant)
 
 ---
 
@@ -187,6 +188,164 @@ Bug 2 and Bug 3 are **consequences of Bug 1**. Fixing Bug 1 (adding `radiodeterm
 
 ---
 
+## Bug 4: `griddeterminant_create` does not link the row_determinant_id
+
+### Context
+
+While configuring the "Expirado" badge for the Fito EditGrid in the Bitácora, we needed to replicate the same grid determinant pattern used by Permiso Eventual.
+
+**PE reference** (working, created via UI):
+- Grid determinant `2b43313a` ("Vigencia permiso eventual < hoy") → targets `applicantEditGrid`
+- Row determinant `73879ced` ("Row determinant in Vigencia permiso eventual < hoy") → targets `applicantEditGrid_collection_applicantExpiracion`, operator: `LESS_THAN`, `isCurrentDate: true`
+
+### What was done
+
+**Step 1**: Created the row date determinant (this worked correctly):
+
+```python
+datedeterminant_create(
+    service_id="ffe746aac09241078bad48c9b95cdfe0",
+    name="Row determinant in Vigencia fito < hoy",
+    target_form_field_key="applicantEditGridFito_collection_applicantExpiracionFito",
+    operator="LESS_THAN",
+    is_current_date=True
+)
+# Result: id="fa1f7425-e539-47d0-a99b-62b45116eaf1" ✅ Created correctly
+```
+
+**Step 2**: Created the grid determinant referencing the row determinant:
+
+```python
+griddeterminant_create(
+    service_id="ffe746aac09241078bad48c9b95cdfe0",
+    name="Vigencia fito < hoy",
+    target_form_field_key="applicantEditGridFito",
+    row_determinant_id="fa1f7425-e539-47d0-a99b-62b45116eaf1"
+)
+```
+
+### Result
+
+```json
+{
+  "id": "6bacdc42-b314-469c-adf0-145450dab922",
+  "name": "Vigencia fito < hoy",
+  "type": "grid",
+  "target_form_field_key": "applicantEditGridFito",
+  "determinant_inside_grid": true,
+  "row_determinant_id": null,   // ← BUG: should be "fa1f7425-..."
+  "service_id": "ffe746aac09241078bad48c9b95cdfe0"
+}
+```
+
+### Problem
+
+- The `row_determinant_id` is `null` in the response — the link was NOT saved
+- The PE reference grid determinant `2b43313a` has `rowDeterminantId: "73879ced..."` (confirmed via service export)
+- Without the row determinant link, the grid determinant cannot evaluate per-row conditions
+- The grid determinant is **broken** — it exists but has no evaluation logic
+
+### Expected behavior
+
+`griddeterminant_create` should persist the `row_determinant_id` so the grid determinant can evaluate its row-level condition for each row of the EditGrid.
+
+---
+
+## Bug 5: `effect_create` does not link determinant to component (grid determinant case)
+
+### What was done
+
+```python
+effect_create(
+    service_id="ffe746aac09241078bad48c9b95cdfe0",
+    component_key="applicantExpiradoFito",
+    determinant_ids=["6bacdc42-b314-469c-adf0-145450dab922"],
+    effect_type="activate",
+    effect_value=True
+)
+```
+
+### Result
+
+MCP returned success:
+```json
+{
+  "behaviour_id": "bf72c10d-984b-4a17-8fc5-9771d347dbf6",
+  "effect_id": "e73a1b38-f941-4e2c-a334-1f96727fe8d0",
+  "component_key": "applicantExpiradoFito",
+  "determinant_count": 1,
+  "effect_type": "activate",
+  "effect_value": true
+}
+```
+
+### Verification via API
+
+```python
+componentbehaviour_get_by_component(
+    service_id="ffe746aac09241078bad48c9b95cdfe0",
+    component_key="applicantExpiradoFito"
+)
+```
+
+Result:
+```json
+{
+  "id": "bf72c10d-984b-4a17-8fc5-9771d347dbf6",
+  "component_key": "applicantExpiradoFito",
+  "effects": []   // ← BUG: empty, should contain the effect with determinant
+}
+```
+
+### Problem
+
+- Same pattern as Bug 2: `effect_create` returns success but the effect is not actually linked
+- The behaviour exists (`bf72c10d`) but has **zero effects** inside
+- This is likely caused by Bug 4 (broken grid determinant with null row_determinant_id)
+- The BPA backend may reject the effect silently because the grid determinant is incomplete
+
+### Relationship between Bug 4 and Bug 5
+
+```
+Bug 4 (griddeterminant_create doesn't save row_determinant_id)
+  → Grid determinant is incomplete/broken
+  → Bug 5 (effect_create can't link to broken determinant)
+```
+
+Bug 5 is likely a **consequence of Bug 4**. Fixing Bug 4 should resolve Bug 5.
+
+### PE reference (working)
+
+The PE `applicantExpirado` button has:
+```json
+{
+  "effects": [{
+    "determinants": [{"type": "OR", "determinantId": "2b43313a-..."}],
+    "property_effects": [
+      {"name": "disabled", "value": "false"},
+      {"name": "show", "value": "true"},
+      {"name": "activate", "value": "true"}
+    ]
+  }]
+}
+```
+
+This works because the PE grid determinant `2b43313a` has its `rowDeterminantId` correctly linked.
+
+---
+
+## Summary of all bugs
+
+| Bug | Tool | Problem | Root cause | Status |
+|---|---|---|---|---|
+| 1 | `selectdeterminant_create` | Creates `selection` type instead of `radio` | Missing `radiodeterminant_create` tool | Open |
+| 2 | `effect_create` | Effect not linked (radio det case) | Consequence of Bug 1 | Open |
+| 3 | BPA UI | ClassCastException on manual save | Consequence of Bug 1 | Open |
+| 4 | `griddeterminant_create` | `row_determinant_id` saved as null | MCP doesn't persist the row reference | **NEW** |
+| 5 | `effect_create` | Effect not linked (grid det case) | Consequence of Bug 4 | **NEW** |
+
+---
+
 ## Temporary Workaround
 
 1. **Delete** the broken determinant and effect via MCP (`determinant_delete` + `effect_delete`)
@@ -198,6 +357,8 @@ Bug 2 and Bug 3 are **consequences of Bug 1**. Fixing Bug 1 (adding `radiodeterm
 
 ## Test Data
 
+### Bugs 1-3 (Radio determinant — Fitosanitario service)
+
 | Item | ID |
 |---|---|
 | Service (Fitosanitario) | `2c91808893792e2b019379310a8003a9` |
@@ -206,22 +367,48 @@ Bug 2 and Bug 3 are **consequences of Bug 1**. Fixing Bug 1 (adding `radiodeterm
 | Target component | `applicantBlock12` |
 | Target field | `applicantStatusLlegaDeLaBitacora` (radio) |
 
-These objects are **corrupted** and should be deleted before retesting.
+These objects were **corrupted** and have been **deleted** (cleanup done).
+
+### Bugs 4-5 (Grid determinant — Bitácora service)
+
+| Item | ID |
+|---|---|
+| Service (Bitácora) | `ffe746aac09241078bad48c9b95cdfe0` |
+| Row date determinant (OK) | `fa1f7425-e539-47d0-a99b-62b45116eaf1` |
+| Grid determinant (BROKEN, row_det=null) | `6bacdc42-b314-469c-adf0-145450dab922` |
+| Effect/Behaviour (BROKEN, effects=[]) | `bf72c10d-984b-4a17-8fc5-9771d347dbf6` |
+| Target component | `applicantExpiradoFito` (button badge) |
+| Target EditGrid | `applicantEditGridFito` |
+| Row target field | `applicantEditGridFito_collection_applicantExpiracionFito` |
+
+These objects are **broken** and need cleanup before retesting.
 
 ### Cleanup required
 
+**Bugs 1-3** (already cleaned up):
 ```python
-# Delete the broken effect first (depends on determinant)
-effect_delete(behaviour_id="8e5523d2-41f9-43a6-b83b-a2b0c971bfc1")
+# These were already deleted in a previous session
+effect_delete(behaviour_id="8e5523d2-41f9-43a6-b83b-a2b0c971bfc1")  # ✅ Done
+determinant_delete(service_id="2c91808893792e2b019379310a8003a9",
+    determinant_id="b2e39908-f0bb-4a9c-9c81-d6ab8a83a649")  # ✅ Done
+```
 
-# Then delete the broken determinant
+**Bugs 4-5** (pending cleanup):
+```python
+# Delete the broken effect first
+effect_delete(behaviour_id="bf72c10d-984b-4a17-8fc5-9771d347dbf6")
+
+# Delete the broken grid determinant
 determinant_delete(
-    service_id="2c91808893792e2b019379310a8003a9",
-    determinant_id="b2e39908-f0bb-4a9c-9c81-d6ab8a83a649"
+    service_id="ffe746aac09241078bad48c9b95cdfe0",
+    determinant_id="6bacdc42-b314-469c-adf0-145450dab922"
 )
+
+# The row date determinant (fa1f7425) is valid and can be reused once grid det is fixed
+# Do NOT delete: fa1f7425-e539-47d0-a99b-62b45116eaf1
 ```
 
 ---
 
 *Discovered by: Nelson Perez & Claude (AI assistant)*
-*Project: VUCE Cuba BPA - Fitosanitario service connection*
+*Project: VUCE Cuba BPA - Fitosanitario/Bitácora service connection*
