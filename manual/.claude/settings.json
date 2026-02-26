@@ -1,0 +1,207 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash",
+      "mcp__BPA-cuba__service_list",
+      "mcp__BPA-cuba__service_get",
+      "mcp__BPA-cuba__form_get",
+      "mcp__BPA-cuba__form_component_get",
+      "mcp__BPA-cuba__field_list",
+      "mcp__BPA-cuba__field_get",
+      "mcp__BPA-cuba__bot_list",
+      "mcp__BPA-cuba__bot_get",
+      "mcp__BPA-cuba__bot_mapping_summary",
+      "mcp__BPA-cuba__bot_input_mapping_list",
+      "mcp__BPA-cuba__bot_output_mapping_list",
+      "mcp__BPA-cuba__determinant_list",
+      "mcp__BPA-cuba__determinant_get",
+      "mcp__BPA-cuba__determinant_search",
+      "mcp__BPA-cuba__componentaction_get",
+      "mcp__BPA-cuba__componentaction_get_by_component",
+      "mcp__BPA-cuba__componentaction_get_system_actions",
+      "mcp__BPA-cuba__componentbehaviour_list",
+      "mcp__BPA-cuba__componentbehaviour_get",
+      "mcp__BPA-cuba__componentbehaviour_get_by_component",
+      "mcp__BPA-cuba__analyze_service",
+      "mcp__BPA-cuba__service_export_raw",
+      "mcp__BPA-cuba__service_to_yaml",
+      "mcp__BPA-cuba__registration_list",
+      "mcp__BPA-cuba__registration_get",
+      "mcp__BPA-cuba__role_list",
+      "mcp__BPA-cuba__role_get",
+      "mcp__BPA-cuba__rolestatus_get",
+      "mcp__BPA-cuba__classification_list",
+      "mcp__BPA-cuba__classification_get",
+      "mcp__BPA-cuba__classification_export_csv",
+      "mcp__BPA-cuba__notification_list",
+      "mcp__BPA-cuba__print_document_list",
+      "mcp__BPA-cuba__print_document_get",
+      "mcp__BPA-cuba__print_document_component_get",
+      "mcp__BPA-cuba__print_document_templates",
+      "mcp__BPA-cuba__requirement_list",
+      "mcp__BPA-cuba__documentrequirement_list",
+      "mcp__BPA-cuba__muleservice_list",
+      "mcp__BPA-cuba__muleservice_get",
+      "mcp__BPA-cuba__connection_status",
+      "mcp__BPA-cuba__server_info",
+      "mcp__BPA-cuba__audit_list",
+      "mcp__BPA-cuba__audit_get",
+      "mcp__BPA-lesotho2__service_list",
+      "mcp__BPA-lesotho2__service_get",
+      "mcp__BPA-lesotho2__form_get",
+      "mcp__BPA-lesotho2__form_component_get",
+      "mcp__BPA-lesotho2__field_list",
+      "mcp__BPA-lesotho2__field_get",
+      "mcp__BPA-lesotho2__bot_list",
+      "mcp__BPA-lesotho2__bot_get",
+      "mcp__BPA-lesotho2__bot_mapping_summary",
+      "mcp__BPA-lesotho2__determinant_list",
+      "mcp__BPA-lesotho2__determinant_get",
+      "mcp__BPA-lesotho2__analyze_service",
+      "mcp__BPA-lesotho2__service_export_raw",
+      "mcp__BPA-lesotho2__service_to_yaml",
+      "mcp__BPA-lesotho2__connection_status",
+      "mcp__BPA-lesotho2__server_info",
+      "mcp__BPA-colombia-test__service_list",
+      "mcp__BPA-colombia-test__service_get",
+      "mcp__BPA-colombia-test__form_get",
+      "mcp__BPA-colombia-test__form_component_get",
+      "mcp__BPA-colombia-test__field_list",
+      "mcp__BPA-colombia-test__field_get",
+      "mcp__BPA-colombia-test__bot_list",
+      "mcp__BPA-colombia-test__bot_get",
+      "mcp__BPA-colombia-test__bot_mapping_summary",
+      "mcp__BPA-colombia-test__determinant_list",
+      "mcp__BPA-colombia-test__determinant_get",
+      "mcp__BPA-colombia-test__analyze_service",
+      "mcp__BPA-colombia-test__service_export_raw",
+      "mcp__BPA-colombia-test__service_to_yaml",
+      "mcp__BPA-colombia-test__connection_status",
+      "mcp__BPA-colombia-test__server_info",
+      "mcp__BPA-jamaica__service_list",
+      "mcp__BPA-jamaica__service_get",
+      "mcp__BPA-jamaica__form_get",
+      "mcp__BPA-jamaica__form_component_get",
+      "mcp__BPA-jamaica__field_list",
+      "mcp__BPA-jamaica__field_get",
+      "mcp__BPA-jamaica__bot_list",
+      "mcp__BPA-jamaica__bot_get",
+      "mcp__BPA-jamaica__bot_mapping_summary",
+      "mcp__BPA-jamaica__determinant_list",
+      "mcp__BPA-jamaica__determinant_get",
+      "mcp__BPA-jamaica__analyze_service",
+      "mcp__BPA-jamaica__service_export_raw",
+      "mcp__BPA-jamaica__service_to_yaml",
+      "mcp__BPA-jamaica__connection_status",
+      "mcp__BPA-jamaica__server_info"
+    ],
+    "deny": [
+      "mcp__BPA-cuba__*_create",
+      "mcp__BPA-cuba__*_update",
+      "mcp__BPA-cuba__*_delete",
+      "mcp__BPA-cuba__service_publish",
+      "mcp__BPA-cuba__service_activate",
+      "mcp__BPA-cuba__rollback",
+      "mcp__BPA-cuba__effect_create",
+      "mcp__BPA-cuba__effect_delete",
+      "mcp__BPA-cuba__form_component_add",
+      "mcp__BPA-cuba__form_component_remove",
+      "mcp__BPA-cuba__form_component_move",
+      "mcp__BPA-cuba__componentaction_save",
+      "mcp__BPA-cuba__componentaction_update",
+      "mcp__BPA-cuba__componentaction_delete",
+      "mcp__BPA-lesotho2__*_create",
+      "mcp__BPA-lesotho2__*_update",
+      "mcp__BPA-lesotho2__*_delete",
+      "mcp__BPA-lesotho2__service_publish",
+      "mcp__BPA-lesotho2__service_activate",
+      "mcp__BPA-lesotho2__rollback",
+      "mcp__BPA-lesotho2__effect_create",
+      "mcp__BPA-lesotho2__effect_delete",
+      "mcp__BPA-colombia-test__*_create",
+      "mcp__BPA-colombia-test__*_update",
+      "mcp__BPA-colombia-test__*_delete",
+      "mcp__BPA-colombia-test__service_publish",
+      "mcp__BPA-colombia-test__service_activate",
+      "mcp__BPA-colombia-test__rollback",
+      "mcp__BPA-colombia-test__effect_create",
+      "mcp__BPA-colombia-test__effect_delete",
+      "mcp__BPA-jamaica__*_create",
+      "mcp__BPA-jamaica__*_update",
+      "mcp__BPA-jamaica__*_delete",
+      "mcp__BPA-jamaica__service_publish",
+      "mcp__BPA-jamaica__service_activate",
+      "mcp__BPA-jamaica__rollback",
+      "mcp__BPA-jamaica__effect_create",
+      "mcp__BPA-jamaica__effect_delete"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '--- Session Start: Manual Agent (Read-Only) ---' && echo '=== Pending Requests ===' && ls ~/Desktop/OCAgents/shared/requests/*manual* 2>/dev/null || echo 'No pending requests for manual agent' && echo '=== CHANGELOG (last 30 lines) ===' && tail -30 ~/Desktop/OCAgents/shared/knowledge/CHANGELOG.md 2>/dev/null && echo '=== Notifications ===' && ~/Desktop/OCAgents/shared/notify.sh check manual 2>/dev/null && ~/Desktop/OCAgents/shared/notify.sh clean manual 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATH\" | grep -q 'shared/responses/'; then BASENAME=$(basename \"$CLAUDE_FILE_PATH\" .md); TARGET=$(echo \"$BASENAME\" | sed 's/^[^-]*-//; s/_.*//' | head -c 20); ~/Desktop/OCAgents/shared/notify.sh signal \"$TARGET\" manual \"$BASENAME\" RESPONSE 2>/dev/null; fi"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__BPA-cuba__.*(_create|_update|_delete|_publish|_activate|_save|_remove|_move)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'BLOCKED: Manual Agent is READ-ONLY. Send modification requests to Config Agent via shared/requests/.' && exit 1"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__BPA-lesotho2__.*(_create|_update|_delete|_publish|_activate|_save|_remove|_move)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'BLOCKED: Manual Agent is READ-ONLY. Send modification requests to Config Agent via shared/requests/.' && exit 1"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__BPA-colombia-test__.*(_create|_update|_delete|_publish|_activate|_save|_remove|_move)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'BLOCKED: Manual Agent is READ-ONLY. Send modification requests to Config Agent via shared/requests/.' && exit 1"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__BPA-jamaica__.*(_create|_update|_delete|_publish|_activate|_save|_remove|_move)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'BLOCKED: Manual Agent is READ-ONLY. Send modification requests to Config Agent via shared/requests/.' && exit 1"
+          }
+        ]
+      }
+    ]
+  },
+  "_comments": {
+    "mcp_servers": "This agent uses BPA-cuba, BPA-lesotho2 (and optionally BPA-colombia-test, BPA-jamaica) in READ-ONLY mode. All write tools are explicitly denied and blocked by PreToolUse hooks.",
+    "role": "Manual Agent (Extractor) — read-only knowledge provider across 4 MCP instances"
+  }
+}

@@ -1,0 +1,154 @@
+%% Service: Establish a new zone (Jamaica SEZ)
+%% ID: d51d6c78-5ead-c948-0b82-0d9bc71cd712
+
+graph TD
+    subgraph "APPLICANT"
+        A1[Applicant fills form<br/>469 components, 63 panels]
+        A2[Upload 33 documents]
+        A3[Sign consents & undertaking]
+        A4[Digital payment]
+        A5[Submit application]
+        A1 --> A2 --> A3 --> A4 --> A5
+    end
+
+    subgraph "PHASE 1 — INTAKE"
+        B1[Documents Check<br/>Order 0]
+    end
+
+    subgraph "PHASE 2 — PARALLEL EVALUATIONS Order 1"
+        C1[Legal Evaluation<br/>LSU]
+        C2[Technical Evaluation<br/>TSI]
+        C3[Business Evaluation<br/>BPSS]
+        C4[Compliance Evaluation<br/>CAS]
+        C5[Organize NOC<br/>& Inspection]
+    end
+
+    subgraph "PHASE 3 — DUE DILIGENCE concurrent"
+        D1[JCA Due Diligence]
+        D2[TAJ Due Diligence]
+        D3[MOFPS Due Diligence]
+    end
+
+    subgraph "PHASE 4 — APPROVALS Order 2"
+        E1[JCA Approval]
+        E2[TAJ Approval]
+        E3[MOFPS Approval]
+        E4[Business Approval<br/>Sr. Director BPSS]
+        E5[Technical Approval<br/>Dir. Technical Services]
+        E6[Compliance Approval<br/>COO]
+        E7[Legal Approval<br/>Sr. Dir. Legal Services]
+    end
+
+    subgraph "PHASE 5 — COMMITTEE Order 3"
+        F1[ARC — Application<br/>Reviewing Committee]
+    end
+
+    subgraph "CORRECTION LOOP"
+        G1[Complementary<br/>Information]
+        G2[Applicant corrects<br/>& resubmits]
+    end
+
+    subgraph "PHASE 6 — STATUS Order 5-6"
+        H1[Status Letter<br/>Preparation]
+        H2[Signature<br/>Status Letter]
+    end
+
+    subgraph "PHASE 7 — BOARD Order 7-10"
+        I1[Board Submission]
+        I2[CEO Validation]
+        I3[Board Decision]
+    end
+
+    subgraph "DECISION"
+        J1{BOD Decision}
+        J2[Pre-approval Letter]
+        J3[Denial Letter]
+    end
+
+    subgraph "PHASE 8 — LICENSE Order 299"
+        K1[Draft License Agreement]
+        K2[Applicant: Agreement<br/>Review & Payment]
+        K3[Legal Review of<br/>Payment & License]
+        K4[Issue License Agreement<br/>CEO]
+    end
+
+    subgraph "PHASE 9 — MINISTERIAL Order 299"
+        L1[Preparation of<br/>Ministerial Bundle]
+        L2[MIC Instructions]
+        L3[Draft Ministerial Order]
+        L4[Ministerial Order<br/>Legal Review]
+        L5[Ministerial Order<br/>Approval]
+        L6[Gazette]
+    end
+
+    subgraph "PHASE 10 — OPERATIONS Order 299"
+        M1[Inspection Invite]
+        M2[Technical Inspection]
+        M3[Inspection]
+        M4[Prepare Operating<br/>Certificate]
+        M5[Operating Certificate<br/>Dispatched]
+    end
+
+    subgraph "FINANCE Order 299"
+        N1[Technical Prepares<br/>Billing Information]
+        N2[Approval of<br/>Billing Information]
+        N3[Prepare Invoice]
+        N4[Approves Invoices<br/>Principal Finance Officer]
+    end
+
+    %% Flow connections
+    A5 --> B1
+    B1 --> C1 & C2 & C3 & C4 & C5
+    B1 --> D1 & D2 & D3
+
+    C1 --> E7
+    C2 --> E5
+    C3 --> E4
+    C4 --> E6
+    D1 --> E1
+    D2 --> E2
+    D3 --> E3
+
+    E1 & E2 & E3 & E4 & E5 & E6 & E7 --> F1
+
+    F1 -->|Needs info| G1
+    G1 --> G2
+    G2 --> F1
+
+    F1 --> H1 --> H2
+    H2 --> I1 --> I2 --> I3
+    I3 --> J1
+
+    J1 -->|Approved| J2
+    J1 -->|Denied| J3
+
+    J2 --> K1 --> K2 --> K3 --> K4
+    J2 --> L1 --> L2 --> L3 --> L4 --> L5 --> L6
+
+    K4 --> M1 --> M2 --> M3 --> M4 --> M5
+    K4 --> N1 --> N2 --> N3 --> N4
+
+    %% Styling
+    classDef applicant fill:#e3f2fd,stroke:#1565c0
+    classDef intake fill:#fff3e0,stroke:#e65100
+    classDef eval fill:#f3e5f5,stroke:#7b1fa2
+    classDef approval fill:#e8f5e9,stroke:#2e7d32
+    classDef committee fill:#fff9c4,stroke:#f9a825
+    classDef board fill:#fce4ec,stroke:#c62828
+    classDef decision fill:#ffcdd2,stroke:#b71c1c
+    classDef license fill:#e0f7fa,stroke:#00695c
+    classDef ministerial fill:#f1f8e9,stroke:#558b2f
+    classDef ops fill:#e8eaf6,stroke:#283593
+
+    class A1,A2,A3,A4,A5,G1,G2 applicant
+    class B1 intake
+    class C1,C2,C3,C4,C5,D1,D2,D3 eval
+    class E1,E2,E3,E4,E5,E6,E7 approval
+    class F1 committee
+    class H1,H2 intake
+    class I1,I2,I3 board
+    class J1,J2,J3 decision
+    class K1,K2,K3,K4 license
+    class L1,L2,L3,L4,L5,L6 ministerial
+    class M1,M2,M3,M4,M5 ops
+    class N1,N2,N3,N4 ops

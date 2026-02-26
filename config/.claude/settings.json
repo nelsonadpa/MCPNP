@@ -1,0 +1,150 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Write",
+      "Edit",
+      "Bash",
+      "WebFetch(domain:bpa.cuba.eregistrations.org)",
+      "mcp__BPA-cuba__service_list",
+      "mcp__BPA-cuba__service_get",
+      "mcp__BPA-cuba__service_create",
+      "mcp__BPA-cuba__service_update",
+      "mcp__BPA-cuba__service_publish",
+      "mcp__BPA-cuba__service_activate",
+      "mcp__BPA-cuba__service_export_raw",
+      "mcp__BPA-cuba__service_to_yaml",
+      "mcp__BPA-cuba__service_copy",
+      "mcp__BPA-cuba__registration_list",
+      "mcp__BPA-cuba__registration_get",
+      "mcp__BPA-cuba__registration_create",
+      "mcp__BPA-cuba__registration_delete",
+      "mcp__BPA-cuba__registration_activate",
+      "mcp__BPA-cuba__form_get",
+      "mcp__BPA-cuba__form_update",
+      "mcp__BPA-cuba__form_component_get",
+      "mcp__BPA-cuba__form_component_add",
+      "mcp__BPA-cuba__form_component_update",
+      "mcp__BPA-cuba__form_component_remove",
+      "mcp__BPA-cuba__form_component_move",
+      "mcp__BPA-cuba__field_list",
+      "mcp__BPA-cuba__field_get",
+      "mcp__BPA-cuba__determinant_list",
+      "mcp__BPA-cuba__determinant_get",
+      "mcp__BPA-cuba__determinant_search",
+      "mcp__BPA-cuba__textdeterminant_create",
+      "mcp__BPA-cuba__textdeterminant_update",
+      "mcp__BPA-cuba__selectdeterminant_create",
+      "mcp__BPA-cuba__numericdeterminant_create",
+      "mcp__BPA-cuba__booleandeterminant_create",
+      "mcp__BPA-cuba__datedeterminant_create",
+      "mcp__BPA-cuba__classificationdeterminant_create",
+      "mcp__BPA-cuba__griddeterminant_create",
+      "mcp__BPA-cuba__determinant_delete",
+      "mcp__BPA-cuba__effect_create",
+      "mcp__BPA-cuba__effect_delete",
+      "mcp__BPA-cuba__componentaction_get",
+      "mcp__BPA-cuba__componentaction_get_by_component",
+      "mcp__BPA-cuba__componentaction_get_system_actions",
+      "mcp__BPA-cuba__componentaction_save",
+      "mcp__BPA-cuba__componentaction_update",
+      "mcp__BPA-cuba__componentaction_delete",
+      "mcp__BPA-cuba__componentbehaviour_list",
+      "mcp__BPA-cuba__componentbehaviour_get",
+      "mcp__BPA-cuba__componentbehaviour_get_by_component",
+      "mcp__BPA-cuba__bot_list",
+      "mcp__BPA-cuba__bot_get",
+      "mcp__BPA-cuba__bot_validate",
+      "mcp__BPA-cuba__bot_create",
+      "mcp__BPA-cuba__bot_update",
+      "mcp__BPA-cuba__bot_delete",
+      "mcp__BPA-cuba__bot_input_mapping_list",
+      "mcp__BPA-cuba__bot_output_mapping_list",
+      "mcp__BPA-cuba__bot_input_mapping_create",
+      "mcp__BPA-cuba__bot_input_mapping_update",
+      "mcp__BPA-cuba__bot_input_mapping_delete",
+      "mcp__BPA-cuba__bot_output_mapping_create",
+      "mcp__BPA-cuba__bot_output_mapping_update",
+      "mcp__BPA-cuba__bot_output_mapping_delete",
+      "mcp__BPA-cuba__bot_input_mapping_save_all",
+      "mcp__BPA-cuba__bot_output_mapping_save_all",
+      "mcp__BPA-cuba__bot_mapping_summary",
+      "mcp__BPA-cuba__bot_suggest_mappings",
+      "mcp__BPA-cuba__muleservice_discover",
+      "mcp__BPA-cuba__muleservice_list",
+      "mcp__BPA-cuba__muleservice_get",
+      "mcp__BPA-cuba__classification_list",
+      "mcp__BPA-cuba__classification_get",
+      "mcp__BPA-cuba__classification_create",
+      "mcp__BPA-cuba__classification_update",
+      "mcp__BPA-cuba__classification_delete",
+      "mcp__BPA-cuba__notification_list",
+      "mcp__BPA-cuba__notification_create",
+      "mcp__BPA-cuba__print_document_list",
+      "mcp__BPA-cuba__print_document_get",
+      "mcp__BPA-cuba__print_document_create",
+      "mcp__BPA-cuba__print_document_update",
+      "mcp__BPA-cuba__print_document_delete",
+      "mcp__BPA-cuba__role_list",
+      "mcp__BPA-cuba__role_get",
+      "mcp__BPA-cuba__role_create",
+      "mcp__BPA-cuba__role_update",
+      "mcp__BPA-cuba__rollback",
+      "mcp__BPA-cuba__analyze_service",
+      "mcp__BPA-cuba__audit_list",
+      "mcp__BPA-cuba__audit_get",
+      "mcp__BPA-cuba__connection_status",
+      "mcp__BPA-cuba__server_info",
+      "mcp__BPA-cuba__auth_login"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '--- Session Start: Config Agent ---' && echo 'Reading profiles...' && cat ~/Desktop/OCAgents/shared/profiles/config-agent.md 2>/dev/null && echo '=== CHANGELOG (last 50 lines) ===' && tail -50 ~/Desktop/OCAgents/shared/knowledge/CHANGELOG.md 2>/dev/null && echo '=== Pending Requests ===' && ls ~/Desktop/OCAgents/shared/requests/*config* 2>/dev/null || echo 'No pending requests for config agent' && echo '=== Notifications ===' && ~/Desktop/OCAgents/shared/notify.sh check config 2>/dev/null && ~/Desktop/OCAgents/shared/notify.sh clean config 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATH\" | grep -q 'shared/responses/'; then BASENAME=$(basename \"$CLAUDE_FILE_PATH\" .md); TARGET=$(echo \"$BASENAME\" | sed 's/^[^-]*-//; s/_.*//' | head -c 20); ~/Desktop/OCAgents/shared/notify.sh signal \"$TARGET\" config \"$BASENAME\" RESPONSE 2>/dev/null; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__BPA-cuba__.*(_create|_update|_delete|_save|_remove|_move|_publish|_activate)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[$(date '+%Y-%m-%d %H:%M')] MCP write: $CLAUDE_TOOL_NAME\" >> ~/Desktop/OCAgents/config/.mcp-audit.log"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cp \"$CLAUDE_FILE_PATH\" \"$CLAUDE_FILE_PATH.bak\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  },
+  "_comments": {
+    "mcp_servers": "This agent uses BPA-cuba with FULL read/write access and Playwright for workarounds. All MCP write tools are pre-approved.",
+    "role": "Config Agent (Configurador) — read/write BPA-cuba configuration, Playwright workarounds for MCP bugs"
+  }
+}

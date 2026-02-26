@@ -1,0 +1,4 @@
+.env
+auth-state-jamaica.json
+test-results/
+node_modules/

@@ -1,0 +1,5 @@
+{
+  "status": 405,
+  "statusText": "",
+  "body": "{\"type\":\"about:blank\",\"title\":\"Method Not Allowed\",\"status\":405,\"detail\":\"Method 'POST' is not supported.\",\"instance\":\"/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/determinant\"}"
+}

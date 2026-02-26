@@ -1,0 +1,607 @@
+[
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/determinantname",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/guide-form?reusable=fa",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/applicant-form?reusabl",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/documentform?reusable=",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/payment?reusable=false",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/sendfile?reusable=fals",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/system/properties",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06//externalserver",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/myaccountpage",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/requirements",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/payments?roleTy",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/payment_provide",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/my_applications",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/role?reusable=true",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/determinantname",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/determinantname",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/determinant",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/fields?onlyEventCompon",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/language",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/system/properties",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/translation/cached?lang=es",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "accept-language": "en-US",
+      "sec-ch-ua-mobile": "?0"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/language",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/system/properties",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/service_properties",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06//externalserver",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/system/properties",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/myaccountpage",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/publishhistory",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/language",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/requirements",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/payments?roleTy",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/formio/payment_provide",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/role?reusable=true",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/registration",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  },
+  {
+    "url": "https://bpa.cuba.eregistrations.org/bparest/bpa/v2016/06/service/2c91808893792e2b019379310a8003a9/fields?onlyEventCompon",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"macOS\"",
+      "authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUEVSRVoiLCJwaG9uZSI6Iis1MyA3Mzk4NTI3OCIsInByaW1hcnlfZW1haWwiOiJuZWxzb25hZHBhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoibmVsc29uIiwiaWRlbnRpZmljYXRpb25fbnVtYmVyIjoiMDE2ODA3NjU2IiwicHJvcGVydGllcyI6W3sia2V5IjoibmFtZSIsInZhbHVlIjoiUEVSRVoifSx7ImtleSI6InBob25lIiwidmFsdWUiOiIrNTMgNzM5ODUyNzgifSx7ImtleSI6InByaW1hcnlfZW1haWwiLCJ2YWx1ZSI6Im5lbHNvbmFkcGFAZ21haWwuY29tIn0seyJrZXkiOiJ1c2VybmFtZSIsInZhbHVlIjoibmVsc29uIn0seyJrZXkiOiJpZGVudGlmaWNhdGlvbl9udW1iZXIiLCJ2YWx1ZSI6IjAxNjgwNzY1NiJ9XSwicm9sZXMiOlsic3lzYWRtaW4iLCJjaXRpemVuIl0sInN1YiI6IjEwNiIsInVzZXJfbmFtZSI6Im5lbHNvbiIsImxuYW1lIjoiUEVSRVoiLCJmbmFtZSI6Ik5lbHNvbiIsImlzcyI6InVuY3RhZC5qd3QiLCJqdGkiOiI3ODNhMDk2NS0zMTQ1LTQyNmUtOTYyZS0wOWZiMjZhYWFhNzAiLCJ0b2tlbl9pZCI6MTc3MTY4OTc3MjE4OCwiZXhwIjoxNzcxNzIyMTcyLCJpYXQiOjE3NzE2ODk3NzIsImVtYWlsIjoibmVsc29uYWRwYUBnbWFpbC5jb20iLCJsYW5nIjpudWxsLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidXNlcl92ZXJpZmllZCI6dHJ1ZX0.EJTnZjBbA1uFpHKF3GxaAhanCIOiaVBzHVgithTWAn1Rpa6YD6ev9i8GBulwml9k5uwoq3L7vnrRXWtRtwQ7yBNEQawuliX5rqPrWLLDe3ihgrIfbaEq5o_DyCdDKlLHLbMuNTZAJ1HqDcauVP8WSI7Nt-yULs40Uwy2AzB62d5WwZiVmTiRPL_o8_Gudg6K22Fs0SC3AVdANGr7y31LlBWcNRQ_HTTfW89qLZVm1hoF_H5ymujUTZdKBSaeVu_koT8iY2k9gM7cFI6VHbkDP4vkMhABpuetR0xqtasOSxoWrMtUfmMiihgcgin7VjvpzeYfHPEq5PvQB7UmuniHTw",
+      "referer": "https://bpa.cuba.eregistrations.org/services/2c91808893792e2b019379310a8003a9/forms/applicant-form",
+      "accept-language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "accept": "application/json, text/plain, */*",
+      "content-type": "application/json",
+      "content-language": "es"
+    }
+  }
+]

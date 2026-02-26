@@ -1,0 +1,31 @@
+{
+  "id": "448beb4f-86ce-43f7-998d-68c26ee1ec6d",
+  "componentKey": "applicantExpirado",
+  "effects": [
+    {
+      "id": "f2271f0a-38fd-4974-90e4-ee80b1a17097",
+      "sortOrderNumber": 0,
+      "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"2b43313a-d175-4c4f-ae81-077d7e4002c0\"}]}]",
+      "propertyEffects": [
+        {
+          "id": "a291c535-6e2c-4714-a76b-d44e05704abe",
+          "name": "activate",
+          "type": "boolean",
+          "value": "true"
+        },
+        {
+          "id": "270dc552-a6ef-4ca9-8b3b-029702a1bf5d",
+          "name": "disabled",
+          "type": "boolean",
+          "value": "false"
+        },
+        {
+          "id": "64c223d3-f69a-4259-bf3d-bb95d1b057f3",
+          "name": "show",
+          "type": "boolean",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

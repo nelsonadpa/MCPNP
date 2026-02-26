@@ -1,0 +1,60 @@
+{
+  "fito": {
+    "id": "7165fc7c-ac6a-402e-9c89-0802ac727a67",
+    "name": "Vigencia fitosanitario<hoy",
+    "usages": [],
+    "determinantType": "FORMFIELD",
+    "serviceId": "ffe746aac09241078bad48c9b95cdfe0",
+    "targetFormFieldKey": "applicantEditGridFito",
+    "generated": false,
+    "determinantInsideGrid": true,
+    "businessKey": "MyAccountPageVigenciafitosanitario<hoy",
+    "rowDeterminant": {
+      "type": "date",
+      "id": "93e672c4-2f6c-4ebf-9c36-ba6157901f1b",
+      "name": "Row determinant in Vigencia fitosanitario<hoy",
+      "usages": [],
+      "determinantType": "FORMFIELD",
+      "serviceId": "ffe746aac09241078bad48c9b95cdfe0",
+      "targetFormFieldKey": "applicantEditGridFito_collection_applicantExpiracionFito",
+      "generated": false,
+      "determinantInsideGrid": false,
+      "businessKey": "MyAccountPageRowdeterminantinVigenciafitosanitario<hoy",
+      "operator": "GREATER_THAN",
+      "isCurrentDate": true,
+      "operatorStringValue": "GREATER_THAN",
+      "valueIsNullOrEmpty": true
+    },
+    "type": "grid",
+    "valueIsNullOrEmpty": true
+  },
+  "pe": {
+    "id": "2b43313a-d175-4c4f-ae81-077d7e4002c0",
+    "name": "Vigencia permiso eventual < hoy",
+    "usages": [],
+    "determinantType": "FORMFIELD",
+    "serviceId": "ffe746aac09241078bad48c9b95cdfe0",
+    "targetFormFieldKey": "applicantEditGrid",
+    "generated": false,
+    "determinantInsideGrid": true,
+    "businessKey": "MyAccountPageVigenciapermisoeventual<hoy",
+    "rowDeterminant": {
+      "type": "date",
+      "id": "73879ced-f098-4523-80c4-bf10f72932ef",
+      "name": "Row determinant in Vigencia permiso eventual < hoy",
+      "usages": [],
+      "determinantType": "FORMFIELD",
+      "serviceId": "ffe746aac09241078bad48c9b95cdfe0",
+      "targetFormFieldKey": "applicantEditGrid_collection_applicantExpiracion",
+      "generated": false,
+      "determinantInsideGrid": false,
+      "businessKey": "MyAccountPageRowdeterminantinVigenciapermisoeventual<hoy",
+      "operator": "LESS_THAN",
+      "isCurrentDate": true,
+      "operatorStringValue": "LESS_THAN",
+      "valueIsNullOrEmpty": true
+    },
+    "type": "grid",
+    "valueIsNullOrEmpty": true
+  }
+}

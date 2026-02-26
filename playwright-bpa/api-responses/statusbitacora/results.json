@@ -1,0 +1,203 @@
+{
+  "results": [
+    {
+      "service": "PE",
+      "serviceId": "2c918084887c7a8f01887c99ed2a6fd5",
+      "status": "SUCCESS",
+      "determinantId": "7383e917-4d3b-4c39-ab41-b09e17e17f8a",
+      "behaviourId": "a0c47505-388e-4401-976b-e2fbaf31154c",
+      "effectId": "2e46b35e-8c89-4e84-ad57-99db9ca7aa10"
+    },
+    {
+      "service": "Zoo",
+      "serviceId": "2c91808893792e2b01938d3fd5800ceb",
+      "status": "SUCCESS",
+      "determinantId": "959c4fc4-5088-489f-8681-8918d9dde022",
+      "behaviourId": "41ee4ea8-4e74-4931-8b3c-900d4468996f",
+      "effectId": "4210fd08-7ba6-45c6-ac3e-85336b5058b0"
+    },
+    {
+      "service": "Sustancias",
+      "serviceId": "8393ad98-a16d-4a2d-80d0-23fbbd69b9e7",
+      "status": "FAILED",
+      "step": "behaviour",
+      "determinantId": "8b8278a5-aafd-455e-b4cb-80ff6b258bba",
+      "error": 400
+    },
+    {
+      "service": "CertSanitario",
+      "serviceId": "2c91808893792e2b0193792f8e170001",
+      "status": "SUCCESS",
+      "determinantId": "aece61bc-b6d8-49ac-97da-68aaa35205fc",
+      "behaviourId": "af8aca35-2d1c-4be9-9fe2-9769336c36c2",
+      "effectId": "58242712-03ea-4835-9f80-13687dd887ed"
+    },
+    {
+      "service": "ONURE",
+      "serviceId": "2c91808893792e2b0193885a0f900b09",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "ONN",
+      "serviceId": "2c91808893792e2b01938868a1700b1d",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "CECMED",
+      "serviceId": "2c91808893792e2b01938dd9ebad0d05",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "Homologacion",
+      "serviceId": "2c91808893792e2b01938876a97c0b33",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "CyP",
+      "serviceId": "2c91808893792e2b01938860ec600b0d",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "Sucursales",
+      "serviceId": "2c91808893792e2b0193886f49c80b27",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "Donativos",
+      "serviceId": "2c91808893792e2b01938de47adb0d11",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "CertOrigen",
+      "serviceId": "2c918084887c7a8f01889aae35000c7d",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "CertAprobacionONN",
+      "serviceId": "2c918084887c7a8f01889ab2d6f80c91",
+      "status": "FAILED",
+      "step": "determinant",
+      "error": 400
+    },
+    {
+      "service": "INHEM",
+      "serviceId": "2c91809094f110ae0195435c8fb209b6",
+      "status": "SUCCESS",
+      "determinantId": "286c035e-b577-4166-82a6-7640bfbc4774",
+      "behaviourId": "d443ad66-44d8-4b1b-8d6a-b6f953ec0d34",
+      "effectId": "6f4d79bc-8d5b-4e33-8f01-ed0429a19da3"
+    },
+    {
+      "service": "CENASA",
+      "serviceId": "2c91809095d83aac0195de8f880f03cd",
+      "status": "SUCCESS",
+      "determinantId": "1f83b9f3-4fad-4733-a524-0b72b62b60e7",
+      "behaviourId": "24123027-4869-4da4-a77e-d03a4e605be0",
+      "effectId": "cfd44804-f72b-4700-8a98-516d35188cd7"
+    },
+    {
+      "service": "RegSustancias",
+      "serviceId": "2ef97d8e-a5c7-47e8-81de-1856675139e5",
+      "status": "SUCCESS",
+      "determinantId": "f4c3eb6a-eb0d-4e5c-b999-cb1c3f873022",
+      "behaviourId": "3927c1b3-9064-4ab5-a1a9-aa9b9b7e1e92",
+      "effectId": "46f017b5-7192-42ef-8b94-879395a695ac"
+    },
+    {
+      "service": "SegAmbiental",
+      "serviceId": "2c918083976cc50e01977dd5a5a90061",
+      "status": "SUCCESS",
+      "determinantId": "5d6244d8-7e0f-40fe-9d8c-6d52de6b6e3d",
+      "behaviourId": "84248837-3a13-44e7-8ee5-2b1f3b5f5c88",
+      "effectId": "7a9f8ebd-924e-47bf-b709-e4b24af5cf7b"
+    }
+  ],
+  "mcpCommands": [
+    {
+      "type": "form_component_update",
+      "service": "PE",
+      "serviceId": "2c918084887c7a8f01887c99ed2a6fd5",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "a0c47505-388e-4401-976b-e2fbaf31154c",
+      "effectId": "2e46b35e-8c89-4e84-ad57-99db9ca7aa10",
+      "determinantId": "7383e917-4d3b-4c39-ab41-b09e17e17f8a"
+    },
+    {
+      "type": "form_component_update",
+      "service": "Zoo",
+      "serviceId": "2c91808893792e2b01938d3fd5800ceb",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "41ee4ea8-4e74-4931-8b3c-900d4468996f",
+      "effectId": "4210fd08-7ba6-45c6-ac3e-85336b5058b0",
+      "determinantId": "959c4fc4-5088-489f-8681-8918d9dde022"
+    },
+    {
+      "type": "effect_delete",
+      "service": "Sustancias",
+      "serviceId": "8393ad98-a16d-4a2d-80d0-23fbbd69b9e7",
+      "behaviourId": "36cbb012-d3b9-423d-a060-28e3e34d23f0"
+    },
+    {
+      "type": "form_component_update",
+      "service": "CertSanitario",
+      "serviceId": "2c91808893792e2b0193792f8e170001",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "af8aca35-2d1c-4be9-9fe2-9769336c36c2",
+      "effectId": "58242712-03ea-4835-9f80-13687dd887ed",
+      "determinantId": "aece61bc-b6d8-49ac-97da-68aaa35205fc"
+    },
+    {
+      "type": "form_component_update",
+      "service": "INHEM",
+      "serviceId": "2c91809094f110ae0195435c8fb209b6",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "d443ad66-44d8-4b1b-8d6a-b6f953ec0d34",
+      "effectId": "6f4d79bc-8d5b-4e33-8f01-ed0429a19da3",
+      "determinantId": "286c035e-b577-4166-82a6-7640bfbc4774"
+    },
+    {
+      "type": "form_component_update",
+      "service": "CENASA",
+      "serviceId": "2c91809095d83aac0195de8f880f03cd",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "24123027-4869-4da4-a77e-d03a4e605be0",
+      "effectId": "cfd44804-f72b-4700-8a98-516d35188cd7",
+      "determinantId": "1f83b9f3-4fad-4733-a524-0b72b62b60e7"
+    },
+    {
+      "type": "form_component_update",
+      "service": "RegSustancias",
+      "serviceId": "2ef97d8e-a5c7-47e8-81de-1856675139e5",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "3927c1b3-9064-4ab5-a1a9-aa9b9b7e1e92",
+      "effectId": "46f017b5-7192-42ef-8b94-879395a695ac",
+      "determinantId": "f4c3eb6a-eb0d-4e5c-b999-cb1c3f873022"
+    },
+    {
+      "type": "form_component_update",
+      "service": "SegAmbiental",
+      "serviceId": "2c918083976cc50e01977dd5a5a90061",
+      "componentKey": "applicantBlock12",
+      "behaviourId": "84248837-3a13-44e7-8ee5-2b1f3b5f5c88",
+      "effectId": "7a9f8ebd-924e-47bf-b709-e4b24af5cf7b",
+      "determinantId": "5d6244d8-7e0f-40fe-9d8c-6d52de6b6e3d"
+    }
+  ],
+  "timestamp": "2026-02-21T20:41:52.329Z"
+}

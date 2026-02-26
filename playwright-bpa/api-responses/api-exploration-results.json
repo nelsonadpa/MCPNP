@@ -1,0 +1,66 @@
+{
+  "writeRequests": [
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    },
+    {
+      "method": "PUT",
+      "url": "/bparest/bpa/v2016/06/applicant-form/2c91808893792e2b01937931159e0585",
+      "contentType": "application/json",
+      "postData": "{\"tutorials\":{\"general\":{\"note\":\"<ul><li>1. </li><li>2. </li></ul>\",\"en\":\"From (es)<br><p>...</p>\",\"es\":\"<p>...</p>\"}},\"active\":true,\"formSchema\":{\"components\":[{\"title\":\"Su empresa seleccionada\",\"workingTitle\":\"\",\"key\":\"applicantBlockEmpresa\",\"hideDescription\":false,\"collapsibleDS\":false,\"customClasses\":[],\"type\":\"panel\",\"input\":false,\"defaultValue\":\"\",\"tableView\":false,\"label\":\"Block\",\"validate\":{\"pattern\":\"\",\"customMessage\":\"\"},\"components\":[{\"label\":\"Empresas\",\"key\":\"applicantEmpresasFito\",\""
+    }
+  ],
+  "apiPatterns": {
+    "scripts": [
+      "runtime.js",
+      "scripts.js",
+      "vendor.js",
+      "main.js"
+    ]
+  }
+}

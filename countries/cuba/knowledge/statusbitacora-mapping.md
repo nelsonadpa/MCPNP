@@ -1,0 +1,1 @@
+/Users/nelsonperez/.claude/projects/-Users-nelsonperez-Desktop-OCAgents/memory/statusbitacora-mapping.md

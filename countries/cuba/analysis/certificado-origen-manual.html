@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Certificado de Origen para Exportación | Cuba eRegistrations</title>
+    <style>
+        /* ========== BASE STYLES ========== */
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0a58ca;
+            --secondary: #6c757d;
+            --success: #198754;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #0dcaf0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --bg-body: #ffffff;
+            --text: #333333;
+            --text-muted: #6c757d;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: #f5f7fa;
+            font-size: 16px;
+        }
+
+        /* ========== HEADER ========== */
+        .site-header {
+            background: linear-gradient(135deg, #003893 0%, #0d6efd 50%, #003893 100%);
+            color: white;
+            padding: 2.5rem 1rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .site-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        }
+        .header-content {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+        .site-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .site-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 0.3rem;
+        }
+        .site-header .institution {
+            font-size: 0.95rem;
+            opacity: 0.75;
+        }
+
+        /* ========== MAIN CONTAINER ========== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .main-content {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin: -1.5rem auto 2rem;
+            padding: 2.5rem 2.5rem 3rem;
+            position: relative;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .toc h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .toc ol {
+            padding-left: 1.5rem;
+        }
+        .toc li {
+            margin-bottom: 0.4rem;
+        }
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+            color: var(--primary-dark);
+        }
+        .toc ol ol {
+            margin-top: 0.3rem;
+            font-size: 0.95rem;
+        }
+        .toc ol ol a {
+            font-weight: 400;
+            color: var(--secondary);
+        }
+
+        /* ========== HEADINGS ========== */
+        h2.section-title {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary);
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin: 2rem 0 0.75rem;
+        }
+        h4 {
+            font-size: 1.05rem;
+            color: var(--secondary);
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        /* ========== TEXT ========== */
+        p { margin-bottom: 1rem; }
+        strong { font-weight: 600; }
+        ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.35rem; }
+
+        /* ========== INFO BOXES ========== */
+        .tip-box, .warning-box, .note-box, .example-box {
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .tip-box {
+            background: #d1e7dd;
+            border-left: 4px solid var(--success);
+            color: #0f5132;
+        }
+        .tip-box::before { content: 'Consejo: '; font-weight: 700; }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid var(--warning);
+            color: #664d03;
+        }
+        .warning-box::before { content: 'Importante: '; font-weight: 700; }
+        .note-box {
+            background: #cff4fc;
+            border-left: 4px solid var(--info);
+            color: #055160;
+        }
+        .note-box::before { content: 'Nota: '; font-weight: 700; }
+        .example-box {
+            background: #e8e0f3;
+            border-left: 4px solid #7c3aed;
+            color: #3b1d6e;
+        }
+        .example-box::before { content: 'Ejemplo: '; font-weight: 700; }
+
+        /* ========== INFO CARD (company panel) ========== */
+        .info-card {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .info-card-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .info-card-body .card-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+        .info-card-body .card-sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ========== STEP INDICATOR ========== */
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .step-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        /* ========== FORM MOCKUP ========== */
+        .form-mockup {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin: 1.25rem 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .form-mockup-bar {
+            background: #e9ecef;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .bar-title {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        .bar-url {
+            color: var(--text-muted);
+            font-family: monospace;
+            font-size: 0.75rem;
+        }
+        .form-mockup-body {
+            padding: 1.25rem;
+            background: white;
+        }
+        .mock-section {
+            margin-bottom: 1.25rem;
+        }
+        .mock-section:last-child {
+            margin-bottom: 0;
+        }
+        .mock-section-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            padding: 0.6rem 0.75rem;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius) var(--radius) 0 0;
+            cursor: pointer;
+            position: relative;
+        }
+        .mock-section-title::after {
+            content: '\25BC';
+            position: absolute;
+            right: 0.75rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .mock-section-content {
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 1rem;
+        }
+        .mock-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .mock-row:last-child {
+            margin-bottom: 0;
+        }
+        .mock-field {
+            flex: 1;
+            min-width: 0;
+        }
+        .mock-field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+        .mock-field label .required-mark {
+            color: var(--danger);
+            font-weight: 700;
+        }
+        .mock-input {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.45rem 0.65rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            background: white;
+            min-height: 2.2rem;
+        }
+        .mock-input.readonly {
+            background: #e9ecef;
+            color: var(--secondary);
+        }
+        .mock-select {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.45rem 0.65rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: white;
+            min-height: 2.2rem;
+            position: relative;
+        }
+        .mock-select::after {
+            content: ' \25BC';
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+        .mock-textarea {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.45rem 0.65rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: white;
+            min-height: 4.5rem;
+        }
+        .mock-radio-group {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0.5rem 0;
+        }
+        .mock-radio {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+        .mock-radio::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .mock-radio.selected::before {
+            border-color: var(--primary);
+            background: radial-gradient(circle, var(--primary) 40%, white 45%);
+        }
+        .mock-upload {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--light);
+            cursor: pointer;
+        }
+        .mock-upload:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .mock-upload-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .mock-grid {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+        }
+        .mock-grid th {
+            background: var(--light);
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+        .mock-grid td {
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            color: var(--text);
+        }
+        .mock-grid tr.selectable {
+            cursor: pointer;
+        }
+        .mock-grid tr.selectable:hover td {
+            background: #e7f1ff;
+        }
+        .mock-grid tr.selected td {
+            background: #cfe2ff;
+            font-weight: 600;
+        }
+        .mock-btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+        .mock-btn:hover {
+            background: var(--primary-dark);
+        }
+        .mock-btn-outline {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+        .mock-btn-outline:hover {
+            background: #e7f1ff;
+        }
+        .mock-deactivated {
+            opacity: 0.45;
+            pointer-events: none;
+            position: relative;
+        }
+        .mock-deactivated::after {
+            content: 'Se activa en el paso correspondiente';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.65);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        .mock-content-text {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+        .mock-link {
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* ========== TABLES ========== */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.65rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .data-table td {
+            border: 1px solid var(--border);
+            padding: 0.6rem 1rem;
+        }
+        .data-table tr:nth-child(even) td {
+            background: var(--light);
+        }
+        .data-table tr:hover td {
+            background: #e7f1ff;
+        }
+
+        /* ========== WORKFLOW DIAGRAM ========== */
+        .workflow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .workflow-step {
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+            max-width: 200px;
+            position: relative;
+        }
+        .workflow-step .wf-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .workflow-step .wf-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        .workflow-step .wf-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+        .wf-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            padding: 0 0.25rem;
+            margin-top: -0.75rem;
+        }
+        .wf-applicant .wf-circle { background: var(--primary); }
+        .wf-institution .wf-circle { background: var(--success); }
+
+        /* ========== FAQ ========== */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            background: var(--light);
+            padding: 0.85rem 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            background: #e2e6ea;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            padding: 1rem 1.25rem;
+            max-height: 500px;
+        }
+        .faq-item.open .faq-question::after {
+            content: '\2212';
+        }
+
+        /* ========== CHECKLIST ========== */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        .checklist li::before {
+            content: '\2610';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .site-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ========== PRINT STYLES ========== */
+        @media print {
+            body { background: white; font-size: 11pt; }
+            .site-header {
+                background: #003893 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 1.5rem 1rem;
+            }
+            .main-content { box-shadow: none; margin-top: 0; padding: 1rem; }
+            .toc { page-break-after: always; }
+            .form-mockup { page-break-inside: avoid; }
+            .tip-box, .warning-box, .note-box, .example-box { page-break-inside: avoid; }
+            .mock-deactivated::after { display: none; }
+            h2.section-title { page-break-before: always; }
+            h2.section-title:first-of-type { page-break-before: auto; }
+            .faq-answer { max-height: none !important; padding: 1rem 1.25rem !important; }
+            .workflow { flex-wrap: nowrap; }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .site-header h1 { font-size: 1.6rem; }
+            .main-content { padding: 1.5rem 1rem; margin: -1rem 0.5rem 1rem; }
+            .container { padding: 0 0.5rem; }
+            .mock-row { flex-direction: column; gap: 0.5rem; }
+            .mock-field { flex: 1 1 100% !important; }
+            .workflow { flex-direction: column; align-items: center; }
+            .wf-arrow { transform: rotate(90deg); padding: 0.25rem 0; margin: 0; }
+            .data-table { font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 0.4rem 0.5rem; }
+            h2.section-title { font-size: 1.3rem; }
+            .toc { padding: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .site-header h1 { font-size: 1.3rem; }
+            .site-header .subtitle { font-size: 0.95rem; }
+            .form-mockup-bar { flex-direction: column; gap: 0.25rem; }
+            .step-header h3 { font-size: 1.1rem; }
+        }
+
+        /* ========== SMOOTH SCROLL ========== */
+        html { scroll-behavior: smooth; }
+
+        /* ========== DIVIDER ========== */
+        .section-divider {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header">
+    <div class="header-content">
+        <div class="header-badge">Republica de Cuba &mdash; eRegistrations</div>
+        <h1>Certificado de Origen para Exportacion</h1>
+        <p class="subtitle">Manual de Usuario &mdash; Guia paso a paso</p>
+        <p class="institution">Camara de Comercio de la Republica de Cuba</p>
+    </div>
+</header>
+
+<div class="container">
+<main class="main-content">
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<nav class="toc" id="toc">
+    <h2>Contenido</h2>
+    <ol>
+        <li><a href="#introduccion">Introduccion: Que es un Certificado de Origen</a></li>
+        <li><a href="#requisitos">Antes de comenzar: Requisitos previos</a></li>
+        <li><a href="#paso1">Paso 1: Acceder al servicio y ver su empresa</a></li>
+        <li><a href="#paso2">Paso 2: Seleccionar la empresa exportadora</a></li>
+        <li><a href="#paso3">Paso 3: Confirmar los datos de la empresa</a></li>
+        <li><a href="#paso4">Paso 4: Seleccionar el pais de destino</a></li>
+        <li><a href="#paso5">Paso 5: Seleccionar la empresa importadora</a></li>
+        <li><a href="#paso6">Paso 6: Seleccionar el producto a exportar</a></li>
+        <li><a href="#paso7">Paso 7: Acuerdos comerciales</a></li>
+        <li><a href="#paso8">Paso 8: Factura comercial</a></li>
+        <li><a href="#paso9">Paso 9: Datos de la operacion (embarque)</a></li>
+        <li><a href="#paso10">Paso 10: Datos de contacto</a></li>
+        <li><a href="#paso11">Paso 11: Enviar la solicitud</a></li>
+        <li><a href="#despues">Despues del envio: Flujo de aprobacion</a>
+            <ol>
+                <li><a href="#etapa-revision">Revision institucional</a></li>
+                <li><a href="#etapa-pago">Pago y firma del certificado</a></li>
+                <li><a href="#etapa-final">Certificado final validado</a></li>
+            </ol>
+        </li>
+        <li><a href="#tarifas">Estructura de tarifas</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+    </ol>
+</nav>
+
+<!-- ==================== INTRODUCTION ==================== -->
+<h2 class="section-title" id="introduccion">1. Introduccion: Que es un Certificado de Origen</h2>
+
+<p>El <strong>Certificado de Origen</strong> es un documento oficial emitido por la Camara de Comercio de la Republica de Cuba que certifica que una mercancia fue producida, fabricada o procesada en Cuba. Este documento es indispensable para el comercio internacional y permite que sus productos accedan a <strong>preferencias arancelarias</strong> en los paises de destino.</p>
+
+<h3>Para que necesita este certificado?</h3>
+<ul>
+    <li><strong>Reducir aranceles</strong>: Si Cuba tiene un acuerdo comercial con el pais de destino (por ejemplo, acuerdos ALADI), el importador puede pagar menos impuestos al presentar este certificado.</li>
+    <li><strong>Cumplir requisitos legales</strong>: Muchos paises exigen este documento para permitir la entrada de mercancias.</li>
+    <li><strong>Proteger su marca</strong>: Certifica oficialmente que su producto es cubano.</li>
+</ul>
+
+<h3>Quien puede solicitar este certificado?</h3>
+<p>Cualquier empresa cubana registrada en el sistema eRegistrations que exporte mercancias. La empresa debe tener un NIT (Numero de Identificacion Tributaria) activo y estar inscrita en el registro de la Camara de Comercio.</p>
+
+<div class="note-box">
+    Este servicio es completamente digital. Usted completa el formulario en linea, el sistema genera el certificado, usted lo imprime y firma, y luego sube la version firmada para recibir la validacion oficial.
+</div>
+
+<!-- ==================== PREREQUISITES ==================== -->
+<h2 class="section-title" id="requisitos">2. Antes de comenzar: Requisitos previos</h2>
+
+<p>Para completar el formulario sin interrupciones, asegurese de tener a mano la siguiente informacion:</p>
+
+<ul class="checklist">
+    <li><strong>NIT de su empresa</strong> &mdash; Numero de Identificacion Tributaria de la empresa exportadora</li>
+    <li><strong>Datos del importador</strong> &mdash; Nombre y codigo de la empresa que recibira la mercancia en el pais de destino. Si no esta registrado, debera registrarlo primero</li>
+    <li><strong>Codigo arancelario del producto</strong> &mdash; La subpartida del Sistema Armonizado (SA) de su producto. Si no la conoce, puede buscar por descripcion en el formulario</li>
+    <li><strong>Factura comercial</strong> &mdash; En formato digital (PDF o imagen), que respalde la operacion de exportacion</li>
+    <li><strong>Numero de factura</strong> &mdash; El numero que aparece en su factura comercial</li>
+    <li><strong>Datos de peso y valor</strong> &mdash; Peso bruto, peso neto, valor total FOB y moneda de la operacion</li>
+    <li><strong>Datos de embarque</strong> &mdash; Nombre del buque, puerto de embarque y puerto de destino (si aplica)</li>
+    <li><strong>Datos de contacto</strong> &mdash; Nombre de quien elabora la solicitud, telefono y correo electronico</li>
+</ul>
+
+<div class="tip-box">
+    Prepare toda esta informacion antes de iniciar el formulario. El sistema guarda sus avances, pero es mas rapido si tiene todo listo de antemano.
+</div>
+
+<div class="example-box">
+    La empresa <strong>CIMEX S.A.</strong> (NIT: 01234567) exporta ron a Mexico. Necesitara: el codigo arancelario del ron (2208.40), la factura comercial con el valor total en USD, los datos de su cliente mexicano, y la informacion del buque que saldra del puerto de Mariel.
+</div>
+
+<!-- ==================== STEP 1 ==================== -->
+<h2 class="section-title" id="paso1">3. Paso 1: Acceder al servicio y ver su empresa</h2>
+
+<div class="step-header">
+    <span class="step-number">1</span>
+    <h3>Su empresa seleccionada</h3>
+</div>
+
+<p>Al ingresar al formulario, lo primero que vera es un panel colapsado en la parte superior con la informacion de su empresa. Si usted llego desde la <strong>Bitacora</strong> (el panel de control central), este dato ya estara cargado automaticamente.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Su empresa seleccionada</div>
+            <div class="mock-section-content">
+                <div class="info-card">
+                    <div class="info-card-icon">&#127970;</div>
+                    <div class="info-card-body">
+                        <div class="card-title">CIMEX S.A.</div>
+                        <div class="card-sub">NIT: 01234567</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 0.75rem;">
+            <p class="mock-content-text"><strong>Complete los datos necesarios para generar su certificado. El sistema identificara automaticamente los acuerdos comerciales aplicables.</strong></p>
+        </div>
+    </div>
+</div>
+
+<p>Debajo del panel, vera un texto de instrucciones que le indica que el sistema buscara automaticamente los acuerdos comerciales aplicables a su producto.</p>
+
+<div class="note-box">
+    Si la seccion "Su empresa seleccionada" aparece vacia, significa que aun no tiene empresas asociadas a su cuenta. Contacte a la Camara de Comercio para registrar su empresa.
+</div>
+
+<!-- ==================== STEP 2 ==================== -->
+<h2 class="section-title" id="paso2">4. Paso 2: Seleccionar la empresa exportadora</h2>
+
+<div class="step-header">
+    <span class="step-number">2</span>
+    <h3>Seleccione su empresa exportadora</h3>
+</div>
+
+<p>El sistema muestra una lista con todas las empresas asociadas a su cuenta. Si usted tiene derechos sobre varias empresas, aparecera mas de una fila. <strong>Haga clic sobre la fila de la empresa que realizara la exportacion.</strong></p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Seleccione su empresa exportadora</div>
+            <div class="mock-section-content">
+                <table class="mock-grid">
+                    <thead>
+                        <tr>
+                            <th style="width:60%">Exportador</th>
+                            <th style="width:25%">NIT</th>
+                            <th style="width:15%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="selectable selected">
+                            <td>CIMEX S.A.</td>
+                            <td>01234567</td>
+                            <td></td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Habanos S.A.</td>
+                            <td>98765432</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tip-box">
+    Solo puede seleccionar una empresa por solicitud. Si necesita certificados para diferentes empresas, debera crear una solicitud separada para cada una.
+</div>
+
+<div class="warning-box">
+    Verifique que el NIT mostrado coincida con el de su empresa. Si los datos son incorrectos, no continue con la solicitud y comuniquese con la Camara de Comercio.
+</div>
+
+<!-- ==================== STEP 3 ==================== -->
+<h2 class="section-title" id="paso3">5. Paso 3: Confirmar los datos de la empresa</h2>
+
+<div class="step-header">
+    <span class="step-number">3</span>
+    <h3>Datos de la empresa seleccionada</h3>
+</div>
+
+<p>Despues de hacer clic en su empresa, se activa la seccion <strong>"Datos de la empresa seleccionada"</strong>. Vera el nombre de la empresa en un campo de texto y un boton <strong>"Confirmar"</strong>. Debe presionar este boton para continuar.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Datos de la empresa seleccionada</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 6">
+                        <label>Exportador seleccionado</label>
+                        <div class="mock-input readonly">CIMEX S.A.</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>&nbsp;</label>
+                        <div class="mock-btn-outline">Confirmar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Al confirmar, se despliega la seccion <strong>"Exportador seleccionado"</strong> con los datos completos de su empresa, obtenidos automaticamente del registro:</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Exportador seleccionado</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 3">
+                        <label>Pais de origen</label>
+                        <div class="mock-select">Cuba</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Nombre</label>
+                        <div class="mock-input readonly">CIMEX S.A.</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3"></div>
+                    <div class="mock-field" style="flex: 3"></div>
+                </div>
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 3">
+                        <label>Direccion</label>
+                        <div class="mock-input readonly">Calle 23 No. 105, Vedado</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Provincia</label>
+                        <div class="mock-select">La Habana</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Municipio</label>
+                        <div class="mock-select">Plaza de la Revolucion</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Email</label>
+                        <div class="mock-input readonly">comercio@cimex.com.cu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="note-box">
+    Estos datos son de solo lectura. Se obtienen del registro oficial de empresas. Si necesita modificarlos, debe actualizar su informacion en el registro de la Camara de Comercio antes de solicitar el certificado.
+</div>
+
+<!-- ==================== STEP 4 ==================== -->
+<h2 class="section-title" id="paso4">6. Paso 4: Seleccionar el pais de destino</h2>
+
+<div class="step-header">
+    <span class="step-number">4</span>
+    <h3>Seleccione el pais donde enviara la mercancia</h3>
+</div>
+
+<p>Seleccione el pais al que exportara la mercancia utilizando el menu desplegable. Luego presione el boton <strong>"Buscar cliente"</strong> para que el sistema cargue la lista de importadores registrados en ese pais.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Seleccione el pais donde enviara la mercancia</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 4">
+                        <label>Pais destino</label>
+                        <div class="mock-select">Mexico &#9660;</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>&nbsp;</label>
+                        <div class="mock-btn-outline">Buscar cliente</div>
+                    </div>
+                    <div class="mock-field" style="flex: 5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="warning-box">
+    Debe seleccionar primero el pais y luego presionar "Buscar cliente". Si no presiona el boton, la lista de importadores no se cargara y la siguiente seccion permanecera desactivada (en gris).
+</div>
+
+<div class="tip-box">
+    La seleccion del pais de destino es importante porque el sistema usara esta informacion para buscar los acuerdos comerciales aplicables. Por ejemplo, si selecciona Mexico, el sistema buscara acuerdos ALADI u otros tratados vigentes entre Cuba y Mexico.
+</div>
+
+<!-- ==================== STEP 5 ==================== -->
+<h2 class="section-title" id="paso5">7. Paso 5: Seleccionar la empresa importadora</h2>
+
+<div class="step-header">
+    <span class="step-number">5</span>
+    <h3>Seleccione la empresa que recibira la mercancia</h3>
+</div>
+
+<p>Despues de buscar clientes, el sistema muestra una tabla con los importadores registrados en el pais seleccionado. <strong>Haga clic en la fila del importador</strong> que recibira su mercancia.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Seleccione la empresa que recibira la mercancia</div>
+            <div class="mock-section-content">
+                <table class="mock-grid">
+                    <thead>
+                        <tr>
+                            <th style="width:40%">Importador</th>
+                            <th style="width:25%">Codigo</th>
+                            <th style="width:35%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="selectable selected">
+                            <td>Distribuidora Azteca S.A. de C.V.</td>
+                            <td>MX-78901</td>
+                            <td></td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>Comercializadora del Golfo S.A.</td>
+                            <td>MX-45678</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 0.75rem; font-size: 0.9rem;">
+                    No encuentra su cliente? <span class="mock-link">Registrar uno nuevo</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Al seleccionar un importador, se muestra la seccion <strong>"Importador seleccionado"</strong> con el nombre y la direccion confirmados:</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Importador seleccionado</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 3">
+                        <label>Importador seleccionado</label>
+                        <div class="mock-input readonly">Distribuidora Azteca S.A. de C.V.</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Direccion</label>
+                        <div class="mock-input readonly">Av. Reforma 234, Ciudad de Mexico</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3"></div>
+                    <div class="mock-field" style="flex: 3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tip-box">
+    Si su cliente no aparece en la lista, haga clic en <strong>"Registrar uno nuevo"</strong>. Esto lo llevara al servicio de registro de clientes. Una vez registrado, regrese a este formulario y repita la busqueda.
+</div>
+
+<div class="warning-box">
+    Asegurese de seleccionar el importador correcto. El nombre y direccion que aparecen aqui seran los que figuren en el certificado oficial. Un error en el importador puede causar problemas en la aduana del pais de destino.
+</div>
+
+<!-- ==================== STEP 6 ==================== -->
+<h2 class="section-title" id="paso6">8. Paso 6: Seleccionar el producto a exportar</h2>
+
+<div class="step-header">
+    <span class="step-number">6</span>
+    <h3>Producto a exportar</h3>
+</div>
+
+<p>Esta es la seccion mas extensa del formulario. Se divide en varias sub-secciones que se van activando progresivamente a medida que usted completa cada parte.</p>
+
+<h4>6a. Seleccionar el producto</h4>
+
+<p>Utilice el menu desplegable <strong>"Seleccione el producto"</strong> para buscar su producto. Puede buscar por <strong>codigo arancelario</strong> (por ejemplo, "2208.40") o por <strong>descripcion</strong> (por ejemplo, "ron"). El sistema filtrara los resultados mientras usted escribe.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Producto a exportar</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 6">
+                        <label>Seleccione el producto</label>
+                        <div class="mock-select">2208.40 - Ron y demas aguardientes de cana &#9660;</div>
+                    </div>
+                    <div class="mock-field" style="flex: 6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="example-box">
+    Si exporta tabaco torcido, busque "2402" o escriba "cigarro" en el buscador. Para azucar crudo, busque "1701" o escriba "azucar". El sistema le mostrara las subpartidas disponibles.
+</div>
+
+<h4>6b. Detalles del producto</h4>
+
+<p>Al seleccionar un producto, se activa esta sub-seccion. Escriba una <strong>descripcion comercial</strong> del producto que sea clara y coincida con lo que aparece en la factura.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-content">
+                <p class="mock-content-text">Complete la informacion comercial del producto, seleccionelo</p>
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 1">
+                        <label>Descripcion</label>
+                        <div class="mock-input">Ron Havana Club Anejo 7 anos, 750ml, 40% vol.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tip-box">
+    Sea especifico en la descripcion. En lugar de solo "Ron", escriba "Ron Havana Club Anejo 7 anos, 750ml, 40% vol., lote 2026-A". Esto facilita la verificacion en aduana y reduce los rechazos.
+</div>
+
+<h4>6c. Origen del producto</h4>
+
+<p>El sistema le pregunta <strong>como se produjo su producto</strong>. Seleccione del menu desplegable la opcion que mejor describa el criterio de origen. Si necesita aclarar algo, use el campo <strong>"Informacion adicional"</strong>.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-content">
+                <p class="mock-content-text">Como se produjo su producto?</p>
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 10">
+                        <label>Seleccione la opcion que mejor describe el origen</label>
+                        <div class="mock-select">Totalmente obtenido o producido en el pais &#9660;</div>
+                    </div>
+                    <div class="mock-field" style="flex: 2"></div>
+                </div>
+                <div class="mock-row" style="margin-top: 0.5rem;">
+                    <div class="mock-field" style="flex: 10">
+                        <label>Informacion adicional</label>
+                        <div class="mock-textarea">Producto elaborado integramente en destileria de La Habana con materia prima nacional.</div>
+                    </div>
+                    <div class="mock-field" style="flex: 2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="note-box">
+    El criterio de origen es fundamental para los acuerdos comerciales. Si su producto utiliza insumos importados, seleccione el criterio que corresponda (por ejemplo, "Producido con materiales no originarios que cumplen regla de origen"). En caso de duda, consulte con la Camara de Comercio.
+</div>
+
+<!-- ==================== STEP 7 ==================== -->
+<h2 class="section-title" id="paso7">9. Paso 7: Acuerdos comerciales</h2>
+
+<div class="step-header">
+    <span class="step-number">7</span>
+    <h3>Busqueda y seleccion de acuerdos comerciales</h3>
+</div>
+
+<p>Una vez que ha seleccionado el producto y completado los datos de origen, el sistema puede buscar automaticamente los <strong>acuerdos comerciales</strong> aplicables entre Cuba y el pais de destino para la subpartida arancelaria de su producto.</p>
+
+<p>Presione el boton <strong>"Buscar acuerdos comerciales"</strong>. El sistema consultara la base de datos de tratados y mostrara los acuerdos disponibles.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-content">
+                <div style="margin-bottom: 1rem;">
+                    <span class="mock-btn-outline">Buscar acuerdos comerciales</span>
+                </div>
+                <p class="mock-content-text">El sistema encontro estos acuerdos para su producto, seleccione uno.</p>
+                <table class="mock-grid">
+                    <thead>
+                        <tr>
+                            <th style="width:40%">Acuerdo</th>
+                            <th style="width:15%">Preferencia (%)</th>
+                            <th style="width:45%">Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="selectable selected">
+                            <td>AAP.CE No. 51 (Cuba-Mexico)</td>
+                            <td>100%</td>
+                            <td>Libre de arancel para productos originarios</td>
+                        </tr>
+                        <tr class="selectable">
+                            <td>ALADI AR.PAR No. 38</td>
+                            <td>50%</td>
+                            <td>Preferencia parcial, sujeta a cupo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p><strong>Haga clic en el acuerdo que desea aplicar.</strong> El sistema mostrara los datos del acuerdo seleccionado:</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Acuerdo seleccionado</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 6">
+                        <label>Acuerdo</label>
+                        <div class="mock-input readonly">AAP.CE No. 51 (Cuba-Mexico)</div>
+                    </div>
+                    <div class="mock-field" style="flex: 6">
+                        <label>Modelo</label>
+                        <div class="mock-input readonly">ALADI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="note-box">
+    El campo "Modelo" indica el formato del certificado que se generara. Por ejemplo, "ALADI" genera un certificado con el formato de la Asociacion Latinoamericana de Integracion. Otros formatos posibles son "Normal" o "El Salvador", dependiendo del acuerdo aplicable.
+</div>
+
+<div class="tip-box">
+    Si el sistema no encuentra acuerdos para su producto y pais de destino, aun puede solicitar un certificado de origen general (formato Normal). Consulte con la Camara de Comercio si su producto califica para algun beneficio.
+</div>
+
+<!-- ==================== STEP 8 ==================== -->
+<h2 class="section-title" id="paso8">10. Paso 8: Factura comercial</h2>
+
+<div class="step-header">
+    <span class="step-number">8</span>
+    <h3>Factura comercial</h3>
+</div>
+
+<p>En esta seccion usted adjunta la factura comercial que respalda la operacion y proporciona los datos cuantitativos de la exportacion.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Factura comercial</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 4">
+                        <label>Adjunte la factura que respalda esta operacion</label>
+                        <div class="mock-upload">
+                            <span class="mock-upload-icon">&#128206;</span>
+                            Arrastre su archivo o haga clic para seleccionar
+                        </div>
+                    </div>
+                    <div class="mock-field" style="flex: 4">
+                        <label>Numero de factura</label>
+                        <div class="mock-input">FAC-2026-00451</div>
+                    </div>
+                    <div class="mock-field" style="flex: 4"></div>
+                </div>
+                <p class="mock-content-text" style="margin-top: 0.75rem;">Datos de factura:</p>
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 3">
+                        <label>Unidad de medida</label>
+                        <div class="mock-select">Litros &#9660;</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Peso bruto</label>
+                        <div class="mock-input">1250.00</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Peso neto</label>
+                        <div class="mock-input">1000.00</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Moneda</label>
+                        <div class="mock-select">USD &#9660;</div>
+                    </div>
+                </div>
+                <div class="mock-row" style="margin-top: 0.5rem;">
+                    <div class="mock-field" style="flex: 3">
+                        <label>Valor total</label>
+                        <div class="mock-input">45000.00</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Tarifa aplicable</label>
+                        <div class="mock-input readonly">Rango 3</div>
+                    </div>
+                    <div class="mock-field" style="flex: 6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>Explicacion de cada campo:</h4>
+<ul>
+    <li><strong>Factura</strong>: Suba su factura comercial en formato PDF, JPG o PNG. Asegurese de que sea legible y contenga toda la informacion de la operacion.</li>
+    <li><strong>Numero de factura</strong>: El identificador que aparece impreso en su factura (por ejemplo, FAC-2026-00451).</li>
+    <li><strong>Unidad de medida</strong>: Seleccione la unidad con la que se mide su producto (kilogramos, litros, unidades, toneladas, etc.).</li>
+    <li><strong>Peso bruto</strong>: El peso total de la mercancia <em>incluyendo</em> el embalaje, en kilogramos.</li>
+    <li><strong>Peso neto</strong>: El peso de la mercancia <em>sin</em> embalaje, en kilogramos.</li>
+    <li><strong>Moneda</strong>: La moneda en que esta denominada la operacion (USD, EUR, CUP, etc.).</li>
+    <li><strong>Valor total</strong>: El valor FOB (Free On Board) total de la mercancia segun la factura. Este valor determina la tarifa que debera pagar.</li>
+    <li><strong>Tarifa aplicable</strong>: Se calcula automaticamente basado en el valor total. Usted no puede editar este campo.</li>
+</ul>
+
+<div class="warning-box">
+    El peso bruto siempre debe ser mayor o igual que el peso neto. Si el sistema detecta una inconsistencia, podria rechazar la solicitud.
+</div>
+
+<div class="example-box">
+    CIMEX S.A. exporta 1,000 litros de ron con un valor FOB de $45,000 USD. El peso bruto (con botellas y cajas) es 1,250 kg y el peso neto (solo liquido) es 1,000 kg. La moneda es USD. El sistema calcula automaticamente que corresponde al Rango 3 de tarifas.
+</div>
+
+<!-- ==================== STEP 9 ==================== -->
+<h2 class="section-title" id="paso9">11. Paso 9: Datos de la operacion (embarque)</h2>
+
+<div class="step-header">
+    <span class="step-number">9</span>
+    <h3>Operacion</h3>
+</div>
+
+<p>Esta seccion aparece automaticamente cuando el sistema la requiere. Aqui ingresa los datos logisticos del transporte de la mercancia.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Operacion</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 4">
+                        <label>Buque</label>
+                        <div class="mock-input">MV Caribbean Star</div>
+                    </div>
+                    <div class="mock-field" style="flex: 4">
+                        <label>Puerto de embarque</label>
+                        <div class="mock-select">Mariel &#9660;</div>
+                    </div>
+                    <div class="mock-field" style="flex: 4">
+                        <label>Puerto destino</label>
+                        <div class="mock-select">Veracruz &#9660;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>Explicacion de cada campo:</h4>
+<ul>
+    <li><strong>Buque</strong>: El nombre del barco que transportara la mercancia. Si el envio es por via aerea, escriba el nombre de la aerolinea o el numero de vuelo.</li>
+    <li><strong>Puerto de embarque</strong>: Seleccione el puerto cubano desde donde saldra la mercancia. Las opciones comunes incluyen: Mariel, La Habana, Santiago de Cuba, Cienfuegos, Matanzas.</li>
+    <li><strong>Puerto destino</strong>: Seleccione el puerto del pais de destino donde llegara la mercancia.</li>
+</ul>
+
+<div class="tip-box">
+    Si aun no conoce el nombre exacto del buque al momento de la solicitud, puede escribir "Por confirmar" e informar al revisor durante el proceso. Sin embargo, es preferible completar este dato correctamente desde el inicio.
+</div>
+
+<!-- ==================== STEP 10 ==================== -->
+<h2 class="section-title" id="paso10">12. Paso 10: Datos de contacto</h2>
+
+<div class="step-header">
+    <span class="step-number">10</span>
+    <h3>Datos de contacto</h3>
+</div>
+
+<p>Esta seccion contiene los <strong>tres unicos campos obligatorios</strong> del formulario. Debe completarlos todos para poder enviar la solicitud.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Datos de contacto</div>
+            <div class="mock-section-content">
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 3">
+                        <label>Elaborado por <span class="required-mark">*</span></label>
+                        <div class="mock-input">Maria Gonzalez Perez</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Telefono <span class="required-mark">*</span></label>
+                        <div class="mock-input">+53 7 204 5678</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3">
+                        <label>Email <span class="required-mark">*</span></label>
+                        <div class="mock-input">m.gonzalez@cimex.com.cu</div>
+                    </div>
+                    <div class="mock-field" style="flex: 3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>Explicacion de cada campo:</h4>
+<ul>
+    <li><strong>Elaborado por</strong> <span style="color:var(--danger)">(obligatorio)</span>: Nombre completo de la persona que prepara la solicitud. No tiene que ser el representante legal, puede ser cualquier empleado autorizado.</li>
+    <li><strong>Telefono</strong> <span style="color:var(--danger)">(obligatorio)</span>: Numero de telefono donde la Camara de Comercio pueda contactarle en caso de dudas sobre la solicitud.</li>
+    <li><strong>Email</strong> <span style="color:var(--danger)">(obligatorio)</span>: Correo electronico para recibir notificaciones del proceso (aprobacion, solicitud de pago, certificado listo).</li>
+</ul>
+
+<div class="warning-box">
+    Estos tres campos son obligatorios. El sistema no le permitira enviar el formulario si alguno de ellos esta vacio. Verifique que el correo electronico sea correcto, ya que ahi recibira las notificaciones del proceso.
+</div>
+
+<!-- ==================== STEP 11 ==================== -->
+<h2 class="section-title" id="paso11">13. Paso 11: Enviar la solicitud</h2>
+
+<div class="step-header">
+    <span class="step-number">11</span>
+    <h3>Enviar</h3>
+</div>
+
+<p>Una vez que ha completado todos los pasos anteriores, presione el boton <strong>"Enviar"</strong> ubicado en la esquina inferior derecha del formulario.</p>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div style="text-align: right; padding: 1rem 0;">
+            <span class="mock-btn-outline">Enviar</span>
+        </div>
+    </div>
+</div>
+
+<div class="tip-box">
+    Antes de enviar, revise toda la informacion: empresa exportadora, importador, producto, factura y datos de contacto. Una vez enviada, la solicitud pasara a revision y no podra editar los datos.
+</div>
+
+<div class="note-box">
+    Al enviar exitosamente, el sistema le mostrara un mensaje de confirmacion y su solicitud quedara registrada con un numero de referencia. Guarde este numero para futuras consultas.
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== AFTER SUBMISSION ==================== -->
+<h2 class="section-title" id="despues">14. Despues del envio: Flujo de aprobacion</h2>
+
+<p>Su solicitud pasa por <strong>tres etapas</strong> antes de obtener el certificado final. A continuacion se explica cada una:</p>
+
+<div class="workflow">
+    <div class="workflow-step wf-applicant">
+        <div class="wf-circle">1</div>
+        <div class="wf-label">Envio</div>
+        <div class="wf-desc">Usted envia el formulario</div>
+    </div>
+    <div class="wf-arrow">&rarr;</div>
+    <div class="workflow-step wf-institution">
+        <div class="wf-circle">2</div>
+        <div class="wf-label">Revision</div>
+        <div class="wf-desc">La Camara revisa su solicitud</div>
+    </div>
+    <div class="wf-arrow">&rarr;</div>
+    <div class="workflow-step wf-applicant">
+        <div class="wf-circle">3</div>
+        <div class="wf-label">Pago y firma</div>
+        <div class="wf-desc">Usted paga y sube el certificado firmado</div>
+    </div>
+    <div class="wf-arrow">&rarr;</div>
+    <div class="workflow-step wf-institution">
+        <div class="wf-circle">4</div>
+        <div class="wf-label">Certificado</div>
+        <div class="wf-desc">La Camara emite el certificado validado</div>
+    </div>
+</div>
+
+<h3 id="etapa-revision">Etapa 1: Revision institucional</h3>
+
+<p>La Camara de Comercio de Cuba revisa su solicitud. Un funcionario verifica que:</p>
+<ul>
+    <li>Los datos de la empresa exportadora son correctos</li>
+    <li>El importador esta debidamente registrado</li>
+    <li>El producto y la subpartida arancelaria corresponden</li>
+    <li>La factura comercial respalda la operacion</li>
+    <li>El acuerdo comercial seleccionado es aplicable</li>
+</ul>
+
+<p>Si todo esta correcto, la solicitud avanza a la siguiente etapa. Si hay algun problema, la institucion puede devolver la solicitud con observaciones para que usted la corrija.</p>
+
+<div class="note-box">
+    El tiempo de revision depende del volumen de solicitudes. Normalmente toma entre 1 y 3 dias habiles. Recibira una notificacion por correo electronico cuando su solicitud avance.
+</div>
+
+<h3 id="etapa-pago">Etapa 2: Pago y firma del certificado</h3>
+
+<p>Una vez aprobada la revision, el sistema le habilita las secciones de descarga y envio del certificado:</p>
+
+<h4>Paso A: Descargar el certificado</h4>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Generar certificado</div>
+            <div class="mock-section-content">
+                <p class="mock-content-text">Su certificado esta listo. Descarguelo, imprimalo y firmelo.</p>
+                <span class="mock-btn-outline">Descargar</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Presione <strong>"Descargar"</strong>. El sistema generara un documento PDF con el certificado de origen en el formato correspondiente al acuerdo comercial seleccionado (ALADI, Normal, o El Salvador). <strong>Imprimalo y firmelo</strong> con la firma autorizada de su empresa.</p>
+
+<h4>Paso B: Subir el certificado firmado y pagar</h4>
+
+<div class="form-mockup">
+    <div class="form-mockup-bar">
+        <span class="bar-title">Certificado de Origen</span>
+        <span class="bar-url">bpa.cuba.eregistrations.org</span>
+    </div>
+    <div class="form-mockup-body">
+        <div class="mock-section">
+            <div class="mock-section-title">Enviar certificado</div>
+            <div class="mock-section-content">
+                <p class="mock-content-text">Suba el certificado firmado en formato PDF. Recibira la solicitud de pago para obtener la version final validada.</p>
+                <div class="mock-row">
+                    <div class="mock-field" style="flex: 6">
+                        <label>Suba su certificado firmado</label>
+                        <div class="mock-upload">
+                            <span class="mock-upload-icon">&#128206;</span>
+                            Arrastre su PDF firmado o haga clic para seleccionar
+                        </div>
+                    </div>
+                    <div class="mock-field" style="flex: 6">
+                        <p style="font-size: 0.9rem; margin-top: 1.5rem;"><strong>Tarifa / Costo:</strong> $CUP <strong>1,500.00</strong></p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Recibira el enlace de pago al enviar su certificado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Escanee o fotografe el certificado firmado, convirtalo a PDF, y subalo al sistema. El costo de la tarifa aparece automaticamente basado en el valor total FOB que usted ingreso anteriormente.</p>
+
+<div class="warning-box">
+    El certificado firmado debe ser un PDF legible. Asegurese de que la firma sea claramente visible. Un certificado borroso o con firma ilegible puede ser rechazado.
+</div>
+
+<h3 id="etapa-final">Etapa 3: Certificado final validado</h3>
+
+<p>La Camara de Comercio verifica el pago y el certificado firmado. Una vez validado todo, emite el <strong>certificado de origen oficial</strong> con el sello y firma de la institucion. Este documento tiene validez legal para las aduanas del pais de destino.</p>
+
+<p>Usted recibira una notificacion por correo electronico indicando que su certificado esta listo. Podra descargarlo desde la plataforma.</p>
+
+<div class="tip-box">
+    Descargue y guarde una copia digital del certificado final validado. Envielo tambien a su importador y al agente de aduanas en el pais de destino para agilizar el despacho de la mercancia.
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== FEE STRUCTURE ==================== -->
+<h2 class="section-title" id="tarifas">15. Estructura de tarifas</h2>
+
+<p>La tarifa del Certificado de Origen se calcula automaticamente segun el <strong>valor total FOB</strong> (Free On Board) de la mercancia declarada en la factura comercial. El sistema asigna un rango de tarifa basado en los siguientes tramos:</p>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Rango</th>
+            <th>Valor FOB (CUP)</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Rango 1</strong></td>
+            <td>$0 &mdash; $1,000</td>
+            <td>Operaciones de menor cuantia</td>
+        </tr>
+        <tr>
+            <td><strong>Rango 2</strong></td>
+            <td>$1,001 &mdash; $10,000</td>
+            <td>Operaciones pequenas</td>
+        </tr>
+        <tr>
+            <td><strong>Rango 3</strong></td>
+            <td>$10,001 &mdash; $50,000</td>
+            <td>Operaciones medianas</td>
+        </tr>
+        <tr>
+            <td><strong>Rango 4</strong></td>
+            <td>$50,001 &mdash; $1,000,000</td>
+            <td>Operaciones grandes</td>
+        </tr>
+        <tr>
+            <td><strong>Rango 5</strong></td>
+            <td>$1,000,001 &mdash; $10,000,000</td>
+            <td>Operaciones de alto valor</td>
+        </tr>
+        <tr>
+            <td><strong>Rango 6</strong></td>
+            <td>Mas de $10,000,000</td>
+            <td>Operaciones de gran escala</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="note-box">
+    La tarifa exacta en pesos cubanos (CUP) aparece automaticamente en el campo "Tarifa aplicable" del formulario una vez que usted ingresa el valor total. No necesita calcularla manualmente.
+</div>
+
+<div class="warning-box">
+    Si el valor FOB en la factura esta en moneda extranjera (USD, EUR, etc.), el sistema realizara la conversion a CUP segun la tasa oficial vigente para determinar el rango de tarifa aplicable.
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== FAQ ==================== -->
+<h2 class="section-title" id="faq">16. Preguntas frecuentes</h2>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Cuanto tiempo tarda todo el proceso?
+    </div>
+    <div class="faq-answer">
+        <p>El tiempo total depende de la rapidez con que se completen las etapas. Completar el formulario toma entre 15 y 30 minutos si tiene toda la informacion lista. La revision por parte de la Camara de Comercio normalmente toma de 1 a 3 dias habiles. Una vez aprobada, usted debe descargar, firmar y subir el certificado (normalmente el mismo dia). La emision final puede tomar de 1 a 2 dias habiles adicionales. En total, el proceso completo puede durar entre 3 y 7 dias habiles.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Puedo solicitar un certificado para varios productos en una misma solicitud?
+    </div>
+    <div class="faq-answer">
+        <p>No. Cada solicitud corresponde a un solo producto (una sola subpartida arancelaria). Si necesita exportar varios productos diferentes, debera crear una solicitud por cada uno. Sin embargo, si exporta varias unidades del mismo producto en una misma factura, basta con una sola solicitud.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Que hago si mi importador no aparece en la lista de clientes?
+    </div>
+    <div class="faq-answer">
+        <p>Si al buscar clientes en el pais de destino su importador no aparece, haga clic en el enlace <strong>"Registrar uno nuevo"</strong> que aparece debajo de la lista. Esto lo llevara al servicio de registro de clientes y proveedores. Complete el registro del importador y luego regrese al formulario del Certificado de Origen para buscarlo nuevamente.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Que significa que una seccion aparezca en gris (desactivada)?
+    </div>
+    <div class="faq-answer">
+        <p>Las secciones en gris estan temporalmente desactivadas porque dependen de un paso anterior. Por ejemplo, la seccion de "Seleccione la empresa que recibira la mercancia" permanece en gris hasta que usted seleccione un pais de destino y presione "Buscar cliente". El formulario utiliza un sistema de <strong>revelacion progresiva</strong>: las secciones se van activando a medida que usted completa cada paso en orden.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Puedo guardar el formulario y continuar despues?
+    </div>
+    <div class="faq-answer">
+        <p>Si. El sistema guarda automaticamente su progreso. Si cierra el navegador o pierde la conexion, puede regresar al formulario y continuara donde lo dejo. Sin embargo, es recomendable completar toda la solicitud en una sola sesion para evitar confusiones.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Que acuerdos comerciales aplican para Cuba?
+    </div>
+    <div class="faq-answer">
+        <p>Cuba participa en varios acuerdos comerciales, principalmente en el marco de la <strong>ALADI</strong> (Asociacion Latinoamericana de Integracion). El sistema busca automaticamente los acuerdos aplicables para su producto y pais de destino. Los acuerdos mas comunes incluyen acuerdos de alcance parcial y acuerdos de complementacion economica con paises como Mexico, Venezuela, Colombia, entre otros. No todos los productos estan cubiertos por todos los acuerdos &mdash; el sistema le mostrara solo los que aplican a su caso especifico.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Puedo corregir un error despues de enviar la solicitud?
+    </div>
+    <div class="faq-answer">
+        <p>Una vez enviada la solicitud, usted no puede editarla directamente. Si el revisor de la Camara de Comercio detecta un error, puede devolver la solicitud con observaciones para que usted la corrija. Si usted detecta un error despues del envio, comuniquese con la Camara de Comercio lo antes posible indicando el numero de referencia de su solicitud.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Que formato debe tener la factura comercial que subo?
+    </div>
+    <div class="faq-answer">
+        <p>La factura comercial puede subirse en cualquier formato digital: PDF, JPG, PNG u otros formatos de imagen. Lo importante es que sea <strong>legible</strong> y que contenga: el nombre del exportador e importador, la descripcion de la mercancia, la cantidad, el valor FOB, el numero de factura y la fecha. Se recomienda el formato PDF para mejor calidad. El tamano maximo del archivo es de 1 GB, aunque normalmente una factura no supera los pocos megabytes.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Como se cual es el codigo arancelario de mi producto?
+    </div>
+    <div class="faq-answer">
+        <p>El codigo arancelario (tambien llamado subpartida del Sistema Armonizado) es un numero de 6 digitos que clasifica su producto internacionalmente. Puede encontrarlo de varias formas: (1) consultando el Arancel de Aduanas de Cuba, (2) preguntando a su agente aduanal, o (3) buscando directamente en el formulario por la descripcion del producto. Por ejemplo, si escribe "tabaco" el sistema le mostrara las subpartidas como "2402.10 - Cigarros (puros) que contengan tabaco". Si no esta seguro, consulte con la Camara de Comercio antes de solicitar.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Necesito internet durante todo el proceso?
+    </div>
+    <div class="faq-answer">
+        <p>Si. El formulario funciona completamente en linea y requiere conexion a internet activa durante todo el proceso de llenado y envio. El unico paso que puede realizar sin internet es la impresion y firma del certificado descargado. Se recomienda una conexion estable para evitar perdida de datos mientras completa el formulario.</p>
+    </div>
+</div>
+
+</main>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+    <p><strong>Camara de Comercio de la Republica de Cuba</strong></p>
+    <p>Plataforma eRegistrations &mdash; <a href="https://bpa.cuba.eregistrations.org" target="_blank" rel="noopener">bpa.cuba.eregistrations.org</a></p>
+    <p style="margin-top: 0.75rem; font-size: 0.8rem;">Este manual fue elaborado como guia de referencia para los usuarios del servicio de Certificado de Origen para Exportacion. Para asistencia tecnica, contacte a la Camara de Comercio.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash",
+      "mcp__BPA-cuba__service_list",
+      "mcp__BPA-cuba__service_get",
+      "mcp__BPA-cuba__form_get",
+      "mcp__BPA-cuba__form_component_get",
+      "mcp__BPA-cuba__field_list",
+      "mcp__BPA-cuba__field_get",
+      "mcp__BPA-cuba__bot_list",
+      "mcp__BPA-cuba__bot_get",
+      "mcp__BPA-cuba__bot_mapping_summary",
+      "mcp__BPA-cuba__determinant_list",
+      "mcp__BPA-cuba__determinant_get",
+      "mcp__BPA-cuba__determinant_search",
+      "mcp__BPA-cuba__componentaction_get",
+      "mcp__BPA-cuba__componentaction_get_by_component",
+      "mcp__BPA-cuba__componentbehaviour_get",
+      "mcp__BPA-cuba__componentbehaviour_get_by_component",
+      "mcp__BPA-cuba__analyze_service",
+      "mcp__BPA-cuba__registration_list",
+      "mcp__BPA-cuba__connection_status",
+      "mcp__BPA-cuba__server_info"
+    ],
+    "deny": [
+      "mcp__BPA-cuba__*_create",
+      "mcp__BPA-cuba__*_update",
+      "mcp__BPA-cuba__*_delete",
+      "mcp__BPA-cuba__service_publish",
+      "mcp__BPA-cuba__service_activate",
+      "mcp__BPA-cuba__rollback",
+      "mcp__BPA-cuba__effect_create",
+      "mcp__BPA-cuba__effect_delete"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '--- Session Start: Test Agent ---' && echo 'Reading profiles...' && cat ~/Desktop/OCAgents/shared/profiles/test-agent.md 2>/dev/null && echo '---' && cat ~/Desktop/OCAgents/shared/profiles/manual-agent.md 2>/dev/null && echo '---' && cat ~/Desktop/OCAgents/shared/profiles/config-agent.md 2>/dev/null && echo '=== CHANGELOG ===' && tail -50 ~/Desktop/OCAgents/shared/knowledge/CHANGELOG.md 2>/dev/null && echo '=== Pending Requests ===' && ls ~/Desktop/OCAgents/shared/requests/*test* 2>/dev/null || echo 'No pending requests for test agent' && echo '=== Notifications ===' && ~/Desktop/OCAgents/shared/notify.sh check test 2>/dev/null && ~/Desktop/OCAgents/shared/notify.sh clean test 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATH\" | grep -q 'shared/responses/'; then BASENAME=$(basename \"$CLAUDE_FILE_PATH\" .md); TARGET=$(echo \"$BASENAME\" | sed 's/^[^-]*-//; s/_.*//' | head -c 20); ~/Desktop/OCAgents/shared/notify.sh signal \"$TARGET\" test \"$BASENAME\" RESPONSE 2>/dev/null; fi"
+          }
+        ]
+      }
+    ]
+  },
+  "_comments": {
+    "mcp_servers": "This agent uses BPA-cuba (read-only) for structure extraction and Playwright for E2E testing. MCP server connections are configured at user level (~/.claude.json or Claude Desktop config).",
+    "role": "Test Agent (Verificador) — generates and runs Playwright E2E tests against cuba.eregistrations.org"
+  }
+}

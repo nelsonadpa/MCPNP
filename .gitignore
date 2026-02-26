@@ -1,0 +1,12 @@
+node_modules/
+auth-state*.json
+screenshots/
+test-results/
+*.png
+*.webm
+*.zip
+.DS_Store
+.env
+.mcp.json
+package-lock.json
+countries/cuba/analysis/file-sharing/workspace/

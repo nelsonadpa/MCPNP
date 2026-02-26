@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications API — Integration Reference</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8f9fa;
+      --bg-code: #1e1e2e;
+      --text: #1a1a2e;
+      --text-light: #6c757d;
+      --border: #dee2e6;
+      --accent: #4361ee;
+      --accent-light: #eef2ff;
+      --green: #10b981;
+      --green-bg: #ecfdf5;
+      --red: #ef4444;
+      --red-bg: #fef2f2;
+      --orange: #f59e0b;
+      --orange-bg: #fffbeb;
+      --blue: #3b82f6;
+      --blue-bg: #eff6ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      background: var(--bg);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    h1 + p { color: var(--text-light); margin-bottom: 2rem; }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--text);
+    }
+
+    h3 code {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    strong { font-weight: 600; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      background: var(--bg-alt);
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) { background: var(--bg-alt); }
+
+    pre {
+      background: var(--bg-code);
+      color: #cdd6f4;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 0.75rem 0 1rem;
+    }
+
+    code {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85em;
+    }
+
+    p code, li code, td code {
+      background: var(--bg-alt);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .badge-get { background: var(--green-bg); color: var(--green); }
+    .badge-post { background: var(--blue-bg); color: var(--blue); }
+    .badge-200 { background: var(--green-bg); color: var(--green); }
+    .badge-400 { background: var(--orange-bg); color: var(--orange); }
+    .badge-403 { background: var(--red-bg); color: var(--red); }
+    .badge-404 { background: var(--red-bg); color: var(--red); }
+
+    .endpoint-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .endpoint-header code {
+      font-size: 1rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      padding: 0;
+    }
+
+    .access-rules {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+    }
+
+    .access-rules ol { padding-left: 1.25rem; }
+    .access-rules li { margin-bottom: 0.25rem; }
+
+    .flow-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .flow-box h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    .flow-box ol { padding-left: 1.25rem; }
+    .flow-box li { margin-bottom: 0.5rem; }
+
+    .note {
+      background: var(--orange-bg);
+      border-left: 4px solid var(--orange);
+      padding: 0.75rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .status-table td:first-child { font-family: 'SF Mono', monospace; font-size: 0.85rem; }
+
+    .response-section { margin: 1rem 0; }
+
+    .response-section summary {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      user-select: none;
+    }
+
+    .response-section summary:hover { color: var(--accent); }
+
+    ul, ol { padding-left: 1.5rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.25rem; }
+
+    .separator {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .check-table td:last-child { text-align: center; font-size: 1.1rem; }
+
+    .arrow {
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin: 0.5rem 0;
+    }
+
+    @media print {
+      body { max-width: 100%; padding: 1rem; }
+      pre { white-space: pre-wrap; word-break: break-all; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Applications API</h1>
+<p>Integration reference — Part A Dashboard and file sharing</p>
+
+<!-- ============================================================ -->
+<h2>Executive Summary</h2>
+
+<div style="background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+
+<h3 style="margin-top: 0; color: #4338ca;">What is this?</h3>
+<p>When a citizen logs into eRegistrations, they see a table called <strong>"Applications"</strong> (Solicitudes) listing all their files (government procedures). Each row shows the service name, dates, current status, and issued certificates.</p>
+
+<p>This document explains <strong>how that table works under the hood</strong> and how to implement <strong>file sharing</strong> between users.</p>
+
+<h3 style="color: #4338ca;">What problem does file sharing solve?</h3>
+<p>Today, when a citizen needs a colleague to manage their government procedure, they <strong>share their login credentials</strong> (username and password). This is a security risk: there's no way to know who did what, and no way to revoke access.</p>
+
+<p>The solution allows the file owner to <strong>share a file with another user by email</strong>. The other user will see the file in their own account, using their own credentials.</p>
+
+<h3 style="color: #4338ca;">How does it work?</h3>
+
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0;">
+  <div style="background: white; border-radius: 6px; padding: 0.75rem 1rem; border-left: 4px solid #4361ee;">
+    <strong>Step 1:</strong> Juan has an "Import Certificate" file in his account.
+  </div>
+  <div style="text-align: center; color: #4361ee; font-size: 1.2rem;">&#8595;</div>
+  <div style="background: white; border-radius: 6px; padding: 0.75rem 1rem; border-left: 4px solid #4361ee;">
+    <strong>Step 2:</strong> Juan clicks "Share" and enters Maria's email: <em>maria@example.com</em>
+  </div>
+  <div style="text-align: center; color: #4361ee; font-size: 1.2rem;">&#8595;</div>
+  <div style="background: white; border-radius: 6px; padding: 0.75rem 1rem; border-left: 4px solid #4361ee;">
+    <strong>Step 3:</strong> Maria logs in with <strong>her own account</strong> and sees Juan's file in her applications table.
+  </div>
+  <div style="text-align: center; color: #4361ee; font-size: 1.2rem;">&#8595;</div>
+  <div style="background: white; border-radius: 6px; padding: 0.75rem 1rem; border-left: 4px solid #10b981;">
+    <strong>Result:</strong> Maria can view the file, upload documents, and resubmit it. Juan remains the owner. Each person uses their own credentials.
+  </div>
+</div>
+
+<h3 style="color: #4338ca;">What's already done?</h3>
+<ul>
+  <li>The database already has the field to store delegate user emails</li>
+  <li>The API to add an email to a file already exists and is tested</li>
+  <li>The applications table already shows shared files to the delegate user</li>
+  <li>Permissions already verify that the delegate can operate on the file</li>
+</ul>
+
+<h3 style="color: #4338ca;">What's missing?</h3>
+<ul>
+  <li>Add a <strong>"Share" button</strong> in the dashboard UI (3 frontend files)</li>
+  <li>No database or server changes are required</li>
+</ul>
+
+</div>
+
+<hr class="separator">
+
+<!-- ============================================================ -->
+<h2>1. List User's Files</h2>
+
+<div class="endpoint-header">
+  <span class="badge badge-get">GET</span>
+  <code>/api/v1/current-user-files/</code>
+</div>
+
+<p>Returns the authenticated user's files, paginated. <strong>Authentication</strong>: session cookie (the user is already logged into the dashboard).</p>
+
+<h3>Query Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Example</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>page</code></td>
+      <td>int</td>
+      <td>1</td>
+      <td><code>?page=2</code></td>
+      <td>Page number</td>
+    </tr>
+    <tr>
+      <td><code>page_size</code></td>
+      <td>int</td>
+      <td>10</td>
+      <td><code>?page_size=25</code></td>
+      <td>Results per page. If &le; 0, returns all without pagination</td>
+    </tr>
+    <tr>
+      <td><code>ordering</code></td>
+      <td>string</td>
+      <td><code>-created_at</code></td>
+      <td><code>?ordering=-submitted_at</code></td>
+      <td>Sort field. Prefix <code>-</code> = descending. Values: <code>created_at</code>, <code>submitted_at</code>, <code>service__name</code></td>
+    </tr>
+    <tr>
+      <td><code>state</code></td>
+      <td>string</td>
+      <td>&mdash;</td>
+      <td><code>?state=IN_PROCESS</code></td>
+      <td>Filter by state. Accepts multiple comma-separated values</td>
+    </tr>
+    <tr>
+      <td><code>service</code></td>
+      <td>string</td>
+      <td>&mdash;</td>
+      <td><code>?service=certificate</code></td>
+      <td>Search by service name (case-insensitive, includes translations)</td>
+    </tr>
+    <tr>
+      <td><code>company</code></td>
+      <td>string</td>
+      <td>&mdash;</td>
+      <td><code>?company=acme</code></td>
+      <td>Search in <code>data["listing-value"]</code>, <code>meta_data</code>, <code>business_entity.name</code></td>
+    </tr>
+    <tr>
+      <td><code>business_entity</code></td>
+      <td>UUID or string</td>
+      <td>&mdash;</td>
+      <td><code>?business_entity=uuid</code></td>
+      <td>If valid UUID, filters exact match. If text, searches by name</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>date</td>
+      <td>&mdash;</td>
+      <td><code>?created_at=2026-02-20</code></td>
+      <td>Filter by exact creation date</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Who sees which files</h3>
+
+<div class="access-rules">
+  <p>The endpoint returns files where the user meets <strong>any</strong> of these conditions:</p>
+  <ol>
+    <li><strong>Is the owner</strong> &mdash; <code>file.user == current_user</code></li>
+    <li><strong>Business entity member</strong> &mdash; <code>file.business_entity</code> has the user as a team member</li>
+    <li><strong>Delegate</strong> &mdash; <code>current_user.email</code> is in <code>file.allowed_users</code></li>
+  </ol>
+  <p style="margin-bottom:0">Additionally, only files from services belonging to the current domain are shown (multi-tenancy).</p>
+</div>
+
+<h3>Response</h3>
+
+<pre><code>{
+  "count": 476,
+  "next": "https://example.com/api/v1/current-user-files/?page=2",
+  "previous": null,
+  "results": [
+    {
+      "file_id": "550e8400-e29b-41d4-a716-446655440000",
+      "state": "NEW",
+      "process_instance_id": null,
+      "created_at": "2026-02-20T10:30:00+00:00",
+      "submitted_at": null,
+      "metadata": "Import Certificate - Donation #123",
+      "service_id": "cert-import-donations",
+      "service_name": "Import certificate for medical donations",
+      "business_entity_name": null,
+      "certificates": [],
+      "tasks": [],
+      "user": { "username": "juan.perez" }
+    }
+  ]
+}</code></pre>
+
+<h3>Response fields for each file</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Table column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>file_id</code></td><td>UUID string</td><td>Unique file identifier</td><td>&mdash; (used for links)</td></tr>
+    <tr><td><code>service_name</code></td><td>string</td><td>Service name (translated)</td><td><strong>Service</strong></td></tr>
+    <tr><td><code>metadata</code></td><td>string | null</td><td>Display name (e.g. company name)</td><td><strong>Applicant</strong></td></tr>
+    <tr><td><code>business_entity_name</code></td><td>string | null</td><td>Associated company name</td><td><strong>Applicant</strong> (fallback)</td></tr>
+    <tr><td><code>created_at</code></td><td>ISO 8601</td><td>Creation date</td><td><strong>Created</strong></td></tr>
+    <tr><td><code>submitted_at</code></td><td>ISO 8601 | null</td><td>Submission date to government</td><td><strong>Submitted</strong></td></tr>
+    <tr><td><code>state</code></td><td>string</td><td>Current state</td><td><strong>Current status</strong></td></tr>
+    <tr><td><code>certificates</code></td><td>array</td><td>Issued certificates</td><td><strong>Certificates</strong></td></tr>
+    <tr><td><code>process_instance_id</code></td><td>string | null</td><td>Camunda process ID</td><td>&mdash; (internal)</td></tr>
+    <tr><td><code>tasks</code></td><td>array</td><td>Tasks visible to applicant</td><td>&mdash; (internal)</td></tr>
+    <tr><td><code>user</code></td><td>object</td><td>File owner <code>{username}</code></td><td>&mdash; (access control)</td></tr>
+    <tr><td><code>service_id</code></td><td>string</td><td>Service ID</td><td>&mdash; (internal)</td></tr>
+  </tbody>
+</table>
+
+<h3>Possible <code>state</code> values</h3>
+
+<table class="status-table">
+  <thead>
+    <tr><th>Value</th><th>UI Label</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>NEW</td><td>Draft</td><td>Being edited, not submitted</td></tr>
+    <tr><td>IN_PROCESS</td><td>In process</td><td>Submitted, under government review</td></tr>
+    <tr><td>filepending</td><td>Pending</td><td>Awaiting action from the citizen</td></tr>
+    <tr><td>filevalidated</td><td>Validated</td><td>Validated by government official</td></tr>
+    <tr><td>applicantPayment</td><td>Payment pending</td><td>Awaiting payment from citizen</td></tr>
+    <tr><td>filedecline</td><td>Returned</td><td>Returned for corrections</td></tr>
+    <tr><td>filereject</td><td>Rejected</td><td>Permanently rejected</td></tr>
+    <tr><td>ended</td><td>Completed</td><td>Approved, certificates issued</td></tr>
+    <tr><td>cancelled</td><td>Cancelled</td><td>Cancelled</td></tr>
+  </tbody>
+</table>
+
+<hr class="separator">
+
+<!-- ============================================================ -->
+<h2>2. Share a File</h2>
+
+<div class="endpoint-header">
+  <span class="badge badge-post">POST</span>
+  <code>/api/v1/access-to-file/</code>
+</div>
+
+<p>Adds an email to a file's <code>allowed_users</code> list. The user with that email will see the file in their own applications table.</p>
+
+<p><strong>Authentication</strong>: session cookie or JWT Bearer token.</p>
+<p><strong>Authorization</strong>: only the file <strong>owner</strong> or a <strong>staff/superuser</strong> can share.</p>
+
+<h3>Request</h3>
+
+<pre><code>POST /api/v1/access-to-file/
+Content-Type: application/json
+
+{
+  "file_id": "550e8400-e29b-41d4-a716-446655440000",
+  "allowed_users": ["delegate@example.com"]
+}</code></pre>
+
+<table>
+  <thead>
+    <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>file_id</code></td><td>string (UUID)</td><td>Yes</td><td>ID of the file to share</td></tr>
+    <tr><td><code>allowed_users</code></td><td>array of strings</td><td>Yes</td><td>List of emails to add</td></tr>
+  </tbody>
+</table>
+
+<h3>Behavior</h3>
+
+<ol>
+  <li>Validates the payload format</li>
+  <li>Looks up the file by <code>file_id</code> &mdash; <strong>404</strong> if not found</li>
+  <li>Validates each email (valid format) &mdash; <strong>400</strong> if any is invalid</li>
+  <li><strong>Auto-creates user accounts</strong> for emails that don't exist in the system</li>
+  <li><strong>Accumulates emails</strong> via set union (no duplicates, doesn't remove existing ones)</li>
+  <li>Returns the updated list</li>
+</ol>
+
+<h3>Responses</h3>
+
+<details class="response-section" open>
+  <summary><span class="badge badge-200">200</span> Success</summary>
+  <pre><code>{
+  "allowed_users": [
+    "delegate@example.com",
+    "other.user@example.com"
+  ]
+}</code></pre>
+</details>
+
+<details class="response-section">
+  <summary><span class="badge badge-400">400</span> Invalid email or malformed payload</summary>
+  <pre><code>{
+  "allowed_users": [
+    "email: `email` is invalid, please enter a valid email!"
+  ]
+}</code></pre>
+</details>
+
+<details class="response-section">
+  <summary><span class="badge badge-403">403</span> Not the owner or staff</summary>
+  <pre><code>"You do not have permission to access this resource"</code></pre>
+</details>
+
+<details class="response-section">
+  <summary><span class="badge badge-404">404</span> File not found</summary>
+  <pre><code>{
+  "detail": "Not found."
+}</code></pre>
+</details>
+
+<div class="note">
+  <strong>Idempotency:</strong> Calling multiple times with the same email produces no duplicates. Emails accumulate (set union). There is <strong>no mechanism to remove emails</strong> (v2).
+</div>
+
+<hr class="separator">
+
+<!-- ============================================================ -->
+<h2>3. Usage Examples</h2>
+
+<h3>List draft files</h3>
+<pre><code>GET /api/v1/current-user-files/?state=NEW&amp;ordering=-created_at</code></pre>
+
+<h3>Files in process and returned for corrections</h3>
+<pre><code>GET /api/v1/current-user-files/?state=IN_PROCESS,filedecline&amp;ordering=-submitted_at</code></pre>
+
+<h3>Search by service name</h3>
+<pre><code>GET /api/v1/current-user-files/?service=import+certificate</code></pre>
+
+<h3>Search by company</h3>
+<pre><code>GET /api/v1/current-user-files/?company=pharmacy</code></pre>
+
+<h3>Page 3, 25 per page</h3>
+<pre><code>GET /api/v1/current-user-files/?page=3&amp;page_size=25</code></pre>
+
+<h3>All files without pagination</h3>
+<pre><code>GET /api/v1/current-user-files/?page_size=0</code></pre>
+
+<h3>Share with one user</h3>
+<pre><code>POST /api/v1/access-to-file/
+Content-Type: application/json
+
+{
+  "file_id": "550e8400-e29b-41d4-a716-446655440000",
+  "allowed_users": ["maria.garcia@example.com"]
+}</code></pre>
+
+<h3>Share with multiple users</h3>
+<pre><code>POST /api/v1/access-to-file/
+Content-Type: application/json
+
+{
+  "file_id": "550e8400-e29b-41d4-a716-446655440000",
+  "allowed_users": [
+    "maria.garcia@example.com",
+    "pedro.lopez@example.com"
+  ]
+}</code></pre>
+
+<h3>Full curl example</h3>
+<pre><code># 1. List my files
+curl -b cookies.txt \
+  "https://cuba.eregistrations.org/api/v1/current-user-files/?page=1&amp;page_size=10"
+
+# 2. Share a file
+curl -b cookies.txt \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"file_id":"550e8400-e29b-41d4-a716-446655440000","allowed_users":["delegate@example.com"]}' \
+  "https://cuba.eregistrations.org/api/v1/access-to-file/"</code></pre>
+
+<hr class="separator">
+
+<!-- ============================================================ -->
+<h2>4. Complete Flow</h2>
+
+<div class="flow-box">
+  <h4>User A (file owner)</h4>
+  <ol>
+    <li>Sees their Applications table<br><code>GET /api/v1/current-user-files/</code> &rarr; shows their 476 files</li>
+    <li>Clicks "Share" on a file &rarr; email input opens</li>
+    <li>Enters: <code>delegate@example.com</code><br><code>POST /api/v1/access-to-file/</code> with <code>{"file_id":"...","allowed_users":["delegate@..."]}</code><br>&rarr; 200 OK</li>
+  </ol>
+</div>
+
+<span class="arrow">&darr;</span>
+
+<div class="flow-box">
+  <h4>User B (delegate@example.com)</h4>
+  <ol>
+    <li>Logs into eRegistrations</li>
+    <li>Sees their Applications table<br><code>GET /api/v1/current-user-files/</code> &rarr; the shared file appears in the table<br><small>(filter: <code>allowed_users @&gt; '["delegate@example.com"]'</code>)</small></li>
+    <li>Can: view, edit form data, upload documents, resubmit (depending on file state)</li>
+  </ol>
+</div>
+
+<hr class="separator">
+
+<!-- ============================================================ -->
+<h2>5. Database</h2>
+
+<h3>Key field: <code>File.allowed_users</code></h3>
+
+<table>
+  <tbody>
+    <tr><td><strong>Table</strong></td><td><code>applicant_file_file</code></td></tr>
+    <tr><td><strong>Column</strong></td><td><code>allowed_users</code> (jsonb)</td></tr>
+    <tr><td><strong>Default</strong></td><td><code>[]</code></td></tr>
+    <tr><td><strong>Null</strong></td><td>Not allowed</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Contents</strong>: JSON array of email strings.</p>
+
+<pre><code>["delegate@example.com", "other@example.com"]</code></pre>
+
+<p><strong>Equivalent PostgreSQL query</strong> (for reference):</p>
+
+<pre><code>-- Files where the user is either owner OR delegate
+SELECT * FROM applicant_file_file
+WHERE user_id = 123
+   OR allowed_users @&gt; '["delegate@example.com"]'::jsonb;</code></pre>
+
+<p>The PostgreSQL <code>@&gt;</code> operator checks that the JSON array <strong>contains</strong> the exact element. It does not do partial matching (unlike <code>LIKE</code> or <code>ILIKE</code>).</p>
+
+<hr class="separator">
+
+<!-- ============================================================ -->
+<h2>6. Implementation Status</h2>
+
+<h3>What already exists and works</h3>
+
+<table class="check-table">
+  <thead>
+    <tr><th>Component</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>allowed_users</code> field in the database</td><td>&#10003;</td></tr>
+    <tr><td><code>POST /api/v1/access-to-file/</code> endpoint</td><td>&#10003;</td></tr>
+    <tr><td>Visibility filter in the listing endpoint</td><td>&#10003;</td></tr>
+    <tr><td>Object-level permissions (<code>MyFilePermission</code>)</td><td>&#10003;</td></tr>
+    <tr><td>Auto-creation of user accounts by email</td><td>&#10003;</td></tr>
+  </tbody>
+</table>
+
+<h3>What's missing (frontend)</h3>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>File</th><th>Change</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"Share" button on each row</td>
+      <td><code>parta_dashboard.html</code></td>
+      <td>Add share icon in actions column</td>
+    </tr>
+    <tr>
+      <td>Email input + confirmation</td>
+      <td><code>user.applications.controller.js</code></td>
+      <td>Popover with email field (existing pattern: confirmDeleteFile)</td>
+    </tr>
+    <tr>
+      <td>API call</td>
+      <td><code>backend.provider.js</code></td>
+      <td>Add <code>shareFile()</code> method</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Considerations</h3>
+
+<ol>
+  <li><strong>Only the owner can share</strong> &mdash; the button should only show when <code>f.user.username === username</code></li>
+  <li><strong>Works in any state</strong> &mdash; the endpoint does not filter by state</li>
+  <li><strong>No visual indicator</strong> &mdash; the delegate sees the file like any other in their table</li>
+  <li><strong>No revocation</strong> &mdash; once shared, it cannot be unshared (v2)</li>
+</ol>
+
+</body>
+</html>

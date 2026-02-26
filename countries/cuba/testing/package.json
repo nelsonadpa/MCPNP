@@ -1,0 +1,18 @@
+{
+  "name": "cuba-ereg-tests",
+  "version": "1.0.0",
+  "description": "E2E tests for Cuba eRegistrations — Bitácora + Services",
+  "scripts": {
+    "auth": "npx playwright test --project=auth-setup --headed --config=playwright.config.ts",
+    "test": "npx playwright test --config=playwright.config.ts",
+    "test:headed": "npx playwright test --headed --config=playwright.config.ts",
+    "test:pe": "npx playwright test specs/pe-e2e-nuevo.spec.ts --project=cuba-frontoffice --headed --config=playwright.config.ts",
+    "test:frontoffice": "npx playwright test --project=cuba-frontoffice --headed --config=playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}

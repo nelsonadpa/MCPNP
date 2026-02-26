@@ -1,0 +1,750 @@
+[
+  {
+    "id": "23cbd06e-91fb-4a42-82bd-99fa7726f0dc",
+    "componentKey": "applicantContent3",
+    "effects": [
+      {
+        "id": "6ce0c6df-4a02-4b66-9fee-c634210aa163",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"3d9e9f92-5a3a-4769-9beb-f2ffa3d5eedf\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "4c3d5e50-1933-499d-abcf-3576dd10db4a",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "357d3c06-e366-46a4-8dfe-23af6f6214af",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "21c9f636-34eb-4a9a-94f5-acce89ada073",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aab1bf3c-0b1e-4adb-8aaf-a5bb319a6db1",
+    "componentKey": "applicantContent4",
+    "effects": [
+      {
+        "id": "4003a577-7525-4132-a189-11c8b9c2d2e6",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"b7cf470b-f4df-4a6e-bc1d-9073aed59af5\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "922898f5-5081-4cf7-9b1a-dc9202a6007f",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "aa0aba59-7a07-46cb-9b90-369a6f67c045",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "efd210df-ad72-4360-97f7-baf4df1d9397",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2dda26d4-80b4-4b32-ad7f-b8f1bb8b74af",
+    "componentKey": "applicantEmpresaSeleccionada2",
+    "effects": [
+      {
+        "id": "465be233-f2c6-4054-be6d-2f40cb57eee7",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[]}]",
+        "propertyEffects": [
+          {
+            "id": "5a335676-29ff-4c0c-9f7d-8be3b00f6bc0",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "b31df26c-0839-4cf6-90b8-ab44e5e31ed3",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "8c166b91-32d8-4f5a-825f-9342e3d71841",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9d05997d-e722-4c45-8893-9a7a7b6be7a8",
+    "componentKey": "applicantSelectedFlag",
+    "effects": [
+      {
+        "id": "2006f55e-e58a-4877-baac-c3df79a862bd",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[]}]",
+        "propertyEffects": [
+          {
+            "id": "46e987f0-2d28-4f6a-906e-0175a90005e5",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "8082395f-9679-4fae-9ce1-fa223f641b18",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "770b9140-7c88-443b-a836-ca02297a514b",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0e564502-e317-4ce2-82af-d8936e0f799b",
+    "componentKey": "applicantSoloUnaEmpresa",
+    "effects": [
+      {
+        "id": "c1284e08-561b-4de4-961a-a4785a751623",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"bbc34872-04f5-4e88-9a85-c3de8af48f46\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "420408bd-44be-4b80-a47f-e8c15fcb4c43",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "9bf8a3ed-a576-4ee0-84aa-106db2a26eca",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "f28b4344-0533-4e76-ab77-ba6d97182012",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "324ae766-f5d7-4158-914a-b085fabfcc82",
+    "componentKey": "applicantActivo5",
+    "effects": [
+      {
+        "id": "e2374235-9083-4b26-99ed-54cdd848c778",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"681c7f35-a373-4f16-8028-03de2186d7de\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "17db64d2-739c-446d-bd1b-6832a2b30b62",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "a866547b-1624-49e5-bd0a-25144dfcc932",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "b26f46a2-0033-41eb-9e8e-79bb7e296514",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0e636923-710f-40ca-899e-d3743abd08f7",
+    "componentKey": "applicantExtender",
+    "effects": [
+      {
+        "id": "95b258fe-0fdf-4fac-b7f9-890c33563f0b",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"1c1fdf15-d11a-40ac-8a51-1e6b45ceb744\"},{\"type\":\"AND\",\"determinantId\":\"681c7f35-a373-4f16-8028-03de2186d7de\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "3f81f33b-db42-4e48-9abe-3e81b9a7a6a8",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "e3d3204c-cc3a-42d0-b9c2-7d517226445c",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "6a06855f-878c-4cd9-b5f3-45aae2044657",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7e2e9cc0-72fa-4fe2-82c9-100f3e90cc33",
+    "componentKey": "applicantBlock8",
+    "effects": [
+      {
+        "id": "33404115-4ac9-4c9e-88ab-3f645bce36a2",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"09be76c6-1b62-4fff-b409-83ed3b6a1782\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "93356583-747a-40ef-9858-863522488931",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "9a94993f-d504-47f7-a7ed-bdb7ee788ed3",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "41a811fa-194d-42fe-9c0a-eb4d807453be",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e678bfe2-ae15-457f-8fc7-6edb4b76d2cc",
+    "componentKey": "applicantBlock27",
+    "effects": [
+      {
+        "id": "d12a9de1-2464-49b4-b5ad-fa814f532856",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[]}]",
+        "propertyEffects": [
+          {
+            "id": "ea014200-e209-419c-8777-fe191648134d",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "d32c0e49-a851-406b-914d-ba38ba9a8c4a",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "9561b1f4-95e6-4b9d-840a-743b4bb92c65",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d85a1738-6ed1-44aa-93c7-90c1a5a39b56",
+    "componentKey": "applicantBlock6",
+    "effects": [
+      {
+        "id": "0b9bfa74-a3e2-4b4c-a57e-3f5bd700bda0",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"09be76c6-1b62-4fff-b409-83ed3b6a1782\"},{\"type\":\"OR\",\"determinantId\":\"b7cf470b-f4df-4a6e-bc1d-9073aed59af5\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "c7634699-b9e7-4a2c-9e9a-c0347a468025",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "89da450c-cbe7-42b6-840b-73d389011bc4",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "bd2dd75a-4616-4542-9648-fc5fe2a937e0",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "151d6307-b0e9-4c15-8244-ad2dc31395f1",
+    "componentKey": "applicantActivo6",
+    "effects": [
+      {
+        "id": "35996fe9-e226-4186-b0e5-79ae9dbb1e62",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"1c1fdf15-d11a-40ac-8a51-1e6b45ceb744\"},{\"type\":\"AND\",\"determinantId\":\"681c7f35-a373-4f16-8028-03de2186d7de\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "d894d734-0983-4a48-8659-def02b11046c",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "702d18bd-086f-4e19-841c-d506e8d306cd",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "ccc41cc8-4df7-4f1f-9ae4-8743bace907b",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "68da9967-c4b0-4f56-8f19-1566f9d61e6e",
+    "componentKey": "applicantcolumns2"
+  },
+  {
+    "id": "1cbac809-1c43-47be-88e9-a2a5cb83059f",
+    "componentKey": "applicantCompartir2",
+    "effects": [
+      {
+        "id": "79e33c2b-64ec-409b-a515-f84bd4b8e28a",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"31a2e6f7-6522-4e6c-abc9-dca7363e63d6\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "85da7155-8a67-4401-8bb1-52256eeaa4c8",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "0418db29-a0fd-4800-8ec2-0b313e162278",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "423060f7-5ea1-4418-b6bd-4c582fe2da62",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "def4208c-f416-4e8f-bf60-3732ad0706ac",
+    "componentKey": "applicantBlock15",
+    "effects": [
+      {
+        "id": "e40fb4fc-1a9a-468b-bf14-517037cc66d9",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"09be76c6-1b62-4fff-b409-83ed3b6a1782\"},{\"type\":\"OR\",\"determinantId\":\"bbc34872-04f5-4e88-9a85-c3de8af48f46\"}]},{\"type\":\"AND\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"a748d6fb-c0d1-468b-a726-f61932ea1eb0\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "66abd4de-5d8f-4e83-87b3-97104511287a",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "c71dbb2f-7c41-403e-b415-aec3804a4755",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "13ceb401-ebe2-415b-8796-9ce00bab5953",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "774c7705-d563-481b-a369-5f71cf94ab0f",
+    "componentKey": "applicantTerminar2",
+    "effects": [
+      {
+        "id": "1873097c-ff65-4fc8-9f4d-7ca1fdc06723",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"31a2e6f7-6522-4e6c-abc9-dca7363e63d6\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "c2310466-9b74-4bf3-b174-dddedb5adefb",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "d48c0580-a68e-4469-9b66-eabd52bfaaf7",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "faa3b3bf-f171-4b70-863a-b8a64f4caef0",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f5292e50-0957-452a-8b65-ac29d5ecace1",
+    "componentKey": "applicantContent2",
+    "effects": [
+      {
+        "id": "4760aad4-a0f5-4557-a3fd-0c01626fedfc",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"bbc34872-04f5-4e88-9a85-c3de8af48f46\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "bd77dc8c-a468-45d2-a3cc-ad23a0a0b356",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "dbc0b651-1ecd-4c31-8e33-b0558f94a0f2",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "bd7f6093-86b4-4de6-b07c-6ad736f9a475",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cfb735ce-9bd1-40d8-a6b7-faf162d87df7",
+    "componentKey": "applicantBlock20",
+    "effects": [
+      {
+        "id": "fa28a13f-b3e2-49db-b73b-b3501746691c",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[]}]",
+        "propertyEffects": [
+          {
+            "id": "2f80179a-85a9-42f7-8cf7-0dbc057aeb4c",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "d7ff16c3-c53b-47d2-8a18-a1f7dc2f3d77",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "de550cd0-999c-439b-af55-449ed1bf8748",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "448beb4f-86ce-43f7-998d-68c26ee1ec6d",
+    "componentKey": "applicantExpirado",
+    "effects": [
+      {
+        "id": "f2271f0a-38fd-4974-90e4-ee80b1a17097",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"2b43313a-d175-4c4f-ae81-077d7e4002c0\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "a291c535-6e2c-4714-a76b-d44e05704abe",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "270dc552-a6ef-4ca9-8b3b-029702a1bf5d",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "64c223d3-f69a-4259-bf3d-bb95d1b057f3",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "14ab67a1-f673-428f-90e9-d86a3c9450b8",
+    "componentKey": "applicantAcreditacionesConMultiplesEmpresas",
+    "effects": [
+      {
+        "id": "c1adfc7a-9e78-43cc-ac04-b78ceec2d141",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"b7cf470b-f4df-4a6e-bc1d-9073aed59af5\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "fc58bae6-f395-474e-8dec-fa1406682f1a",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "bdaa6692-3ea1-43e2-a0ff-a097a783bbb4",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "486bf4c9-5aa0-4634-8c42-4f5d53e7306e",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ad2d4124-ab4b-4cd3-8657-ea8ce5d47bbd",
+    "componentKey": "applicantExpiradoZoo",
+    "effects": [
+      {
+        "id": "b3db6275-775f-483e-8eb5-f86f1d088386",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"2b43313a-d175-4c4f-ae81-077d7e4002c0\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "60393b36-7074-4ab6-aa99-1f2769586bbc",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "cafa443e-eec4-4d30-af60-a6d2a23018e5",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "4046af16-83ba-439b-b063-9aad3cd689a5",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7a1457ec-9526-44ef-8e8c-03767fe87945",
+    "componentKey": "applicantExpiradoSanitario",
+    "effects": [
+      {
+        "id": "f41a9176-6ade-4029-9a2e-d2753a5e0934",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"2b43313a-d175-4c4f-ae81-077d7e4002c0\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "80f660b8-8af3-47fb-ab54-7195e8e26b57",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "a9e2a359-9ba6-4ebc-8c7e-5394692f0649",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "c44c5e07-139e-4b97-9066-35e725d31de9",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "476c224d-0402-41f4-a201-b0625c4e8d14",
+    "componentKey": "applicantExpirado2",
+    "effects": [
+      {
+        "id": "7833449e-09b7-4dbe-82bd-2b904e30110c",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"2b43313a-d175-4c4f-ae81-077d7e4002c0\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "44b0357d-40cf-4ae9-9288-4f7c387db04e",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "5f000416-40e8-4175-8d45-7038ffc23045",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "a62615ef-1a54-499b-9107-cb86c9b14c59",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b7afe489-9d1b-4506-8c8f-1e7af7db5aa0",
+    "componentKey": "applicantExpiradoSustancias",
+    "effects": [
+      {
+        "id": "4db6488b-9088-447e-b4d0-51a30d442093",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"2b43313a-d175-4c4f-ae81-077d7e4002c0\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "0a599c62-0938-4aa1-9579-f25475f58599",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "26059735-0530-4048-bccd-5eec06c4dc82",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "c8be2f77-bf9f-415d-acb0-07ff381bd142",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f2394e29-5867-4ca7-8969-b88b07c872ad",
+    "componentKey": "applicantExpiradoFito",
+    "effects": [
+      {
+        "id": "c7159545-f516-486a-831d-0063d33d5ba1",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"7165fc7c-ac6a-402e-9c89-0802ac727a67\"}]}]",
+        "propertyEffects": [
+          {
+            "id": "28262023-3534-4e31-bf9c-f2e8e896def6",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          },
+          {
+            "id": "02a1c4c6-a9c8-4960-ad47-b652c7fb7133",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "a67ea951-b23a-4882-9159-4c6527739e39",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9257964b-782c-46b7-945f-acabcf0efaa2",
+    "componentKey": "dataGrid",
+    "effects": [
+      {
+        "id": "7284c7ce-f9b5-4df0-876b-2d4d074b5ed1",
+        "sortOrderNumber": 0,
+        "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[]}]",
+        "propertyEffects": [
+          {
+            "id": "c1884940-a011-4a2e-8ec9-581c21557cec",
+            "name": "activate",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "0d420bd5-35a7-4baa-9ffb-dbf7eabda3e1",
+            "name": "show",
+            "type": "boolean",
+            "value": "true"
+          },
+          {
+            "id": "d077bc6c-8463-407f-9957-0c81319236df",
+            "name": "disabled",
+            "type": "boolean",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  }
+]

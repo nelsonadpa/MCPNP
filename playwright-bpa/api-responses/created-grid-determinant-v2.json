@@ -1,0 +1,29 @@
+{
+  "id": "ae522e53-04da-4be9-a32b-407567bb6f57",
+  "name": "CertAprobacion fecha < hoy v2",
+  "usages": [],
+  "determinantType": "FORMFIELD",
+  "serviceId": "ffe746aac09241078bad48c9b95cdfe0",
+  "targetFormFieldKey": "applicantEditGridCertAprobacion",
+  "generated": false,
+  "determinantInsideGrid": true,
+  "businessKey": "MyAccountPageCertAprobacionfecha<hoyv2",
+  "rowDeterminant": {
+    "type": "date",
+    "id": "f40e6d16-e038-4a03-a540-daafd9cd2fba",
+    "name": "Row determinant in CertAprobacion fecha < hoy v2",
+    "usages": [],
+    "determinantType": "FORMFIELD",
+    "serviceId": "ffe746aac09241078bad48c9b95cdfe0",
+    "targetFormFieldKey": "applicantEditGridCertAprobacion_collection_applicantFechaCertAprobacion",
+    "generated": false,
+    "determinantInsideGrid": false,
+    "businessKey": "MyAccountPageRowdeterminantinCertAprobacionfecha<hoyv2",
+    "operator": "LESS_THAN",
+    "isCurrentDate": true,
+    "operatorStringValue": "LESS_THAN",
+    "valueIsNullOrEmpty": true
+  },
+  "type": "grid",
+  "valueIsNullOrEmpty": true
+}

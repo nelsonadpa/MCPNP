@@ -1,0 +1,31 @@
+{
+  "id": "6c8f9322-1b0c-495f-938d-0d285fa92000",
+  "componentKey": "applicantExpiradoCertAprobacion",
+  "effects": [
+    {
+      "id": "6c0e5f87-4fb5-41f5-9d0d-c4de0e96ff3d",
+      "sortOrderNumber": 0,
+      "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"ae522e53-04da-4be9-a32b-407567bb6f57\"}]}]",
+      "propertyEffects": [
+        {
+          "id": "e7190f0b-e5ef-4aeb-8c31-31efcad9ab56",
+          "name": "show",
+          "type": "boolean",
+          "value": "true"
+        },
+        {
+          "id": "c32717b4-4e72-4f43-a5e6-d2e2c83b7407",
+          "name": "activate",
+          "type": "boolean",
+          "value": "true"
+        },
+        {
+          "id": "22b8bf48-c87a-4eeb-a7cb-d1894d20dcb5",
+          "name": "disabled",
+          "type": "boolean",
+          "value": "false"
+        }
+      ]
+    }
+  ]
+}

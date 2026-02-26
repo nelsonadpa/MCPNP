@@ -1,0 +1,19 @@
+{
+  "id": "cd9c2714-f753-4beb-93ec-2d87004bc660",
+  "componentKey": "applicantBlock12",
+  "effects": [
+    {
+      "id": "836fd33d-28da-430f-b71a-1b58e049a206",
+      "sortOrderNumber": 0,
+      "jsonDeterminants": "[{\"type\":\"OR\",\"items\":[{\"type\":\"OR\",\"determinantId\":\"daf38ab6-2dff-43f8-bfb3-77b15d10303f\"}]}]",
+      "propertyEffects": [
+        {
+          "id": "7625663a-2fbe-4be9-b889-ad9abe90b71b",
+          "name": "activate",
+          "type": "boolean",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

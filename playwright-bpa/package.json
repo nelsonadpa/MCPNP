@@ -1,0 +1,13 @@
+{
+  "name": "playwright-bpa",
+  "version": "1.0.0",
+  "description": "Playwright automation for BPA determinant creation",
+  "scripts": {
+    "explore": "npx playwright test explore-bpa.spec.js --headed",
+    "create-determinant": "npx playwright test create-radio-determinant.spec.js --headed",
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0"
+  }
+}
