@@ -71,3 +71,82 @@ Patterns and mistakes to avoid. Review at session start.
 ### Delete one mapping at a time
 - Never bulk-delete bot mappings — duplicate field labels exist
 - Always verify by field ID (not label) before deleting
+
+---
+
+## PE E2E Mission (2026-02-26)
+
+### Cuba Form Patterns
+
+#### Selectors: use `.formio-component-{key}`, NOT `[ref="{key}"]`
+- Cuba forms use `.formio-component-{key}` class selectors
+- `[ref]` selectors exist but are less reliable
+- Jamaica uses `[ref]` — the two countries differ here
+
+#### Choices.js dropdowns start CLOSED in Cuba
+- Must click `.choices` wrapper first, then search input appears
+- Jamaica dropdowns start open — don't assume same behavior across countries
+
+#### `form.onChange()` CRASHES the page — never call it
+- Only use `checkConditions()` for re-evaluation after setting values programmatically
+
+#### `form.rebuild()` destroys state — never call it
+- Causes loss of filled data and component state
+
+#### Enter key fallback for dropdowns
+- When dropdown items are outside viewport, `click({ force: true })` fails silently
+- Use `searchInput.press('Enter')` to select the highlighted item instead
+
+#### Submit detection in Cuba
+- Cuba redirects to `/` on success — there is no `.alert-success` banner
+- Detect successful submission via URL change + "Pendiente" text on the dashboard
+
+### Modification Flow
+
+#### Tab 2 uses different field keys than Tab 1
+- PE Modificar Tab 2 uses suffixed keys: `Operacion2`, `RegimenEspecial3`, `DataGridNuevonuevo4`, `Seccion4`, etc.
+- Completely different from PE Nuevo keys — always verify with `form_get`
+
+#### Disabled fields with synthetic data
+- Without a real approved permit, some Tab 2 fields are disabled (`Operacion2`, `Contrato`, `Factura`)
+- Always check `isFieldEnabled()` before `fillText()` to avoid test failures
+
+#### `is_submit_allowed` differs per operation type
+- `false` for PE Nuevo, `true` for PE Modificar
+- Sysadmin role bypasses both — tests using sysadmin won't catch this difference
+
+#### INTERNO bots live in Bitacora and never fire on direct navigation
+- Navigating to `/services/{id}` does not trigger INTERNO bots
+- E2E tests must set hidden fields manually instead of relying on bot execution
+
+### Graylog / Observability
+
+#### Graylog 500 errors with special characters
+- Queries containing `Bitácora` (accented á) or wildcards like `actionName:*PE*` fail with 500
+- Use exact matches or `serviceId` filters to avoid this
+
+#### MINCEX XLS activation race condition
+- First Mule flow sends empty data and fails
+- Retry with full data succeeds — known issue, does not block workflow
+
+#### 36K+ logs/day is normal baseline for Cuba
+- Zero errors in 24h is healthy — don't alarm on volume alone
+
+### Testing Patterns
+
+#### Wait 10+ seconds after form navigation
+- Cuba forms take time to render all components
+- `waitForTimeout(10000)` + `waitForSelector('.formio-form')` is the proven pattern
+- Shorter waits cause flaky tests
+
+#### DataGrid may have default rows
+- Always check `existingRows` count before clicking "Agregar"
+- Blindly adding rows creates duplicates
+
+#### No approved permits for test company
+- LISTAR bot returns `contador=-1`, EditGrid is empty
+- Test modification flow with synthetic permit number — still validates the form structure
+
+#### Select values are objects, not plain strings
+- Format: `{ key: "Importar", value: "Importación" }`
+- Search for the display text (value), not the key

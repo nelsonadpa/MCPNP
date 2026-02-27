@@ -10,15 +10,22 @@
 ## Servicios Destino (conectados a Bitacora)
 
 ### Permisos (Block22)
-| # | Servicio | Service ID | StatusBitacora | Expirado |
-|---|----------|-----------|----------------|----------|
-| 1 | Permiso Eventual (PE) | `2c918084887c7a8f01887c99ed2a6fd5` | Parcial | Correcto |
+| # | Servicio | Service ID | StatusBitacora | Expirado | E2E |
+|---|----------|-----------|----------------|----------|-----|
+| 1 | Permiso Eventual (PE) | `2c918084887c7a8f01887c99ed2a6fd5` | Parcial | Correcto | VERIFIED |
 | 2 | Permiso Fitosanitario | `2c91808893792e2b019379310a8003a9` | OK (modelo) | Pendiente link |
 | 3 | Permiso Zoosanitario | `2c91808893792e2b01938d3fd5800ceb` | Bloque incorrecto | Recrear |
 | 4 | Sustancias Controladas | `8393ad98-a16d-4a2d-80d0-23fbbd69b9e7` | Bloque incorrecto | Recrear |
 | 5 | Certificado Sanitario | `2c91808893792e2b0193792f8e170001` | Bloque incorrecto | Recrear |
 | 6 | ONURE Equipos energia | `2c91808893792e2b01944713789f1c89` | Pendiente | Falta EditGrid? |
 | 7 | ONN Instrumentos medicion | `d69e921e-62e2-4b39-9d7e-bc8f6e36a426` | Pendiente | Falta CSS |
+
+#### PE — E2E Verification (2026-02-26)
+- **Status**: VERIFIED — Nuevo and Modificar flows tested and passing
+- **Specs**: `pe-e2e-nuevo.spec.ts` (PASSING, ~2min), `pe-e2e-modificar.spec.ts` (PASSING, ~1.6min)
+- **Bots verified**: UNIDAD DE MEDIDA Leer (healthy), Listar productos (expected failure in bypass mode), MINCEX XLS (known race condition)
+- **Dashboard**: `observer/dashboards/pe-dashboard.md`
+- **Skill**: `countries/cuba/skills/e2e-service-test/SKILL.md`
 
 ### Registros (Block4)
 | # | Servicio | Service ID | StatusBitacora | Expirado |

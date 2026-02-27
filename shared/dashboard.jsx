@@ -1,6 +1,6 @@
 /* ============================================================
    eRegistrations Agent Hub Dashboard
-   Real filesystem scan data - 2026-02-24
+   Real filesystem scan data - 2026-02-26
    ============================================================ */
 
 function AgentDashboard() {
@@ -44,6 +44,7 @@ function AgentDashboard() {
     manual: "#a78bfa",
     config: "#fb923c",
     orchestrator: "#f472b6",
+    observer: "#10b981",
     nelson: "#22c55e",
     critical: "#ef4444",
     high: "#f59e0b",
@@ -155,6 +156,34 @@ function AgentDashboard() {
       ],
       currentTask:
         "M-001 StatusBitacora: 1/18 OK, 8 cleanup, 9 pending",
+    },
+    {
+      name: "Observer Agent",
+      alias: "Tracker",
+      dir: "observer/",
+      color: COLORS.observer,
+      letter: "G",
+      maturity: 90,
+      claudeMd: true,
+      settings: true,
+      settingsLines: 37,
+      skills: [
+        "service-health-check.md",
+        "trace-dossier.md",
+        "bot-failure-report.md",
+        "correlate-test-logs.md",
+      ],
+      rules: ["evidence-first.md", "query-patterns.md"],
+      hooks: ["SessionStart"],
+      profile: "observer-agent.md",
+      hasProfile: true,
+      testSpecs: [],
+      mcpServers: [
+        { name: "mcp-graylog", access: "read-only", tools: 11 },
+        { name: "BPA-cuba", access: "read-only", tools: 17 },
+      ],
+      currentTask:
+        "PE dashboard live, bot health monitoring, 36K+ logs/day baseline",
     },
     {
       name: "Orchestrator",
@@ -359,15 +388,28 @@ function AgentDashboard() {
     { name: "config-agent.md", section: "shared/profiles/" },
     { name: "manual-agent.md", section: "shared/profiles/" },
     { name: "test-agent.md", section: "shared/profiles/" },
+    { name: "observer-agent.md", section: "shared/profiles/" },
     { name: "USER-GUIDE.md", section: "(root)" },
   ];
 
   // ── Decisions ──────────────────────────────────────────────
   var decisions = [
     {
+      date: "2026-02-26",
+      what: "Observer Agent (Tracker) fully operational + PE E2E complete",
+      why: "5th agent for Graylog monitoring, bot traceability, and log-driven debugging",
+      impact: "5-agent hub: config, manual, test, observer + orchestrator. PE E2E nuevo+modificar passing.",
+    },
+    {
+      date: "2026-02-25",
+      what: "Reorganized to countries/ structure + Jamaica onboarded",
+      why: "Multi-country support: Cuba + Jamaica with isolated data per country",
+      impact: "countries/cuba/ and countries/jamaica/ with independent knowledge, missions, testing",
+    },
+    {
       date: "2026-02-22",
       what: "Created launch-all.sh + Launch Agents.command",
-      why: "One-click agent launch for all 3 agents + orchestrator",
+      why: "One-click agent launch for all agents + orchestrator",
       impact: "Operational efficiency, less manual startup",
     },
     {
@@ -407,19 +449,19 @@ function AgentDashboard() {
     {
       step: 2,
       name: "Structure",
-      desc: "CLAUDE.md x4 + shared/",
+      desc: "CLAUDE.md x5 + shared/ + countries/",
       done: true,
     },
     {
       step: 3,
       name: "MCP Config",
-      desc: "settings.json x4",
+      desc: "settings.json x5 + Graylog MCP",
       done: true,
     },
     {
       step: 4,
       name: "Skills",
-      desc: "9 total across agents",
+      desc: "13 total across 5 agents",
       done: true,
     },
     {
@@ -437,60 +479,38 @@ function AgentDashboard() {
     "|-- USER-GUIDE.md\n" +
     "|-- launch-all.sh\n" +
     "|-- .start-agent.sh\n" +
-    "|-- dashboard.html              (double-click to open)\n" +
-    "|-- dashboard.jsx               (React component)\n" +
     "|-- .claude/\n" +
     "|   |-- rules/agent-protocol.md\n" +
     "|   |-- settings.local.json\n" +
-    "|   |-- skills/fix-determinant-effects/\n" +
+    "|-- countries/\n" +
+    "|   |-- cuba/\n" +
+    "|   |   |-- knowledge/ (SERVICES-MAP, CHANGELOG, guides)\n" +
+    "|   |   |-- missions/MISSIONS.md (M-001..M-005)\n" +
+    "|   |   |-- testing/ (specs, pages, helpers)\n" +
+    "|   |   |-- skills/ (fix-determinant-effects, e2e-service-test)\n" +
+    "|   |   |-- analysis/ sitreps/\n" +
+    "|   |-- jamaica/\n" +
+    "|       |-- knowledge/ (SERVICES-MAP, CHANGELOG)\n" +
+    "|       |-- missions/MISSIONS.md (M-J001..M-J003)\n" +
+    "|       |-- testing/ (specs, pages, helpers)\n" +
     "|-- shared/\n" +
-    "|   |-- MISSIONS.md\n" +
-    "|   |-- COMMUNICATION-PROTOCOL.md\n" +
-    "|   |-- README.md\n" +
-    "|   |-- notify.sh\n" +
-    "|   |-- profiles/\n" +
-    "|   |   |-- config-agent.md\n" +
-    "|   |   |-- manual-agent.md\n" +
-    "|   |   |-- test-agent.md\n" +
-    "|   |-- requests/\n" +
-    "|   |-- responses/\n" +
-    "|   |-- knowledge/\n" +
-    "|   |   |-- CHANGELOG.md\n" +
-    "|   |   |-- SERVICES-MAP.md\n" +
-    "|   |   |-- rosetta-stone.md\n" +
-    "|   |   |-- bpa-rest-api.md\n" +
-    "|   |   |-- statusbitacora-mapping.md\n" +
-    "|   |   |-- guia-replicacion-servicio.md\n" +
-    "|   |   |-- acreditaciones-knowledge-for-tester.md\n" +
-    "|   |   |-- bitacora-knowledge-for-agent.md\n" +
-    "|-- config/\n" +
+    "|   |-- profiles/ (config, manual, test, observer)\n" +
+    "|   |-- requests/ responses/\n" +
+    "|   |-- knowledge/ (symlinks -> countries/cuba/)\n" +
+    "|   |-- dashboard.jsx\n" +
+    "|-- config/   (.claude/skills, .claude/rules)\n" +
+    "|-- manual/   (.claude/skills, .claude/rules)\n" +
+    "|-- testing/  (.claude/skills, .claude/rules)\n" +
+    "|-- observer/\n" +
     "|   |-- CLAUDE.md\n" +
     "|   |-- .claude/\n" +
-    "|       |-- settings.json\n" +
-    "|       |-- skills/ (bot-config, determinant-config,\n" +
-    "|       |           playwright-workaround, service-setup)\n" +
-    "|       |-- rules/ (always-changelog, backup-first,\n" +
-    "|                    shared-protocol)\n" +
-    "|-- manual/\n" +
-    "|   |-- CLAUDE.md\n" +
-    "|   |-- .claude/\n" +
-    "|       |-- settings.json\n" +
-    "|       |-- skills/ (change-detection, documentation)\n" +
-    "|       |-- rules/ (multi-instance, read-only,\n" +
-    "|                    shared-protocol)\n" +
-    "|-- testing/\n" +
-    "|   |-- CLAUDE.md\n" +
-    "|   |-- .claude/\n" +
-    "|   |   |-- settings.json\n" +
-    "|   |   |-- skills/ (page-objects, playwright-e2e)\n" +
-    "|   |   |-- rules/ (shared-protocol, test-patterns)\n" +
-    "|   |-- tests/\n" +
-    "|   |   |-- playwright.config.ts\n" +
-    "|   |   |-- specs/ (acreditaciones, block22-permisos,\n" +
-    "|   |              permisos-eventuales)\n" +
-    "|   |-- prds/\n" +
-    "|       |-- bitacora-deep-PRD.md\n" +
-    "|-- playwright-bpa/ (18 spec.js files, legacy workaround)";
+    "|   |   |-- skills/ (health-check, trace-dossier,\n" +
+    "|   |   |           bot-failure, correlate-logs)\n" +
+    "|   |   |-- rules/ (evidence-first, query-patterns)\n" +
+    "|   |-- dashboards/ (pe-dashboard.md)\n" +
+    "|   |-- reports/ (pe-bot-map, pe-trace)\n" +
+    "|   |-- queries/ (service-queries-template)\n" +
+    "|-- playwright-bpa/ (18 spec.js files, legacy)";
 
   // ── Nelson Capabilities ────────────────────────────────────
   var nelsonBadges = [
@@ -539,6 +559,22 @@ function AgentDashboard() {
       invoke: "/fix-determinant-effects",
       desc: "Create StatusBitacora determinant + effect via REST API workaround",
     },
+    "service-health-check.md": {
+      invoke: "/service-health-check",
+      desc: "Quick health assessment of a service via Graylog log analysis",
+    },
+    "trace-dossier.md": {
+      invoke: "/trace-dossier",
+      desc: "Follow a dossier lifecycle through Graylog logs end-to-end",
+    },
+    "bot-failure-report.md": {
+      invoke: "/bot-failure-report",
+      desc: "Find and diagnose bot failures with log evidence",
+    },
+    "correlate-test-logs.md": {
+      invoke: "/correlate-test-logs",
+      desc: "Match E2E test executions with backend Graylog logs",
+    },
   };
 
   // ── Hook Descriptions ────────────────────────────────────
@@ -560,6 +596,8 @@ function AgentDashboard() {
     "always-changelog.md": "After EVERY MCP write operation, log in CHANGELOG.md",
     "backup-first.md": "Before modifying any component, read current state first",
     "agent-protocol.md": "Global rules: read profiles at start, request/response format",
+    "evidence-first.md": "Every claim must be backed by log evidence with query, fields, counts",
+    "query-patterns.md": "Standard Graylog query patterns for services, bots, errors, users",
   };
 
   // ── Knowledge Descriptions ───────────────────────────────
@@ -578,6 +616,7 @@ function AgentDashboard() {
     "config-agent.md": "Config Agent profile: identity, capabilities, protocol",
     "manual-agent.md": "Manual Agent profile: MCP instances, read-only rule",
     "test-agent.md": "Test Agent profile: Playwright, selectors, verification rule",
+    "observer-agent.md": "Observer Agent profile: Graylog monitoring, log analysis, bot traceability",
     "USER-GUIDE.md": "Complete user guide for the Agent Hub",
   };
 
@@ -978,8 +1017,8 @@ function AgentDashboard() {
       },
       {
         label: "Maturity Avg",
-        value: "94%",
-        sub: "across 4 agents",
+        value: "93%",
+        sub: "across 5 agents",
         color: COLORS.manual,
       },
       {

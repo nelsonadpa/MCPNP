@@ -81,8 +81,13 @@ export async function searchAndSelect(page: Page, componentKey: string, searchTe
       }
 
       if (count > 0) {
-        // Use force:true — dropdown items may be positioned outside the viewport
-        await options.first().click({ force: true });
+        // Try click first; if viewport issue, fall back to Enter key
+        try {
+          await options.first().click({ force: true, timeout: 3000 });
+        } catch {
+          // Dropdown items outside viewport — use Enter to select highlighted option
+          await searchInput.press('Enter');
+        }
         await page.waitForTimeout(500);
         return true;
       }

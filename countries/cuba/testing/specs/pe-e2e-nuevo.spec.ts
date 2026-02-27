@@ -341,12 +341,21 @@ test.describe('PE E2E — Nuevo Permiso Eventual', () => {
       await page.waitForTimeout(10_000);
       await screenshot(page, SCREENSHOT_DIR, '08-after-submit');
 
-      // Check result
-      const success = await page.locator('.alert-success, .toast-success').first().isVisible({ timeout: 15_000 }).catch(() => false);
-      if (success) {
-        console.log('✓✓✓ SUBMISSION SUCCESSFUL!');
+      // Cuba redirects to Bitácora dashboard after successful submission
+      const url = page.url();
+      const redirectedToDashboard = !url.includes('/services/');
+      const hasSolicitudes = await page.locator('text=Mis solicitudes').isVisible({ timeout: 10_000 }).catch(() => false);
+      const hasPendiente = await page.locator('text=Pendiente').first().isVisible({ timeout: 5_000 }).catch(() => false);
+      const hasSuccess = await page.locator('.alert-success, .toast-success').first().isVisible({ timeout: 3_000 }).catch(() => false);
+
+      if (redirectedToDashboard && (hasSolicitudes || hasPendiente)) {
+        console.log('✓✓✓ SUBMISSION SUCCESSFUL! Redirected to Bitácora dashboard.');
+        if (hasPendiente) console.log('✓ Solicitud status: Pendiente');
+      } else if (hasSuccess) {
+        console.log('✓✓✓ SUBMISSION SUCCESSFUL! (success message detected)');
       } else {
         console.log('Submission result unclear — check screenshot');
+        console.log('URL:', url, '| Solicitudes:', hasSolicitudes, '| Pendiente:', hasPendiente);
       }
     } else {
       console.log('Cannot submit yet — dumping form state...');
