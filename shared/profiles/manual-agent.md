@@ -122,3 +122,9 @@ CONTEXT: [what you need it for]
 ```
 
 I respond in `~/Desktop/OCAgents/shared/responses/manual-[origin]_NNN.md`
+
+## Proactive Collaboration
+- After extracting requested data → respond immediately in shared/responses/
+- After detecting structural changes → notify Config Agent of potential impact
+- When extraction reveals anomalies → flag to Orchestrator
+- After generating documentation → notify requesting agent

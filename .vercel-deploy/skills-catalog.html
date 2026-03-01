@@ -367,7 +367,7 @@
     <div class="stats-bar">
       <div class="stat"><span class="stat-num" style="color:var(--skill)">16</span><span class="stat-label">Skills</span></div>
       <div class="stat"><span class="stat-num" style="color:var(--accent2)">4</span><span class="stat-label">Workflows</span></div>
-      <div class="stat"><span class="stat-num" style="color:var(--command)">3</span><span class="stat-label">Commands</span></div>
+      <div class="stat"><span class="stat-num" style="color:var(--command)">11</span><span class="stat-label">Commands</span></div>
       <div class="stat"><span class="stat-num" style="color:var(--mcp-tool)">2</span><span class="stat-label">MCP Servers</span></div>
     </div>
   </div>
@@ -378,7 +378,7 @@
   <div class="container">
     <ul class="nav-tabs">
       <li class="nav-tab active" data-panel="overview">Overview</li>
-      <li class="nav-tab" data-panel="skills-cat">Skills Catalog <span class="badge">16</span></li>
+      <li class="nav-tab" data-panel="skills-cat">Skills Catalog <span class="badge">24</span></li>
       <li class="nav-tab" data-panel="workflows">Workflows <span class="badge">4</span></li>
       <li class="nav-tab" data-panel="mcp-ref">MCP Reference <span class="badge">120+</span></li>
     </ul>
@@ -720,7 +720,7 @@
       <div class="cat-header">
         <div class="cat-icon" style="background:rgba(239,83,80,0.15);">&#9889;</div>
         <h2>Slash Commands</h2>
-        <span class="cat-count">3 commands</span>
+        <span class="cat-count">11 commands</span>
       </div>
       <p class="cat-intro">Slash commands are invoked directly in Claude Code by typing <code>/command-name</code>. They run a predefined workflow immediately. Think of them as <strong>one-click actions</strong> for the most common tasks.</p>
       <div class="skills-grid">
@@ -749,6 +749,78 @@
           <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-reusable">Reusable</span></div>
           <div class="skill-detail">
             <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>connection_status</code>, <code>debug_scan</code>, <code>debug_group_issues</code>, <code>debug_investigate</code>, <code>debug_plan</code>, <code>auth_login</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command config reusable" data-search="my files block query view delegate user files dossier solicitudes mule service document api button datagrid panel TOBE-17236 email share">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/my-files-block &mdash; Setup: My Files Block</h3><span class="file-path">.claude/commands/my-files-block.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>21-step workflow to add a "My Files" panel to any service. Users can query all their files, view them via direct link, and delegate access by email. Creates 2 bots, a DataGrid, and optional status badge.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-config">Config</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used (30+ calls)</h4><p><code>muleservice_list</code>, <code>bot_create</code>, <code>form_component_add</code>, <code>componentaction_save</code>, <code>bot_input_mapping_save_all</code>, <code>bot_output_mapping_save_all</code>, <code>textdeterminant_create</code>, <code>effect_create</code>, <code>debug_scan</code>, <code>service_publish</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command observer reusable" data-search="service health check graylog logs error rate failed bots monitoring healthy warning critical 24h">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/service-health &mdash; Service Health Check</h3><span class="file-path">.claude/commands/service-health.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Quick 24h health snapshot of any service: log volume, error rate, failed bots, empty payloads, active users. Reports HEALTHY / WARNING / CRITICAL status.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-observer">Observer</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>search_logs</code>, <code>get_error_logs</code>, <code>search_stream_logs</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command observer reusable" data-search="trace dossier lifecycle bot execution chain chronological errors case file expediente solicitud">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/trace-dossier &mdash; Trace Dossier Lifecycle</h3><span class="file-path">.claude/commands/trace-dossier.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Follow a dossier through its complete lifecycle via Graylog logs. Shows the chronological chain of bot executions, errors, and current state.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-observer">Observer</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>search_logs</code>, <code>search_stream_logs</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command observer reusable" data-search="bot failure report diagnostic errors grouped service pattern intermittent consistent empty payload">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/bot-failures &mdash; Bot Failure Report</h3><span class="file-path">.claude/commands/bot-failures.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Find all bot failures across services: groups by bot name and service, counts occurrences, detects intermittent vs consistent patterns. Includes actionable recommendations.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-observer">Observer</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>search_logs</code>, <code>get_error_logs</code>, <code>search_stream_logs</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command manual reusable" data-search="generate docs documentation technical user manual html markdown government officials service structure">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/generate-docs &mdash; Generate Service Documentation</h3><span class="file-path">.claude/commands/generate-docs.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Extracts live service structure via MCP and generates either a user manual (HTML, for government officials) or technical documentation (Markdown, for developers).</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-manual">Manual</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>service_get</code>, <code>form_get</code>, <code>determinant_list</code>, <code>bot_list</code>, <code>role_list</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command manual reusable" data-search="change detection diff compare versions snapshot cross instance audit compliance">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/change-detection &mdash; Compare Service Versions</h3><span class="file-path">.claude/commands/change-detection.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Detect what changed in a service over time or compare across instances. Diffs components, determinants, bots, roles and reports impact on user flows.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-manual">Manual</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>service_get</code>, <code>form_get</code>, <code>determinant_list</code>, <code>bot_list</code>, <code>role_list</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command testing reusable" data-search="e2e test playwright generate run prd spec page object form fill submit choices.js upload">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/e2e-test &mdash; Generate &amp; Run E2E Tests</h3><span class="file-path">.claude/commands/e2e-test.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Complete Playwright E2E pipeline: extract service structure, generate PRD, create Page Object + spec, run until 100% pass. Includes eRegistrations-specific patterns (Choices.js, file uploads, Form.io API).</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-testing">Testing</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>service_get</code>, <code>form_get</code>, <code>determinant_list</code>, <code>bot_list</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command observer reusable" data-search="correlate test logs e2e backend verify match mismatch time window bot execution">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/correlate-logs &mdash; Correlate Tests with Backend Logs</h3><span class="file-path">.claude/commands/correlate-logs.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>After running E2E tests, finds the corresponding Graylog logs within a &plusmn;5 min window. Reconstructs the bot execution chain and reports MATCH or MISMATCH with expected behavior.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-observer">Observer</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>search_logs</code>, <code>search_stream_logs</code></p></div>
           </div>
         </div>
 
@@ -1450,6 +1522,14 @@
     '.claude/commands/check-bpa.md': 'skills/check-bpa.md',
     '.claude/commands/connect-service.md': 'skills/connect-service.md',
     '.claude/commands/debug-service.md': 'skills/debug-service.md',
+    '.claude/commands/my-files-block.md': 'skills/my-files-block.md',
+    '.claude/commands/service-health.md': 'skills/service-health.md',
+    '.claude/commands/trace-dossier.md': 'skills/trace-dossier.md',
+    '.claude/commands/bot-failures.md': 'skills/bot-failures.md',
+    '.claude/commands/generate-docs.md': 'skills/generate-docs.md',
+    '.claude/commands/change-detection.md': 'skills/cmd-change-detection.md',
+    '.claude/commands/e2e-test.md': 'skills/e2e-test.md',
+    '.claude/commands/correlate-logs.md': 'skills/correlate-logs.md',
   };
 
   // Inject download buttons into all skill cards

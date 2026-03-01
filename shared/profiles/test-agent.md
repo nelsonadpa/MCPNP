@@ -79,3 +79,9 @@ Pending for future iterations:
 
 ## How to contact me
 Leave a file in `~/Desktop/OCAgents/shared/requests/[your-agent]→test_NNN.md` or in `shared/responses/`.
+
+## Proactive Collaboration
+- After a test failure → create request to Observer Agent for log analysis
+- After successful test run → notify Config Agent that changes are verified
+- After generating new specs → update CHANGELOG with test coverage info
+- When missing service structure → request from Manual Agent before generating tests

@@ -1,0 +1,1269 @@
+{
+  "metadata": {
+    "phase": 1,
+    "generatedAt": "2026-02-27T09:08:15.887Z",
+    "totalEntries": 137,
+    "summary": {
+      "totalEntries": 137,
+      "fields": 82,
+      "buttons": 3,
+      "screenshots": 21,
+      "errors": 0,
+      "tabs": [
+        "Project overview",
+        "Developer",
+        "Master plan",
+        "Business plan",
+        "Compliance",
+        "Payment",
+        "Send"
+      ]
+    }
+  },
+  "entries": [
+    {
+      "type": "state_change",
+      "timestamp": "2026-02-27T09:02:20.436Z",
+      "description": "Dashboard loaded",
+      "before": "navigating",
+      "after": "dashboard"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:02:20.528Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S01-dashboard.png",
+      "description": "dashboard",
+      "phase": 1,
+      "step": 1
+    },
+    {
+      "type": "state_change",
+      "timestamp": "2026-02-27T09:02:26.381Z",
+      "description": "Application created",
+      "before": "dashboard",
+      "after": "file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:02:26.382Z",
+      "description": "Switched to tab: Project overview",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Project overview"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:02:28.884Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S02-project-overview-empty.png",
+      "description": "project-overview-empty",
+      "phase": 1,
+      "step": 2
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:29.409Z",
+      "key": "applicantProposedNameOfZone",
+      "label": "Proposed name of zone",
+      "value": "TEST-SEZ Kingston Innovation Park",
+      "fieldType": "text",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:30.004Z",
+      "key": "applicantMultiOrSingleOccupant",
+      "label": "Zone type",
+      "value": "Multi-occupant",
+      "fieldType": "radio",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:30.620Z",
+      "key": "applicantMultiOrSingleOccupant2",
+      "label": "Zone focus",
+      "value": "Multi-purpose",
+      "fieldType": "radio",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:35.918Z",
+      "key": "applicantCity3",
+      "label": "Parish",
+      "value": "Kingston",
+      "fieldType": "select",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:36.435Z",
+      "key": "applicantAddress3",
+      "label": "Address",
+      "value": "123 Test Industrial Road, Kingston 15, Jamaica",
+      "fieldType": "text",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:37.084Z",
+      "key": "applicantTotalLandArea3",
+      "label": "Total land area",
+      "value": "50000",
+      "fieldType": "number",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:42.131Z",
+      "key": "applicantUnit3",
+      "label": "Unit",
+      "value": "Square",
+      "fieldType": "select",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:42.393Z",
+      "key": "applicantParcelsDescriptionGrid",
+      "label": "Parcel description",
+      "value": "Parcel A - Main Site",
+      "fieldType": "editgrid-text",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:44.112Z",
+      "key": "applicantParcelsDescriptionGrid",
+      "label": "Parcel type",
+      "value": "Private/Held/Ownership",
+      "fieldType": "editgrid-radios",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "button",
+      "timestamp": "2026-02-27T09:02:45.517Z",
+      "text": "Save (parcel row)",
+      "result": "clicked",
+      "tab": "Project overview"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:45.565Z",
+      "key": "applicantAuthorizedActivities",
+      "label": "Authorized activities",
+      "value": "Manufacturing",
+      "fieldType": "select",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:46.072Z",
+      "key": "applicantOtherActivity",
+      "label": "Other activity",
+      "value": "Special Economic Zone Administration",
+      "fieldType": "text",
+      "tab": "Project overview",
+      "section": ""
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:02:50.063Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S03-project-overview-filled.png",
+      "description": "project-overview-filled",
+      "phase": 1,
+      "step": 3
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:02:50.063Z",
+      "description": "Switched to tab: Developer",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:02:53.904Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S04-developer-empty.png",
+      "description": "developer-empty",
+      "phase": 1,
+      "step": 4
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:02:53.904Z",
+      "description": "Switched to section: Company details",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer",
+      "section": "Company details"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:54.427Z",
+      "key": "applicantCompanyName",
+      "label": "Company name",
+      "value": "TEST-SEZ Development Corp Ltd",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Company details"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:02:59.571Z",
+      "key": "applicantCompanyType",
+      "label": "Company type",
+      "value": "Limited",
+      "fieldType": "select",
+      "tab": "Developer",
+      "section": "Company details"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:00.084Z",
+      "key": "applicantTaxRegistrationNumberTrn2",
+      "label": "Registration # at COJ",
+      "value": "TEST-REG-12345",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Company details"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:02.293Z",
+      "key": "applicantTaxRegistrationNumberTrn",
+      "label": "TRN",
+      "value": "123456789",
+      "fieldType": "masked-text",
+      "tab": "Developer",
+      "section": "Company details"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:02.293Z",
+      "description": "Switched to section: Company address",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer",
+      "section": "Company address"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:07.542Z",
+      "key": "applicantCity",
+      "label": "Parish",
+      "value": "Kingston",
+      "fieldType": "select",
+      "tab": "Developer",
+      "section": "Company address"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:08.071Z",
+      "key": "applicantAddress",
+      "label": "Address",
+      "value": "456 Corporate Drive, Kingston 10, Jamaica",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Company address"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:08.696Z",
+      "key": "applicantPhone",
+      "label": "Phone",
+      "value": "+18765550100",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Company address"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:09.299Z",
+      "key": "applicantEmail",
+      "label": "Email",
+      "value": "test-sez@example.com",
+      "fieldType": "email",
+      "tab": "Developer",
+      "section": "Company address"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:09.299Z",
+      "description": "Switched to section: Authorized representative",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer",
+      "section": "Authorized representative"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:09.892Z",
+      "key": "applicantNames",
+      "label": "First name",
+      "value": "John",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Authorized representative"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:10.513Z",
+      "key": "applicantLastName",
+      "label": "Last name",
+      "value": "Testerton",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Authorized representative"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:11.112Z",
+      "key": "applicantPhone2",
+      "label": "Representative phone",
+      "value": "+18765550200",
+      "fieldType": "text",
+      "tab": "Developer",
+      "section": "Authorized representative"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:11.682Z",
+      "key": "applicantEmail2",
+      "label": "Representative email",
+      "value": "john.testerton@example.com",
+      "fieldType": "email",
+      "tab": "Developer",
+      "section": "Authorized representative"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:11.682Z",
+      "description": "Switched to section: Shareholders",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer",
+      "section": "Shareholders"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:12.056Z",
+      "key": "applicantEditGrid",
+      "label": "Shareholder name",
+      "value": "Test Shareholder Holdings Ltd",
+      "fieldType": "editgrid-text",
+      "tab": "Developer",
+      "section": "Shareholders"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:12.431Z",
+      "key": "applicantOfTotalShares",
+      "label": "% of shares",
+      "value": "100",
+      "fieldType": "number",
+      "tab": "Developer",
+      "section": "Shareholders"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:12.789Z",
+      "key": "applicantEditGrid.beneficialOwner",
+      "label": "Beneficial owner",
+      "value": "Yes",
+      "fieldType": "radio",
+      "tab": "Developer",
+      "section": "Shareholders"
+    },
+    {
+      "type": "button",
+      "timestamp": "2026-02-27T09:03:14.198Z",
+      "text": "Save (shareholder row)",
+      "result": "clicked",
+      "tab": "Developer"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:14.198Z",
+      "description": "Switched to section: Ownership structure",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer",
+      "section": "Ownership structure"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:14.742Z",
+      "key": "applicantIsThisAJointVentureSpecialPurposeVehicleOrNonResidentCompany",
+      "label": "Joint venture?",
+      "value": "No",
+      "fieldType": "radio",
+      "tab": "Developer",
+      "section": "Ownership structure"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:15.319Z",
+      "key": "applicantEnterYourPaidUpCapitalAmountInUsd",
+      "label": "Paid-up capital (USD)",
+      "value": "2000000",
+      "fieldType": "number",
+      "tab": "Developer",
+      "section": "Ownership structure"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:15.319Z",
+      "description": "Switched to section: Developer documents",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Developer",
+      "section": "Developer documents"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:19.266Z",
+      "key": "applicantCertificateOfIncorporation",
+      "label": "Certificate of incorporation",
+      "value": "TEST-certificate-of-incorporation.pdf",
+      "fieldType": "file",
+      "tab": "Developer",
+      "section": "Developer documents"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:23.083Z",
+      "key": "applicantArticlesOfIncorporation",
+      "label": "Articles of incorporation",
+      "value": "TEST-articles-of-incorporation.pdf",
+      "fieldType": "file",
+      "tab": "Developer",
+      "section": "Developer documents"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:26.952Z",
+      "key": "applicantTaxComplianceCertificate",
+      "label": "Tax compliance certificate",
+      "value": "TEST-tax-compliance-certificate.pdf",
+      "fieldType": "file",
+      "tab": "Developer",
+      "section": "Developer documents"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:30.791Z",
+      "key": "applicantProofOfIssuedAndPaidUpShareCapitalUs1500000",
+      "label": "Financial statements",
+      "value": "TEST-financial-statements.pdf",
+      "fieldType": "file",
+      "tab": "Developer",
+      "section": "Developer documents"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:03:34.604Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S05-developer-filled.png",
+      "description": "developer-filled",
+      "phase": 1,
+      "step": 5
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:34.605Z",
+      "description": "Switched to tab: Master plan",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:39.014Z",
+      "key": "applicantYesIWillUploadAFinalMasterPlan",
+      "label": "Upload final master plan",
+      "value": "true",
+      "fieldType": "checkbox",
+      "tab": "Master plan",
+      "section": "Developer documents"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:39.618Z",
+      "key": "applicantCheckbox",
+      "label": "Master plan checkbox",
+      "value": "true",
+      "fieldType": "checkbox",
+      "tab": "Master plan",
+      "section": "Developer documents"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:42.733Z",
+      "description": "Switched to section: Hidden required fields",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan",
+      "section": "Hidden required fields"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:42.806Z",
+      "key": "applicantNumberOfPlotsBlocksParcels",
+      "label": "Number of parcels (hidden)",
+      "value": "1",
+      "fieldType": "number",
+      "tab": "Master plan",
+      "section": "Hidden required fields"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:42.806Z",
+      "key": "applicantTotalLandArea",
+      "label": "Total land area (hidden)",
+      "value": "50000",
+      "fieldType": "number",
+      "tab": "Master plan",
+      "section": "Hidden required fields"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:42.806Z",
+      "key": "applicantUnit",
+      "label": "Unit (hidden)",
+      "value": "sqft",
+      "fieldType": "text",
+      "tab": "Master plan",
+      "section": "Hidden required fields"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:42.806Z",
+      "key": "applicantGrading",
+      "label": "Grading required (hidden)",
+      "value": "No",
+      "fieldType": "radio",
+      "tab": "Master plan",
+      "section": "Hidden required fields"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:03:55.016Z",
+      "description": "Switched to section: Master plan uploads",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan",
+      "section": "Master plan uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:03:58.895Z",
+      "key": "masterplan-browse-0",
+      "label": "Concept master plan",
+      "value": "TEST-concept-master-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Master plan uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:02.756Z",
+      "key": "masterplan-browse-1",
+      "label": "Final master plan",
+      "value": "TEST-final-master-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Master plan uploads"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:04:04.665Z",
+      "description": "Switched to section: Land use",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan",
+      "section": "Land use"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:07.598Z",
+      "key": "Land use-browse-0",
+      "label": "Land use plan [0]",
+      "value": "TEST-drainage-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Land use"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:10.446Z",
+      "key": "Land use-browse-1",
+      "label": "Land use plan [1]",
+      "value": "TEST-drainage-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Land use"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:13.308Z",
+      "key": "Land use-browse-2",
+      "label": "Land use plan [2]",
+      "value": "TEST-drainage-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Land use"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:16.150Z",
+      "key": "Land use-browse-3",
+      "label": "Land use plan [3]",
+      "value": "TEST-drainage-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Land use"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:04:18.035Z",
+      "description": "Switched to section: Infrastructure",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan",
+      "section": "Infrastructure"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:20.875Z",
+      "key": "Infrastructure-browse-0",
+      "label": "Infrastructure layout [0]",
+      "value": "TEST-infrastructure-layout.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Infrastructure"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:23.760Z",
+      "key": "Infrastructure-browse-1",
+      "label": "Infrastructure layout [1]",
+      "value": "TEST-infrastructure-layout.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Infrastructure"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:04:25.649Z",
+      "description": "Switched to section: External connectivity",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan",
+      "section": "External connectivity"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:28.536Z",
+      "key": "External connectivity-browse-0",
+      "label": "External connectivity [0]",
+      "value": "TEST-infrastructure-layout.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "External connectivity"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:31.354Z",
+      "key": "External connectivity-browse-1",
+      "label": "External connectivity [1]",
+      "value": "TEST-infrastructure-layout.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "External connectivity"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:04:31.354Z",
+      "description": "Switched to section: Hidden document uploads",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:41.414Z",
+      "key": "browse-6",
+      "label": "Certificate of title",
+      "value": "TEST-certificate-of-title.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:45.441Z",
+      "key": "browse-7",
+      "label": "Landlord's affidavit",
+      "value": "TEST-landlords-affidavit.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:49.666Z",
+      "key": "browse-8",
+      "label": "Affidavit no land dispute",
+      "value": "TEST-affidavit-no-land-dispute.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:53.593Z",
+      "key": "browse-9",
+      "label": "Parcel layout plan",
+      "value": "TEST-site-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:04:57.808Z",
+      "key": "browse-10",
+      "label": "Surveyor's technical description",
+      "value": "TEST-survey-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:02.567Z",
+      "key": "browse-11",
+      "label": "Surveyor's sketch",
+      "value": "TEST-survey-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:09.004Z",
+      "key": "browse-12",
+      "label": "Land use map",
+      "value": "TEST-drainage-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:12.971Z",
+      "key": "browse-13",
+      "label": "Land use schedule",
+      "value": "TEST-drainage-plan.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:16.934Z",
+      "key": "browse-14",
+      "label": "Zoning plan",
+      "value": "TEST-building-plans.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:20.775Z",
+      "key": "browse-15",
+      "label": "Density & building parameters",
+      "value": "TEST-building-plans.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:24.717Z",
+      "key": "browse-16",
+      "label": "Infrastructure layout",
+      "value": "TEST-infrastructure-layout.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:28.599Z",
+      "key": "browse-17",
+      "label": "Transport connectivity",
+      "value": "TEST-infrastructure-layout.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:32.511Z",
+      "key": "browse-18",
+      "label": "Early-stage plans",
+      "value": "TEST-building-plans.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:36.455Z",
+      "key": "browse-19",
+      "label": "Technical drawings",
+      "value": "TEST-building-plans.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:40.329Z",
+      "key": "browse-20",
+      "label": "Visual renderings",
+      "value": "TEST-building-plans.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:44.187Z",
+      "key": "browse-21",
+      "label": "Site context",
+      "value": "TEST-environmental-assessment.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:48.024Z",
+      "key": "browse-22",
+      "label": "Existing approvals",
+      "value": "TEST-building-plans.pdf",
+      "fieldType": "file",
+      "tab": "Master plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:05:52.145Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S06-master-plan-filled.png",
+      "description": "master-plan-filled",
+      "phase": 1,
+      "step": 6
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:05:52.146Z",
+      "description": "Switched to tab: Business plan",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Business plan"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:05:56.009Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S07-business-plan-empty.png",
+      "description": "business-plan-empty",
+      "phase": 1,
+      "step": 7
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:05:59.846Z",
+      "key": "generic-browse",
+      "label": "Business plan document",
+      "value": "TEST-business-plan.pdf",
+      "fieldType": "file",
+      "tab": "Business plan",
+      "section": "Hidden document uploads"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:06:05.539Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S08-business-plan-filled.png",
+      "description": "business-plan-filled",
+      "phase": 1,
+      "step": 8
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:06:05.540Z",
+      "description": "Switched to tab: Compliance",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:06:09.187Z",
+      "description": "Switched to section: Ownership & financial integrity",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance",
+      "section": "Ownership & financial integrity"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:06:10.536Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S09-compliance-ownership-empty.png",
+      "description": "compliance-ownership-empty",
+      "phase": 1,
+      "step": 9
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:10.876Z",
+      "key": "applicantIsTheProjectBeingFinanced",
+      "label": "Financial source",
+      "value": "checked",
+      "fieldType": "checkbox",
+      "tab": "Compliance",
+      "section": "Ownership & financial integrity"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:11.238Z",
+      "key": "applicantProvideAShortDescription",
+      "label": "Funding description",
+      "value": "equity + bank financing",
+      "fieldType": "textarea",
+      "tab": "Compliance",
+      "section": "Ownership & financial integrity"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:24.705Z",
+      "key": "compliance-radios",
+      "label": "Compliance radio answers",
+      "value": "15 \"No\" clicked",
+      "fieldType": "radio",
+      "tab": "Compliance",
+      "section": "Ownership & financial integrity"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:28.597Z",
+      "key": "generic-browse",
+      "label": "Due diligence report",
+      "value": "TEST-due-diligence-report.pdf",
+      "fieldType": "file",
+      "tab": "Compliance",
+      "section": "Ownership & financial integrity"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:06:32.276Z",
+      "description": "Switched to section: Health & Safety",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance",
+      "section": "Health & Safety"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:06:34.949Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S10-compliance-health-safety.png",
+      "description": "compliance-health-safety",
+      "phase": 1,
+      "step": 10
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:38.903Z",
+      "key": "generic-browse",
+      "label": "Health & Safety plan",
+      "value": "TEST-health-safety-plan.pdf",
+      "fieldType": "file",
+      "tab": "Compliance",
+      "section": "Health & Safety"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:38.952Z",
+      "key": "health-safety-survey",
+      "label": "H&S survey",
+      "value": "0 yes",
+      "fieldType": "survey",
+      "tab": "Compliance",
+      "section": "Health & Safety"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:06:42.384Z",
+      "description": "Switched to section: Disaster mitigation & Recovery",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance",
+      "section": "Disaster mitigation & Recovery"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:06:45.028Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S11-compliance-disaster.png",
+      "description": "compliance-disaster",
+      "phase": 1,
+      "step": 11
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:48.886Z",
+      "key": "generic-browse",
+      "label": "Disaster mitigation plan",
+      "value": "TEST-disaster-mitigation-plan.pdf",
+      "fieldType": "file",
+      "tab": "Compliance",
+      "section": "Disaster mitigation & Recovery"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:06:56.740Z",
+      "key": "disaster-survey",
+      "label": "DM survey",
+      "value": "11 yes",
+      "fieldType": "survey",
+      "tab": "Compliance",
+      "section": "Disaster mitigation & Recovery"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:00.140Z",
+      "description": "Switched to section: Security plan",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance",
+      "section": "Security plan"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:02.869Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S12-compliance-security.png",
+      "description": "compliance-security",
+      "phase": 1,
+      "step": 12
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:06.717Z",
+      "key": "generic-browse",
+      "label": "Security plan",
+      "value": "TEST-security-plan.pdf",
+      "fieldType": "file",
+      "tab": "Compliance",
+      "section": "Security plan"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:15.881Z",
+      "key": "security-survey",
+      "label": "Security survey",
+      "value": "13 yes",
+      "fieldType": "survey",
+      "tab": "Compliance",
+      "section": "Security plan"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:19.294Z",
+      "description": "Switched to section: Licensing & Permits",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance",
+      "section": "Licensing & Permits"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:21.810Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S13-compliance-licensing.png",
+      "description": "compliance-licensing",
+      "phase": 1,
+      "step": 13
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:21.840Z",
+      "key": "licensing-survey",
+      "label": "Licensing survey",
+      "value": "0 yes",
+      "fieldType": "survey",
+      "tab": "Compliance",
+      "section": "Licensing & Permits"
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:25.224Z",
+      "description": "Switched to section: Customs",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Compliance",
+      "section": "Customs"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:27.849Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S14-compliance-customs.png",
+      "description": "compliance-customs",
+      "phase": 1,
+      "step": 14
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:30.752Z",
+      "key": "customs-survey",
+      "label": "Customs survey",
+      "value": "4 yes",
+      "fieldType": "survey",
+      "tab": "Compliance",
+      "section": "Customs"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:31.267Z",
+      "key": "applicantWillActivitiesIncludeTheHandlingOfExciseGoods",
+      "label": "Excise goods",
+      "value": "No",
+      "fieldType": "radio",
+      "tab": "Compliance",
+      "section": "Customs"
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:35.117Z",
+      "key": "generic-browse",
+      "label": "Customs readiness plan",
+      "value": "TEST-customs-readiness-plan.pdf",
+      "fieldType": "file",
+      "tab": "Compliance",
+      "section": "Customs"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:38.703Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S15-compliance-filled.png",
+      "description": "compliance-filled",
+      "phase": 1,
+      "step": 15
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:38.704Z",
+      "description": "Switched to tab: Payment",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Payment"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:41.117Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S16-payment-empty.png",
+      "description": "payment-empty",
+      "phase": 1,
+      "step": 16
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:44.816Z",
+      "key": "generic-browse",
+      "label": "Proof of payment",
+      "value": "TEST-bank-reference-letter.pdf",
+      "fieldType": "file",
+      "tab": "Payment",
+      "section": "Customs"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:48.219Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S17-payment-filled.png",
+      "description": "payment-filled",
+      "phase": 1,
+      "step": 17
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:48.219Z",
+      "description": "Switched to tab: Send",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Send"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:50.642Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S18-send-tab.png",
+      "description": "send-tab",
+      "phase": 1,
+      "step": 18
+    },
+    {
+      "type": "field",
+      "timestamp": "2026-02-27T09:07:52.146Z",
+      "key": "consents",
+      "label": "Consent checkboxes",
+      "value": "3 checked",
+      "fieldType": "checkbox",
+      "tab": "Send",
+      "section": "Customs"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:52.253Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S19-send-consents-checked.png",
+      "description": "send-consents-checked",
+      "phase": 1,
+      "step": 19
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:52.253Z",
+      "description": "Switched to tab: Validation",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Validation"
+    },
+    {
+      "type": "state_change",
+      "timestamp": "2026-02-27T09:07:57.212Z",
+      "description": "Form validation",
+      "before": "validating",
+      "after": "0 errors"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:07:57.444Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S20-validation-result.png",
+      "description": "validation-result",
+      "phase": 1,
+      "step": 20
+    },
+    {
+      "type": "navigation",
+      "timestamp": "2026-02-27T09:07:57.444Z",
+      "description": "Switched to tab: Submit",
+      "url": "https://jamaica.eregistrations.org/services/d51d6c78-5ead-c948-0b82-0d9bc71cd712?file_id=c4dc63f0-ecdb-4a55-b914-f27ca30bb3aa",
+      "tab": "Submit"
+    },
+    {
+      "type": "button",
+      "timestamp": "2026-02-27T09:08:00.436Z",
+      "text": "Submit application",
+      "result": "clicked",
+      "tab": "Submit"
+    },
+    {
+      "type": "state_change",
+      "timestamp": "2026-02-27T09:08:15.735Z",
+      "description": "Submission attempt",
+      "before": "form",
+      "after": "still on form"
+    },
+    {
+      "type": "screenshot",
+      "timestamp": "2026-02-27T09:08:15.887Z",
+      "path": "/Users/nelsonperez/Desktop/OCAgents/countries/jamaica/02-front-office-tests/screenshots/structured/P1-S21-post-submit.png",
+      "description": "post-submit",
+      "phase": 1,
+      "step": 21
+    }
+  ]
+}

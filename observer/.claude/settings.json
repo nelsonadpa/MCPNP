@@ -52,6 +52,29 @@
       "mcp__BPA-jamaica__effect_delete"
     ]
   },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '--- Session Start: Observer Agent ---' && echo 'Reading profiles...' && cat ~/Desktop/OCAgents/shared/profiles/observer-agent.md 2>/dev/null && echo '=== CHANGELOG (last 50 lines) ===' && tail -50 ~/Desktop/OCAgents/shared/knowledge/CHANGELOG.md 2>/dev/null && echo '=== Pending Requests ===' && ls ~/Desktop/OCAgents/shared/requests/*observer* 2>/dev/null || echo 'No pending requests for observer agent' && echo '=== Notifications ===' && ~/Desktop/OCAgents/shared/notify.sh check observer 2>/dev/null && ~/Desktop/OCAgents/shared/notify.sh clean observer 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATH\" | grep -q 'shared/responses/'; then BASENAME=$(basename \"$CLAUDE_FILE_PATH\" .md); TARGET=$(echo \"$BASENAME\" | sed 's/^[^-]*-//; s/_.*//' | head -c 20); ~/Desktop/OCAgents/shared/notify.sh signal \"$TARGET\" observer \"$BASENAME\" RESPONSE 2>/dev/null; fi"
+          }
+        ]
+      }
+    ]
+  },
   "_comments": {
     "mcp_servers": "Observer Agent uses Graylog (all tools) + BPA-cuba/BPA-jamaica (read-only: service, bot, muleservice info). All write tools are denied.",
     "role": "Observer Agent (Tracker) — Graylog log analysis, bot traceability, service health"

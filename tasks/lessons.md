@@ -150,3 +150,37 @@ Patterns and mistakes to avoid. Review at session start.
 #### Select values are objects, not plain strings
 - Format: `{ key: "Importar", value: "Importación" }`
 - Search for the display text (value), not the key
+
+---
+
+## Fito E2E Discovery (2026-02-28)
+
+### Transport dropdown uses Avión/Barco — NOT standard transport terms
+- "Marítimo", "Aéreo", "Terrestre", "Mar", "Aire" all FAIL
+- Actual options are **"Avión"** and **"Barco"** — discovered by clicking dropdown and dumping items
+- Lesson: always dump dropdown items on first attempt; don't guess from field labels
+
+### EditGrid selects require scrollIntoView before interaction
+- Choices.js inputs inside editgrid rows are "outside of the viewport" after adding a row
+- Must call `scrollIntoViewIfNeeded()` + `scrollIntoView({ block: 'center' })` before searchAndSelect
+- Without this, Playwright times out with "element is outside of the viewport" (29 retries)
+
+### Not all services need QueQuiereHacer
+- PE requires `applicantQueQuiereHacer: 'registrarNuevo'` for form logic
+- Fito has NO QueQuiereHacer field — form shows all blocks without it
+- Don't assume PE patterns apply to other services
+
+### Contact info auto-populates from user account
+- Fito pre-fills ElaboradoPor, Telefono, Email from logged-in user
+- PE does NOT pre-fill these — behavior varies per service
+- Test should verify auto-fill is present, not blindly overwrite
+
+### Some forms show main block immediately (no hidden field dependency)
+- PE: Block8 only appears after StatusBitacora is set
+- Fito: Block12 is visible immediately on form load
+- Hidden fields still help (company panel renders) but aren't blocking
+
+### Auth state expires frequently — always check first
+- Auth state files become stale after ~24h
+- First test failure on "Mis empresas" timeout → check screenshot → if login page, re-auth
+- Add auth check to test pipeline startup

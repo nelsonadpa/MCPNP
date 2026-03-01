@@ -44,3 +44,9 @@ I configure the eRegistrations/VUCE Cuba platform at the backend/admin level. I 
 
 ## How to contact me
 Leave a file in `~/Desktop/OCAgents/shared/requests/[your-agent]→config_NNN.md`
+
+## Proactive Collaboration
+- After modifying a service → create request to Test Agent for E2E validation
+- After creating new bots/effects → log in CHANGELOG + request test verification
+- After completing a fix → notify Orchestrator with summary
+- When a fix requires Manual Agent data → send request immediately, don't wait

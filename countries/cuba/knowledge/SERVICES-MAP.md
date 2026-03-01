@@ -13,7 +13,7 @@
 | # | Servicio | Service ID | StatusBitacora | Expirado | E2E |
 |---|----------|-----------|----------------|----------|-----|
 | 1 | Permiso Eventual (PE) | `2c918084887c7a8f01887c99ed2a6fd5` | Parcial | Correcto | VERIFIED |
-| 2 | Permiso Fitosanitario | `2c91808893792e2b019379310a8003a9` | OK (modelo) | Pendiente link |
+| 2 | Permiso Fitosanitario | `2c91808893792e2b019379310a8003a9` | OK (modelo) | Pendiente link | PASSING (nuevo) |
 | 3 | Permiso Zoosanitario | `2c91808893792e2b01938d3fd5800ceb` | Bloque incorrecto | Recrear |
 | 4 | Sustancias Controladas | `8393ad98-a16d-4a2d-80d0-23fbbd69b9e7` | Bloque incorrecto | Recrear |
 | 5 | Certificado Sanitario | `2c91808893792e2b0193792f8e170001` | Bloque incorrecto | Recrear |

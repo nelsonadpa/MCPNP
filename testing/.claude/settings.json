@@ -57,6 +57,15 @@
             "command": "if echo \"$CLAUDE_FILE_PATH\" | grep -q 'shared/responses/'; then BASENAME=$(basename \"$CLAUDE_FILE_PATH\" .md); TARGET=$(echo \"$BASENAME\" | sed 's/^[^-]*-//; s/_.*//' | head -c 20); ~/Desktop/OCAgents/shared/notify.sh signal \"$TARGET\" test \"$BASENAME\" RESPONSE 2>/dev/null; fi"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'FAILED\\|failed\\|Error:\\|✘\\|FAIL'; then echo \"[$(date '+%Y-%m-%d %H:%M')] Test failure detected — signaling observer for log analysis\" >> ~/Desktop/OCAgents/testing/.test-audit.log; ~/Desktop/OCAgents/shared/notify.sh signal observer test 'Test failure detected — check Graylog for correlated bot errors' TEST_FAILURE 2>/dev/null; fi"
+          }
+        ]
       }
     ]
   },

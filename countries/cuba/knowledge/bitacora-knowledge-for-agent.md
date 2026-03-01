@@ -124,6 +124,37 @@ EditGrid keys: `applicantEditGridHomologacion`, `applicantEditGridCyp`, `applica
 - This is being fixed via REST API (MCP has bugs for radio determinants)
 - The target block varies per service - see `statusbitacora-mapping.md` for full inventory
 
+## Cadena de Trigger: Bot LISTAR (verificada 2026-02-27)
+
+Los bots LISTAR no se disparan directamente desde un botón. La cadena es:
+
+```
+1. Usuario selecciona empresa en applicantEditGridEmpresasAcreditadas
+   → Determinant "EVENT empresa selected" (09be76c6, tipo grid) se activa
+   → (O si solo hay 1 empresa: determinant "Contador acreditadas = 1" (bbc34872) auto-activa)
+
+2. applicantBlock8 se muestra (behaviour: show + activate, lógica OR entre ambos determinants)
+   → Título: "Bots para listar trámites por servicio"
+   → Contiene 14 sub-paneles, uno por servicio
+
+3. Cada sub-panel tiene un panel hijo con componentAction que dispara el bot LISTAR
+   → Ejemplo PE: applicantBlock8 > applicantcolumns7 > applicantBlock
+     - componentActionId: faefcc8a-d7ff-4f98-93cf-3aca95b2aaa5
+     - Bot: b94c62ab "Permiso eventual LISTAR" (tipo data, GDB-PE 1.6)
+   → El panel al renderizarse ejecuta el bot automáticamente
+
+4. Bot consulta GDB con NIT (input: applicantNit5 → query_child_NIT)
+   → Output: applicantEditGrid (filas), applicantContadorPermiso (count),
+     applicantStatusFuncionoElBot ("true"/"false")
+```
+
+### Notas importantes
+- **applicantCambiarEmpresa3** solo hace `goToNextTab` — NO es el trigger del LISTAR
+- **applicantBlock22** tiene registro de acciones pero está VACÍO (actions: [])
+- El trigger real es la **visibilidad de Block8** controlada por determinants de selección de empresa
+- En tests E2E que bypasean Bitácora, los LISTAR nunca se disparan (no hay selección de empresa)
+- En producción vía Bitácora: 459 ejecuciones/7d, 0% error rate (Graylog 2026-02-26)
+
 ## Expirado Badge Pattern
 Each EditGrid in the Bitacora has an "Expirado" badge button that turns red when the permit's expiration date < today. This requires:
 1. A grid+date determinant checking the date column < current date

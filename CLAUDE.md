@@ -63,5 +63,14 @@ When making changes to working code (especially dashboards/UIs), use a minimal-c
 ## BPA / eRegistrations
 When working with BPA MCP mappings, always verify field IDs (not just labels) before creating or deleting mappings. Duplicate field labels exist - use unique field keys. Never bulk-delete mappings; delete one at a time with confirmation.
 
+## Interactive Menus — PROACTIVE
+Always organize work through interactive shell menus. When starting a complex task, multi-step workflow, or new project area, **proactively create or update a menu** so the user can navigate options instead of remembering commands. Don't wait to be asked — if there are 3+ related actions, offer a menu.
+- Format: bash scripts with `read` + `case`, colored output, clear categories
+- Desktop shortcuts: `.command` files for quick Finder access
+- **Main menu**: `menu.sh` — countries, agents, skills, quick actions
+- **Desktop shortcut**: `~/Desktop/OCAgents Menu.command` — double-click to open
+- When adding new features, countries, skills, or workflows → add menu entries
+- When a workflow has multiple steps → propose a submenu
+
 ## Troubleshooting
 If the prompt is too long or context is hitting limits, immediately suggest reducing loaded MCP servers or trimming context. Do not retry the same approach. Current known issue: having 10+ MCP servers configured can cause 'Prompt is too long' errors.

@@ -1,0 +1,2817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Manual — Establish a New Zone | Jamaica Special Economic Zone Authority</title>
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: #f8f9fa;
+            font-size: 16px;
+        }
+
+        /* ========== JAMAICA COLORS ========== */
+        :root {
+            --ja-green: #009B3A;
+            --ja-green-dark: #007a2e;
+            --ja-gold: #FED100;
+            --ja-black: #1a1a1a;
+            --ja-green-light: #e8f5ec;
+            --ja-gold-light: #fff9e0;
+            --accent-blue: #1a73e8;
+            --accent-blue-light: #e8f0fe;
+            --accent-red: #d93025;
+            --accent-red-light: #fce8e6;
+            --border-light: #dde1e6;
+            --bg-white: #ffffff;
+            --text-muted: #5f6368;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.12);
+            --radius: 8px;
+        }
+
+        /* ========== LAYOUT ========== */
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HEADER ========== */
+        .site-header {
+            background: linear-gradient(135deg, var(--ja-green) 0%, var(--ja-green-dark) 100%);
+            color: #fff;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .site-header::after {
+            content: '';
+            display: block;
+            height: 6px;
+            background: var(--ja-gold);
+        }
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 36px;
+        }
+        .header-flag {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+        .header-flag span {
+            display: inline-block;
+            width: 32px;
+            height: 8px;
+            border-radius: 2px;
+        }
+        .flag-black { background: var(--ja-black); }
+        .flag-green { background: var(--ja-green-light); }
+        .flag-gold { background: var(--ja-gold); }
+        .site-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .site-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.92;
+            font-weight: 400;
+        }
+        .site-header .authority {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.25);
+            padding-top: 12px;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin: 32px 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .toc h2 {
+            font-size: 1.2rem;
+            color: var(--ja-green-dark);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--ja-gold);
+        }
+        .toc ol {
+            counter-reset: toc-counter;
+            list-style: none;
+            padding: 0;
+        }
+        .toc > ol > li {
+            counter-increment: toc-counter;
+            margin-bottom: 6px;
+        }
+        .toc > ol > li::before {
+            content: counter(toc-counter) ".";
+            font-weight: 600;
+            color: var(--ja-green);
+            margin-right: 8px;
+            min-width: 24px;
+            display: inline-block;
+        }
+        .toc a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.97rem;
+        }
+        .toc a:hover { text-decoration: underline; }
+        .toc .toc-sub {
+            list-style: none;
+            padding-left: 32px;
+            margin-top: 4px;
+        }
+        .toc .toc-sub li { margin-bottom: 3px; }
+        .toc .toc-sub li::before {
+            content: "-- ";
+            color: var(--text-muted);
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        section h2 {
+            font-size: 1.5rem;
+            color: var(--ja-green-dark);
+            margin-bottom: 8px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--ja-gold);
+        }
+        section h3 {
+            font-size: 1.15rem;
+            color: var(--ja-black);
+            margin: 24px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        section h4 {
+            font-size: 1rem;
+            color: var(--ja-green-dark);
+            margin: 18px 0 8px;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--ja-green);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 10px;
+            flex-shrink: 0;
+            vertical-align: middle;
+        }
+        p, li { margin-bottom: 10px; }
+        ul, ol { padding-left: 24px; }
+
+        /* ========== TABLES ========== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.93rem;
+        }
+        th, td {
+            padding: 10px 14px;
+            border: 1px solid var(--border-light);
+            text-align: left;
+        }
+        th {
+            background: var(--ja-green-light);
+            color: var(--ja-green-dark);
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        tr:nth-child(even) { background: #fafbfc; }
+        .doc-required { color: var(--accent-red); font-weight: 600; }
+        .doc-conditional { color: #b45309; font-weight: 600; }
+        .doc-optional { color: var(--text-muted); }
+
+        /* ========== CALLOUT BOXES ========== */
+        .callout {
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .callout-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .tip {
+            background: var(--ja-green-light);
+            border-left: 4px solid var(--ja-green);
+        }
+        .tip .callout-title { color: var(--ja-green-dark); }
+        .warning {
+            background: var(--ja-gold-light);
+            border-left: 4px solid #b45309;
+        }
+        .warning .callout-title { color: #92400e; }
+        .important {
+            background: var(--accent-red-light);
+            border-left: 4px solid var(--accent-red);
+        }
+        .important .callout-title { color: var(--accent-red); }
+        .info {
+            background: var(--accent-blue-light);
+            border-left: 4px solid var(--accent-blue);
+        }
+        .info .callout-title { color: var(--accent-blue); }
+
+        /* ========== FORM MOCKUP ========== */
+        .form-mockup {
+            border: 1px solid #c4c9d0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: var(--shadow-md);
+            font-size: 0.9rem;
+        }
+        .form-mockup-bar {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        .bar-title { font-weight: 600; color: #fff; }
+        .bar-url { opacity: 0.6; font-family: monospace; font-size: 0.75rem; }
+        .form-mockup-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: #f1f3f5;
+            border-bottom: 2px solid var(--ja-green);
+            padding: 0;
+        }
+        .mtab {
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            cursor: default;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+        .mtab.active {
+            color: var(--ja-green-dark);
+            font-weight: 600;
+            background: #fff;
+            border-bottom: 2px solid var(--ja-green);
+        }
+        .form-mockup-body {
+            background: #fff;
+            padding: 20px;
+        }
+        .mock-section {
+            font-weight: 700;
+            color: var(--ja-green-dark);
+            font-size: 0.95rem;
+            padding: 8px 0 6px;
+            border-bottom: 1px solid var(--ja-gold);
+            margin: 16px 0 12px;
+        }
+        .mock-section:first-child { margin-top: 0; }
+        .mock-field {
+            margin-bottom: 14px;
+        }
+        .mock-field label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+        .mock-field .req { color: var(--accent-red); }
+        .mock-input, .mock-select, .mock-textarea, .mock-upload, .mock-radio-group {
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            background: #fafbfc;
+        }
+        .mock-textarea {
+            min-height: 60px;
+        }
+        .mock-select::after {
+            content: " ▾";
+        }
+        .mock-upload {
+            background: #f0f9f0;
+            border-style: dashed;
+            border-color: var(--ja-green);
+            color: var(--ja-green-dark);
+            text-align: center;
+            padding: 12px;
+        }
+        .mock-radio-group {
+            display: flex;
+            gap: 16px;
+            border: none;
+            padding: 4px 0;
+            background: none;
+        }
+        .mock-radio {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .mock-radio::before {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #9ca3af;
+            flex-shrink: 0;
+        }
+        .mock-editgrid {
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+        .mock-editgrid-header {
+            display: flex;
+            background: var(--ja-green-light);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ja-green-dark);
+        }
+        .mock-editgrid-header span, .mock-editgrid-row span {
+            flex: 1;
+            padding: 6px 10px;
+            border-right: 1px solid #d1d5db;
+        }
+        .mock-editgrid-header span:last-child, .mock-editgrid-row span:last-child {
+            border-right: none;
+        }
+        .mock-editgrid-row {
+            display: flex;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            border-top: 1px solid #e5e7eb;
+        }
+        .mock-editgrid-add {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            border-top: 1px solid #e5e7eb;
+            cursor: default;
+        }
+        .mock-conditional {
+            border-left: 3px solid var(--ja-gold);
+            padding-left: 16px;
+            margin: 12px 0;
+            background: var(--ja-gold-light);
+            border-radius: 0 4px 4px 0;
+            padding: 12px 16px;
+        }
+        .mock-conditional-label {
+            font-size: 0.78rem;
+            color: #92400e;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .mock-subtabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 8px;
+        }
+        .mock-subtab {
+            padding: 4px 12px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background: #f3f4f6;
+            border-radius: 4px 4px 0 0;
+            cursor: default;
+        }
+        .mock-subtab.active {
+            background: var(--ja-green);
+            color: #fff;
+            font-weight: 600;
+        }
+        .mock-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            justify-content: flex-end;
+        }
+        .mock-btn {
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            cursor: default;
+        }
+        .mock-btn-primary { background: var(--ja-green); color: #fff; }
+        .mock-btn-secondary { background: #e5e7eb; color: #374151; }
+        .mock-btn-disabled { background: #e5e7eb; color: #9ca3af; }
+        .mock-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: #374151;
+        }
+        .mock-checkbox::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #9ca3af;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ========== DETAILS / SUMMARY (collapsible) ========== */
+        details {
+            margin: 12px 0;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        details[open] { border-color: var(--ja-green); }
+        summary {
+            padding: 12px 16px;
+            background: #f8f9fa;
+            font-weight: 600;
+            font-size: 0.97rem;
+            cursor: pointer;
+            user-select: none;
+            color: var(--ja-green-dark);
+            list-style: none;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before {
+            content: "+ ";
+            font-weight: 700;
+            color: var(--ja-green);
+            margin-right: 4px;
+        }
+        details[open] > summary::before { content: "- "; }
+        details[open] > summary {
+            border-bottom: 1px solid var(--border-light);
+            background: var(--ja-green-light);
+        }
+        details > .details-content {
+            padding: 16px 20px;
+        }
+
+        /* ========== WORKFLOW ========== */
+        .workflow-phase {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+        .workflow-phase::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 28px;
+            bottom: -20px;
+            width: 2px;
+            background: var(--ja-green);
+        }
+        .workflow-phase:last-child::before { display: none; }
+        .phase-badge {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--ja-green);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .phase-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ja-black);
+            margin-bottom: 4px;
+        }
+        .phase-roles {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== FAQ ========== */
+        .faq-item {
+            margin-bottom: 12px;
+        }
+        .faq-item summary {
+            font-weight: 600;
+            color: var(--ja-black);
+            font-size: 0.95rem;
+        }
+        .faq-item .details-content { font-size: 0.93rem; }
+
+        /* ========== GLOSSARY ========== */
+        .glossary-term {
+            font-weight: 700;
+            color: var(--ja-green-dark);
+        }
+        dl { margin: 12px 0; }
+        dt {
+            font-weight: 700;
+            color: var(--ja-green-dark);
+            margin-top: 12px;
+        }
+        dd {
+            margin-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            text-align: center;
+            padding: 32px 24px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 3px solid var(--ja-gold);
+            margin-top: 40px;
+        }
+
+        /* ========== PRINT ========== */
+        @media print {
+            body { background: #fff; font-size: 11pt; }
+            .site-header { background: none; color: #000; }
+            .site-header::after { background: #000; height: 2px; }
+            .site-header h1 { color: #000; }
+            section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+            .form-mockup { box-shadow: none; page-break-inside: avoid; }
+            .toc { page-break-after: always; }
+            details { border: none; }
+            details[open] { border: 1px solid #ccc; }
+            summary { background: #eee; }
+            .callout { border-left-width: 3px; }
+            a { color: inherit; text-decoration: underline; }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .page-wrapper { padding: 0 12px; }
+            section { padding: 20px 16px; }
+            .header-inner { padding: 24px 16px; }
+            .site-header h1 { font-size: 1.5rem; }
+            .form-mockup-tabs { overflow-x: auto; }
+            .mtab { font-size: 0.72rem; padding: 6px 8px; }
+            table { font-size: 0.82rem; }
+            th, td { padding: 6px 8px; }
+            .mock-editgrid-header, .mock-editgrid-row { flex-wrap: wrap; }
+            .mock-radio-group { flex-direction: column; gap: 6px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HEADER                                                        -->
+<!-- ============================================================ -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="header-flag">
+            <span class="flag-black"></span>
+            <span class="flag-gold"></span>
+            <span class="flag-green"></span>
+            <span class="flag-black"></span>
+            <span class="flag-gold"></span>
+            <span class="flag-green"></span>
+        </div>
+        <h1>Establish a New Zone</h1>
+        <p class="subtitle">Complete User Manual for the Special Economic Zone Developer Application</p>
+        <p class="authority">Jamaica Special Economic Zone Authority (JSEZA) | jamaica.eregistrations.org</p>
+    </div>
+</header>
+
+<div class="page-wrapper">
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS                                             -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#prerequisites">Prerequisites &mdash; What to Gather Before You Start</a></li>
+        <li><a href="#getting-started">Getting Started &mdash; Account &amp; Login</a></li>
+        <li><a href="#step1">Step 1: Project Overview</a></li>
+        <li><a href="#step2">Step 2: Developer Information</a></li>
+        <li>
+            <a href="#step3">Step 3: Master Plan</a>
+            <ul class="toc-sub">
+                <li><a href="#step3-1">3.1 Master Plan Submission</a></li>
+                <li><a href="#step3-2">3.2 Land Information &amp; Layout</a></li>
+                <li><a href="#step3-3">3.3 Land Use &amp; Zoning</a></li>
+                <li><a href="#step3-4">3.4 Infrastructure &amp; External Connectivity</a></li>
+                <li><a href="#step3-5">3.5 Design &amp; Visualizations</a></li>
+                <li><a href="#step3-6">3.6 Site Conditions &amp; Existing Infrastructure</a></li>
+                <li><a href="#step3-7">3.7 Implementation Timeline</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#step4">Step 4: Business Plan</a>
+            <ul class="toc-sub">
+                <li><a href="#step4-1">4.1 Upload Business Plan</a></li>
+                <li><a href="#step4-2">4.2 Viability Indicators</a></li>
+                <li><a href="#step4-3">4.3 Project Benefits</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#step5">Step 5: Compliance</a>
+            <ul class="toc-sub">
+                <li><a href="#step5-1">5.1 Ownership &amp; Financial Integrity</a></li>
+                <li><a href="#step5-2">5.2 Health &amp; Safety</a></li>
+                <li><a href="#step5-3">5.3 Disaster Mitigation &amp; Recovery</a></li>
+                <li><a href="#step5-4">5.4 Security Plan</a></li>
+                <li><a href="#step5-5">5.5 Licensing &amp; Permits</a></li>
+                <li><a href="#step5-6">5.6 Customs</a></li>
+            </ul>
+        </li>
+        <li><a href="#step6">Step 6: Payment</a></li>
+        <li><a href="#step7">Step 7: Review &amp; Submit</a></li>
+        <li><a href="#after-submission">After Submission &mdash; What Happens Next</a></li>
+        <li><a href="#document-checklist">Complete Document Checklist</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+        <li><a href="#glossary">Glossary of Terms</a></li>
+    </ol>
+</nav>
+
+<!-- ============================================================ -->
+<!-- 1. INTRODUCTION                                               -->
+<!-- ============================================================ -->
+<section id="introduction">
+    <h2><span class="step-number">1</span> Introduction</h2>
+    <p>
+        This manual guides you through the online application process for establishing a Special Economic Zone (SEZ) in Jamaica. The service is operated by the <strong>Jamaica Special Economic Zone Authority (JSEZA)</strong> through the eRegistrations platform.
+    </p>
+    <h3>What is this service?</h3>
+    <p>
+        If your company wants to develop a designated area in Jamaica as a Special Economic Zone &mdash; offering manufacturing, logistics, BPO, or other economic activities under special regulatory and fiscal conditions &mdash; this is the application you need to file. Upon approval, you will receive a <strong>Developer License</strong> authorizing you to build and operate the zone.
+    </p>
+    <h3>What will you receive?</h3>
+    <p>A successful application produces <strong>four official outputs</strong>:</p>
+    <ol>
+        <li><strong>Approval from JSEZA</strong> &mdash; The primary authorization for your zone.</li>
+        <li><strong>No-Objection Letter from JCA</strong> (Jamaica Customs Agency) &mdash; Confirming customs compliance.</li>
+        <li><strong>No-Objection Letter from MOFPS</strong> (Ministry of Finance &amp; Public Services) &mdash; Confirming fiscal/financial viability.</li>
+        <li><strong>No-Objection Letter from TAJ</strong> (Tax Administration Jamaica) &mdash; Confirming tax compliance.</li>
+    </ol>
+
+    <h3>Who are the institutions involved?</h3>
+    <table>
+        <thead>
+            <tr><th>Institution</th><th>Full Name</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>JSEZA</strong></td><td>Jamaica Special Economic Zone Authority</td><td>Lead authority. Receives, evaluates, and approves applications. Issues the Developer License.</td></tr>
+            <tr><td><strong>JCA</strong></td><td>Jamaica Customs Agency</td><td>Reviews customs aspects and issues a No-Objection letter.</td></tr>
+            <tr><td><strong>MOFPS</strong></td><td>Ministry of Finance &amp; Public Services</td><td>Reviews fiscal and financial aspects and issues a No-Objection letter.</td></tr>
+            <tr><td><strong>TAJ</strong></td><td>Tax Administration Jamaica</td><td>Reviews tax compliance and issues a No-Objection letter.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>How long does it take?</h3>
+    <p>
+        Processing time varies depending on the completeness of your application and the complexity of your proposal. Once submitted, your application passes through <strong>7 phases</strong> of review (detailed in the <a href="#after-submission">"After Submission"</a> section). A complete, well-prepared application is processed significantly faster than one that requires corrections.
+    </p>
+
+    <div class="callout tip">
+        <div class="callout-title">Tip: Prepare everything before starting</div>
+        The online form is extensive (7 tabs, over 40 document uploads). You can save your progress and return later, but gathering all your documents first will make the process much smoother.
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. PREREQUISITES                                              -->
+<!-- ============================================================ -->
+<section id="prerequisites">
+    <h2><span class="step-number">2</span> Prerequisites &mdash; What to Gather Before You Start</h2>
+    <p>
+        Before you begin filling out the online form, make sure your company meets the eligibility criteria and that you have gathered the necessary documents.
+    </p>
+
+    <h3>Eligibility Requirements</h3>
+    <p>To apply, your company must:</p>
+    <ul>
+        <li>Be a <strong>corporate entity</strong> registered in Jamaica (or with a registered presence in Jamaica).</li>
+        <li>Be <strong>incorporated at the Companies Office of Jamaica (COJ)</strong> with a valid registration number.</li>
+        <li>Hold a valid <strong>Tax Registration Number (TRN)</strong> from Tax Administration Jamaica.</li>
+        <li>Have a minimum <strong>issued and paid-up share capital of USD 1,500,000</strong>. The system will show a warning if you enter a lower amount.</li>
+        <li>Have <strong>lawful access to the proposed site</strong> &mdash; either through ownership, a long-term lease, or a documented process to acquire rights.</li>
+    </ul>
+
+    <div class="callout warning">
+        <div class="callout-title">Warning: Capital threshold</div>
+        If your company's paid-up capital is below USD 1,500,000, you can still fill out the form, but a warning message will appear. Be prepared to address this if your application is questioned.
+    </div>
+
+    <h3>Documents to Prepare</h3>
+    <p>You will need up to <strong>36 documents</strong> depending on your situation. Here are the main categories:</p>
+
+    <table>
+        <thead>
+            <tr><th>Category</th><th>Documents</th><th>Count</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Corporate</td><td>Certificate of incorporation, articles of incorporation, tax compliance certificate, proof of paid-up capital</td><td>4</td></tr>
+            <tr><td>Land &amp; Site</td><td>Certificates of title, lease agreements, affidavits (owner, vendor, landlord, no-dispute), documents for rights process</td><td>Up to 7</td></tr>
+            <tr><td>Master Plan</td><td>Concept/final master plan, land use maps, schedule of areas, infrastructure &amp; utility plans, design plans, technical drawings, renderings, site photos, surveyor reports</td><td>Up to 17</td></tr>
+            <tr><td>Business Plan</td><td>Complete business plan document</td><td>1</td></tr>
+            <tr><td>Compliance</td><td>OH&amp;S plan, disaster plan, security plan, licensing documents, financial integrity documents, excise goods plan (if applicable)</td><td>Up to 6</td></tr>
+            <tr><td>Payment</td><td>Proof of payment of the application fee</td><td>1</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout tip">
+        <div class="callout-title">Tip: File format and size</div>
+        Upload documents as PDF files whenever possible. Keep file sizes reasonable &mdash; if a file is larger than 10 MB, consider compressing it or splitting it into separate uploads. The system may reject very large files.
+    </div>
+
+    <p>A complete checklist with required/conditional status is provided in the <a href="#document-checklist">Document Checklist</a> section at the end of this manual.</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. GETTING STARTED                                            -->
+<!-- ============================================================ -->
+<section id="getting-started">
+    <h2><span class="step-number">3</span> Getting Started &mdash; Account &amp; Login</h2>
+
+    <h3>Creating an Account</h3>
+    <ol>
+        <li>Go to <strong>https://jamaica.eregistrations.org</strong> in your web browser.</li>
+        <li>Click <strong>"Create an account"</strong> on the login page.</li>
+        <li>Enter your name, email address, and choose a password.</li>
+        <li>Check your inbox for a verification email and click the confirmation link.</li>
+        <li>Return to the login page and sign in with your credentials.</li>
+    </ol>
+
+    <h3>Starting a New Application</h3>
+    <ol>
+        <li>After logging in, you will see the list of available services.</li>
+        <li>Find <strong>"Establish a new zone"</strong> and click on it.</li>
+        <li>A new application will be created. You will see the form with <strong>7 tabs</strong> across the top.</li>
+        <li>Work through each tab from left to right. You can navigate between tabs at any time, and your progress is saved automatically.</li>
+    </ol>
+
+    <div class="callout info">
+        <div class="callout-title">Note: Save as you go</div>
+        The system automatically saves your entries as you fill them in. You can close your browser and return later to continue where you left off. Your draft application will be waiting in your dashboard.
+    </div>
+
+    <div class="callout warning">
+        <div class="callout-title">Warning: One application at a time</div>
+        You cannot submit multiple applications for the same zone simultaneously. If you need to start over, contact JSEZA for guidance.
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 1: PROJECT OVERVIEW                                      -->
+<!-- ============================================================ -->
+<section id="step1">
+    <h2><span class="step-number">4</span> Step 1: Project Overview</h2>
+    <p>
+        This first tab captures the big picture of your proposed zone. It has <strong>14 fields</strong> organized into three sections: Zone Identity, Site Location, and Proposed Activities.
+    </p>
+
+    <!-- FORM MOCKUP -->
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab active">Project overview</span>
+            <span class="mtab">Developer</span>
+            <span class="mtab">Master plan</span>
+            <span class="mtab">Business plan</span>
+            <span class="mtab">Compliance</span>
+            <span class="mtab">Payment</span>
+            <span class="mtab">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-section">Zone Identity</div>
+            <div class="mock-field">
+                <label>Proposed name for the zone <span class="req">*</span></label>
+                <div class="mock-input">e.g., Kingston Innovation Park</div>
+            </div>
+            <div class="mock-field">
+                <label>Zone type <span class="req">*</span></label>
+                <div class="mock-radio-group">
+                    <span class="mock-radio">Multi-occupant</span>
+                    <span class="mock-radio">Single-occupant</span>
+                </div>
+            </div>
+            <div class="mock-field">
+                <label>Zone focus <span class="req">*</span></label>
+                <div class="mock-radio-group">
+                    <span class="mock-radio">Multi-purpose</span>
+                    <span class="mock-radio">Single-purpose</span>
+                </div>
+            </div>
+
+            <div class="mock-section">Site Location</div>
+            <div class="mock-field">
+                <label>Parish <span class="req">*</span></label>
+                <div class="mock-select">Type to search parishes... (e.g., Kingston)</div>
+            </div>
+            <div class="mock-field">
+                <label>Address <span class="req">*</span></label>
+                <div class="mock-textarea">Full street address of the proposed site</div>
+            </div>
+            <div class="mock-field">
+                <label>Total land area <span class="req">*</span></label>
+                <div class="mock-input">e.g., 150</div>
+            </div>
+            <div class="mock-field">
+                <label>Unit <span class="req">*</span></label>
+                <div class="mock-select">Acres</div>
+            </div>
+            <div class="mock-field">
+                <label>Total land area in square feet</label>
+                <div class="mock-input" style="background: #f0f0f0; color: #999;">Auto-calculated from above</div>
+            </div>
+
+            <div class="mock-section">Proposed Activities</div>
+            <div class="mock-field">
+                <label>Select activities</label>
+                <div class="mock-select">Manufacturing, Logistics, BPO... (multi-select)</div>
+            </div>
+            <div class="mock-field">
+                <label>Other activities</label>
+                <div class="mock-input">Describe activities not in the catalog</div>
+            </div>
+
+            <div class="mock-buttons">
+                <span class="mock-btn mock-btn-primary">Go to developer &rarr;</span>
+            </div>
+        </div>
+    </div>
+
+    <h3>Field-by-Field Guide</h3>
+
+    <h4>Zone Identity</h4>
+    <table>
+        <thead>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Proposed name</strong></td>
+                <td>Text</td>
+                <td>Yes</td>
+                <td>Enter the name you plan to use for your zone. This will appear on your Developer License. Choose a professional, descriptive name. Example: "Montego Bay Logistics Hub" or "Kingston Innovation Park".</td>
+            </tr>
+            <tr>
+                <td><strong>Zone type</strong></td>
+                <td>Radio buttons</td>
+                <td>Yes</td>
+                <td><strong>Multi-occupant</strong> means the zone will host multiple companies (like an industrial park). <strong>Single-occupant</strong> means one company will use the entire zone. Most large developments are multi-occupant.</td>
+            </tr>
+            <tr>
+                <td><strong>Zone focus</strong></td>
+                <td>Radio buttons</td>
+                <td>Yes</td>
+                <td><strong>Multi-purpose</strong> means the zone will accommodate various types of activities (manufacturing, logistics, services). <strong>Single-purpose</strong> means it is designed for one specific type of activity.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Site Location</h4>
+    <table>
+        <thead>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Parish</strong></td>
+                <td>Search dropdown</td>
+                <td>Yes</td>
+                <td>Start typing the parish name and select from the dropdown. For example, type "King" to find "Kingston" or "St." to see parishes starting with "Saint". Jamaica has 14 parishes.</td>
+            </tr>
+            <tr>
+                <td><strong>Address</strong></td>
+                <td>Textarea</td>
+                <td>Yes</td>
+                <td>Provide the complete street address of the proposed zone site. Include lot numbers, road names, and any other identifying details.</td>
+            </tr>
+            <tr>
+                <td><strong>Total land area</strong></td>
+                <td>Number</td>
+                <td>Yes</td>
+                <td>Enter the numeric value for the total land area. Use whole numbers or decimals. This must match the value in your surveyor's report.</td>
+            </tr>
+            <tr>
+                <td><strong>Unit</strong></td>
+                <td>Search dropdown</td>
+                <td>Yes</td>
+                <td>Choose the measurement unit: Square feet, Acres, or Hectares. The system will auto-calculate the equivalent in square feet.</td>
+            </tr>
+            <tr>
+                <td><strong>Total land area in square feet</strong></td>
+                <td>Number (auto)</td>
+                <td>No</td>
+                <td>This is calculated automatically based on the area and unit you entered. You cannot edit it directly.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Proposed Activities</h4>
+    <table>
+        <thead>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Select activities</strong></td>
+                <td>Multi-select dropdown</td>
+                <td>No</td>
+                <td>Click to open the list and select all activities that apply. Common options include Manufacturing, Logistics, BPO (Business Process Outsourcing), and others. You can select multiple.</td>
+            </tr>
+            <tr>
+                <td><strong>Other activities</strong></td>
+                <td>Text</td>
+                <td>No</td>
+                <td>If your zone will include activities not listed in the catalog, describe them here. Example: "Data center hosting and cloud services".</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout tip">
+        <div class="callout-title">Tip: Parish dropdown</div>
+        The Parish field uses a search-style dropdown. You must start typing letters to see matching options. Simply clicking the field may show an empty list. Type at least two characters (e.g., "Ki" for Kingston, "St" for St. Ann, St. Catherine, etc.).
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 2: DEVELOPER                                             -->
+<!-- ============================================================ -->
+<section id="step2">
+    <h2><span class="step-number">5</span> Step 2: Developer Information</h2>
+    <p>
+        This is the most detailed tab about your company. It has approximately <strong>39 input fields</strong> spread across sections covering Company Information, Authorized Representative, Capital, Parent Company, Shareholders, Joint Ventures, and Land Parcels.
+    </p>
+
+    <!-- FORM MOCKUP -->
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab">Project overview</span>
+            <span class="mtab active">Developer</span>
+            <span class="mtab">Master plan</span>
+            <span class="mtab">Business plan</span>
+            <span class="mtab">Compliance</span>
+            <span class="mtab">Payment</span>
+            <span class="mtab">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-section">Company Information</div>
+            <div class="mock-field">
+                <label>Company name <span class="req">*</span></label>
+                <div class="mock-input">e.g., Kingston Development Corp. Ltd.</div>
+            </div>
+            <div class="mock-field">
+                <label>Company type</label>
+                <div class="mock-select">Local company</div>
+            </div>
+            <div class="mock-field">
+                <label>Registration number at COJ <span class="req">*</span></label>
+                <div class="mock-input">e.g., 123456</div>
+            </div>
+            <div class="mock-field">
+                <label>Registration date</label>
+                <div class="mock-input">DD/MM/YYYY</div>
+            </div>
+            <div class="mock-field">
+                <label>Tax registration number (TRN) <span class="req">*</span></label>
+                <div class="mock-input">e.g., 001-234-567</div>
+            </div>
+            <div class="mock-field">
+                <label>Parish <span class="req">*</span></label>
+                <div class="mock-select">Type to search...</div>
+            </div>
+            <div class="mock-field">
+                <label>Address <span class="req">*</span></label>
+                <div class="mock-textarea">Company's registered address</div>
+            </div>
+            <div class="mock-field">
+                <label>Phone <span class="req">*</span></label>
+                <div class="mock-input">e.g., +1 876 555 1234</div>
+            </div>
+            <div class="mock-field">
+                <label>Email <span class="req">*</span></label>
+                <div class="mock-input">e.g., contact@kingstondev.com.jm</div>
+            </div>
+
+            <div class="mock-section">Authorized Representative</div>
+            <div class="mock-field">
+                <label>First name(s) <span class="req">*</span></label>
+                <div class="mock-input">e.g., Marcus</div>
+            </div>
+            <div class="mock-field">
+                <label>Last name(s) <span class="req">*</span></label>
+                <div class="mock-input">e.g., Williams</div>
+            </div>
+            <div class="mock-field">
+                <label>Phone <span class="req">*</span></label>
+                <div class="mock-input">e.g., +1 876 555 9876</div>
+            </div>
+            <div class="mock-field">
+                <label>Email <span class="req">*</span></label>
+                <div class="mock-input">e.g., m.williams@kingstondev.com.jm</div>
+            </div>
+
+            <div class="mock-section">Capital</div>
+            <div class="mock-field">
+                <label>Issued and paid-up share capital (USD)</label>
+                <div class="mock-input">e.g., 2000000</div>
+            </div>
+
+            <div class="mock-section">Shareholders</div>
+            <div class="mock-editgrid">
+                <div class="mock-editgrid-header">
+                    <span>Name</span>
+                    <span>Nationality</span>
+                    <span>Corporate?</span>
+                    <span>Beneficial owner</span>
+                    <span>% shares</span>
+                </div>
+                <div class="mock-editgrid-row">
+                    <span>Enter name</span>
+                    <span>Select...</span>
+                    <span>Yes / No</span>
+                    <span>Yes / No</span>
+                    <span>e.g., 40</span>
+                </div>
+                <div class="mock-editgrid-add">+ Add another shareholder</div>
+            </div>
+
+            <div class="mock-section">Land Parcels</div>
+            <div class="mock-editgrid">
+                <div class="mock-editgrid-header">
+                    <span>Parcel designation</span>
+                    <span>Land ownership</span>
+                    <span>Rights status</span>
+                    <span>Rights type</span>
+                </div>
+                <div class="mock-editgrid-row">
+                    <span>e.g., Lot 14</span>
+                    <span>Select...</span>
+                    <span>Select...</span>
+                    <span>Select...</span>
+                </div>
+                <div class="mock-editgrid-add">+ Add another parcel</div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Field-by-Field Guide</h3>
+
+    <h4>Company Information</h4>
+    <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Company name</strong></td><td>Text</td><td>Yes</td><td>Enter the exact legal name as registered with the Companies Office of Jamaica (COJ). This must match your certificate of incorporation exactly.</td></tr>
+            <tr><td><strong>Company type</strong></td><td>Dropdown</td><td>No</td><td>Select "Local company" if incorporated in Jamaica, "External company" if registered abroad with a Jamaica branch, or "Partnership" if applicable. This affects what additional fields appear.</td></tr>
+            <tr><td><strong>Registration number at COJ</strong></td><td>Text</td><td>Yes</td><td>Your Companies Office of Jamaica registration number. This is printed on your Certificate of Incorporation.</td></tr>
+            <tr><td><strong>Registration date</strong></td><td>Date</td><td>No</td><td>The date your company was incorporated. Use the date picker or type in DD/MM/YYYY format.</td></tr>
+            <tr><td><strong>Tax Registration Number (TRN)</strong></td><td>Text</td><td>Yes</td><td>Your TRN as issued by Tax Administration Jamaica. Format is typically 9 digits (e.g., 001-234-567). This must be current and valid.</td></tr>
+            <tr><td><strong>Parish</strong></td><td>Search dropdown</td><td>Yes</td><td>The parish where your company is registered. Type to search (same behavior as the Project Overview parish field).</td></tr>
+            <tr><td><strong>Address</strong></td><td>Textarea</td><td>Yes</td><td>The company's registered business address. This should match your COJ records.</td></tr>
+            <tr><td><strong>Phone</strong></td><td>Text</td><td>Yes</td><td>Include the country code (+1 876) and area code. Example: +1 876 555 1234.</td></tr>
+            <tr><td><strong>Email</strong></td><td>Email</td><td>Yes</td><td>The primary business email for official correspondence from JSEZA. Make sure someone monitors this inbox regularly.</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Authorized Representative</h4>
+    <p>This is the person authorized by the company's Board of Directors to file and manage this application.</p>
+    <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr><td><strong>First name(s)</strong></td><td>Text</td><td>Yes</td><td>Full first name(s) as they appear on official ID.</td></tr>
+            <tr><td><strong>Last name(s)</strong></td><td>Text</td><td>Yes</td><td>Full last name(s) as they appear on official ID.</td></tr>
+            <tr><td><strong>Phone</strong></td><td>Text</td><td>Yes</td><td>Direct phone number for the authorized representative.</td></tr>
+            <tr><td><strong>Email</strong></td><td>Email</td><td>Yes</td><td>Direct email for the authorized representative. This person will receive system notifications about the application's progress.</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Capital</h4>
+    <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>Issued and paid-up share capital (USD)</strong></td>
+                <td>Number</td>
+                <td>No</td>
+                <td>Enter the total in US Dollars. The minimum threshold is USD 1,500,000. If your amount is below this, a warning will appear on screen. You must still provide proof of capital as a document upload.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout important">
+        <div class="callout-title">Important: Minimum capital of USD 1,500,000</div>
+        The Special Economic Zones Act requires a minimum issued and paid-up share capital of USD 1,500,000 for zone developers. If your value is below this, the system will display a warning. Your application may still be submitted, but it is very likely to be flagged during evaluation.
+    </div>
+
+    <h4>Parent Company</h4>
+    <p>If your company has a parent company, fill in this section. The fields shown may vary depending on the company type you selected above.</p>
+    <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Parent company name</strong></td><td>Text</td><td>Yes</td><td>Full legal name of the parent entity.</td></tr>
+            <tr><td><strong>Legal type</strong></td><td>Text</td><td>Yes</td><td>Type of entity (e.g., Limited Liability Company, Corporation, PLC).</td></tr>
+            <tr><td><strong>Country</strong></td><td>Dropdown</td><td>Yes</td><td>Country of incorporation of the parent company.</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Shareholders</h4>
+    <p>Use the repeatable grid to add each shareholder. Click <strong>"+ Add another shareholder"</strong> for each additional entry.</p>
+    <table>
+        <thead><tr><th>Column</th><th>Type</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Name</strong></td><td>Text</td><td>Full legal name of the shareholder (person or entity).</td></tr>
+            <tr><td><strong>Nationality</strong></td><td>Dropdown</td><td>Country of nationality (for individuals) or incorporation (for corporate shareholders).</td></tr>
+            <tr><td><strong>Corporate?</strong></td><td>Yes/No</td><td>Select "Yes" if the shareholder is a company rather than an individual.</td></tr>
+            <tr><td><strong>Beneficial owner</strong></td><td>Yes/No</td><td>Select "Yes" if this shareholder is the ultimate beneficial owner of the shares. If "No", additional fields will appear asking for the beneficial owner's details.</td></tr>
+            <tr><td><strong>% shares</strong></td><td>Number</td><td>Percentage of shares held. All entries should total 100%.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout warning">
+        <div class="callout-title">Warning: Beneficial ownership disclosure</div>
+        If a shareholder is NOT the beneficial owner (e.g., they hold shares on behalf of someone else), you must disclose the actual beneficial owner's details. This is required by Jamaica's financial transparency laws.
+    </div>
+
+    <h4>Joint Venture / Special Purpose Vehicle</h4>
+    <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>Is the applicant part of a Joint Venture/SPV?</strong></td>
+                <td>Radio</td>
+                <td>Yes</td>
+                <td>Select "Yes" if the zone will be developed through a joint venture or special purpose vehicle. A grid will appear to list the JV companies.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout info">
+        <div class="callout-title">Conditional: JV Companies Grid</div>
+        If you select "Yes" above, a grid appears where you enter each JV partner's company name, legal type, and country.
+    </div>
+
+    <h4>Land Parcels</h4>
+    <p>Use the repeatable grid to list every land parcel that makes up the proposed zone site. If the zone spans multiple parcels, add one row per parcel.</p>
+    <table>
+        <thead><tr><th>Column</th><th>Type</th><th>Guidance</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Parcel designation</strong></td><td>Text</td><td>The official parcel reference (e.g., "Lot 14, Block 3, Volume 1234 Folio 45").</td></tr>
+            <tr><td><strong>Land ownership</strong></td><td>Dropdown</td><td>Whether the land is owned, leased, or rights are being acquired.</td></tr>
+            <tr><td><strong>Rights status</strong></td><td>Dropdown</td><td>Whether rights are "Secured" or "In process of acquiring rights".</td></tr>
+            <tr><td><strong>Rights type</strong></td><td>Dropdown</td><td>Select the applicable type: Freehold, Lease, License, etc.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout info">
+        <div class="callout-title">Conditional: Document upload for in-process rights</div>
+        If you select "In process of acquiring rights" for the Rights status, an upload field appears. You must upload the document(s) that establish your process of obtaining rights (e.g., a signed letter of intent, a sale agreement).
+    </div>
+
+    <div class="callout info">
+        <div class="callout-title">Conditional: Lease agreement upload</div>
+        If you select "Lease" for the Rights type, an additional upload field appears for the lease agreement document.
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 3: MASTER PLAN                                           -->
+<!-- ============================================================ -->
+<section id="step3">
+    <h2><span class="step-number">6</span> Step 3: Master Plan</h2>
+    <p>
+        The Master Plan tab is the largest section of the application with <strong>174 components</strong> spread across <strong>7 sub-tabs</strong>. It covers everything about the physical design, infrastructure, and timeline of your proposed zone. Click each sub-tab heading below to expand the detailed guidance.
+    </p>
+
+    <!-- FORM MOCKUP (overview) -->
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab">Project overview</span>
+            <span class="mtab">Developer</span>
+            <span class="mtab active">Master plan</span>
+            <span class="mtab">Business plan</span>
+            <span class="mtab">Compliance</span>
+            <span class="mtab">Payment</span>
+            <span class="mtab">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-subtabs">
+                <span class="mock-subtab active">Master plan submission</span>
+                <span class="mock-subtab">Land information</span>
+                <span class="mock-subtab">Land use &amp; zoning</span>
+                <span class="mock-subtab">Infrastructure</span>
+                <span class="mock-subtab">Design</span>
+                <span class="mock-subtab">Site conditions</span>
+                <span class="mock-subtab">Timeline</span>
+            </div>
+            <p style="color: #666; font-size: 0.85rem; margin: 0;">Navigate through the 7 sub-tabs to complete all Master Plan information. Each sub-tab is explained in detail below.</p>
+        </div>
+    </div>
+
+    <!-- SUB-TAB 3.1 -->
+    <details id="step3-1">
+        <summary>3.1 Master Plan Submission</summary>
+        <div class="details-content">
+            <p>This sub-tab is where you upload your concept and/or final master plan documents. These are the core planning documents that describe your zone's physical layout.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Master Plan Documents</div>
+                    <div class="mock-field">
+                        <label>Will you upload a concept master plan?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Upload concept master plan <span class="req">*</span></label>
+                            <div class="mock-upload">Click to browse or drag and drop your file here</div>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Will you upload a final master plan?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Upload final master plan <span class="req">*</span></label>
+                            <div class="mock-upload">Click to browse or drag and drop your file here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: Concept vs. Final Master Plan</div>
+                <p>If your project is at an early stage, you can upload a <strong>concept master plan</strong> &mdash; a preliminary layout showing the general vision. A <strong>final master plan</strong> is a fully detailed, professional document ready for construction. You can upload one or both. At minimum, JSEZA expects a concept plan.</p>
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 3.2 -->
+    <details id="step3-2">
+        <summary>3.2 Land Information &amp; Layout</summary>
+        <div class="details-content">
+            <p>Provide details about the parcels that make up your zone site, including their areas and the number of individual parcels.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Parcel Areas</div>
+                    <div class="mock-editgrid">
+                        <div class="mock-editgrid-header">
+                            <span>Parcel designation</span>
+                            <span>Area</span>
+                            <span>Unit</span>
+                        </div>
+                        <div class="mock-editgrid-row">
+                            <span>e.g., Lot 14</span>
+                            <span>e.g., 50</span>
+                            <span>Acres</span>
+                        </div>
+                        <div class="mock-editgrid-add">+ Add another parcel</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Number of parcels <span class="req">*</span></label>
+                        <div class="mock-input">e.g., 3</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Total land area <span class="req">*</span></label>
+                        <div class="mock-input">e.g., 150</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Does the site require substantial grading? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Describe grading requirements</label>
+                            <div class="mock-textarea">Describe the grading work needed...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table>
+                <thead><tr><th>Field</th><th>Required</th><th>Guidance</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Parcel areas grid</strong></td><td>No</td><td>Add one row per parcel. The designation should match what appears on your Certificate of Title.</td></tr>
+                    <tr><td><strong>Number of parcels</strong></td><td>Yes</td><td>How many distinct land parcels make up the zone. Must match the number of rows in the grid above.</td></tr>
+                    <tr><td><strong>Total land area</strong></td><td>Yes</td><td>The sum total of all parcels. This should match the figure you entered in Tab 1 (Project Overview).</td></tr>
+                    <tr><td><strong>Requires grading?</strong></td><td>Yes</td><td>Grading means significant earthwork to level or reshape the terrain. If "Yes", describe what work is needed.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <div class="callout-title">Warning: Consistency matters</div>
+                Make sure the total land area here matches what you entered in Tab 1 (Project Overview). Inconsistencies will be flagged during the Documents Check phase and may delay your application.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 3.3 -->
+    <details id="step3-3">
+        <summary>3.3 Land Use &amp; Zoning</summary>
+        <div class="details-content">
+            <p>This sub-tab captures how the zone's land will be divided among different uses (warehousing, manufacturing, offices, etc.) and what zoning regulations apply.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Documents</div>
+                    <div class="mock-field">
+                        <label>Land use plan map</label>
+                        <div class="mock-upload">Upload land use plan map (PDF or image)</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Schedule of areas <span class="req">*</span></label>
+                        <div class="mock-upload">Upload schedule of areas document</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Zoning regulations</label>
+                        <div class="mock-upload">Upload applicable zoning regulations</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Density parameters</label>
+                        <div class="mock-textarea">Describe density parameters, if applicable</div>
+                    </div>
+
+                    <div class="mock-section">Zone Use Breakdown (area in sq ft)</div>
+                    <div class="mock-field">
+                        <label>Warehousing</label>
+                        <div class="mock-input">e.g., 200000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Manufacturing</label>
+                        <div class="mock-input">e.g., 350000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Industrial</label>
+                        <div class="mock-input">e.g., 100000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Logistics</label>
+                        <div class="mock-input">e.g., 150000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Others</label>
+                        <div class="mock-input">e.g., 50000</div>
+                    </div>
+
+                    <div class="mock-section">Amenities (area in sq ft)</div>
+                    <div class="mock-field">
+                        <label>Training facilities / Offices / BPO / Service yard</label>
+                        <div class="mock-input">Enter area for each</div>
+                    </div>
+
+                    <div class="mock-section">Infrastructure (area in sq ft)</div>
+                    <div class="mock-field">
+                        <label>Substation / Guard house / Lift station / Sewage treatment / Parking</label>
+                        <div class="mock-input">Enter area for each</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout important">
+                <div class="callout-title">Important: Zone use areas must total to your total land area</div>
+                The sum of all zone use breakdown figures (Warehousing + Manufacturing + Industrial + Logistics + Others + Amenities + Infrastructure + Open space + Residential) must equal the total land area you declared. The system may flag inconsistencies.
+            </div>
+
+            <table>
+                <thead><tr><th>Field</th><th>Required</th><th>Guidance</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Land use plan map</strong></td><td>No</td><td>A visual map showing how different parts of the zone are allocated. Useful but not mandatory.</td></tr>
+                    <tr><td><strong>Schedule of areas</strong></td><td>Yes</td><td>A document listing all areas by designation and size. This is a formal surveyor's or architect's document.</td></tr>
+                    <tr><td><strong>Zoning regulations</strong></td><td>No</td><td>If your site falls under specific municipal zoning rules, upload the applicable regulations.</td></tr>
+                    <tr><td><strong>Zone use breakdown</strong></td><td>No</td><td>Enter area (in square feet) allocated to each use. If "Others" is greater than zero, a text field appears asking you to specify what those other uses are.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 3.4 -->
+    <details id="step3-4">
+        <summary>3.4 Infrastructure &amp; External Connectivity</summary>
+        <div class="details-content">
+            <p>This sub-tab covers the internal infrastructure of the zone (roads, utilities, drainage) and its connections to Jamaica's external transport and utility networks.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Internal Infrastructure</div>
+                    <div class="mock-field">
+                        <label>Internal roads width (feet)</label>
+                        <div class="mock-input">e.g., 40</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Building coverage ratio (%)</label>
+                        <div class="mock-input">e.g., 60</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Setbacks (feet)</label>
+                        <div class="mock-input">e.g., 20</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Drainage provisions</label>
+                        <div class="mock-input">Describe drainage system</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Maximum building height (feet)</label>
+                        <div class="mock-input">e.g., 60</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Truck turning radii adequate? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Infrastructure layout plan</label>
+                        <div class="mock-upload">Upload infrastructure layout plan</div>
+                    </div>
+
+                    <div class="mock-section">Utilities</div>
+                    <div class="mock-field">
+                        <label>NWC water connection <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                            <span class="mock-radio">Planned</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Lift station / Water storage / Electricity / Backup power / Telecom / Solid waste</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                            <span class="mock-radio">Planned</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Utility layout plans</label>
+                        <div class="mock-upload">Upload utility layout plans</div>
+                    </div>
+
+                    <div class="mock-section">External Connectivity</div>
+                    <div class="mock-field">
+                        <label>Distance to nearest highway (km)</label>
+                        <div class="mock-input">e.g., 5</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Distance to nearest port/airport (km)</label>
+                        <div class="mock-input">e.g., 25</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Direct truck access to highway? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Transport corridors? / Customs infrastructure?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: NWC stands for National Water Commission</div>
+                NWC is Jamaica's water utility. If the zone does not have an existing NWC connection, select "Planned" and describe your plan for water supply in the relevant section.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 3.5 -->
+    <details id="step3-5">
+        <summary>3.5 Design &amp; Visualizations</summary>
+        <div class="details-content">
+            <p>Upload your architectural and design documents. These help JSEZA's technical evaluators understand what the zone will look like.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Design Documents</div>
+                    <div class="mock-field">
+                        <label>Design vision summary</label>
+                        <div class="mock-textarea">Describe the overall design vision for the zone...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Early-stage design plans <span class="req">*</span></label>
+                        <div class="mock-upload">Upload early-stage design plans (PDF)</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Technical drawings <span class="req">*</span></label>
+                        <div class="mock-upload">Upload technical drawings (PDF or CAD export)</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Visual renderings</label>
+                        <div class="mock-upload">Upload 3D renderings or visualizations (optional)</div>
+                    </div>
+                </div>
+            </div>
+
+            <table>
+                <thead><tr><th>Field</th><th>Required</th><th>Guidance</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Design vision summary</strong></td><td>No</td><td>A brief written description of the overall look and feel of the zone. Think of this as your "elevator pitch" for the design.</td></tr>
+                    <tr><td><strong>Early-stage design plans</strong></td><td>Yes</td><td>Preliminary architectural drawings showing buildings, roads, and infrastructure layouts. These do not need to be construction-ready.</td></tr>
+                    <tr><td><strong>Technical drawings</strong></td><td>Yes</td><td>More detailed technical blueprints. If you have CAD files, export them as PDF for upload.</td></tr>
+                    <tr><td><strong>Visual renderings</strong></td><td>No</td><td>3D renderings or photorealistic images showing what the completed zone will look like. These are strongly recommended as they make a positive impression, but are not mandatory.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 3.6 -->
+    <details id="step3-6">
+        <summary>3.6 Site Conditions &amp; Existing Infrastructure</summary>
+        <div class="details-content">
+            <p>This sub-tab gathers information about the current state of the land, environmental considerations, and any existing structures.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Current Site</div>
+                    <div class="mock-field">
+                        <label>Type of site <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Private land</span>
+                            <span class="mock-radio">Public land</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Current site conditions</label>
+                        <div class="mock-textarea">Describe the current state of the land...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Site access checklist (survey)</label>
+                        <div class="mock-input" style="color: #666;">Multiple yes/no questions about current site access</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Site condition photos <span class="req">*</span></label>
+                        <div class="mock-upload">Upload photos showing current site conditions</div>
+                    </div>
+
+                    <div class="mock-section">Social &amp; Environmental</div>
+                    <div class="mock-field">
+                        <label>Social infrastructure within 500m</label>
+                        <div class="mock-select">Select applicable...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Nearby communities</label>
+                        <div class="mock-textarea">Describe nearby communities...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Water conservation / Sensitive areas / Local sourcing / Carbon features</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+
+                    <div class="mock-section">Displacement</div>
+                    <div class="mock-field">
+                        <label>Will the project cause any displacement? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Resettlement plan</label>
+                            <div class="mock-upload">Upload resettlement/mitigation plan</div>
+                        </div>
+                    </div>
+
+                    <div class="mock-section">Existing Buildings</div>
+                    <div class="mock-field">
+                        <label>Number of existing buildings / Total area / Demolition required?</label>
+                        <div class="mock-input">Enter details for each</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Approved infrastructure works?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Phasing or annexation plans?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout important">
+                <div class="callout-title">Important: Displacement disclosure</div>
+                If your project will displace any people, businesses, or communities, you must disclose this and upload a resettlement or mitigation plan. Failure to disclose displacement can result in rejection of your application.
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: Site condition photos</div>
+                Take clear, well-lit photos that show the site from multiple angles. Include photos of access roads, boundaries, any existing structures, and the general terrain. Date-stamped photos are preferred.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 3.7 -->
+    <details id="step3-7">
+        <summary>3.7 Implementation Timeline</summary>
+        <div class="details-content">
+            <p>Provide your planned construction and operations schedule.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Key Dates</div>
+                    <div class="mock-field">
+                        <label>Construction start date</label>
+                        <div class="mock-input">DD/MM/YYYY</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Construction duration (months)</label>
+                        <div class="mock-input">e.g., 24</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Operations start date</label>
+                        <div class="mock-input">DD/MM/YYYY</div>
+                    </div>
+
+                    <div class="mock-section">Phased Development</div>
+                    <div class="mock-field">
+                        <label>Will this be a phased development? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-editgrid">
+                            <div class="mock-editgrid-header">
+                                <span>Phase name</span>
+                                <span>Start date</span>
+                                <span>End date</span>
+                            </div>
+                            <div class="mock-editgrid-row">
+                                <span>e.g., Phase 1 - Core infrastructure</span>
+                                <span>DD/MM/YYYY</span>
+                                <span>DD/MM/YYYY</span>
+                            </div>
+                            <div class="mock-editgrid-add">+ Add another phase</div>
+                        </div>
+                    </div>
+
+                    <div class="mock-section">External Dependencies</div>
+                    <div class="mock-field">
+                        <label>Are there external dependencies? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Dependency type</label>
+                            <div class="mock-select">Select type...</div>
+                        </div>
+                        <div class="mock-field">
+                            <label>Description</label>
+                            <div class="mock-textarea">Describe the external dependency...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table>
+                <thead><tr><th>Field</th><th>Required</th><th>Guidance</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Construction start date</strong></td><td>No</td><td>When you plan to break ground. Use the date picker.</td></tr>
+                    <tr><td><strong>Construction duration</strong></td><td>No</td><td>Total duration in months from start to substantial completion.</td></tr>
+                    <tr><td><strong>Operations start date</strong></td><td>No</td><td>When the zone is expected to begin accepting occupants or conducting business operations.</td></tr>
+                    <tr><td><strong>Phased development?</strong></td><td>Yes</td><td>If "Yes", a grid appears where you enter each phase name and its start/end dates. Most large zones are developed in phases.</td></tr>
+                    <tr><td><strong>External dependencies?</strong></td><td>Yes</td><td>If "Yes", describe what the project depends on (e.g., government road construction, NWC pipeline extension). This helps JSEZA understand potential delays.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: Be realistic with timelines</div>
+                Evaluators prefer honest, realistic timelines over overly optimistic ones. If your construction depends on external factors (road improvements, utility connections), disclose them. Unrealistic dates will be questioned.
+            </div>
+        </div>
+    </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 4: BUSINESS PLAN                                         -->
+<!-- ============================================================ -->
+<section id="step4">
+    <h2><span class="step-number">7</span> Step 4: Business Plan</h2>
+    <p>
+        The Business Plan tab has <strong>76 components</strong> across <strong>3 sub-tabs</strong>. It covers the financial viability of your project and the benefits it will bring to Jamaica.
+    </p>
+
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab">Project overview</span>
+            <span class="mtab">Developer</span>
+            <span class="mtab">Master plan</span>
+            <span class="mtab active">Business plan</span>
+            <span class="mtab">Compliance</span>
+            <span class="mtab">Payment</span>
+            <span class="mtab">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-subtabs">
+                <span class="mock-subtab active">Upload business plan</span>
+                <span class="mock-subtab">Viability indicators</span>
+                <span class="mock-subtab">Project benefits</span>
+            </div>
+            <p style="color: #666; font-size: 0.85rem; margin: 0;">Three sub-tabs covering your business plan document, financial indicators, and projected benefits to Jamaica.</p>
+        </div>
+    </div>
+
+    <!-- SUB-TAB 4.1 -->
+    <details id="step4-1">
+        <summary>4.1 Upload Business Plan</summary>
+        <div class="details-content">
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Business Plan Document</div>
+                    <div class="mock-field">
+                        <label>Business plan document <span class="req">*</span></label>
+                        <div class="mock-upload">Click to browse or drag and drop your business plan (PDF)</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Upload your complete business plan as a single PDF document. This is a <strong>required document</strong>.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: What to include in your business plan</div>
+                <p>A strong business plan for an SEZ application should include:</p>
+                <ul>
+                    <li>Executive summary and company background</li>
+                    <li>Market analysis for the target sectors</li>
+                    <li>Zone development strategy and occupant acquisition plan</li>
+                    <li>5-year financial projections (revenue, expenses, cash flow)</li>
+                    <li>Management team and organizational structure</li>
+                    <li>Risk analysis and mitigation strategies</li>
+                    <li>Economic impact projections for Jamaica</li>
+                </ul>
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 4.2 -->
+    <details id="step4-2">
+        <summary>4.2 Viability Indicators</summary>
+        <div class="details-content">
+            <p>This sub-tab asks for specific financial figures that JSEZA uses to assess the viability of your project.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Total Investment (USD)</div>
+                    <div class="mock-field">
+                        <label>Land value</label>
+                        <div class="mock-input">e.g., 5000000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>On-site infrastructure</label>
+                        <div class="mock-input">e.g., 12000000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Building/factory</label>
+                        <div class="mock-input">e.g., 20000000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Other costs</label>
+                        <div class="mock-input">e.g., 3000000</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Total investment</label>
+                        <div class="mock-input" style="background: #f0f0f0; font-weight: bold; color: #333;">Auto-sum: USD 40,000,000</div>
+                    </div>
+
+                    <div class="mock-section">Funding Structure (%)</div>
+                    <div class="mock-field">
+                        <label>Equity % / Debt % / Grants % / Other %</label>
+                        <div class="mock-input">e.g., 40 / 50 / 5 / 5</div>
+                    </div>
+
+                    <div class="mock-section">Revenue Model</div>
+                    <div class="mock-field">
+                        <label>Intended occupants summary</label>
+                        <div class="mock-textarea">Describe target occupant profile...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Rent % / Service fees % / Other % revenue</label>
+                        <div class="mock-input">e.g., 60 / 30 / 10</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Revenue assumptions</label>
+                        <div class="mock-textarea">Explain the basis for your revenue projections...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Letters of intent or confirmed occupants?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+
+                    <div class="mock-section">Occupancy Forecast</div>
+                    <div class="mock-field">
+                        <label>Year 1: Occupancy rate % / Number of occupants</label>
+                        <div class="mock-input">e.g., 20% / 5</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Year 3: Occupancy rate % / Number of occupants</label>
+                        <div class="mock-input">e.g., 50% / 15</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Year 5: Occupancy rate % / Number of occupants</label>
+                        <div class="mock-input">e.g., 80% / 30</div>
+                    </div>
+
+                    <div class="mock-section">Project Readiness (%)</div>
+                    <div class="mock-field">
+                        <label>Land secured % / Funding secured % / Demand secured %</label>
+                        <div class="mock-input">e.g., 100 / 60 / 30</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout warning">
+                <div class="callout-title">Warning: All investment amounts are in US Dollars (USD)</div>
+                Enter all financial figures in United States Dollars, not Jamaican Dollars. If your financing is in JMD, convert to USD using the current exchange rate and note this in your business plan document.
+            </div>
+
+            <table>
+                <thead><tr><th>Section</th><th>What It Measures</th><th>Guidance</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Total Investment</strong></td><td>Overall project cost</td><td>Break down your total investment into land, infrastructure, buildings, and other costs. The system auto-calculates the total. Be prepared to support these figures with documentation.</td></tr>
+                    <tr><td><strong>Funding Structure</strong></td><td>Where the money comes from</td><td>Percentages should add up to 100%. Equity = your own capital, Debt = loans/bonds, Grants = government/donor funding, Other = any other source.</td></tr>
+                    <tr><td><strong>Revenue Model</strong></td><td>How the zone generates income</td><td>Describe your target occupants and how revenue will be earned (rent, service fees, etc.). If you already have signed letters of intent, mention this.</td></tr>
+                    <tr><td><strong>Occupancy Forecast</strong></td><td>Expected ramp-up</td><td>Provide realistic occupancy projections for years 1, 3, and 5. Evaluators will compare these against similar zones in the Caribbean.</td></tr>
+                    <tr><td><strong>Project Readiness</strong></td><td>Current state of preparation</td><td>How much of your land, funding, and demand is already secured? Higher percentages demonstrate readiness and reduce perceived risk.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 4.3 -->
+    <details id="step4-3">
+        <summary>4.3 Project Benefits</summary>
+        <div class="details-content">
+            <p>This sub-tab captures the benefits your zone will bring to Jamaica, particularly in terms of exports, employment, and local economic activity.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Export Orientation</div>
+                    <div class="mock-field">
+                        <label>Will occupants be exporters?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                            <span class="mock-radio">Partially</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Confirmed interest from exporters?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Primary export markets</label>
+                        <div class="mock-select">Select target markets...</div>
+                    </div>
+
+                    <div class="mock-section">Employment</div>
+                    <div class="mock-field">
+                        <label>Year 1: Total jobs / Skilled jobs</label>
+                        <div class="mock-input">e.g., 200 / 50</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Year 3: Total jobs / Skilled jobs</label>
+                        <div class="mock-input">e.g., 800 / 200</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Year 5: Total jobs / Skilled jobs</label>
+                        <div class="mock-input">e.g., 2000 / 600</div>
+                    </div>
+
+                    <div class="mock-section">Local Impact</div>
+                    <div class="mock-field">
+                        <label>Local sourcing expectations</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">High</span>
+                            <span class="mock-radio">Moderate</span>
+                            <span class="mock-radio">Low</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Additional benefits to Jamaica</label>
+                        <div class="mock-textarea">Describe any additional economic, social, or community benefits...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: Emphasize local impact</div>
+                JSEZA evaluates applications partly on their benefit to Jamaica. Be specific about job creation, skills transfer, local sourcing, and community development. Vague promises carry less weight than concrete projections backed by your business plan.
+            </div>
+        </div>
+    </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 5: COMPLIANCE                                            -->
+<!-- ============================================================ -->
+<section id="step5">
+    <h2><span class="step-number">8</span> Step 5: Compliance</h2>
+    <p>
+        The Compliance tab has <strong>102 components</strong> across <strong>6 sub-tabs</strong>. It covers financial integrity, health and safety, disaster preparedness, security, existing permits, and customs readiness. Many fields are survey-style questions (yes/no checklists).
+    </p>
+
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab">Project overview</span>
+            <span class="mtab">Developer</span>
+            <span class="mtab">Master plan</span>
+            <span class="mtab">Business plan</span>
+            <span class="mtab active">Compliance</span>
+            <span class="mtab">Payment</span>
+            <span class="mtab">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-subtabs">
+                <span class="mock-subtab active">Ownership &amp; financial integrity</span>
+                <span class="mock-subtab">Health &amp; safety</span>
+                <span class="mock-subtab">Disaster</span>
+                <span class="mock-subtab">Security</span>
+                <span class="mock-subtab">Licensing</span>
+                <span class="mock-subtab">Customs</span>
+            </div>
+            <p style="color: #666; font-size: 0.85rem; margin: 0;">Six sub-tabs covering all compliance requirements. Complete each one carefully.</p>
+        </div>
+    </div>
+
+    <!-- SUB-TAB 5.1 -->
+    <details id="step5-1">
+        <summary>5.1 Ownership &amp; Financial Integrity</summary>
+        <div class="details-content">
+            <p>This section assesses the financial transparency and integrity of the applicant. Be truthful &mdash; false declarations can result in criminal penalties under the SEZ Act.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Financing</div>
+                    <div class="mock-field">
+                        <label>Financing method</label>
+                        <div class="mock-checkbox">Developer's own funds</div>
+                        <div class="mock-checkbox">Third-party investors</div>
+                        <div class="mock-checkbox">Affiliated entities</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Financing overview</label>
+                        <div class="mock-textarea">Describe your financing arrangements...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Supporting documents</label>
+                        <div class="mock-upload">Upload financial integrity supporting documents</div>
+                    </div>
+
+                    <div class="mock-section">Due Diligence</div>
+                    <div class="mock-field">
+                        <label>Has any principal been subject to sanctions or investigations? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Case summary</label>
+                            <div class="mock-textarea">Provide details of sanctions/investigations...</div>
+                        </div>
+                        <div class="mock-field">
+                            <label>Supporting documents</label>
+                            <div class="mock-upload">Upload related documents</div>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Links to existing SEZ entities?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Existing occupants before SEZ designation?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Revenue before SEZ designation?</label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout important">
+                <div class="callout-title">Important: Full disclosure required</div>
+                If any principal, director, or shareholder has been subject to sanctions, criminal investigations, or regulatory proceedings, you must disclose this. Non-disclosure is a serious offence that can lead to rejection and potential legal consequences.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 5.2 -->
+    <details id="step5-2">
+        <summary>5.2 Health &amp; Safety</summary>
+        <div class="details-content">
+            <p>Upload your Occupational Health and Safety (OH&amp;S) plan and answer a series of survey questions about your safety management systems.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">OH&amp;S Plan</div>
+                    <div class="mock-field">
+                        <label>Upload OH&amp;S plan <span class="req">*</span></label>
+                        <div class="mock-upload">Upload your Occupational Health &amp; Safety plan (PDF)</div>
+                    </div>
+
+                    <div class="mock-section">Safety Management Survey</div>
+                    <div class="mock-field">
+                        <label>Do you have an OSH management system?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Documented OSH policy?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>OSH scope and objectives defined?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Periodic review process?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Hazard identification procedures?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">If "Yes", a detailed hazard survey appears (10+ items)</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>OH&amp;S responsibility assigned? / Training procedures? / Emergency scenarios? / Incident investigation?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: OH&amp;S plan content</div>
+                Your OH&amp;S plan should cover: hazard identification, risk assessment, emergency procedures, training programs, incident reporting, and periodic review schedules. If you do not yet have a full OH&amp;S management system (e.g., the zone is not yet built), describe what you plan to implement before operations begin.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 5.3 -->
+    <details id="step5-3">
+        <summary>5.3 Disaster Mitigation &amp; Recovery</summary>
+        <div class="details-content">
+            <p>Jamaica is in a hurricane zone and is prone to earthquakes, flooding, and other natural hazards. This section ensures your zone is prepared.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Disaster Plan</div>
+                    <div class="mock-field">
+                        <label>Upload Disaster Mitigation and Recovery plan <span class="req">*</span></label>
+                        <div class="mock-upload">Upload your disaster plan (PDF)</div>
+                    </div>
+
+                    <div class="mock-section">Preparedness Survey</div>
+                    <div class="mock-field">
+                        <label>Plan addresses natural hazards (hurricanes, earthquakes, floods)?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Response protocols defined?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Business continuity provisions?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Communication plans for emergencies?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout warning">
+                <div class="callout-title">Warning: Jamaica-specific hazards</div>
+                Your disaster plan must address Jamaica-specific risks: hurricanes (June-November), earthquakes, flooding, and storm surge (for coastal sites). Generic disaster plans from other countries will be insufficient. Reference ODPEM (Office of Disaster Preparedness and Emergency Management) guidelines.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 5.4 -->
+    <details id="step5-4">
+        <summary>5.4 Security Plan</summary>
+        <div class="details-content">
+            <p>Upload your zone security plan and answer survey questions about physical security, access control, personnel, surveillance, and goods movement.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Security Plan</div>
+                    <div class="mock-field">
+                        <label>Upload Security plan <span class="req">*</span></label>
+                        <div class="mock-upload">Upload your security plan (PDF)</div>
+                    </div>
+
+                    <div class="mock-section">Security Survey</div>
+                    <div class="mock-field">
+                        <label>Perimeter protection measures?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Access control systems?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Security personnel?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>CCTV / surveillance?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Goods movement tracking?</label>
+                        <div class="mock-radio-group"><span class="mock-radio">Yes</span><span class="mock-radio">No</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Tip: Customs-grade security</div>
+                Since SEZs involve duty-free importation, JCA (Jamaica Customs Agency) requires robust security to prevent goods diversion. Your security plan should address fencing, access gates, vehicle inspection areas, CCTV coverage, and cargo tracking. This is critical for your JCA No-Objection letter.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 5.5 -->
+    <details id="step5-5">
+        <summary>5.5 Licensing &amp; Permits</summary>
+        <div class="details-content">
+            <p>Indicate the status of any permits and approvals required for your development.</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Permits Status</div>
+                    <div class="mock-field">
+                        <label>Building permit</label>
+                        <div class="mock-select">Obtained / Applied / Not yet applied</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Fire approval</label>
+                        <div class="mock-select">Obtained / Applied / Not yet applied</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Subdivision approval</label>
+                        <div class="mock-select">Obtained / Applied / Not yet applied</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Environmental permit</label>
+                        <div class="mock-select">Obtained / Applied / Not yet applied</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Other required permits</label>
+                        <div class="mock-textarea">List any other permits required...</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Supporting documents <span class="req">*</span></label>
+                        <div class="mock-upload">Upload copies of obtained permits or pending applications</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout info">
+                <div class="callout-title">Note: Permits can be in progress</div>
+                You do not need all permits to have been granted before applying. Indicate the current status for each permit. However, you must demonstrate that you are actively pursuing all required approvals.
+            </div>
+        </div>
+    </details>
+
+    <!-- SUB-TAB 5.6 -->
+    <details id="step5-6">
+        <summary>5.6 Customs</summary>
+        <div class="details-content">
+            <p>This section covers customs readiness, which is critical because SEZs have special customs arrangements (duty-free importation, bonded areas, etc.).</p>
+
+            <div class="form-mockup">
+                <div class="form-mockup-body">
+                    <div class="mock-section">Customs Readiness</div>
+                    <div class="mock-field">
+                        <label>Customs readiness survey</label>
+                        <div class="mock-input" style="color: #666;">Multiple questions about customs procedures and infrastructure</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Upload relevant approvals</label>
+                        <div class="mock-upload">Upload any existing customs-related approvals</div>
+                    </div>
+                    <div class="mock-field">
+                        <label>Will the zone handle excise goods? <span class="req">*</span></label>
+                        <div class="mock-radio-group">
+                            <span class="mock-radio">Yes</span>
+                            <span class="mock-radio">No</span>
+                        </div>
+                    </div>
+                    <div class="mock-conditional">
+                        <div class="mock-conditional-label">Appears if "Yes" is selected above</div>
+                        <div class="mock-field">
+                            <label>Upload security and logistical plan for excise goods <span class="req">*</span></label>
+                            <div class="mock-upload">Upload excise goods plan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout important">
+                <div class="callout-title">Important: Excise goods require extra documentation</div>
+                Excise goods (alcohol, tobacco, petroleum products, etc.) are subject to special duties and require a dedicated security and logistics plan. If your zone will handle excise goods, this additional upload becomes mandatory. JCA will scrutinize this closely.
+            </div>
+        </div>
+    </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 6: PAYMENT                                               -->
+<!-- ============================================================ -->
+<section id="step6">
+    <h2><span class="step-number">9</span> Step 6: Payment</h2>
+    <p>Upload your proof of payment for the application fee.</p>
+
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab">Project overview</span>
+            <span class="mtab">Developer</span>
+            <span class="mtab">Master plan</span>
+            <span class="mtab">Business plan</span>
+            <span class="mtab">Compliance</span>
+            <span class="mtab active">Payment</span>
+            <span class="mtab">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-section">Application Fee</div>
+            <div class="mock-field">
+                <label>Upload proof of payment of application fee</label>
+                <div class="mock-upload">Upload receipt, bank transfer confirmation, or payment voucher (PDF or image)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <div class="callout-title">Note: Payment instructions</div>
+        Contact JSEZA directly for the current application fee amount and payment instructions. Payment is typically made via bank transfer to JSEZA's designated account. Keep the original receipt or bank confirmation as your proof of payment.
+    </div>
+
+    <div class="callout tip">
+        <div class="callout-title">Tip: Clear proof of payment</div>
+        Your uploaded proof should clearly show: (1) the amount paid, (2) the date of payment, (3) the payee (JSEZA), and (4) the payer (your company name). A scanned bank transfer receipt or official payment voucher works best.
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STEP 7: REVIEW & SUBMIT                                       -->
+<!-- ============================================================ -->
+<section id="step7">
+    <h2><span class="step-number">10</span> Step 7: Review &amp; Submit</h2>
+    <p>
+        The final tab is where you review your application, give consent, validate all fields, and submit.
+    </p>
+
+    <div class="form-mockup">
+        <div class="form-mockup-bar">
+            <span class="bar-title">Establish a new zone</span>
+            <span class="bar-url">jamaica.eregistrations.org</span>
+        </div>
+        <div class="form-mockup-tabs">
+            <span class="mtab">Project overview</span>
+            <span class="mtab">Developer</span>
+            <span class="mtab">Master plan</span>
+            <span class="mtab">Business plan</span>
+            <span class="mtab">Compliance</span>
+            <span class="mtab">Payment</span>
+            <span class="mtab active">Send</span>
+        </div>
+        <div class="form-mockup-body">
+            <div class="mock-section">Consent &amp; Declarations</div>
+            <div class="mock-checkbox">I consent to the processing of my personal data in accordance with Jamaica's Data Protection Act for the purposes of evaluating this application.</div>
+            <div class="mock-checkbox">I confirm that the Board of Directors has authorized this filing and that all information provided is accurate and complete to the best of my knowledge.</div>
+            <div class="mock-checkbox">I have reviewed and submitted the documents highlighted in the checklist and understand that incomplete submissions may be returned.</div>
+
+            <div class="mock-buttons" style="flex-direction: column; align-items: stretch; gap: 8px;">
+                <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                    <span class="mock-btn mock-btn-secondary">Validate</span>
+                    <span class="mock-btn mock-btn-disabled">Submit</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; text-align: right; margin: 0;">The Submit button becomes active only after validation passes and all consent boxes are checked.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3>How to Submit</h3>
+    <ol>
+        <li><strong>Check all three consent boxes.</strong> All three are required. Read each one carefully before checking.</li>
+        <li><strong>Click "Validate".</strong> The system will check all required fields across all tabs. If anything is missing or invalid, you will see a list of errors with links to the specific fields that need attention.</li>
+        <li><strong>Fix any errors.</strong> Navigate to the tabs mentioned in the error list, correct the issues, then return to the Send tab and validate again.</li>
+        <li><strong>Click "Submit".</strong> This button only becomes active after validation passes successfully and all consent boxes are checked.</li>
+        <li><strong>Confirmation.</strong> After submission, you will see a confirmation message and your application moves to the review queue.</li>
+    </ol>
+
+    <div class="callout important">
+        <div class="callout-title">Important: Submission is final</div>
+        Once you click Submit, you cannot modify your application unless JSEZA sends it back to you for corrections (the "Complementary Information" step in the workflow). Double-check everything before submitting.
+    </div>
+
+    <div class="callout tip">
+        <div class="callout-title">Tip: Common validation errors</div>
+        <ul>
+            <li>Missing required fields (marked with <span style="color: #d93025; font-weight: bold;">*</span>) in any tab</li>
+            <li>Required document uploads that were skipped</li>
+            <li>Consent checkboxes not checked</li>
+            <li>Conditional fields that appeared (e.g., after selecting "Yes") but were left empty</li>
+            <li>Invalid email addresses or phone numbers</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AFTER SUBMISSION                                               -->
+<!-- ============================================================ -->
+<section id="after-submission">
+    <h2><span class="step-number">11</span> After Submission &mdash; What Happens Next</h2>
+    <p>
+        Once you submit your application, it enters a multi-phase review process involving <strong>21 active roles</strong> across <strong>7 phases</strong>. Here is what to expect:
+    </p>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">1</div>
+        <div class="phase-title">Phase 1: Initial Review</div>
+        <div class="phase-roles">
+            <strong>Documents Check</strong> &mdash; A case file specialist at JSEZA reviews your application for completeness. If documents are missing or unclear, they may send your application back with a request for additional information.
+        </div>
+    </div>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">2</div>
+        <div class="phase-title">Phase 2: Evaluation (runs in parallel)</div>
+        <div class="phase-roles">
+            Five separate evaluations happen simultaneously:
+            <ul>
+                <li><strong>Legal Evaluation</strong> (Legal Services Unit) &mdash; Reviews corporate documents, land rights, compliance with the SEZ Act</li>
+                <li><strong>Technical Evaluation</strong> (Technical Services &amp; Inspection) &mdash; Reviews master plan, infrastructure, design</li>
+                <li><strong>Business Evaluation</strong> (Business Planning &amp; Strategy) &mdash; Reviews business plan, financial viability</li>
+                <li><strong>Compliance Evaluation</strong> (Compliance &amp; Assessment) &mdash; Reviews OH&amp;S, security, disaster plans</li>
+                <li><strong>Organize NOC and Inspection</strong> &mdash; Coordinates the agency review process</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">3</div>
+        <div class="phase-title">Phase 3: Agency Approvals (runs in parallel)</div>
+        <div class="phase-roles">
+            Three government agencies review your application simultaneously:
+            <ul>
+                <li><strong>JCA</strong> (Jamaica Customs Agency) &mdash; Customs and border readiness</li>
+                <li><strong>TAJ</strong> (Tax Administration Jamaica) &mdash; Tax compliance verification</li>
+                <li><strong>MOFPS</strong> (Ministry of Finance) &mdash; Fiscal/financial assessment</li>
+            </ul>
+            Each agency issues a No-Objection letter if satisfied.
+        </div>
+    </div>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">4</div>
+        <div class="phase-title">Phase 4: Internal Approvals (runs in parallel)</div>
+        <div class="phase-roles">
+            Four internal JSEZA approvals based on the evaluations from Phase 2:
+            <ul>
+                <li>Business Approval</li>
+                <li>Technical Approval</li>
+                <li>Compliance Approval</li>
+                <li>Legal Approval</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">5</div>
+        <div class="phase-title">Phase 5: Committee &amp; Management</div>
+        <div class="phase-roles">
+            <ul>
+                <li><strong>ARC</strong> (Application Review Committee) &mdash; Consolidates all evaluations and agency responses</li>
+                <li><strong>Complementary Information</strong> &mdash; If the ARC needs more details, a request is sent back to you. You will be notified by email and must respond through the platform.</li>
+                <li><strong>Status Letter</strong> &mdash; A formal letter is prepared summarizing the review outcome</li>
+                <li><strong>Signature</strong> &mdash; The Status Letter is signed by authorized JSEZA management</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">6</div>
+        <div class="phase-title">Phase 6: Board Decision</div>
+        <div class="phase-roles">
+            <ul>
+                <li><strong>Board Submission</strong> &mdash; The complete application package is prepared for the Board</li>
+                <li><strong>CEO Validation</strong> &mdash; The CEO of JSEZA validates the submission</li>
+                <li><strong>Board</strong> &mdash; The JSEZA Board makes the final decision: <strong>"Approved"</strong> or <strong>"Denied"</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="workflow-phase">
+        <div class="phase-badge">7</div>
+        <div class="phase-title">Phase 7: Post-Decision</div>
+        <div class="phase-roles">
+            <ul>
+                <li><strong>If Approved:</strong> SEZ Documents are prepared and your <strong>Developer License</strong> is issued. You will receive the license through the platform.</li>
+                <li><strong>If Denied:</strong> A formal Denial Letter is issued explaining the reasons.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <div class="callout-title">Note: Track your application</div>
+        You can log into the eRegistrations platform at any time to check the current status of your application. The system shows which phase your application is in and any pending actions on your part.
+    </div>
+
+    <div class="callout warning">
+        <div class="callout-title">Warning: Respond promptly to requests</div>
+        If JSEZA or any reviewing agency requests additional information (the "Complementary Information" step), respond as quickly as possible. Delays in providing requested information will delay your entire application.
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DOCUMENT CHECKLIST                                             -->
+<!-- ============================================================ -->
+<section id="document-checklist">
+    <h2><span class="step-number">12</span> Complete Document Checklist</h2>
+    <p>
+        Below is the full list of <strong>36 documents</strong> referenced in the application. Status indicates whether the document is always required, conditionally required (depends on your answers), or optional.
+    </p>
+
+    <h3>Corporate Documents</h3>
+    <table>
+        <thead><tr><th>#</th><th>Document</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Certificate of incorporation/registration</td><td class="doc-required">Required</td><td>From Companies Office of Jamaica</td></tr>
+            <tr><td>2</td><td>Articles (and Memorandum, if applicable)</td><td class="doc-required">Required</td><td>Articles of incorporation</td></tr>
+            <tr><td>3</td><td>Tax compliance certificate (TCC)</td><td class="doc-required">Required</td><td>From Tax Administration Jamaica</td></tr>
+            <tr><td>4</td><td>Proof of issued and paid-up capital</td><td class="doc-required">Required</td><td>Audited financial statement or bank confirmation</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Land Rights Documents</h3>
+    <table>
+        <thead><tr><th>#</th><th>Document</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>5</td><td>Copy certificate(s) of title</td><td class="doc-conditional">Conditional</td><td>Required if land is owned</td></tr>
+            <tr><td>6</td><td>Copy of long-term lease agreement(s)</td><td class="doc-conditional">Conditional</td><td>Required if rights type is "Lease"</td></tr>
+            <tr><td>7</td><td>Owner's affidavit</td><td class="doc-conditional">Conditional</td><td>Depending on land ownership type</td></tr>
+            <tr><td>8</td><td>Vendor's affidavit</td><td class="doc-conditional">Conditional</td><td>If purchasing land</td></tr>
+            <tr><td>9</td><td>Landlord's affidavit</td><td class="doc-conditional">Conditional</td><td>If leasing land</td></tr>
+            <tr><td>10</td><td>Affidavit of no land dispute</td><td class="doc-conditional">Conditional</td><td>May be required for certain parcels</td></tr>
+            <tr><td>11</td><td>Document(s) establishing process of obtaining rights</td><td class="doc-conditional">Conditional</td><td>Required if rights status is "In process of acquiring rights"</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Master Plan Documents</h3>
+    <table>
+        <thead><tr><th>#</th><th>Document</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>12</td><td>Concept master plan</td><td class="doc-conditional">Conditional</td><td>Required if you check "Will upload concept plan"</td></tr>
+            <tr><td>13</td><td>Final master plan</td><td class="doc-conditional">Conditional</td><td>Required if you check "Will upload final plan"</td></tr>
+            <tr><td>14</td><td>Land use plan (map)</td><td class="doc-optional">Optional</td><td>Visual map of land allocation</td></tr>
+            <tr><td>15</td><td>Schedule of areas</td><td class="doc-required">Required</td><td>Formal surveyor/architect document</td></tr>
+            <tr><td>16</td><td>Zoning regulations</td><td class="doc-optional">Optional</td><td>Applicable municipal zoning rules</td></tr>
+            <tr><td>17</td><td>Density parameters</td><td class="doc-optional">Optional</td><td>Supporting density calculations</td></tr>
+            <tr><td>18</td><td>Infrastructure layout plan</td><td class="doc-optional">Optional</td><td>Roads, drainage, utilities layout</td></tr>
+            <tr><td>19</td><td>Utility layout plans</td><td class="doc-optional">Optional</td><td>Water, electricity, telecom, sewage</td></tr>
+            <tr><td>20</td><td>Early-stage design plans</td><td class="doc-required">Required</td><td>Preliminary architectural drawings</td></tr>
+            <tr><td>21</td><td>Technical drawings</td><td class="doc-required">Required</td><td>Detailed blueprints or CAD exports</td></tr>
+            <tr><td>22</td><td>Visual renderings</td><td class="doc-optional">Optional</td><td>3D visualizations (strongly recommended)</td></tr>
+            <tr><td>23</td><td>Site condition photos/documentation</td><td class="doc-required">Required</td><td>Current state of the site</td></tr>
+            <tr><td>24</td><td>Approved plans/audits/"as-built" layouts</td><td class="doc-conditional">Conditional</td><td>If approved infrastructure works exist</td></tr>
+            <tr><td>25</td><td>Phasing or expansion plan</td><td class="doc-conditional">Conditional</td><td>If phasing/annexation is planned</td></tr>
+            <tr><td>26</td><td>Resettlement/mitigation statement</td><td class="doc-conditional">Conditional</td><td>Required if displacement = "Yes"</td></tr>
+            <tr><td>27</td><td>Site plan (scaled)</td><td class="doc-optional">Optional</td><td>Scaled site plan from surveyor</td></tr>
+            <tr><td>28</td><td>Surveyor's technical description + sketch plan</td><td class="doc-optional">Optional</td><td>Professional surveyor's description</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Business Plan Documents</h3>
+    <table>
+        <thead><tr><th>#</th><th>Document</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>29</td><td>Business plan document</td><td class="doc-required">Required</td><td>Complete business plan in PDF format</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Compliance Documents</h3>
+    <table>
+        <thead><tr><th>#</th><th>Document</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>30</td><td>Occupational Health &amp; Safety plan</td><td class="doc-required">Required</td><td>OH&amp;S plan covering the zone</td></tr>
+            <tr><td>31</td><td>Disaster Mitigation and Recovery plan</td><td class="doc-required">Required</td><td>Must address Jamaica-specific hazards</td></tr>
+            <tr><td>32</td><td>Security plan</td><td class="doc-required">Required</td><td>Physical security, access control, surveillance</td></tr>
+            <tr><td>33</td><td>Supporting documents (licensing/permits)</td><td class="doc-required">Required</td><td>Copies of permits obtained or applied for</td></tr>
+            <tr><td>34</td><td>Supporting documents (financial integrity)</td><td class="doc-optional">Optional</td><td>Evidence of financing arrangements</td></tr>
+            <tr><td>35</td><td>Security and logistical plan for excise goods</td><td class="doc-conditional">Conditional</td><td>Required only if excise goods = "Yes"</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Payment Documents</h3>
+    <table>
+        <thead><tr><th>#</th><th>Document</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>36</td><td>Proof of payment of application fee</td><td class="doc-required">Required</td><td>Receipt or bank transfer confirmation</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout tip">
+        <div class="callout-title">Tip: Organize your files before starting</div>
+        Create folders on your computer matching these categories (Corporate, Land, Master Plan, Business, Compliance, Payment). Name each file clearly (e.g., "01-Certificate-of-Incorporation.pdf"). This makes the upload process much faster.
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ                                                            -->
+<!-- ============================================================ -->
+<section id="faq">
+    <h2><span class="step-number">13</span> Frequently Asked Questions</h2>
+
+    <details class="faq-item">
+        <summary>Can I save my application and come back later?</summary>
+        <div class="details-content">
+            <p>Yes. The system automatically saves your entries as you fill them in. You can close your browser, log out, and return at any time. Your draft application will be in your dashboard when you log back in.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What happens if I submit an incomplete application?</summary>
+        <div class="details-content">
+            <p>The validation step (on the Send tab) is designed to catch missing required fields. However, if you somehow submit with incomplete information, the case file specialist in Phase 1 (Documents Check) will review your application and may send it back to you with a request to provide the missing items. This will delay the process.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>How do I know which documents are required for my specific situation?</summary>
+        <div class="details-content">
+            <p>The form uses conditional logic. For example, if you select that your land rights status is "In process of acquiring rights", an upload field for the supporting document will appear automatically. As a general rule: if an upload field is visible and marked with an asterisk (<span style="color: #d93025; font-weight: bold;">*</span>), it is required.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Can I apply as a foreign company?</summary>
+        <div class="details-content">
+            <p>Yes, but your company must have a registered presence in Jamaica. If you are an external (foreign) company, select "External company" in the Company type dropdown. You will still need a Jamaica COJ registration number and a TRN. If you have not yet registered in Jamaica, you must do so through the Companies Office of Jamaica before applying.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What file formats can I upload?</summary>
+        <div class="details-content">
+            <p>PDF is strongly recommended for all documents. For site photos, JPEG and PNG are also accepted. The system may accept other common formats, but PDF ensures the best compatibility and readability for reviewers.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What if my paid-up capital is below USD 1,500,000?</summary>
+        <div class="details-content">
+            <p>You can still fill out and submit the form. The system will display a warning, but it will not block your submission. However, the minimum capital requirement is set by the SEZ Act, so your application may face challenges during evaluation. Contact JSEZA for guidance if this applies to your situation.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>How long does the entire process take from submission to Developer License?</summary>
+        <div class="details-content">
+            <p>There is no fixed timeline. It depends on the completeness of your application, the complexity of the project, and the time required for agency reviews (JCA, TAJ, MOFPS). A complete, well-prepared application with no requests for additional information can be processed significantly faster. Monitor your dashboard regularly and respond promptly to any requests.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Can I modify my application after submission?</summary>
+        <div class="details-content">
+            <p>No, you cannot modify it directly after submission. The only way to update your application is if JSEZA sends it back to you through the "Complementary Information" step (Phase 5). In that case, you can make the requested changes and resubmit. If you realize there is an error, contact JSEZA immediately.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What is the application fee, and how do I pay it?</summary>
+        <div class="details-content">
+            <p>Contact JSEZA directly for the current fee schedule and payment instructions. Payment is typically made via bank transfer. You will upload proof of payment in Tab 6 (Payment) of the application form.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What if I need help filling out the form?</summary>
+        <div class="details-content">
+            <p>JSEZA offers support for applicants. Contact them through their website or by phone. You can also engage a local attorney or consultant experienced with SEZ applications to help you prepare and submit your application.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What does "No-Objection letter" mean?</summary>
+        <div class="details-content">
+            <p>A No-Objection letter means that the agency (JCA, TAJ, or MOFPS) has reviewed your application and has no objection to the establishment of the zone from their perspective. It is essentially a green light from that agency. All three No-Objection letters are needed for full approval.</p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Can I apply for multiple zones at the same time?</summary>
+        <div class="details-content">
+            <p>Each zone requires a separate application. If you plan to develop multiple zones, you must submit one complete application per zone, each with its own set of documents, master plan, and business plan.</p>
+        </div>
+    </details>
+</section>
+
+<!-- ============================================================ -->
+<!-- GLOSSARY                                                       -->
+<!-- ============================================================ -->
+<section id="glossary">
+    <h2><span class="step-number">14</span> Glossary of Terms</h2>
+
+    <dl>
+        <dt>ARC (Application Review Committee)</dt>
+        <dd>A JSEZA internal committee that consolidates all evaluations and agency responses before the Board decision.</dd>
+
+        <dt>BPO (Business Process Outsourcing)</dt>
+        <dd>The practice of contracting business operations to third-party providers, often in customer service, IT support, or data processing.</dd>
+
+        <dt>COJ (Companies Office of Jamaica)</dt>
+        <dd>The government office responsible for company registration and corporate records in Jamaica.</dd>
+
+        <dt>Developer License</dt>
+        <dd>The official authorization issued by JSEZA that permits a company to develop and operate a Special Economic Zone.</dd>
+
+        <dt>EditGrid</dt>
+        <dd>A repeatable table in the form where you can add multiple rows (e.g., for shareholders, land parcels, or JV companies). Click "+ Add another" to create a new row.</dd>
+
+        <dt>JCA (Jamaica Customs Agency)</dt>
+        <dd>The government agency responsible for customs operations, border protection, and trade facilitation.</dd>
+
+        <dt>JSEZA (Jamaica Special Economic Zone Authority)</dt>
+        <dd>The government authority that regulates, promotes, and administers Special Economic Zones in Jamaica under the SEZ Act of 2016.</dd>
+
+        <dt>MOFPS (Ministry of Finance &amp; Public Services)</dt>
+        <dd>The government ministry responsible for fiscal policy, public financial management, and economic policy.</dd>
+
+        <dt>No-Objection Letter</dt>
+        <dd>A formal letter from a government agency stating that it has no objection to the proposed zone from its area of responsibility.</dd>
+
+        <dt>NWC (National Water Commission)</dt>
+        <dd>Jamaica's public water utility, responsible for water supply and wastewater services across the island.</dd>
+
+        <dt>ODPEM (Office of Disaster Preparedness and Emergency Management)</dt>
+        <dd>The government agency responsible for disaster preparedness, response, and recovery in Jamaica.</dd>
+
+        <dt>OH&amp;S / OSH</dt>
+        <dd>Occupational Health and Safety / Occupational Safety and Health. The discipline of ensuring safe working conditions.</dd>
+
+        <dt>SEZ (Special Economic Zone)</dt>
+        <dd>A designated geographic area with special regulatory and fiscal arrangements designed to attract investment and promote economic activity, as defined by Jamaica's Special Economic Zones Act (2016).</dd>
+
+        <dt>SPV (Special Purpose Vehicle)</dt>
+        <dd>A legal entity created for a specific purpose, often to isolate financial risk. Joint ventures for zone development often use an SPV structure.</dd>
+
+        <dt>TAJ (Tax Administration Jamaica)</dt>
+        <dd>The government agency responsible for tax collection, compliance, and administration in Jamaica.</dd>
+
+        <dt>TRN (Tax Registration Number)</dt>
+        <dd>A unique identification number assigned by TAJ to every taxpayer (individual or corporate) in Jamaica. Required for all official transactions.</dd>
+    </dl>
+</section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                        -->
+<!-- ============================================================ -->
+<footer class="site-footer">
+    <p>
+        <strong>Jamaica Special Economic Zone Authority (JSEZA)</strong><br>
+        This manual is provided as a guide for applicants using the eRegistrations platform.<br>
+        For official information, contact JSEZA directly or visit <a href="https://jamaica.eregistrations.org" target="_blank">jamaica.eregistrations.org</a>.
+    </p>
+    <p style="margin-top: 12px; font-size: 0.8rem; color: #999;">
+        Last updated: February 2026
+    </p>
+</footer>
+
+</body>
+</html>

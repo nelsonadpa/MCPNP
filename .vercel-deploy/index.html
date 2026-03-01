@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eRegistrations Agent Hub — Showcase</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace; }
+    #root { min-height: 100vh; }
+
+    /* Password gate */
+    #gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0e1a;
+    }
+    .gate-box {
+      text-align: center;
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      max-width: 360px;
+      width: 100%;
+    }
+    .gate-title {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f472b6;
+      margin-bottom: 8px;
+    }
+    .gate-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.3);
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      margin-bottom: 16px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+    .gate-input:focus {
+      border-color: #f472b6;
+    }
+    .gate-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(135deg, #f472b6, #ec4899);
+      color: #fff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    .gate-btn:hover { opacity: 0.9; }
+    .gate-error {
+      color: #ef4444;
+      font-size: 12px;
+      margin-top: 12px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Password Gate -->
+  <div id="gate">
+    <div class="gate-box">
+      <div class="gate-title">Agent Hub</div>
+      <div class="gate-sub">eRegistrations Agent Toolkit — Showcase</div>
+      <input type="password" id="pw" class="gate-input" placeholder="Password" autofocus
+             onkeydown="if(event.key==='Enter')checkPw()">
+      <button class="gate-btn" onclick="checkPw()">Enter</button>
+      <div class="gate-error" id="err">Incorrect password</div>
+    </div>
+  </div>
+
+  <!-- Dashboard (hidden until auth) -->
+  <div id="root" style="display:none"></div>
+
+  <script>
+    // SHA-256 hash of "super2020"
+    var HASH = '84465d73e5faa6c8e98d7a06e3c41f0c12545f1c58d379ac2f04bc7c56691fc5';
+
+    async function sha256(str) {
+      var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+    }
+
+    async function checkPw() {
+      var pw = document.getElementById('pw').value;
+      var h = await sha256(pw);
+      if (h === HASH) {
+        sessionStorage.setItem('ah_auth', '1');
+        loadDashboard();
+      } else {
+        document.getElementById('err').style.display = 'block';
+        document.getElementById('pw').value = '';
+        document.getElementById('pw').focus();
+      }
+    }
+
+    function loadDashboard() {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('root').style.display = 'block';
+
+      // Load chat data first, then React + dashboard v2
+      var chatScript = document.createElement('script');
+      chatScript.src = 'chat-data.js';
+      chatScript.onload = function() {
+        var s1 = document.createElement('script');
+        s1.src = 'https://unpkg.com/react@18/umd/react.production.min.js';
+        s1.crossOrigin = '';
+        s1.onload = function() {
+          var s2 = document.createElement('script');
+          s2.src = 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js';
+          s2.crossOrigin = '';
+          s2.onload = function() {
+            var s3 = document.createElement('script');
+            s3.src = 'dashboard-v2.jsx';
+            s3.onload = function() {
+              var root = ReactDOM.createRoot(document.getElementById('root'));
+              root.render(React.createElement(AgentDashboard));
+            };
+            document.head.appendChild(s3);
+          };
+          document.head.appendChild(s2);
+        };
+        document.head.appendChild(s1);
+      };
+      document.head.appendChild(chatScript);
+    }
+
+    // Auto-login if already authenticated in this session
+    if (sessionStorage.getItem('ah_auth') === '1') {
+      loadDashboard();
+    }
+
+    // Handle hash-based deep links (e.g., /#toolkit)
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash === '#toolkit' && window.__setTab) {
+        window.__setTab(3);
+      }
+    });
+    if (window.location.hash === '#toolkit') {
+      // Will be handled after dashboard loads
+      setTimeout(function() { if (window.__setTab) window.__setTab(3); }, 500);
+    }
+  </script>
+</body>
+</html>

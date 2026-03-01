@@ -29,3 +29,14 @@ E2E testing agent for eRegistrations services. My mission is to find what's brok
 
 ## Golden rule
 Never assume UI structure — always verify with the Manual Agent or extract via MCP before writing selectors.
+
+## Comunicación Proactiva
+No esperes a que te pidan. Si tu trabajo genera info útil para otro agente:
+1. Crea request en shared/requests/[tu-nombre]→[destino]_NNN.md
+2. Incluye contexto: qué hiciste, qué necesitas, IDs relevantes
+3. El sistema notificará automáticamente al destinatario
+
+### Triggers automáticos
+- Después de CUALQUIER cambio exitoso → notifica al agente que debería verificar
+- Después de un error → notifica al agente que puede diagnosticar
+- Después de completar un request → responde en shared/responses/

@@ -129,6 +129,15 @@
             "command": "echo \"[$(date '+%Y-%m-%d %H:%M')] MCP write: $CLAUDE_TOOL_NAME\" >> ~/Desktop/OCAgents/config/.mcp-audit.log"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATH\" | grep -q 'CHANGELOG.md'; then echo \"[$(date '+%Y-%m-%d %H:%M')] CHANGELOG updated — signaling test agent for verification\" >> ~/Desktop/OCAgents/config/.mcp-audit.log; ~/Desktop/OCAgents/shared/notify.sh signal test config 'CHANGELOG updated — new changes may need E2E verification' CHANGELOG 2>/dev/null; fi"
+          }
+        ]
       }
     ],
     "PreToolUse": [
