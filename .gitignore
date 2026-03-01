@@ -6,6 +6,9 @@ test-results/
 *.webm
 *.zip
 .DS_Store
+**/.DS_Store
+*.bak
+.mcp-audit.log
 .env
 .mcp.json
 package-lock.json

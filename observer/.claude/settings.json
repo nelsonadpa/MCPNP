@@ -1,0 +1,59 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash",
+      "mcp__graylog__search_logs",
+      "mcp__graylog__list_streams",
+      "mcp__graylog__get_stream_info",
+      "mcp__graylog__search_stream_logs",
+      "mcp__graylog__get_system_info",
+      "mcp__graylog__test_connection",
+      "mcp__graylog__get_error_logs",
+      "mcp__graylog__search_streams_by_name",
+      "mcp__graylog__get_last_event_from_stream",
+      "mcp__BPA-cuba__service_list",
+      "mcp__BPA-cuba__service_get",
+      "mcp__BPA-cuba__bot_list",
+      "mcp__BPA-cuba__bot_get",
+      "mcp__BPA-cuba__bot_history_list",
+      "mcp__BPA-cuba__muleservice_list",
+      "mcp__BPA-cuba__muleservice_get",
+      "mcp__BPA-cuba__connection_status",
+      "mcp__BPA-cuba__server_info",
+      "mcp__BPA-jamaica__service_list",
+      "mcp__BPA-jamaica__service_get",
+      "mcp__BPA-jamaica__bot_list",
+      "mcp__BPA-jamaica__bot_get",
+      "mcp__BPA-jamaica__bot_history_list",
+      "mcp__BPA-jamaica__muleservice_list",
+      "mcp__BPA-jamaica__muleservice_get",
+      "mcp__BPA-jamaica__connection_status",
+      "mcp__BPA-jamaica__server_info"
+    ],
+    "deny": [
+      "mcp__BPA-cuba__*_create",
+      "mcp__BPA-cuba__*_update",
+      "mcp__BPA-cuba__*_delete",
+      "mcp__BPA-cuba__service_publish",
+      "mcp__BPA-cuba__service_activate",
+      "mcp__BPA-cuba__rollback",
+      "mcp__BPA-cuba__effect_create",
+      "mcp__BPA-cuba__effect_delete",
+      "mcp__BPA-jamaica__*_create",
+      "mcp__BPA-jamaica__*_update",
+      "mcp__BPA-jamaica__*_delete",
+      "mcp__BPA-jamaica__service_publish",
+      "mcp__BPA-jamaica__service_activate",
+      "mcp__BPA-jamaica__rollback",
+      "mcp__BPA-jamaica__effect_create",
+      "mcp__BPA-jamaica__effect_delete"
+    ]
+  },
+  "_comments": {
+    "mcp_servers": "Observer Agent uses Graylog (all tools) + BPA-cuba/BPA-jamaica (read-only: service, bot, muleservice info). All write tools are denied.",
+    "role": "Observer Agent (Tracker) — Graylog log analysis, bot traceability, service health"
+  }
+}

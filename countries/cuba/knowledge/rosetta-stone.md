@@ -1,1 +1,1 @@
-/Users/nelsonperez/Desktop/OCAgents/rosetta-stone.md
+../analysis/rosetta-stone.md

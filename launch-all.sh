@@ -62,7 +62,7 @@ for agent in $AGENTS; do
       sleep 0.5
       ;;
     *)
-      echo "Unknown agent: $agent (use: orq, config, manual, testing)"
+      echo "Unknown agent: $agent (use: orq, config, manual, testing, observer)"
       COUNT=$((COUNT - 1))
       ;;
   esac
