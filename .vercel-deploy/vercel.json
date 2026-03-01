@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/toolkit", "destination": "/skills-catalog.html", "permanent": false },
+    { "source": "/catalogo", "destination": "/skills-catalog.html", "permanent": false }
+  ]
+}

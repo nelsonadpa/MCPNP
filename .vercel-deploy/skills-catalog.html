@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eRegistrations Toolkit — Skills &amp; Workflows</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222633;
+      --border: #2d3348;
+      --text: #e0e4ef;
+      --text-dim: #8b92a8;
+      --accent: #6c8cff;
+      --accent2: #4ecdc4;
+      --accent3: #ff6b9d;
+      --config: #ff8a65;
+      --manual: #4fc3f7;
+      --testing: #81c784;
+      --observer: #ba68c8;
+      --country: #ffd54f;
+      --command: #ef5350;
+      --mcp-tool: #78909c;
+      --skill: #6c8cff;
+      --warn: #ffd54f;
+      --ok: #81c784;
+      --broken: #ef5350;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: var(--surface2); padding: 1px 6px; border-radius: 4px;
+      font-family: 'SF Mono','Fira Code',monospace; font-size: 0.88em; color: var(--accent2);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #252a3a 100%);
+      border-bottom: 1px solid var(--border); padding: 48px 0 40px;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .hl { color: var(--accent); }
+    header h1 .hl2 { color: var(--accent2); }
+    header .subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 800px; margin-top: 6px; }
+    .stats-bar { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+    .stat { display: flex; align-items: baseline; gap: 8px; }
+    .stat-num { font-size: 1.8rem; font-weight: 700; }
+    .stat-label { color: var(--text-dim); font-size: 0.88rem; }
+
+    /* ===== NAV TABS ===== */
+    .nav-bar {
+      position: sticky; top: 0; z-index: 200; background: var(--bg);
+      border-bottom: 1px solid var(--border); padding: 0;
+    }
+    .nav-tabs { display: flex; gap: 0; list-style: none; }
+    .nav-tab {
+      padding: 14px 24px; cursor: pointer; font-size: 0.95rem; font-weight: 500;
+      color: var(--text-dim); border-bottom: 3px solid transparent; transition: all 0.2s;
+    }
+    .nav-tab:hover { color: var(--text); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-tab .badge {
+      display: inline-block; background: var(--surface2); padding: 1px 8px;
+      border-radius: 10px; font-size: 0.75rem; margin-left: 6px; color: var(--text-dim);
+    }
+
+    /* ===== SEARCH ===== */
+    .search-area { padding: 16px 0; }
+    .search-box {
+      width: 100%; padding: 12px 16px 12px 44px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px; color: var(--text);
+      font-size: 1rem; outline: none; transition: border-color 0.2s;
+    }
+    .search-box:focus { border-color: var(--accent); }
+    .search-wrap { position: relative; }
+    .search-icon {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--text-dim); font-size: 1.1rem; pointer-events: none;
+    }
+
+    /* ===== PANELS ===== */
+    .panel { display: none; padding: 24px 0 64px; }
+    .panel.active { display: block; }
+
+    /* ===== CONCEPT BOX ===== */
+    .concept-box {
+      border: 1px solid var(--border); border-radius: 12px; padding: 28px;
+      margin-bottom: 24px; position: relative; overflow: hidden;
+    }
+    .concept-box::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .concept-box.skill-box::before { background: linear-gradient(90deg, var(--skill), var(--accent3)); }
+    .concept-box h2 { font-size: 1.2rem; margin-bottom: 10px; }
+    .concept-box p { color: var(--text-dim); font-size: 0.95rem; }
+
+    /* ===== MCP CATEGORY ===== */
+    .mcp-category { margin-bottom: 16px; }
+    .mcp-cat-header {
+      display: flex; align-items: center; gap: 10px; padding: 10px 0 8px;
+      border-bottom: 1px solid var(--border); cursor: pointer;
+    }
+    .mcp-cat-header h3 { font-size: 0.95rem; font-weight: 600; flex: 1; }
+    .mcp-cat-count {
+      background: var(--surface2); padding: 2px 10px; border-radius: 12px;
+      font-size: 0.75rem; color: var(--text-dim);
+    }
+    .mcp-cat-toggle { color: var(--text-dim); font-size: 1.1rem; transition: transform 0.3s; }
+    .mcp-category.open .mcp-cat-toggle { transform: rotate(180deg); }
+    .mcp-cat-body { display: none; padding: 8px 0; }
+    .mcp-category.open .mcp-cat-body { display: block; }
+    .mcp-cat-desc { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 8px; }
+
+    .tool-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .tool-table th {
+      text-align: left; padding: 6px 10px; background: var(--surface2);
+      color: var(--text-dim); font-weight: 500; border: 1px solid var(--border);
+    }
+    .tool-table td { padding: 6px 10px; border: 1px solid var(--border); color: var(--text-dim); }
+    .tool-table td:first-child { font-family: 'SF Mono',monospace; font-size: 0.78rem; color: var(--accent2); white-space: nowrap; }
+    .status-ok { color: var(--ok); }
+    .status-broken { color: var(--broken); }
+    .status-partial { color: var(--warn); }
+
+    /* ===== SKILL CARDS ===== */
+    .skills-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .category-section { margin-bottom: 40px; }
+    .cat-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .cat-icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .cat-header h2 { font-size: 1.25rem; font-weight: 600; }
+    .cat-count {
+      background: var(--surface2); color: var(--text-dim); padding: 2px 10px;
+      border-radius: 12px; font-size: 0.78rem; margin-left: auto;
+    }
+    .cat-intro {
+      color: var(--text-dim); font-size: 0.92rem; margin-bottom: 16px; line-height: 1.6;
+      padding: 0 4px;
+    }
+
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: var(--accent); }
+    .skill-card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 4px 24px rgba(108,140,255,0.10); }
+    .skill-card.featured::after {
+      content: 'HIGHLIGHTED'; position: absolute; top: 12px; right: 12px;
+      background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px; letter-spacing: 0.05em;
+    }
+    .skill-card.featured { position: relative; }
+    .skill-card-top { padding: 20px 24px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; }
+    .skill-card-top h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+    .file-path {
+      font-family: 'SF Mono',monospace; font-size: 0.78rem; color: var(--accent2);
+      background: rgba(78,205,196,0.1); padding: 2px 8px; border-radius: 4px; display: inline-block;
+    }
+    .skill-summary { padding: 6px 24px 14px; cursor: pointer; }
+    .skill-summary p { color: var(--text-dim); font-size: 0.9rem; }
+    .skill-tags { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 24px 14px; }
+    .tag {
+      padding: 2px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 500;
+    }
+    .tag-config { background: rgba(255,138,101,0.12); color: var(--config); border: 1px solid rgba(255,138,101,0.25); }
+    .tag-manual { background: rgba(79,195,247,0.12); color: var(--manual); border: 1px solid rgba(79,195,247,0.25); }
+    .tag-testing { background: rgba(129,199,132,0.12); color: var(--testing); border: 1px solid rgba(129,199,132,0.25); }
+    .tag-observer { background: rgba(186,104,200,0.12); color: var(--observer); border: 1px solid rgba(186,104,200,0.25); }
+    .tag-country { background: rgba(255,213,79,0.12); color: var(--country); border: 1px solid rgba(255,213,79,0.25); }
+    .tag-command { background: rgba(239,83,80,0.12); color: var(--command); border: 1px solid rgba(239,83,80,0.25); }
+    .tag-reusable { background: rgba(78,205,196,0.12); color: var(--accent2); border: 1px solid rgba(78,205,196,0.25); }
+    .tag-mcp { background: rgba(120,144,156,0.12); color: var(--mcp-tool); border: 1px solid rgba(120,144,156,0.25); }
+
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+      border-radius: 6px; border: 1px solid var(--accent2); background: rgba(78,205,196,0.08);
+      color: var(--accent2); font-size: 0.72rem; font-weight: 500; cursor: pointer;
+      text-decoration: none; transition: all 0.2s; white-space: nowrap; margin-left: 8px;
+    }
+    .download-btn:hover { background: rgba(78,205,196,0.18); text-decoration: none; }
+    .download-btn svg { width: 12px; height: 12px; }
+    .expand-btn {
+      background: none; border: none; color: var(--text-dim); font-size: 1.2rem;
+      cursor: pointer; padding: 4px 8px; transition: transform 0.3s; flex-shrink: 0;
+    }
+    .skill-card.expanded .expand-btn { transform: rotate(180deg); }
+    .skill-detail {
+      display: none; padding: 0 24px 24px; border-top: 1px solid var(--border);
+    }
+    .skill-card.expanded .skill-detail { display: block; padding-top: 20px; }
+
+    .detail-section { margin-bottom: 18px; }
+    .detail-section h4 {
+      font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .detail-section p, .detail-section li { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
+    .detail-section ul { list-style: none; padding: 0; }
+    .detail-section ul li { padding: 2px 0 2px 16px; position: relative; }
+    .detail-section ul li::before { content: '>'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .detail-section ol { padding-left: 20px; }
+    .detail-section ol li { padding: 2px 0; }
+
+    .mcp-uses {
+      background: rgba(120,144,156,0.08); border: 1px solid rgba(120,144,156,0.2);
+      border-radius: 8px; padding: 12px 16px; margin-top: 8px;
+    }
+    .mcp-uses h4 { color: var(--mcp-tool) !important; margin-bottom: 6px; }
+    .mcp-uses code { font-size: 0.8rem; }
+
+    /* ===== FILTER ROW ===== */
+    .filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .filter-btn {
+      padding: 5px 12px; border-radius: 18px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-dim); font-size: 0.82rem;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: rgba(108,140,255,0.12); border-color: var(--accent); color: var(--accent); }
+
+    .no-results { text-align: center; padding: 60px 0; color: var(--text-dim); display: none; }
+    .no-results.visible { display: block; }
+
+    /* ===== INFO BOX ===== */
+    .info-box {
+      background: linear-gradient(135deg, rgba(108,140,255,0.06), rgba(78,205,196,0.04));
+      border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 28px;
+    }
+    .info-box h2 { font-size: 1.15rem; margin-bottom: 12px; }
+    .info-box ol { padding-left: 20px; color: var(--text-dim); }
+    .info-box li { margin-bottom: 6px; font-size: 0.92rem; }
+
+    /* ===== WORKFLOWS ===== */
+    .workflow-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px; margin-bottom: 24px; position: relative; overflow: hidden;
+    }
+    .workflow-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .workflow-card:nth-child(1)::before { background: linear-gradient(90deg, var(--config), var(--accent2)); }
+    .workflow-card:nth-child(2)::before { background: linear-gradient(90deg, var(--config), var(--accent)); }
+    .workflow-card:nth-child(3)::before { background: linear-gradient(90deg, var(--testing), var(--observer)); }
+    .workflow-card:nth-child(4)::before { background: linear-gradient(90deg, var(--manual), var(--accent2)); }
+    .workflow-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
+    .workflow-card .wf-desc { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 18px; }
+    .wf-steps {
+      display: flex; gap: 0; align-items: flex-start; flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .wf-step {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      flex: 1; min-width: 100px; max-width: 160px; position: relative;
+    }
+    .wf-step-num {
+      width: 36px; height: 36px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; font-weight: 700;
+      font-size: 0.88rem; margin-bottom: 8px; flex-shrink: 0;
+    }
+    .wf-step-label { font-size: 0.82rem; color: var(--text); font-weight: 500; margin-bottom: 2px; }
+    .wf-step-detail { font-size: 0.72rem; color: var(--text-dim); line-height: 1.4; }
+    .wf-arrow {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); font-size: 1.2rem; padding: 0 2px; margin-top: 8px;
+    }
+    .wf-uses {
+      display: flex; gap: 8px; flex-wrap: wrap; padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .wf-uses-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-right: 4px; line-height: 2; }
+
+    /* ===== WARNINGS ===== */
+    .warning-box {
+      background: rgba(255,213,79,0.06); border: 1px solid rgba(255,213,79,0.25);
+      border-radius: 8px; padding: 16px 20px; margin: 16px 0;
+    }
+    .warning-box h4 { color: var(--warn); font-size: 0.9rem; margin-bottom: 6px; }
+    .warning-box p, .warning-box li { font-size: 0.88rem; color: var(--text-dim); }
+    .warning-box ul { padding-left: 20px; }
+
+    footer {
+      text-align: center; padding: 32px 0; border-top: 1px solid var(--border);
+      color: var(--text-dim); font-size: 0.82rem;
+    }
+
+    /* ===== PASSWORD GATE ===== */
+    #gate {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; background: var(--bg);
+    }
+    .gate-box { text-align: center; max-width: 340px; }
+    .gate-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+    .gate-title .hl { color: var(--accent); }
+    .gate-sub { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 24px; }
+    .gate-input {
+      width: 100%; padding: 12px 16px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px; color: var(--text);
+      font-size: 1rem; outline: none; text-align: center; margin-bottom: 12px;
+    }
+    .gate-input:focus { border-color: var(--accent); }
+    .gate-btn {
+      width: 100%; padding: 10px; background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .gate-btn:hover { opacity: 0.85; }
+    .gate-error {
+      color: var(--broken); font-size: 0.85rem; margin-top: 10px; display: none;
+    }
+    #app-content { display: none; }
+
+    @media (max-width: 768px) {
+      .wf-steps { flex-direction: column; align-items: stretch; }
+      .wf-step { flex-direction: row; max-width: 100%; text-align: left; gap: 12px; }
+      .wf-arrow { transform: rotate(90deg); padding: 4px 0; }
+    }
+
+    @media print {
+      body { background: #fff; color: #222; }
+      .nav-bar, .search-area, .filter-row { display: none; }
+      .panel { display: block !important; }
+      .skill-detail { display: block !important; }
+      .mcp-cat-body { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== PASSWORD GATE ===== -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-title">eRegistrations <span class="hl">Toolkit</span></div>
+    <div class="gate-sub">Skills, workflows &amp; MCP reference</div>
+    <input type="password" id="pw" class="gate-input" placeholder="Enter keyword" autofocus
+           onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="gate-btn" onclick="checkPw()">Enter</button>
+    <div class="gate-error" id="gate-err">Incorrect keyword</div>
+  </div>
+</div>
+
+<!-- ===== APP CONTENT (hidden until auth) ===== -->
+<div id="app-content">
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="container">
+    <h1>eRegistrations <span class="hl">Toolkit</span></h1>
+    <p class="subtitle">What you can accomplish with the eRegistrations agent toolkit: skills, workflows, and automation for digital government services.</p>
+    <div style="margin-top:12px; display:inline-flex; align-items:center; gap:12px; background:rgba(108,140,255,0.08); border:1px solid rgba(108,140,255,0.2); border-radius:8px; padding:8px 16px;">
+      <span style="font-size:0.82rem; color:var(--text-dim);">Quick access:</span>
+      <code style="font-size:0.85rem; cursor:pointer;" onclick="navigator.clipboard.writeText(window.location.origin+'/toolkit');this.style.color='var(--ok)';setTimeout(()=>this.style.color='',1500)" title="Click to copy">/toolkit</code>
+      <span style="color:var(--border);">|</span>
+      <code style="font-size:0.85rem; cursor:pointer;" onclick="navigator.clipboard.writeText(window.location.origin+'/catalogo');this.style.color='var(--ok)';setTimeout(()=>this.style.color='',1500)" title="Click to copy">/catalogo</code>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-num" style="color:var(--skill)">16</span><span class="stat-label">Skills</span></div>
+      <div class="stat"><span class="stat-num" style="color:var(--accent2)">4</span><span class="stat-label">Workflows</span></div>
+      <div class="stat"><span class="stat-num" style="color:var(--command)">3</span><span class="stat-label">Commands</span></div>
+      <div class="stat"><span class="stat-num" style="color:var(--mcp-tool)">2</span><span class="stat-label">MCP Servers</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== NAV ===================== -->
+<div class="nav-bar">
+  <div class="container">
+    <ul class="nav-tabs">
+      <li class="nav-tab active" data-panel="overview">Overview</li>
+      <li class="nav-tab" data-panel="skills-cat">Skills Catalog <span class="badge">16</span></li>
+      <li class="nav-tab" data-panel="workflows">Workflows <span class="badge">4</span></li>
+      <li class="nav-tab" data-panel="mcp-ref">MCP Reference <span class="badge">120+</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== OVERVIEW PANEL ===================== -->
+<div class="panel active" id="panel-overview">
+  <div class="container">
+
+    <div class="concept-box skill-box">
+      <h2 style="color:var(--accent)">What Can This Toolkit Do?</h2>
+      <p>The eRegistrations toolkit lets you <strong>configure, test, document, and monitor</strong> digital government services using AI agents. Instead of manually clicking through admin panels, you describe what you want and the agents handle the rest.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:18px;">
+        <div>
+          <div style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--config); margin-bottom:8px;">Configure</div>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--config); font-weight:600;">></span>Connect services to the central dashboard</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--config); font-weight:600;">></span>Add "My Files" panels with email delegation</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--config); font-weight:600;">></span>Set up bots, conditional logic, and workflows</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--testing); margin-bottom:8px;">Test &amp; Verify</div>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--testing); font-weight:600;">></span>Run end-to-end tests against production</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--testing); font-weight:600;">></span>Automate form fill, submit, and status checks</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--testing); font-weight:600;">></span>Correlate test results with backend logs</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--manual); margin-bottom:8px;">Document</div>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--manual); font-weight:600;">></span>Generate user manuals for government officers</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--manual); font-weight:600;">></span>Detect changes between service versions</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--manual); font-weight:600;">></span>Extract live data from any configured instance</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--observer); margin-bottom:8px;">Monitor</div>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--observer); font-weight:600;">></span>Check service health via Graylog logs</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--observer); font-weight:600;">></span>Find and diagnose bot failures</li>
+            <li style="padding:3px 0 3px 16px; position:relative; color:var(--text-dim); font-size:0.9rem;"><span style="position:absolute; left:0; color:var(--observer); font-weight:600;">></span>Trace a case through its full lifecycle</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>How to Get Started</h2>
+      <ol>
+        <li><strong>Install the MCP server</strong>: <code>npx mcp-eregistrations-bpa</code> — connects your AI agent to the BPA admin API</li>
+        <li><strong>Download skills from the Skills Catalog tab</strong> — each card has a <span style="color:var(--accent2)">Download .md</span> button</li>
+        <li><strong>Place the <code>.md</code> files</strong> in your project:
+          <ul style="margin-top:4px; padding-left:20px;">
+            <li><code>.claude/skills/</code> — auto-loaded by Claude Code at session start</li>
+            <li><code>.claude/commands/</code> — invocable via <code>/command-name</code></li>
+          </ul>
+        </li>
+        <li><strong>Describe what you want</strong>: "Add a My Files block to this service" — the agent picks the right skill and runs it</li>
+        <li><strong>Check the Workflows tab</strong> for step-by-step guides to common end-to-end processes</li>
+      </ol>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; margin-top:8px;">
+      <h2 style="font-size:1.1rem; margin-bottom:12px;">Skills vs MCP Tools — When Does It Matter?</h2>
+      <p style="color:var(--text-dim); font-size:0.92rem; margin-bottom:12px;">
+        <strong>Skills</strong> are structured instructions that teach the AI agent how to accomplish a complete task. They combine multiple tool calls, domain knowledge, workarounds, and verification steps into a single workflow.
+      </p>
+      <p style="color:var(--text-dim); font-size:0.92rem; margin-bottom:12px;">
+        <strong>MCP tools</strong> are the 120+ individual API operations the agent uses under the hood. Think of skills as recipes and MCP tools as ingredients.
+      </p>
+      <p style="color:var(--text-dim); font-size:0.92rem;">
+        <strong>Most users only need skills and workflows.</strong> The MCP Reference tab is available for advanced users who want to understand the underlying API or build custom automations.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== SKILLS CATALOG PANEL ===================== -->
+<div class="panel" id="panel-skills-cat">
+  <div class="container">
+
+    <div class="search-area">
+      <div class="search-wrap">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" class="search-box" id="skillSearch" placeholder="Search skills by name, keyword, or use case..." autocomplete="off">
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="config">Config Agent</button>
+        <button class="filter-btn" data-filter="manual">Manual Agent</button>
+        <button class="filter-btn" data-filter="testing">Testing Agent</button>
+        <button class="filter-btn" data-filter="observer">Observer Agent</button>
+        <button class="filter-btn" data-filter="country">Country-Specific</button>
+        <button class="filter-btn" data-filter="command">Commands</button>
+      </div>
+    </div>
+
+    <!-- CONFIG AGENT -->
+    <div class="category-section" data-category="config">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:rgba(255,138,101,0.15);">&#9881;</div>
+        <h2>Config Agent Skills</h2>
+        <span class="cat-count">2 skills</span>
+      </div>
+      <p class="cat-intro">The Config Agent reads and writes to the BPA admin API. It can create bots, set up form components, configure conditional logic, and connect services together. Use these skills when you need to <strong>change how a service works</strong>.</p>
+      <div class="skills-grid">
+
+        <div class="skill-card featured" data-tags="config reusable" data-search="my account query user files bot dossier solicitudes mule service document api button editgrid datagrid panel TOBE-17236 delegate email share files view link">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Setup: My Files Block &mdash; Query, View &amp; Delegate</h3><span class="file-path">config/setup-my-files-block.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Adds a complete <strong>"My Files"</strong> block to any service: a button that <strong>queries</strong> all user dossiers from the Document Service API, a DataGrid table to <strong>view</strong> each file (with direct links), and a <strong>delegate</strong> action to share files via email. 16-step guide covering panel creation, bot setup, all mappings, debug scan, and publish. Includes ASCII mockup of the final result.</p></div>
+          <div class="skill-tags"><span class="tag tag-config">Config Agent</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="detail-section"><h4>What It Creates (16 steps)</h4><ul>
+              <li>A "My Files" panel with "Get My Files" button</li>
+              <li>A DataGrid with 14 columns: visible (Service Name, Business Entity, Created At, State) + hidden (File ID, Username, Metadata, etc.) + View link + Delegate button + Email field</li>
+              <li>Two bots: "Get my files" (query) and "Delegar file" (delegation)</li>
+              <li>Complete input/output mappings for both bots (using <code>save_all</code>)</li>
+              <li>Component actions wiring buttons to bots</li>
+            </ul></div>
+            <div class="detail-section"><h4>Warnings (learned from production)</h4><ul>
+              <li>Do NOT pass <code>input_param_type</code> or <code>service_id</code> to <code>bot_input_mapping_create</code> — causes 400 errors</li>
+              <li>Always use <code>save_all</code> for DataGrid compound key mappings (<code>_collection_</code> keys)</li>
+              <li>Output mapping orientation is reversed: <code>source_field</code> = form field, <code>target_field</code> = Mule output</li>
+              <li>BPA requires at least 1 input mapping per bot to publish</li>
+              <li>Debug scan flags <code>_collection_</code> mappings as false positives — ignore those</li>
+            </ul></div>
+            <div class="detail-section"><h4>Prerequisites</h4><p>Two Mule services must be deployed: <code>DS.DS - Query user files</code> and <code>DS.Share access to file</code>. The skill checks for these first and stops if missing.</p></div>
+            <div class="mcp-uses"><h4>MCP Tools Used (30+ calls)</h4><p><code>muleservice_list</code>, <code>bot_create</code> (x2), <code>form_component_add</code> (x15), <code>componentaction_save</code> (x2), <code>bot_input_mapping_create</code>, <code>bot_input_mapping_save_all</code>, <code>bot_output_mapping_save_all</code> (x2), <code>debug_scan</code>, <code>service_publish</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="config reusable" data-search="service setup connect bitacora hub dashboard workflow bot determinant interno listar editgrid panel 8 steps full end-to-end">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Connect a Service to the Dashboard</h3><span class="file-path">config/.claude/skills/service-setup.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Connects a new service to the central dashboard (Bitacora) where all dossiers/cases can be viewed in one place. An 8-step workflow that creates the necessary bots, determinants, and UI components, with verification at each step. Proven across 18 services.</p></div>
+          <div class="skill-tags"><span class="tag tag-config">Config Agent</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="detail-section"><h4>What It Does</h4><ul>
+              <li>Creates INTERNO bots that write case data to the central dashboard</li>
+              <li>Creates a LISTAR bot that reads case lists back into the service</li>
+              <li>Adds an EditGrid table to display cases</li>
+              <li>Sets up conditional logic (determinants) to control visibility</li>
+              <li>Links everything via component actions and publishes</li>
+            </ul></div>
+            <div class="detail-section"><h4>Key Knowledge</h4><ul>
+              <li>The exact 8-step sequence proven across 18 Cuba services</li>
+              <li>Which steps apply in the dashboard vs the destination service</li>
+              <li>NIT/Empresa field keys vary per service &mdash; must be verified first</li>
+            </ul></div>
+            <div class="mcp-uses"><h4>MCP Tools Used (15-20 calls)</h4><p><code>service_get</code>, <code>form_get</code>, <code>field_list</code>, <code>bot_create</code>, <code>bot_input_mapping_save_all</code>, <code>bot_output_mapping_save_all</code>, <code>componentaction_save</code>, <code>form_component_add</code>, <code>form_component_update</code>, <code>effect_create</code>, <code>bot_validate</code></p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MANUAL AGENT -->
+    <div class="category-section" data-category="manual">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:rgba(79,195,247,0.15);">&#128214;</div>
+        <h2>Manual Agent Skills</h2>
+        <span class="cat-count">2 skills</span>
+      </div>
+      <p class="cat-intro">The Manual Agent is <strong>read-only</strong> &mdash; it extracts data from BPA instances but never modifies them. It generates documentation, detects changes between versions, and provides structured data for other agents. Use it when you need to <strong>understand or document a service</strong> without touching its configuration.</p>
+      <div class="skills-grid">
+
+        <div class="skill-card" data-tags="manual reusable" data-search="documentation technical user manual html markdown government officials service structure">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Technical Documentation for Government Services</h3><span class="file-path">manual/.claude/skills/documentation.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Generates user manuals (HTML or Markdown, 7 sections) and technical docs for government officials. Extracts live data from MCP: forms, roles, bots, determinants, print documents. Written in plain language, no jargon.</p></div>
+          <div class="skill-tags"><span class="tag tag-manual">Manual Agent</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>service_get</code>, <code>form_get</code>, <code>form_query</code>, <code>role_list</code>, <code>bot_list</code>, <code>determinant_list</code>, <code>print_document_list</code></p></div>
+            <div class="detail-section"><h4>What This Skill Adds</h4><ul>
+              <li>7-section manual structure optimized for government readers</li>
+              <li>Rules: no jargon, explain from scratch, include service_id for traceability</li>
+              <li>Verification against production UI (config may differ from what users see)</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="manual reusable" data-search="change detection diff compare versions snapshot cross instance">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Change Detection Between Service Versions</h3><span class="file-path">manual/.claude/skills/change-detection.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Detects what changed in a service between two points in time, or compares the same service across instances (e.g., Cuba vs Jamaica). Generates structured change reports: Added / Removed / Modified / Impact.</p></div>
+          <div class="skill-tags"><span class="tag tag-manual">Manual Agent</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>service_get</code>, <code>form_get</code>, <code>determinant_list</code>, <code>bot_list</code>, <code>role_list</code> (on multiple instances)</p></div>
+            <div class="detail-section"><h4>What This Skill Adds</h4><ul>
+              <li>Structured diffing methodology with impact assessment</li>
+              <li>Cross-instance comparison: match by NAME not ID</li>
+              <li>Distinguishes cosmetic changes (labels) from functional ones (behaviourId)</li>
+            </ul></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TESTING AGENT -->
+    <div class="category-section" data-category="testing">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:rgba(129,199,132,0.15);">&#9989;</div>
+        <h2>Testing Agent Skills</h2>
+        <span class="cat-count">2 skills</span>
+      </div>
+      <p class="cat-intro">The Testing Agent generates and runs <strong>end-to-end (E2E) tests</strong> using <a href="https://playwright.dev" style="color:var(--testing)">Playwright</a>, a browser automation framework. E2E tests simulate a real user filling out forms, clicking buttons, and submitting applications &mdash; against the actual production system. Use these when you need to <strong>verify that a service works correctly from the applicant's perspective</strong>.</p>
+      <div class="skills-grid">
+
+        <div class="skill-card" data-tags="testing reusable" data-search="playwright e2e test generation choices.js dropdown file upload form.io hidden fields css unhiding selector prd spec">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Playwright E2E Test Generation for BPA Services</h3><span class="file-path">testing/.claude/skills/playwright-e2e.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Generates complete E2E tests: PRD (requirements), Page Object (selectors), and spec file (test scenarios). Includes all eRegistrations platform patterns: Choices.js dropdowns, file uploads, Form.io JS API for hidden fields, CSS unhiding, and masked inputs.</p></div>
+          <div class="skill-tags"><span class="tag tag-testing">Testing Agent</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>form_get</code>, <code>form_query</code>, <code>service_get</code> (to extract structure before writing tests)</p></div>
+            <div class="detail-section"><h4>What This Skill Adds</h4><ul>
+              <li>5 platform patterns discovered through production testing</li>
+              <li>Complete selector reference for eRegistrations elements</li>
+              <li>PRD generation methodology (user stories > acceptance criteria > test cases)</li>
+              <li>15+ common mistakes to avoid</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="testing reusable" data-search="page object playwright locator selector typescript class naming">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Page Object Patterns for eRegistrations</h3><span class="file-path">testing/.claude/skills/page-objects.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Page Object conventions for Playwright tests: selector patterns, naming rules, base structure, and eRegistrations-specific patterns (EditGrid async loading, hidden components, Choices.js wrappers).</p></div>
+          <div class="skill-tags"><span class="tag tag-testing">Testing Agent</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>form_get</code> (to extract component keys for selectors)</p></div>
+            <div class="detail-section"><h4>What This Skill Adds</h4><ul>
+              <li>eRegistrations-specific selector patterns (<code>[ref="key"]</code>, <code>.formio-component-{key}</code>)</li>
+              <li>Naming conventions for files, classes, locators, and actions</li>
+              <li>Knowledge that EditGrids render async and components can be hidden by determinants</li>
+            </ul></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OBSERVER AGENT -->
+    <div class="category-section" data-category="observer">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:rgba(186,104,200,0.15);">&#128065;</div>
+        <h2>Observer Agent Skills</h2>
+        <span class="cat-count">4 skills</span>
+      </div>
+      <p class="cat-intro">The Observer Agent connects to <a href="https://graylog.org" style="color:var(--observer)">Graylog</a>, a log management platform that collects all backend activity from the eRegistrations servers. Every bot execution, API call, and error is logged. Use these skills to <strong>diagnose problems, verify that backend processes ran correctly, and monitor service health</strong> without looking at code.</p>
+      <div class="skills-grid">
+
+        <div class="skill-card" data-tags="observer reusable" data-search="bot failure report diagnostic errors grouped service pattern intermittent consistent">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Bot Failure Report</h3><span class="file-path">observer/.claude/skills/bot-failure-report.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Finds all bot failures across all services. Groups them by bot name and service, detects whether failures are intermittent or consistent, and generates actionable recommendations. Start here when something seems broken.</p></div>
+          <div class="skill-tags"><span class="tag tag-observer">Observer Agent</span><span class="tag tag-reusable">Reusable</span><span class="tag tag-mcp">Uses mcp-graylog</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used (mcp-graylog)</h4><p><code>search_logs</code>, <code>get_error_logs</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="observer reusable" data-search="health check graylog logs error rate failed bots monitoring healthy warning critical">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Service Health Check</h3><span class="file-path">observer/.claude/skills/service-health-check.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Quick health assessment for any service: log volume, error rate, failed bots, empty payloads, and active users. Returns a clear <strong>HEALTHY</strong> / <strong>WARNING</strong> / <strong>CRITICAL</strong> status.</p></div>
+          <div class="skill-tags"><span class="tag tag-observer">Observer Agent</span><span class="tag tag-reusable">Reusable</span><span class="tag tag-mcp">Uses mcp-graylog</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used (mcp-graylog)</h4><p><code>search_logs</code>, <code>get_error_logs</code>, <code>search_stream_logs</code></p></div>
+            <div class="detail-section"><h4>Status Criteria</h4><ul>
+              <li><strong>HEALTHY</strong>: 0 errors, all bots succeeding</li>
+              <li><strong>WARNING</strong>: &lt;5% error rate, some bot issues</li>
+              <li><strong>CRITICAL</strong>: &gt;5% error rate, systematic failures</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="observer reusable" data-search="trace dossier lifecycle bot execution chain chronological errors case file">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Trace Dossier Lifecycle</h3><span class="file-path">observer/.claude/skills/trace-dossier.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Follow a specific case/dossier from creation to current state through Graylog logs. Shows the full bot execution chain with timestamps and highlights any errors along the way.</p></div>
+          <div class="skill-tags"><span class="tag tag-observer">Observer Agent</span><span class="tag tag-reusable">Reusable</span><span class="tag tag-mcp">Uses mcp-graylog</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used (mcp-graylog)</h4><p><code>search_logs</code> (with dossier number in message/outputData fields)</p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="observer reusable" data-search="correlate test logs e2e backend verify match mismatch time window">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Correlate E2E Tests with Backend Logs</h3><span class="file-path">observer/.claude/skills/correlate-test-logs.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>After running an E2E test, finds the corresponding backend logs in Graylog (by time window, user, and service). Verdict: <strong>MATCH</strong> or <strong>MISMATCH</strong> between expected and actual bot execution sequence.</p></div>
+          <div class="skill-tags"><span class="tag tag-observer">Observer Agent</span><span class="tag tag-reusable">Reusable</span><span class="tag tag-mcp">Uses mcp-graylog</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used (mcp-graylog + BPA MCP)</h4><p><code>search_logs</code> (Graylog), <code>bot_list</code> + <code>service_get</code> (BPA &mdash; to correlate IDs with names)</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COUNTRY-SPECIFIC -->
+    <div class="category-section" data-category="country">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:rgba(255,213,79,0.15);">&#127758;</div>
+        <h2>Country-Specific Skills</h2>
+        <span class="cat-count">3 skills</span>
+      </div>
+      <p class="cat-intro">These skills are tailored to specific country instances. Each country's eRegistrations deployment has unique form structures, field keys, and UI behaviors. Country skills encode this knowledge so the agent doesn't have to rediscover it every time. They can be <strong>adapted for new countries</strong> by replacing IDs and field keys.</p>
+      <div class="skills-grid">
+
+        <div class="skill-card" data-tags="country config" data-search="cuba fix determinant effect rest api statusbitacora expirado badge radio grid bulk 18 services">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Fix Determinant + Effect Linkages via REST API</h3><span class="file-path">countries/cuba/skills/fix-determinant-effects/SKILL.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Cuba-specific bulk fix for 18 services: REST API payloads for radio/grid determinants, Playwright automation scripts, and complete service-by-service inventory with status tracking.</p></div>
+          <div class="skill-tags"><span class="tag tag-country">Cuba</span><span class="tag tag-config">Config</span></div>
+          <div class="skill-detail">
+            <div class="detail-section"><h4>Adapting for Another Country</h4><p>Replace the base URL, service IDs, and field keys. The REST API payloads and 3-step workflow (create determinant > create behaviour > update component) are identical across all eRegistrations v4 instances.</p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="country testing reusable" data-search="cuba e2e service test form fill submit automation bitacora hidden fields choices.js datagrid helpers diagnostic">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Cuba E2E Service Test &mdash; Form Fill &amp; Submit</h3><span class="file-path">countries/cuba/skills/e2e-service-test/SKILL.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Complete front-office test automation for Cuba services: 9-step process, 13 helper functions, 5-phase adaptation guide for new services, and Cuba vs Jamaica comparison table.</p></div>
+          <div class="skill-tags"><span class="tag tag-country">Cuba</span><span class="tag tag-testing">Testing</span><span class="tag tag-reusable">Adaptable</span></div>
+          <div class="skill-detail">
+            <div class="detail-section"><h4>Key Differentiator</h4><p>Cuba Choices.js dropdowns start <strong>CLOSED</strong> (click wrapper first), <code>form.onChange()</code> <strong>CRASHES the page</strong>, and submit detection is URL redirect + "Pendiente" text.</p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="country testing reusable" data-search="jamaica sez zone form fill submit multi-tab upload browse css unhiding form.io diagnostic">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>Jamaica SEZ &mdash; Form Fill &amp; Submit Automation</h3><span class="file-path">countries/jamaica/skills/form-fill-submit/SKILL.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Complete front-office automation for Jamaica's "Establish a new zone": 7-tab form, 30+ file uploads, DOM browse map, hidden required fields, and all platform patterns documented.</p></div>
+          <div class="skill-tags"><span class="tag tag-country">Jamaica</span><span class="tag tag-testing">Testing</span><span class="tag tag-reusable">Adaptable</span></div>
+          <div class="skill-detail">
+            <div class="detail-section"><h4>Reusable Patterns</h4><p>Documents 5 platform patterns applicable to ALL instances: Choices.js search-based dropdowns, <code>a.browse</code> filechooser uploads, Form.io JS API for hidden fields, CSS unhiding for tab-panes, and JS click fallback for off-screen elements.</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMMANDS -->
+    <div class="category-section" data-category="command">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:rgba(239,83,80,0.15);">&#9889;</div>
+        <h2>Slash Commands</h2>
+        <span class="cat-count">3 commands</span>
+      </div>
+      <p class="cat-intro">Slash commands are invoked directly in Claude Code by typing <code>/command-name</code>. They run a predefined workflow immediately. Think of them as <strong>one-click actions</strong> for the most common tasks.</p>
+      <div class="skills-grid">
+
+        <div class="skill-card" data-tags="command reusable" data-search="check bpa status connection health instances authentication login">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/check-bpa &mdash; Check BPA Connection Status</h3><span class="file-path">.claude/commands/check-bpa.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Verifies MCP connections across all configured instances. Reports a status table and auto-retries authentication on disconnected instances.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>connection_status</code>, <code>service_list</code>, <code>auth_login</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command config" data-search="connect service bitacora hub interno listar editgrid component action mapping dashboard">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/connect-service &mdash; Connect Service to Dashboard</h3><span class="file-path">.claude/commands/connect-service.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Runs the complete dashboard connection pattern: 10-step workflow creating INTERNO bots, LISTAR bot, EditGrid, and component actions.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-config">Config</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used (15-20 calls)</h4><p><code>connection_status</code>, <code>service_get</code>, <code>service_export_raw</code>, <code>bot_create</code>, <code>bot_input_mapping_save_all</code>, <code>bot_output_mapping_save_all</code>, <code>form_component_add</code>, <code>componentaction_save</code>, <code>form_component_update</code></p></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tags="command reusable" data-search="debug service scan investigate plan report diagnostic issues fix">
+          <div class="skill-card-top" onclick="toggleCard(this)"><div><h3>/debug-service &mdash; Debug an eRegistrations Service</h3><span class="file-path">.claude/commands/debug-service.md</span></div><button class="expand-btn">&#9660;</button></div>
+          <div class="skill-summary" onclick="toggleCard(this)"><p>Full 6-step diagnostic: scan, group by severity, investigate root causes, generate fix plan, report. Asks before applying any fixes.</p></div>
+          <div class="skill-tags"><span class="tag tag-command">Command</span><span class="tag tag-reusable">Reusable</span></div>
+          <div class="skill-detail">
+            <div class="mcp-uses"><h4>MCP Tools Used</h4><p><code>connection_status</code>, <code>debug_scan</code>, <code>debug_group_issues</code>, <code>debug_investigate</code>, <code>debug_plan</code>, <code>auth_login</code></p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="skillNoResults" class="no-results">
+      <p style="font-size:1.2rem; margin-bottom:8px;">No skills match your search.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== WORKFLOWS PANEL ===================== -->
+<div class="panel" id="panel-workflows">
+  <div class="container">
+
+    <div style="margin-bottom:28px;">
+      <h2 style="font-size:1.3rem; margin-bottom:8px;">End-to-End Workflows</h2>
+      <p style="color:var(--text-dim); font-size:0.95rem;">These workflows show the complete process for common tasks, step by step. Each step maps to specific skills and tools. Follow these when you're doing something for the first time.</p>
+    </div>
+
+    <!-- Workflow 1 -->
+    <div class="workflow-card">
+      <h3>Workflow 1: Configure a Service from Scratch</h3>
+      <p class="wf-desc">Set up a brand-new government service in BPA, from creation to live deployment.</p>
+      <div class="wf-steps">
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">1</div>
+          <div class="wf-step-label">Create Service</div>
+          <div class="wf-step-detail">Define name, registration, institution</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">2</div>
+          <div class="wf-step-label">Build Form</div>
+          <div class="wf-step-detail">Add panels, fields, grids, upload areas</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">3</div>
+          <div class="wf-step-label">Add Roles</div>
+          <div class="wf-step-detail">Define workflow: who approves what</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">4</div>
+          <div class="wf-step-label">Configure Bots</div>
+          <div class="wf-step-detail">Connect to GDB APIs and external services</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(129,199,132,0.15); color:var(--testing);">5</div>
+          <div class="wf-step-label">Publish &amp; Verify</div>
+          <div class="wf-step-detail">Publish, then run debug scan</div>
+        </div>
+      </div>
+      <div class="wf-uses">
+        <span class="wf-uses-label">Uses:</span>
+        <span class="tag tag-config">service-setup skill</span>
+        <span class="tag tag-command">/debug-service</span>
+        <span class="tag tag-mcp">MCP: service_create, form_component_add, role_create, bot_create</span>
+      </div>
+    </div>
+
+    <!-- Workflow 2 -->
+    <div class="workflow-card">
+      <h3>Workflow 2: Link a Service to the Dashboard</h3>
+      <p class="wf-desc">Connect an existing service to the central dashboard (Bitacora) so all cases appear in one view.</p>
+      <div class="wf-steps">
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(79,195,247,0.15); color:var(--manual);">1</div>
+          <div class="wf-step-label">Pre-flight</div>
+          <div class="wf-step-detail">Verify field keys &amp; existing components</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">2</div>
+          <div class="wf-step-label">Determinant</div>
+          <div class="wf-step-detail">Create StatusBitacora radio determinant</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">3</div>
+          <div class="wf-step-label">Bots</div>
+          <div class="wf-step-detail">Create INTERNO + LISTAR bots with mappings</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(255,138,101,0.15); color:var(--config);">4</div>
+          <div class="wf-step-label">EditGrid</div>
+          <div class="wf-step-detail">Add table + button + component actions</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(129,199,132,0.15); color:var(--testing);">5</div>
+          <div class="wf-step-label">Verify</div>
+          <div class="wf-step-detail">Publish &amp; test from applicant view</div>
+        </div>
+      </div>
+      <div class="wf-uses">
+        <span class="wf-uses-label">Uses:</span>
+        <span class="tag tag-config">service-setup skill</span>
+        <span class="tag tag-command">/connect-service</span>
+        <span class="tag tag-mcp">MCP: bot_create, form_component_add, effect_create, componentaction_save</span>
+      </div>
+    </div>
+
+    <!-- Workflow 3 -->
+    <div class="workflow-card">
+      <h3>Workflow 3: Test a Service End-to-End</h3>
+      <p class="wf-desc">Generate and run a complete test that simulates a real applicant filling out and submitting a form, then verify the backend processed it correctly.</p>
+      <div class="wf-steps">
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(79,195,247,0.15); color:var(--manual);">1</div>
+          <div class="wf-step-label">Extract Structure</div>
+          <div class="wf-step-detail">Pull form schema via MCP</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(129,199,132,0.15); color:var(--testing);">2</div>
+          <div class="wf-step-label">Generate PRD</div>
+          <div class="wf-step-detail">User stories + acceptance criteria</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(129,199,132,0.15); color:var(--testing);">3</div>
+          <div class="wf-step-label">Write Tests</div>
+          <div class="wf-step-detail">Page Object + spec file</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(129,199,132,0.15); color:var(--testing);">4</div>
+          <div class="wf-step-label">Run Tests</div>
+          <div class="wf-step-detail">Execute via Playwright against production</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(186,104,200,0.15); color:var(--observer);">5</div>
+          <div class="wf-step-label">Correlate Logs</div>
+          <div class="wf-step-detail">Match test results with Graylog</div>
+        </div>
+      </div>
+      <div class="wf-uses">
+        <span class="wf-uses-label">Uses:</span>
+        <span class="tag tag-testing">playwright-e2e skill</span>
+        <span class="tag tag-testing">page-objects skill</span>
+        <span class="tag tag-observer">correlate-test-logs skill</span>
+      </div>
+    </div>
+
+    <!-- Workflow 4 -->
+    <div class="workflow-card">
+      <h3>Workflow 4: Create a Service Manual</h3>
+      <p class="wf-desc">Generate a complete user manual for a government service, written for officials and applicants who need to understand the process.</p>
+      <div class="wf-steps">
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(79,195,247,0.15); color:var(--manual);">1</div>
+          <div class="wf-step-label">Extract Data</div>
+          <div class="wf-step-detail">Pull service, form, roles, bots via MCP</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(79,195,247,0.15); color:var(--manual);">2</div>
+          <div class="wf-step-label">Analyze Structure</div>
+          <div class="wf-step-detail">Map workflow, identify key fields</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(79,195,247,0.15); color:var(--manual);">3</div>
+          <div class="wf-step-label">Generate Doc</div>
+          <div class="wf-step-detail">7-section manual in HTML or Markdown</div>
+        </div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step">
+          <div class="wf-step-num" style="background:rgba(79,195,247,0.15); color:var(--manual);">4</div>
+          <div class="wf-step-label">Review</div>
+          <div class="wf-step-detail">Cross-check against live production UI</div>
+        </div>
+      </div>
+      <div class="wf-uses">
+        <span class="wf-uses-label">Uses:</span>
+        <span class="tag tag-manual">documentation skill</span>
+        <span class="tag tag-mcp">MCP: service_get, form_get, role_list, bot_list</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MCP REFERENCE PANEL ===================== -->
+<div class="panel" id="panel-mcp-ref">
+  <div class="container">
+
+    <div style="background:rgba(120,144,156,0.06); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:24px;">
+      <p style="color:var(--text-dim); font-size:0.92rem;">
+        The toolkit uses multiple MCP servers to connect with different systems. <strong>Most users won't need to interact with these directly</strong> &mdash; the skills and workflows above handle the orchestration.
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px;">
+          <div style="font-weight:600; font-size:0.9rem; margin-bottom:4px;">mcp-eregistrations-bpa <code style="font-size:0.75rem;">v0.17.3</code></div>
+          <p style="color:var(--text-dim); font-size:0.82rem;">120+ tools for BPA admin API &mdash; services, forms, bots, determinants, roles, workflows. The primary MCP server.</p>
+          <span class="status-ok" style="font-size:0.78rem;">Active</span>
+        </div>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px;">
+          <div style="font-weight:600; font-size:0.9rem; margin-bottom:4px;">mcp-graylog</div>
+          <p style="color:var(--text-dim); font-size:0.82rem;">11 tools for Graylog log analysis &mdash; search logs, stream management, error analysis. Used by Observer Agent skills.</p>
+          <span class="status-ok" style="font-size:0.78rem;">Active</span>
+        </div>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px;">
+          <div style="font-weight:600; font-size:0.9rem; margin-bottom:4px; color:var(--text-dim);">mcp-keycloak <span style="font-size:0.72rem; color:var(--warn);">Coming soon</span></div>
+          <p style="color:var(--text-dim); font-size:0.82rem;">User management, roles, and authentication &mdash; manage Keycloak realms, users, and permissions directly.</p>
+          <span class="status-partial" style="font-size:0.78rem;">Planned</span>
+        </div>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px;">
+          <div style="font-weight:600; font-size:0.9rem; margin-bottom:4px; color:var(--text-dim);">More to come&hellip;</div>
+          <p style="color:var(--text-dim); font-size:0.82rem;">The MCP architecture is extensible. New servers can be added for GDB, document storage, or any external API.</p>
+        </div>
+      </div>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-top:14px;">
+        Below: full reference for <strong>mcp-eregistrations-bpa</strong> tools.
+        Status: <span class="status-ok">OK</span> = working, <span class="status-partial">PARTIAL</span> = limited, <span class="status-broken">BROKEN</span> = use workaround.
+      </p>
+    </div>
+
+    <div class="search-area" style="padding-top:0;">
+      <div class="search-wrap">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" class="search-box" id="mcpSearch" placeholder="Search MCP tools by name or purpose..." autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Cat 1: Service Mgmt -->
+    <div class="mcp-category" data-mcp-cat="service">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Service Management</h3>
+        <span class="mcp-cat-count">11 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Create, configure, and manage the lifecycle of BPA services.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>service_list</td><td>List all services accessible to user</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_get</td><td>Get complete service details with registrations</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_create</td><td>Create a new BPA service</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_update</td><td>Update service metadata</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_publish</td><td>Publish service to frontend (makes it live)</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_activate</td><td>Activate or deactivate a service</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_delete</td><td>Delete service and all child resources (destructive)</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_export_raw</td><td>Export complete service definition as JSON</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_to_yaml</td><td>Transform export to clean YAML</td><td class="status-ok">OK</td></tr>
+          <tr><td>service_copy</td><td>Clone service with new name</td><td class="status-ok">OK</td></tr>
+          <tr><td>analyze_service</td><td>AI-optimized comprehensive service analysis</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 2: Form -->
+    <div class="mcp-category" data-mcp-cat="form">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Form &amp; Components</h3>
+        <span class="mcp-cat-count">10 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Form schemas, components (panels, fields, grids, buttons), and layout.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>form_get</td><td>Get form schema with simplified component list</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_query</td><td>Selectively query form components</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_update</td><td>Update entire form schema</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_component_get</td><td>Get component details including nested children</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_component_add</td><td>Add component to form</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_component_update</td><td>Update component properties</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_component_remove</td><td>Delete component from form</td><td class="status-ok">OK</td></tr>
+          <tr><td>form_component_move</td><td>Move or copy component</td><td class="status-ok">OK</td></tr>
+          <tr><td>field_list</td><td>List all fields with pagination and filtering</td><td class="status-ok">OK</td></tr>
+          <tr><td>field_get</td><td>Get field details by key</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 3: Determinants -->
+    <div class="mcp-category" data-mcp-cat="determinant">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Determinants (Conditional Logic)</h3>
+        <span class="mcp-cat-count">12 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Business rules that control visibility and behavior of form components.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>determinant_list</td><td>List all determinants in service</td><td class="status-ok">OK</td></tr>
+          <tr><td>determinant_get</td><td>Get determinant details</td><td class="status-partial">PARTIAL</td></tr>
+          <tr><td>determinant_search</td><td>Search determinants by criteria</td><td class="status-ok">OK</td></tr>
+          <tr><td>determinant_delete</td><td>Delete a determinant</td><td class="status-ok">OK</td></tr>
+          <tr><td>textdeterminant_create</td><td>Text comparison</td><td class="status-ok">OK</td></tr>
+          <tr><td>textdeterminant_update</td><td>Update text determinant</td><td class="status-ok">OK</td></tr>
+          <tr><td>numericdeterminant_create</td><td>Numeric comparison</td><td class="status-ok">OK</td></tr>
+          <tr><td>booleandeterminant_create</td><td>Checkbox true/false</td><td class="status-ok">OK</td></tr>
+          <tr><td>classificationdeterminant_create</td><td>Catalog field matching</td><td class="status-ok">OK</td></tr>
+          <tr><td>selectdeterminant_create</td><td>Select/radio &mdash; <span class="status-broken">BROKEN for radio</span></td><td class="status-broken">BROKEN</td></tr>
+          <tr><td>griddeterminant_create</td><td>Grid row conditions &mdash; <span class="status-broken">row_determinant_id null</span></td><td class="status-broken">BROKEN</td></tr>
+          <tr><td>datedeterminant_create</td><td>Date comparison &mdash; <span class="status-broken">broken in grids</span></td><td class="status-broken">BROKEN</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 4: Behaviours & Effects -->
+    <div class="mcp-category" data-mcp-cat="behaviour">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Behaviours &amp; Effects</h3>
+        <span class="mcp-cat-count">5 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Link determinants to components. When conditions are met, effects are applied.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>componentbehaviour_list</td><td>List behaviours for service</td><td class="status-ok">OK</td></tr>
+          <tr><td>componentbehaviour_get</td><td>Get behaviour by ID</td><td class="status-partial">PARTIAL</td></tr>
+          <tr><td>componentbehaviour_get_by_component</td><td>Get behaviour for specific component</td><td class="status-partial">PARTIAL</td></tr>
+          <tr><td>effect_create</td><td>Create effect linking determinant to component</td><td class="status-ok">OK</td></tr>
+          <tr><td>effect_delete</td><td>Delete behaviour/effect</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 5: Component Actions -->
+    <div class="mcp-category" data-mcp-cat="action">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Component Actions</h3>
+        <span class="mcp-cat-count">6 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Link buttons to bot execution.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>componentaction_get</td><td>Get actions by ID</td><td class="status-ok">OK</td></tr>
+          <tr><td>componentaction_get_by_component</td><td>Get actions for component</td><td class="status-ok">OK</td></tr>
+          <tr><td>componentaction_get_system_actions</td><td>List built-in button actions</td><td class="status-ok">OK</td></tr>
+          <tr><td>componentaction_save</td><td>Save/link bot actions to component</td><td class="status-ok">OK</td></tr>
+          <tr><td>componentaction_update</td><td>Update actions by ID</td><td class="status-ok">OK</td></tr>
+          <tr><td>componentaction_delete</td><td>Remove actions from component</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 6: Bots -->
+    <div class="mcp-category" data-mcp-cat="bot">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Bots &amp; Mappings</h3>
+        <span class="mcp-cat-count">21 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Bots execute external integrations. Mappings connect form fields to bot inputs/outputs.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>bot_list</td><td>List bots in service</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_get</td><td>Get bot details by ID</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_create</td><td>Create bot</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_update</td><td>Update bot properties</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_delete</td><td>Delete bot</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_validate</td><td>Verify external GDB service exists</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_clone</td><td>Clone bot with all mappings</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_upgrade_version</td><td>Upgrade bot to newer API version</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_history_list</td><td>Get bot revision history</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_history_revert</td><td>Revert bot to previous revision</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_input_mapping_list</td><td>List input mappings</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_input_mapping_create</td><td>Create input mapping</td><td class="status-partial">PARTIAL</td></tr>
+          <tr><td>bot_input_mapping_update</td><td>Update input mapping</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_input_mapping_delete</td><td>Delete input mapping</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_input_mapping_save_all</td><td>Replace ALL input mappings atomically</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_output_mapping_list</td><td>List output mappings</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_output_mapping_create</td><td>Create output mapping</td><td class="status-partial">PARTIAL</td></tr>
+          <tr><td>bot_output_mapping_update</td><td>Update output mapping</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_output_mapping_delete</td><td>Delete output mapping</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_output_mapping_save_all</td><td>Replace ALL output mappings atomically</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_mapping_summary</td><td>Diagnose mapping health</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_suggest_mappings</td><td>Suggest mappings by comparing fields</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_input_visibility_update</td><td>Control field visibility in mapping UI</td><td class="status-ok">OK</td></tr>
+          <tr><td>bot_output_visibility_update</td><td>Control field visibility in mapping UI</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 7: Roles & Workflow -->
+    <div class="mcp-category" data-mcp-cat="role">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Roles &amp; Workflow</h3>
+        <span class="mcp-cat-count">14 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Workflow roles define the approval pipeline.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>role_list</td><td>List all roles in service</td><td class="status-ok">OK</td></tr>
+          <tr><td>role_get</td><td>Get role details with statuses</td><td class="status-ok">OK</td></tr>
+          <tr><td>role_create</td><td>Create role (User or Bot type)</td><td class="status-ok">OK</td></tr>
+          <tr><td>role_update</td><td>Update role properties</td><td class="status-ok">OK</td></tr>
+          <tr><td>rolestatus_get</td><td>Get status/transition definition</td><td class="status-ok">OK</td></tr>
+          <tr><td>rolestatus_create</td><td>Create workflow transition</td><td class="status-ok">OK</td></tr>
+          <tr><td>rolestatus_update</td><td>Update transition target</td><td class="status-ok">OK</td></tr>
+          <tr><td>rolestatus_delete</td><td>Delete transition</td><td class="status-ok">OK</td></tr>
+          <tr><td>roleinstitution_create</td><td>Assign institution to role</td><td class="status-ok">OK</td></tr>
+          <tr><td>roleregistration_create</td><td>Assign registration to role</td><td class="status-ok">OK</td></tr>
+          <tr><td>roleunit_list</td><td>List org units assigned to role</td><td class="status-ok">OK</td></tr>
+          <tr><td>roleunit_get</td><td>Get unit assignment details</td><td class="status-ok">OK</td></tr>
+          <tr><td>roleunit_create</td><td>Assign org unit to role</td><td class="status-ok">OK</td></tr>
+          <tr><td>roleunit_delete</td><td>Remove unit assignment</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 8: Registrations & Institutions -->
+    <div class="mcp-category" data-mcp-cat="registration">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Registrations &amp; Institutions</h3>
+        <span class="mcp-cat-count">10 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Service variants and government agencies.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>registration_list</td><td>List registrations</td><td class="status-ok">OK</td></tr>
+          <tr><td>registration_get</td><td>Get registration details</td><td class="status-ok">OK</td></tr>
+          <tr><td>registration_create</td><td>Create registration</td><td class="status-ok">OK</td></tr>
+          <tr><td>registration_activate</td><td>Activate/deactivate</td><td class="status-ok">OK</td></tr>
+          <tr><td>registration_delete</td><td>Delete registration</td><td class="status-ok">OK</td></tr>
+          <tr><td>serviceregistration_link</td><td>Link registration to service</td><td class="status-ok">OK</td></tr>
+          <tr><td>institution_create</td><td>Create institution in Keycloak</td><td class="status-ok">OK</td></tr>
+          <tr><td>institution_discover</td><td>Find institution IDs</td><td class="status-ok">OK</td></tr>
+          <tr><td>registrationinstitution_create</td><td>Assign institution to registration</td><td class="status-ok">OK</td></tr>
+          <tr><td>registrationinstitution_delete</td><td>Remove institution assignment</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 9: Classifications -->
+    <div class="mcp-category" data-mcp-cat="classification">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Classifications (Catalogs)</h3>
+        <span class="mcp-cat-count">8 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Lookup lists for dropdown fields.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>classification_list</td><td>List all classifications</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_get</td><td>Get classification with entries</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_search</td><td>Search by name</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_create</td><td>Create classification</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_update</td><td>Update metadata and entries</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_delete</td><td>Delete classification</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_export_csv</td><td>Export as CSV</td><td class="status-ok">OK</td></tr>
+          <tr><td>classification_apply_country_codes</td><td>Map entries to custom keys</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 10: Print Docs -->
+    <div class="mcp-category" data-mcp-cat="print">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Print Documents &amp; Certificates</h3>
+        <span class="mcp-cat-count">13 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Document templates for certificates and permits.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>print_document_list</td><td>List documents for service</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_get</td><td>Get document schema</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_create</td><td>Create document</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_update</td><td>Update document metadata</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_delete</td><td>Delete document</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_templates</td><td>List predefined templates</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_component_get</td><td>Get component from document</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_component_add</td><td>Add component</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_component_update</td><td>Update component</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_component_remove</td><td>Delete component</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_component_move</td><td>Move component</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_sort</td><td>Reorder documents</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_history</td><td>Get revision history</td><td class="status-ok">OK</td></tr>
+          <tr><td>print_document_revert</td><td>Revert to previous revision</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 11: Debug -->
+    <div class="mcp-category" data-mcp-cat="debug">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Debug &amp; Repair</h3>
+        <span class="mcp-cat-count">7 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Configuration health checks and automated issue detection.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>debug_scan</td><td>Full service scan for issues</td><td class="status-ok">OK</td></tr>
+          <tr><td>debug_investigate</td><td>Root cause analysis</td><td class="status-ok">OK</td></tr>
+          <tr><td>debug_group_issues</td><td>Group issues by criteria</td><td class="status-ok">OK</td></tr>
+          <tr><td>debug_plan</td><td>Generate fix phases</td><td class="status-ok">OK</td></tr>
+          <tr><td>debug_verify</td><td>Verify fixes with before/after</td><td class="status-ok">OK</td></tr>
+          <tr><td>debug_fix</td><td>Execute fix for single issue</td><td class="status-ok">OK</td></tr>
+          <tr><td>debug_fix_batch</td><td>Batch fixes with rollback</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 12: Workflows (Arazzo) -->
+    <div class="mcp-category" data-mcp-cat="workflow">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Orchestrated Workflows (Arazzo)</h3>
+        <span class="mcp-cat-count">12 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Multi-step orchestrations built into the MCP server.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>workflow_list</td><td>List available workflows</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_describe</td><td>Get detailed workflow spec</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_search</td><td>Search workflows by keyword</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_execute</td><td>Run workflow (supports dry-run)</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_status</td><td>Check status</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_cancel</td><td>Stop workflow</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_retry</td><td>Resume failed workflow</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_rollback</td><td>Rollback steps</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_chain</td><td>Execute workflows sequentially</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_start_interactive</td><td>Begin interactive mode</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_continue</td><td>Provide value for current prompt</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_confirm</td><td>Confirm and execute</td><td class="status-ok">OK</td></tr>
+          <tr><td>workflow_validate</td><td>Validate workflow definitions</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 13: Audit -->
+    <div class="mcp-category" data-mcp-cat="audit">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Audit &amp; Rollback</h3>
+        <span class="mcp-cat-count">5 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Change history and undo operations.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>audit_list</td><td>List audit log entries</td><td class="status-ok">OK</td></tr>
+          <tr><td>audit_get</td><td>Get full audit entry</td><td class="status-ok">OK</td></tr>
+          <tr><td>rollback</td><td>Undo a write operation</td><td class="status-ok">OK</td></tr>
+          <tr><td>rollback_history</td><td>Get state change history</td><td class="status-ok">OK</td></tr>
+          <tr><td>rollback_cleanup</td><td>Delete old rollback states</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 14: Other -->
+    <div class="mcp-category" data-mcp-cat="other">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Other: Costs, Notifications, Messages, Documents, External</h3>
+        <span class="mcp-cat-count">18 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td colspan="3" style="color:var(--accent); font-weight:600; background:var(--surface2)">Costs</td></tr>
+          <tr><td>cost_create_fixed</td><td>Create fixed-amount fee</td><td class="status-ok">OK</td></tr>
+          <tr><td>cost_create_formula</td><td>Create formula-based fee</td><td class="status-ok">OK</td></tr>
+          <tr><td>cost_update</td><td>Update cost</td><td class="status-ok">OK</td></tr>
+          <tr><td>cost_delete</td><td>Delete cost</td><td class="status-ok">OK</td></tr>
+          <tr><td colspan="3" style="color:var(--accent); font-weight:600; background:var(--surface2)">Notifications</td></tr>
+          <tr><td>notification_list</td><td>List notifications</td><td class="status-ok">OK</td></tr>
+          <tr><td>notification_create</td><td>Create email/SMS notification trigger</td><td class="status-ok">OK</td></tr>
+          <tr><td colspan="3" style="color:var(--accent); font-weight:600; background:var(--surface2)">Messages</td></tr>
+          <tr><td>message_list</td><td>List templates</td><td class="status-ok">OK</td></tr>
+          <tr><td>message_get</td><td>Get template details</td><td class="status-ok">OK</td></tr>
+          <tr><td>message_create</td><td>Create message template</td><td class="status-ok">OK</td></tr>
+          <tr><td>message_update</td><td>Update template</td><td class="status-ok">OK</td></tr>
+          <tr><td>message_delete</td><td>Delete template</td><td class="status-ok">OK</td></tr>
+          <tr><td colspan="3" style="color:var(--accent); font-weight:600; background:var(--surface2)">Document Requirements</td></tr>
+          <tr><td>requirement_list</td><td>List global document type definitions</td><td class="status-ok">OK</td></tr>
+          <tr><td>documentrequirement_list</td><td>List requirements for registration</td><td class="status-ok">OK</td></tr>
+          <tr><td>documentrequirement_create</td><td>Link requirement to registration</td><td class="status-ok">OK</td></tr>
+          <tr><td>documentrequirement_update</td><td>Update requirement</td><td class="status-partial">PARTIAL</td></tr>
+          <tr><td>documentrequirement_delete</td><td>Delete requirement</td><td class="status-ok">OK</td></tr>
+          <tr><td colspan="3" style="color:var(--accent); font-weight:600; background:var(--surface2)">External Services</td></tr>
+          <tr><td>muleservice_list</td><td>List available external APIs</td><td class="status-ok">OK</td></tr>
+          <tr><td>muleservice_get</td><td>Get external service fields</td><td class="status-ok">OK</td></tr>
+          <tr><td>muleservice_discover</td><td>Find services by category</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cat 15: Connection -->
+    <div class="mcp-category" data-mcp-cat="connection">
+      <div class="mcp-cat-header" onclick="toggleMcpCat(this)">
+        <h3>Connection &amp; Authentication</h3>
+        <span class="mcp-cat-count">6 tools</span>
+        <span class="mcp-cat-toggle">&#9660;</span>
+      </div>
+      <div class="mcp-cat-body">
+        <p class="mcp-cat-desc">Manage BPA instance connections and authentication.</p>
+        <table class="tool-table">
+          <tr><th>Tool</th><th>Purpose</th><th>Status</th></tr>
+          <tr><td>auth_login</td><td>Authenticate with BPA</td><td class="status-ok">OK</td></tr>
+          <tr><td>connection_status</td><td>View connection state</td><td class="status-ok">OK</td></tr>
+          <tr><td>server_info</td><td>Get instance metadata</td><td class="status-ok">OK</td></tr>
+          <tr><td>instance_list</td><td>List configured instances</td><td class="status-ok">OK</td></tr>
+          <tr><td>instance_add</td><td>Register new instance</td><td class="status-ok">OK</td></tr>
+          <tr><td>instance_remove</td><td>Remove instance</td><td class="status-ok">OK</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="mcpNoResults" class="no-results">
+      <p style="font-size:1.2rem; margin-bottom:8px;">No MCP tools match your search.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>eRegistrations Toolkit &mdash; Skills, Workflows &amp; MCP Reference</p>
+    <p style="margin-top:4px;">Built with Claude Code Agent Hub &mdash; <a href="https://www.npmjs.com/package/mcp-eregistrations-bpa">mcp-eregistrations-bpa</a> v0.17.3 &mdash; Last updated: February 2026</p>
+  </div>
+</footer>
+
+</div><!-- end #app-content -->
+
+<script>
+  // === PASSWORD GATE ===
+  var HASH = 'a7a39b72f29718e653e73503210fbb597057b7a1c77d1fe321a1afcff041d4e1';
+
+  async function sha256(str) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+  }
+
+  async function checkPw() {
+    var pw = document.getElementById('pw').value;
+    var h = await sha256(pw);
+    if (h === HASH) {
+      sessionStorage.setItem('toolkit_auth', '1');
+      showApp();
+    } else {
+      document.getElementById('gate-err').style.display = 'block';
+      document.getElementById('pw').value = '';
+      document.getElementById('pw').focus();
+    }
+  }
+
+  function showApp() {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app-content').style.display = 'block';
+  }
+
+  if (sessionStorage.getItem('toolkit_auth') === '1') {
+    showApp();
+  }
+
+  // === Tab navigation ===
+  const tabs = document.querySelectorAll('.nav-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // === Download file map (repo path → static file) ===
+  const downloadMap = {
+    'config/setup-my-files-block.md': 'skills/setup-my-files-block.md',
+    'config/.claude/skills/service-setup.md': 'skills/service-setup.md',
+    'manual/.claude/skills/documentation.md': 'skills/documentation.md',
+    'manual/.claude/skills/change-detection.md': 'skills/change-detection.md',
+    'testing/.claude/skills/playwright-e2e.md': 'skills/playwright-e2e.md',
+    'testing/.claude/skills/page-objects.md': 'skills/page-objects.md',
+    'observer/.claude/skills/bot-failure-report.md': 'skills/bot-failure-report.md',
+    'observer/.claude/skills/service-health-check.md': 'skills/service-health-check.md',
+    'observer/.claude/skills/trace-dossier.md': 'skills/trace-dossier.md',
+    'observer/.claude/skills/correlate-test-logs.md': 'skills/correlate-test-logs.md',
+    'countries/cuba/skills/fix-determinant-effects/SKILL.md': 'skills/cuba-fix-determinant-effects.md',
+    'countries/cuba/skills/e2e-service-test/SKILL.md': 'skills/cuba-e2e-service-test.md',
+    'countries/jamaica/skills/form-fill-submit/SKILL.md': 'skills/jamaica-form-fill-submit.md',
+    '.claude/commands/check-bpa.md': 'skills/check-bpa.md',
+    '.claude/commands/connect-service.md': 'skills/connect-service.md',
+    '.claude/commands/debug-service.md': 'skills/debug-service.md',
+  };
+
+  // Inject download buttons into all skill cards
+  document.querySelectorAll('.file-path').forEach(fp => {
+    const repoPath = fp.textContent;
+    const dlPath = downloadMap[repoPath];
+    if (dlPath) {
+      const btn = document.createElement('a');
+      btn.href = dlPath;
+      btn.download = dlPath.split('/').pop();
+      btn.className = 'download-btn';
+      btn.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12z"/><path d="M3 14h10v-1H3v1z"/></svg> Download .md';
+      btn.onclick = function(e) { e.stopPropagation(); };
+      fp.parentNode.appendChild(btn);
+    }
+  });
+
+  // === Toggle skill card ===
+  function toggleCard(el) { el.closest('.skill-card').classList.toggle('expanded'); }
+
+  // === Toggle MCP category ===
+  function toggleMcpCat(el) { el.closest('.mcp-category').classList.toggle('open'); }
+
+  // === MCP Search ===
+  document.getElementById('mcpSearch').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    const cats = document.querySelectorAll('.mcp-category');
+    let total = 0;
+    cats.forEach(cat => {
+      const rows = cat.querySelectorAll('.tool-table tr');
+      let catVisible = 0;
+      rows.forEach((row, i) => {
+        if (i === 0) return;
+        const text = row.textContent.toLowerCase();
+        const show = !q || q.split(' ').every(w => text.includes(w));
+        row.style.display = show ? '' : 'none';
+        if (show) catVisible++;
+      });
+      cat.style.display = catVisible > 0 || !q ? '' : 'none';
+      if (q && catVisible > 0) cat.classList.add('open');
+      total += catVisible;
+    });
+    document.getElementById('mcpNoResults').classList.toggle('visible', total === 0 && q.length > 0);
+  });
+
+  // === Skills Search & Filter ===
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  let activeFilter = 'all';
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applySkillFilters();
+    });
+  });
+  document.getElementById('skillSearch').addEventListener('input', applySkillFilters);
+
+  function applySkillFilters() {
+    const q = document.getElementById('skillSearch').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('#panel-skills-cat .skill-card');
+    const sections = document.querySelectorAll('#panel-skills-cat .category-section');
+    let total = 0;
+    cards.forEach(card => {
+      const tags = card.dataset.tags || '';
+      const search = (card.dataset.search || '') + ' ' + card.textContent.toLowerCase();
+      const matchF = activeFilter === 'all' || tags.includes(activeFilter);
+      const matchS = !q || q.split(' ').every(w => search.includes(w));
+      const vis = matchF && matchS;
+      card.style.display = vis ? '' : 'none';
+      if (vis) total++;
+    });
+    sections.forEach(s => {
+      s.style.display = s.querySelectorAll('.skill-card:not([style*="display: none"])').length > 0 ? '' : 'none';
+    });
+    document.getElementById('skillNoResults').classList.toggle('visible', total === 0);
+  }
+</script>
+</body>
+</html>
