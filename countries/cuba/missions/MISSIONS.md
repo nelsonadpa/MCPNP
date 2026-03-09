@@ -139,9 +139,40 @@ Generar manuales HTML navegables para cada servicio, publicados en gh-pages.
 
 ---
 
+## M-006: Cambiar Empresa — Refresh Permisos al cambiar empresa (ACTIVA)
+- **Owner**: Config Agent
+- **Deadline**: 2026-03-10
+- **Dependencias**: Ninguna
+
+### Que es
+Cuando un usuario cambia de empresa en la Bitacora, los EditGrids de permisos no se actualizan porque los bots LISTAR solo ejecutan una vez al activarse el panel.
+
+### Intentos anteriores
+| Plan | Resultado |
+|------|-----------|
+| Plan A: Master Bot (GDB VIEW unico) | FAILED — DataWeave no mapea nested collections a diferentes EditGrids |
+| Plan B: 17 bots parallel en 1 boton | No testeado |
+| **Plan C: Page reload** | **DEPLOYED 2026-03-07** |
+
+### Solucion implementada (Plan C)
+- Button `applicantCambiarEmpresa2` ("Cambiar empresa", Tab 1): `custom: "window.location.reload();"`
+- Flujo: Click → page reload → Tab 0 (default) → seleccionar nueva empresa → "Confirmar" → Tab 1+ paneles frescos → LISTAR bots re-ejecutan con nuevo NIT
+- Audit: `27767ac9-acd1-4640-b453-1ca31e9f42c5`
+
+### Cleanup completado
+- Servicio Delegar (`05b934d8`): borrado master bot `6a54a69c`, EditGrid `applicantEditGridFito`, boton `applicantListarMasterBtn`
+
+### Proximos pasos
+1. **RETEST en browser**: entrar con empresa A, cambiar a empresa B, verificar EditGrids actualizados
+2. Si funciona → marcar COMPLETADA
+3. Si no funciona (ej: NIT no persiste antes del reload) → evaluar Plan B o guardar NIT antes de reload
+
+---
+
 ## Prioridad sugerida
-1. **M-001** StatusBitacora cleanup + 9 pendientes (Config Agent) — bloquea testing
-2. **M-003** Ejecutar tests generados (Test Agent) — validacion inmediata
-3. **M-004** Paneles mustache restantes (Config Agent) — rapido, bajo riesgo
-4. **M-002** Expirado badges (manual BPA UI) — bloqueado por bugs MCP
-5. **M-005** Manuales HTML (Manual Agent) — ongoing, no urgente
+1. **M-006** Cambiar Empresa retest (Config Agent) — deployed, needs browser verification
+2. **M-001** StatusBitacora cleanup + 9 pendientes (Config Agent) — bloquea testing
+3. **M-003** Ejecutar tests generados (Test Agent) — validacion inmediata
+4. **M-004** Paneles mustache restantes (Config Agent) — rapido, bajo riesgo
+5. **M-002** Expirado badges (manual BPA UI) — bloqueado por bugs MCP
+6. **M-005** Manuales HTML (Manual Agent) — ongoing, no urgente

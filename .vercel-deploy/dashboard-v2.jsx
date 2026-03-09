@@ -28,6 +28,10 @@ function AgentDashboard() {
   var expandedMcp = _expandedMcp[0], setExpandedMcp = _expandedMcp[1];
   var _mcpSearch = useState("");
   var mcpSearch = _mcpSearch[0], setMcpSearch = _mcpSearch[1];
+  var _bmState = useState("idle");
+  var bmState = _bmState[0], setBmState = _bmState[1];
+  var _bmCode = useState("");
+  var bmCode = _bmCode[0], setBmCode = _bmCode[1];
 
   // ── Theme ──────────────────────────────────────────────────
   var t = dark
@@ -40,7 +44,7 @@ function AgentDashboard() {
 
   var C = {
     test:"#22d3ee", manual:"#a78bfa", config:"#fb923c", orchestrator:"#f472b6",
-    observer:"#10b981", accent:"#6c8cff", accent2:"#4ecdc4", accent3:"#ff6b9d",
+    observer:"#10b981", designer:"#f59e0b", filler:"#8b5cf6", accent:"#6c8cff", accent2:"#4ecdc4", accent3:"#ff6b9d",
     done:"#22c55e", warn:"#ffd54f", broken:"#ef4444",
   };
 
@@ -96,6 +100,22 @@ function AgentDashboard() {
   // AGENTS DATA
   // ══════════════════════════════════════════════════════════
   var agents = [
+    { name:"Designer Agent", alias:"Architect", letter:"D", color:C.designer, dir:"designer/",
+      desc:"Service design knowledge engine. Understands why services are configured the way they are, recognizes cross-service patterns, and defines proven configuration blueprints before implementation.",
+      skills:["CI Selective Routing","Bitacora Connection Model","Workflow Architecture","Expirado Badge Pattern","Rosetta Stone"],
+      skillFiles:[],
+      mcpServers:[{name:"BPA-cuba",access:"read-only",tools:37},{name:"BPA-jamaica",access:"read-only",tools:16}],
+      hooks:["SessionStart"],
+      example:"Analyze the PARTB workflow: identify the 2-track pattern (main flow + CI loop), explain how OR determinants enable selective unit routing.",
+    },
+    { name:"Config Agent", alias:"Configurator", letter:"C", color:C.config, dir:"config/",
+      desc:"Executes configurations based on Designer patterns. Creates bots, determinants, form components, effects, and component actions. Connects services together.",
+      skills:["My Files Block Setup","Connect Service to Dashboard","Debug Service","Bot Configuration"],
+      skillFiles:["setup-my-files-block.md","service-setup.md"],
+      mcpServers:[{name:"BPA-cuba",access:"read/write",tools:82}],
+      hooks:["SessionStart","PostToolUse","PreToolUse"],
+      example:"Connect CENASA to the Bitacora: apply the Bitacora Connection pattern — create StatusBitacora determinant, INTERNO/LISTAR bots, EditGrid, and component actions.",
+    },
     { name:"Test Agent", alias:"Verifier", letter:"T", color:C.test, dir:"testing/",
       desc:"Generates and runs end-to-end Playwright tests against production. Simulates real users filling forms, clicking buttons, and submitting applications.",
       skills:["Playwright E2E Test Generation","Page Object Patterns","Cuba E2E Service Test","Jamaica SEZ Form Fill & Submit"],
@@ -112,14 +132,6 @@ function AgentDashboard() {
       hooks:["SessionStart","PostToolUse","PreToolUse"],
       example:"Extract the complete structure of CENASA Zoosanitario: form hierarchy, 455 fields, 20 determinants, 10 bots.",
     },
-    { name:"Config Agent", alias:"Configurator", letter:"C", color:C.config, dir:"config/",
-      desc:"Read/write access to BPA. Creates bots, determinants, form components, effects, and component actions. Connects services together.",
-      skills:["My Files Block Setup","Connect Service to Dashboard","Debug Service","Bot Configuration"],
-      skillFiles:["setup-my-files-block.md","service-setup.md"],
-      mcpServers:[{name:"BPA-cuba",access:"read/write",tools:82}],
-      hooks:["SessionStart","PostToolUse","PreToolUse"],
-      example:"Connect CENASA to the Bitacora: create StatusBitacora determinant, INTERNO/LISTAR bots, EditGrid, and component actions.",
-    },
     { name:"Observer Agent", alias:"Tracker", letter:"G", color:C.observer, dir:"observer/",
       desc:"Connects to Graylog for log analysis. Monitors bot executions, diagnoses failures, traces dossier lifecycles, and correlates E2E tests with backend activity.",
       skills:["Service Health Check","Trace Dossier Lifecycle","Bot Failure Report","Correlate E2E Tests with Logs"],
@@ -128,13 +140,21 @@ function AgentDashboard() {
       hooks:["SessionStart"],
       example:"Find all bot failures in the last 24h, group by service, and recommend fixes for the top 3 issues.",
     },
+    { name:"Form Filler Agent", alias:"AutoFiller", letter:"F", color:C.filler, dir:"bookmarklet/",
+      desc:"Human-assist agent that lives in the browser. Helps consultants, testers, and demo presenters fill complex eRegistrations forms in one click. While the Test Agent runs autonomously via Playwright, the Form Filler works alongside the human — filling 100+ fields, uploading documents, and scanning keys so you can focus on the workflow, not the data entry.",
+      skills:["Auto Fill (any form, zero setup)","Preset Fill (demo/test/edge scenarios)","File Upload via Form.io API","Key Scanner & Export","EditGrid/DataGrid Row Generation","Survey Auto-fill","Part A + Part B support"],
+      skillFiles:[],
+      mcpServers:[],
+      hooks:[],
+      example:"Open any eRegistrations form (Part A or Part B), click the bookmarklet, hit Auto Fill. All fields populated in one click. Then review, adjust, and submit — the human stays in control.",
+    },
     { name:"Orchestrator", alias:"Coordinator", letter:"O", color:C.orchestrator, dir:"(root)",
       desc:"Coordinates all agents, decomposes complex tasks, generates SITREPs, and maintains project-wide knowledge. The entry point for multi-agent workflows.",
       skills:["Fix Determinant Effects","Agent Protocol"],
       skillFiles:[],
       mcpServers:[{name:"BPA-cuba",access:"ad-hoc"},{name:"BPA-lesotho2",access:"ad-hoc"}],
       hooks:["PreToolUse"],
-      example:"Connect CENASA to Bitacora: decompose into Manual extraction → Config setup → Test validation, coordinating all 3 agents.",
+      example:"Connect CENASA to Bitacora: decompose into Manual extraction → Designer review → Config setup → Test validation, coordinating all agents.",
     },
   ];
 
@@ -302,6 +322,24 @@ function AgentDashboard() {
         { n:4, label:"Review", detail:"Cross-check against live production UI", color:C.manual },
       ],
       uses:["documentation skill","MCP: service_get, form_get, role_list, bot_list"] },
+    { name:"Submit Files via API (Fast)", desc:"Create and submit files using the backend API with iterative validation. Best for: bulk submissions (3+ files), CI/CD pipelines, speed-critical tasks. ~30 sec per file.",
+      steps:[
+        { n:1, label:"Create File", detail:"POST /backend/files with serviceId", color:C.test },
+        { n:2, label:"Load Form Data", detail:"Navigate to form, extract submission.data", color:C.test },
+        { n:3, label:"Iterative Submit", detail:"POST start_process → fix 400 errors → retry", color:C.test },
+        { n:4, label:"Process Pipeline", detail:"DocCheck → evals → approvals via Playwright", color:C.test },
+        { n:5, label:"Verify", detail:"Confirm file reached target role (e.g. ARC)", color:C.test },
+      ],
+      uses:["main-3files-to-arc spec","iterative submit pattern","Playwright for back-office roles"] },
+    { name:"Submit Files via UI (Realistic)", desc:"Fill and submit files through the actual UI with Playwright interactions. Best for: demo recordings, UX validation, single file tests, production smoke tests. ~5-8 min per file.",
+      steps:[
+        { n:1, label:"Navigate Form", detail:"Open service URL, wait for Formio load", color:C.test },
+        { n:2, label:"Fill Fields", detail:"Formio setValue + upload docs via filechooser", color:C.test },
+        { n:3, label:"Consent & Send", detail:"Navigate to Send tab, check boxes, click Submit", color:C.test },
+        { n:4, label:"Process Pipeline", detail:"DocCheck → evals → approvals via Playwright", color:C.test },
+        { n:5, label:"Verify", detail:"Confirm file reached target role (e.g. ARC)", color:C.test },
+      ],
+      uses:["fix-and-submit spec","form filler bookmarklet","Playwright headed mode"] },
   ];
 
   // ══════════════════════════════════════════════════════════
@@ -428,10 +466,10 @@ function AgentDashboard() {
       h("div", { style:{ fontSize:"24px", fontWeight:"800", color:t.bright, marginBottom:"8px" }},
         "eRegistrations ", h("span", { style:{ color:C.accent }}, "Agent Hub")),
       h("div", { style:{ fontSize:"14px", color:t.sub, lineHeight:"1.7", maxWidth:"800px" }},
-        "Configure, test, document, and monitor digital government services using AI agents. ",
+        "Design, configure, test, document, and monitor digital government services using AI agents. ",
         "Instead of manually clicking through admin panels, describe what you want and the agents handle the rest."),
       h("div", { style:{ display:"flex", gap:"24px", marginTop:"20px", flexWrap:"wrap" }},
-        [{n:"5",l:"Agents"},{n:"24",l:"Skills"},{n:"4",l:"Workflows"},{n:"120+",l:"MCP Tools"},{n:"2",l:"Countries"}].map(function(s,i) {
+        [{n:"7",l:"Agents"},{n:"24",l:"Skills"},{n:"4",l:"Workflows"},{n:"120+",l:"MCP Tools"},{n:"2",l:"Countries"}].map(function(s,i) {
           return h("div", { key:i, style:{ display:"flex", alignItems:"baseline", gap:"6px" }},
             h("span", { style:{ fontSize:"24px", fontWeight:"800", color:C.accent, fontFamily:fontMono }}, s.n),
             h("span", { style:{ fontSize:"12px", color:t.dim }}, s.l));
@@ -440,7 +478,8 @@ function AgentDashboard() {
 
     // 4 quadrants: what it does
     var quads = [
-      { title:"Configure", color:C.config, items:["Connect services to the central dashboard","Add 'My Files' panels with email delegation","Set up bots, conditional logic, and workflows"] },
+      { title:"Design", color:C.designer, items:["Analyze service architecture and workflow patterns","Define proven configuration patterns before implementation","Document reusable blueprints across countries and services"] },
+      { title:"Configure", color:C.config, items:["Apply design patterns: create bots, determinants, and workflows","Connect services to the central dashboard","Set up conditional logic, effects, and component actions"] },
       { title:"Test & Verify", color:C.test, items:["Run end-to-end tests against production","Automate form fill, submit, and status checks","Correlate test results with backend logs"] },
       { title:"Document", color:C.manual, items:["Generate user manuals for government officers","Detect changes between service versions","Extract live data from any configured instance"] },
       { title:"Monitor", color:C.observer, items:["Check service health via Graylog logs","Find and diagnose bot failures","Trace a case through its full lifecycle"] },
@@ -702,7 +741,7 @@ function AgentDashboard() {
   // TAB 3: TOOLKIT (sub-tabs: Skills | Workflows | MCP Ref)
   // ══════════════════════════════════════════════════════════
   function renderToolkit() {
-    var subTabs = ["Skills (24)","Workflows (4)","MCP Reference (120+)"];
+    var subTabs = ["Skills (24)","Workflows (6)","MCP Reference (120+)","Form Filler"];
 
     var subTabBar = h("div", { style:{ display:"flex", gap:"0", marginBottom:"20px", borderBottom:"1px solid "+t.cardBorder }},
       subTabs.map(function(label, i) {
@@ -715,7 +754,8 @@ function AgentDashboard() {
 
     if (toolkitSub === 0) return h("div", null, subTabBar, renderSkills());
     if (toolkitSub === 1) return h("div", null, subTabBar, renderWorkflows());
-    return h("div", null, subTabBar, renderMcpRef());
+    if (toolkitSub === 2) return h("div", null, subTabBar, renderMcpRef());
+    return h("div", null, subTabBar, renderFormFiller());
   }
 
   // ── Skills sub-tab ────────────────────────────────────────
@@ -828,7 +868,8 @@ function AgentDashboard() {
         h("div", { style:{ color:t.sub, fontSize:"13px" }}, "Complete processes for common tasks. Each step maps to specific skills and tools.")),
       workflows.map(function(wf, wi) {
         var gradients = [
-          [C.config, C.accent2], [C.config, C.accent], [C.test, C.observer], [C.manual, C.accent2]
+          [C.config, C.accent2], [C.config, C.accent], [C.test, C.observer], [C.manual, C.accent2],
+          [C.test, C.accent2], [C.test, C.accent3]
         ];
         var grad = gradients[wi] || [C.accent, C.accent2];
 
@@ -933,6 +974,222 @@ function AgentDashboard() {
     return h("div", null, serversOverview, searchBox, categories, noResults);
   }
 
+  // ── Form Filler sub-tab ──────────────────────────────────
+  function renderFormFiller() {
+    function loadBookmarklet() {
+      setBmState("loading");
+      fetch("er-filler.bookmarklet.txt").then(function(r) {
+        if (!r.ok) throw new Error("Not found");
+        return r.text();
+      }).then(function(code) {
+        setBmCode(code.trim());
+        setBmState("ready");
+      }).catch(function() { setBmState("error"); });
+    }
+
+    // User stories data
+    var userStories = [
+      { id:"US-01", role:"Applicant", action:"fill all flat fields on the current tab with one click",
+        benefit:"I don't have to manually type 100+ fields during a demo or test",
+        acceptance:["All text, number, select, radio, checkbox, and date fields are populated from the preset",
+          "Values appear in visible inputs (not just internal data)",
+          "No layout or CSS breakage after fill"],
+        status:"done" },
+      { id:"US-02", role:"Applicant", action:"fill EditGrid/DataGrid rows (shareholders, parcels, timelines) automatically",
+        benefit:"nested grids with multiple rows are the hardest to fill manually",
+        acceptance:["Rows are added to submission data as arrays",
+          "EditGrid rows are saved (state='saved', not 'new')",
+          "Works for grids on the current tab; data loads on unvisited tabs when navigated"],
+        status:"done" },
+      { id:"US-03", role:"Applicant", action:"upload demo PDF documents to all file fields with one click",
+        benefit:"I can submit a complete application without manually attaching 30+ files",
+        acceptance:["A mini valid PDF is created in-memory",
+          "comp.upload([File]) sends it to the server via Form.io API",
+          "Server returns a document ID and URL",
+          "Already-uploaded fields are skipped"],
+        status:"done" },
+      { id:"US-04", role:"Tester", action:"switch between demo, test, and edge presets for the same service",
+        benefit:"I can test different scenarios (full realistic, minimal valid, stress test) without editing data",
+        acceptance:["3 scenario buttons (demo/test/edge) in the Fill tab",
+          "Each loads different data from localStorage",
+          "Preset status shows field count and generation date"],
+        status:"done" },
+      { id:"US-05", role:"Developer", action:"scan all field keys on the current page and copy them",
+        benefit:"I can quickly discover component keys without opening the BPA admin",
+        acceptance:["Keys tab shows all detected keys with type and required badge",
+          "Filter/search by key name or label",
+          "Copy individual key or export all as JSON"],
+        status:"done" },
+      { id:"US-06", role:"Developer", action:"generate presets automatically via /fill-form command in Claude Code",
+        benefit:"presets are built from the real form schema via MCP, not hand-crafted",
+        acceptance:["/fill-form reads form_get + classification_get from MCP",
+          "Generates realistic values matching field types and catalogs",
+          "Saves to er-presets/[serviceId]/[scenario].json",
+          "Rebuilds bookmarklet with embedded presets"],
+        status:"done" },
+      { id:"US-07", role:"Applicant", action:"import and manage presets from the Manage tab",
+        benefit:"I can add presets for new services without rebuilding the bookmarklet",
+        acceptance:["Paste JSON from /fill-form output into the import textarea",
+          "Presets persist in localStorage across sessions",
+          "Export/delete individual service presets"],
+        status:"done" },
+      { id:"US-08", role:"Tester", action:"use the bookmarklet across any eRegistrations country instance",
+        benefit:"same tool works for Jamaica, Cuba, El Salvador, etc.",
+        acceptance:["Service auto-detected from URL pattern /services/[uuid]",
+          "Presets keyed by service UUID (unique per instance)",
+          "Form.io API patterns are universal across instances"],
+        status:"done" },
+      { id:"US-09", role:"Tester", action:"auto-fill any form without pre-built presets",
+        benefit:"I can instantly test any service without generating presets first",
+        acceptance:["Auto Fill button reads Form.io component tree in real-time",
+          "Generates appropriate data per type: text, number, select, radio, checkbox, date, EditGrid, etc.",
+          "Smart field detection: email fields get emails, phone fields get phones, name fields get names",
+          "EditGrid/DataGrid rows auto-generated from child component definitions",
+          "Works on any eRegistrations form on any country instance with zero configuration"],
+        status:"done" },
+    ];
+
+    var statusColors = { done:C.done, wip:C.warn, planned:t.dim };
+    var statusLabels = { done:"DONE", wip:"IN PROGRESS", planned:"PLANNED" };
+
+    // Hero section
+    var hero = h("div", { style:Object.assign({}, cardStyle(), { position:"relative", overflow:"hidden", marginBottom:"24px" }) },
+      h("div", { style:{ position:"absolute", top:0, left:0, right:0, height:"3px",
+        background:"linear-gradient(90deg, #6c8cff, #4ecdc4, #f472b6)" }}),
+      h("div", { style:{ display:"flex", alignItems:"flex-start", gap:"20px", flexWrap:"wrap" }},
+        h("div", { style:{ flex:1, minWidth:"280px" }},
+          h("div", { style:{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"8px" }},
+            h("span", { style:{ fontSize:"28px" }}, "\uD83D\uDCCB"),
+            h("span", { style:{ fontSize:"20px", fontWeight:"700", color:t.text }}, "eR Form Filler"),
+            h("span", { style:{ fontSize:"11px", padding:"2px 8px", borderRadius:"4px", background:C.done+"22", color:C.done, fontWeight:"600" }}, "v2.2")),
+          h("div", { style:{ color:t.sub, fontSize:"13px", lineHeight:"1.7", marginBottom:"16px" }},
+            "A browser bookmarklet that fills eRegistrations forms instantly. Auto Fill works on any form with zero setup. One click to populate 100+ fields, save EditGrid rows, and upload documents."),
+          h("div", { style:{ display:"flex", gap:"8px", flexWrap:"wrap" }},
+            ["Auto Fill","Form.io API","EditGrid Save","File Upload","Multi-tab","Preset Manager","Key Scanner"].map(function(tag, i) {
+              return h("span", { key:i, style:{ padding:"3px 10px", borderRadius:"12px", fontSize:"11px",
+                background:C.accent2+"18", color:C.accent2, border:"1px solid "+C.accent2+"40" }}, tag);
+            }))),
+        // Install box
+        h("div", { style:{ minWidth:"240px", background:t.surface2, border:"1px solid "+t.border,
+          borderRadius:"10px", padding:"18px", textAlign:"center" }},
+          h("div", { style:{ fontSize:"12px", fontWeight:"600", color:t.text, marginBottom:"10px", textTransform:"uppercase", letterSpacing:"0.05em" }}, "Install Bookmarklet"),
+          bmState === "idle" ? h("button", { onClick:loadBookmarklet,
+            style:{ padding:"10px 24px", borderRadius:"8px", border:"none", cursor:"pointer", fontFamily:"inherit",
+              background:"linear-gradient(135deg, #2b6cb0, #4ecdc4)", color:"#fff", fontSize:"13px", fontWeight:"600",
+              boxShadow:"0 4px 12px rgba(43,108,176,0.3)" }}, "Load Installer") :
+          bmState === "loading" ? h("div", { style:{ color:t.dim, fontSize:"12px", padding:"10px" }}, "Loading bookmarklet...") :
+          bmState === "error" ? h("div", { style:{ color:C.broken, fontSize:"12px", padding:"10px" }}, "Bookmarklet file not found. Deploy er-filler.bookmarklet.txt alongside the dashboard.") :
+          h("div", null,
+            h("a", { href:bmCode, style:{ display:"inline-block", padding:"10px 24px", borderRadius:"8px",
+              background:"linear-gradient(135deg, #2b6cb0, #4ecdc4)", color:"#fff", fontSize:"13px", fontWeight:"600",
+              textDecoration:"none", boxShadow:"0 4px 12px rgba(43,108,176,0.3)", cursor:"grab",
+              border:"2px dashed rgba(255,255,255,0.3)" }}, "\uD83D\uDCCB eR Form Filler"),
+            h("div", { style:{ color:t.dim, fontSize:"11px", marginTop:"8px", lineHeight:"1.5" }},
+              "Drag the button above to your bookmarks bar"),
+            h("div", { style:{ color:t.dim, fontSize:"10px", marginTop:"4px" }},
+              "Or right-click \u2192 Bookmark this link")),
+          h("div", { style:{ marginTop:"12px", fontSize:"11px", color:t.dim, borderTop:"1px solid "+t.border, paddingTop:"10px" }},
+            "Presets for Jamaica SEZ included"))));
+
+    // How it works
+    var howItWorks = h("div", { style:Object.assign({}, cardStyle(), { marginBottom:"24px" }) },
+      h("div", { style:{ fontSize:"15px", fontWeight:"600", color:t.text, marginBottom:"16px" }}, "How It Works"),
+      h("div", { style:{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:"16px" }},
+        [
+          { step:"1", icon:"\u26A1", title:"Auto Fill (NEW)", desc:"Click the bookmarklet on any form. Hit Auto Fill. It reads Form.io components live and generates smart data. Zero setup." },
+          { step:"2", icon:"\uD83C\uDFAF", title:"Preset Fill", desc:"For curated data: run /fill-form to generate presets via MCP, then use Fill Form with demo/test/edge scenarios." },
+          { step:"3", icon:"\uD83D\uDCC4", title:"Upload Files", desc:"Click Fill Files to upload a demo PDF to every file component via Form.io's internal API." },
+          { step:"4", icon:"\uD83D\uDD0D", title:"Scan Keys", desc:"Use the Keys tab to discover all field keys on the current page. Filter, copy, or export as JSON." },
+        ].map(function(s, i) {
+          return h("div", { key:i, style:{ background:t.surface2, border:"1px solid "+t.border, borderRadius:"10px", padding:"16px", textAlign:"center" }},
+            h("div", { style:{ fontSize:"24px", marginBottom:"6px" }}, s.icon),
+            h("div", { style:{ fontSize:"11px", color:C.accent, fontWeight:"600", marginBottom:"4px" }}, "STEP " + s.step),
+            h("div", { style:{ fontSize:"13px", fontWeight:"600", color:t.text, marginBottom:"4px" }}, s.title),
+            h("div", { style:{ fontSize:"12px", color:t.sub, lineHeight:"1.5" }}, s.desc));
+        })));
+
+    // User stories
+    var stories = h("div", { style:{ marginBottom:"24px" }},
+      h("div", { style:{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"16px" }},
+        h("div", { style:{ fontSize:"15px", fontWeight:"600", color:t.text }}, "User Stories"),
+        h("div", { style:{ display:"flex", gap:"12px", fontSize:"12px" }},
+          h("span", { style:{ color:C.done } }, "\u25CF " + userStories.filter(function(s){return s.status==="done"}).length + " done"),
+          h("span", { style:{ color:C.warn } }, "\u25CF " + userStories.filter(function(s){return s.status==="wip"}).length + " in progress"),
+          h("span", { style:{ color:t.dim } }, "\u25CF " + userStories.filter(function(s){return s.status==="planned"}).length + " planned"))),
+      userStories.map(function(story, i) {
+        var skKey = "ff-" + i;
+        var isExpanded = expandedSkills[skKey];
+        var sc = statusColors[story.status];
+
+        return h("div", { key:i, style:Object.assign({}, cardStyle(), { marginBottom:"8px", borderLeft:"3px solid "+sc }) },
+          h("div", { onClick:function(){ var n={}; n[skKey]=!isExpanded; setExpandedSkills(Object.assign({},expandedSkills,n)); },
+            style:{ display:"flex", alignItems:"center", gap:"12px", cursor:"pointer" }},
+            h("span", { style:{ fontFamily:fontMono, fontSize:"11px", color:C.accent, fontWeight:"600", flexShrink:0 }}, story.id),
+            h("div", { style:{ flex:1 }},
+              h("div", { style:{ fontSize:"13px", color:t.text, lineHeight:"1.5" }},
+                "As a ", h("strong", null, story.role), ", I want to ", story.action, " so that ", story.benefit)),
+            h("span", { style:{ fontSize:"10px", padding:"2px 8px", borderRadius:"4px", background:sc+"22",
+              color:sc, fontWeight:"600", flexShrink:0 }}, statusLabels[story.status]),
+            h("span", { style:{ color:t.dim, fontSize:"14px", transform:isExpanded?"rotate(180deg)":"none",
+              transition:"transform 0.3s", flexShrink:0 }}, "\u25BC")),
+          isExpanded ? h("div", { style:{ marginTop:"12px", paddingTop:"12px", borderTop:"1px solid "+t.border }},
+            h("div", { style:{ fontSize:"11px", textTransform:"uppercase", letterSpacing:"0.05em", color:C.accent, marginBottom:"8px" }}, "ACCEPTANCE CRITERIA"),
+            story.acceptance.map(function(ac, ai) {
+              return h("div", { key:ai, style:{ display:"flex", gap:"8px", alignItems:"flex-start", marginBottom:"4px" }},
+                h("span", { style:{ color:story.status==="done"?C.done:t.dim, flexShrink:0 }}, story.status==="done"?"\u2713":"\u25CB"),
+                h("span", { style:{ fontSize:"12px", color:t.sub, lineHeight:"1.5" }}, ac));
+            })) : null);
+      }));
+
+    // Architecture
+    var arch = h("div", { style:Object.assign({}, cardStyle(), { marginBottom:"24px" }) },
+      h("div", { style:{ fontSize:"15px", fontWeight:"600", color:t.text, marginBottom:"16px" }}, "Architecture"),
+      h("div", { style:{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px" }},
+        h("div", null,
+          h("div", { style:{ fontSize:"12px", fontWeight:"600", color:C.accent, marginBottom:"8px", textTransform:"uppercase", letterSpacing:"0.05em" }}, "Source Files"),
+          [
+            { f:"bookmarklet/er-filler.js", d:"Main source (~600 lines)" },
+            { f:"bookmarklet/build-bookmarklet.js", d:"Build script + preset embedder" },
+            { f:"er-presets/[serviceId]/[scenario].json", d:"Preset data files" },
+            { f:".claude/commands/bookmarklet.md", d:"/bookmarklet slash command" },
+            { f:".claude/commands/fill-form.md", d:"/fill-form preset generator" },
+          ].map(function(item, i) {
+            return h("div", { key:i, style:{ marginBottom:"6px" }},
+              h("code", { style:{ fontSize:"11px", fontFamily:fontMono, color:C.accent2 }}, item.f),
+              h("div", { style:{ fontSize:"11px", color:t.dim, marginLeft:"4px" }}, item.d));
+          })),
+        h("div", null,
+          h("div", { style:{ fontSize:"12px", fontWeight:"600", color:C.accent, marginBottom:"8px", textTransform:"uppercase", letterSpacing:"0.05em" }}, "Key Patterns"),
+          [
+            { p:"form.submission = { data }", d:"Triggers Form.io component updates" },
+            { p:"comp.saveRow(i)", d:"Saves EditGrid rows from 'new' to 'saved'" },
+            { p:"comp.upload([File])", d:"Uploads files via Form.io internal API" },
+            { p:"everyComponent()", d:"Iterates current-page components only" },
+            { p:"NEVER wiz.redraw()", d:"Breaks CSS layout across all tabs" },
+          ].map(function(item, i) {
+            return h("div", { key:i, style:{ marginBottom:"6px" }},
+              h("code", { style:{ fontSize:"11px", fontFamily:fontMono, color:"#f472b6" }}, item.p),
+              h("div", { style:{ fontSize:"11px", color:t.dim, marginLeft:"4px" }}, item.d));
+          }))));
+
+    // Commands
+    var commands = h("div", { style:Object.assign({}, cardStyle()) },
+      h("div", { style:{ fontSize:"15px", fontWeight:"600", color:t.text, marginBottom:"12px" }}, "Claude Code Commands"),
+      h("div", { style:{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"12px" }},
+        [
+          { cmd:"/fill-form [serviceId]", desc:"Generate preset from form schema via MCP. Reads field types, catalogs, validations. Saves to er-presets/." },
+          { cmd:"/fill-form [id] --all-scenarios", desc:"Generate demo + test + edge presets in one go." },
+          { cmd:"/bookmarklet build", desc:"Rebuild bookmarklet with latest presets embedded." },
+          { cmd:"/bookmarklet test --headed", desc:"Run Playwright diagnostic: fill, layout check, file upload." },
+        ].map(function(item, i) {
+          return h("div", { key:i, style:{ background:t.surface2, border:"1px solid "+t.border, borderRadius:"8px", padding:"12px" }},
+            h("code", { style:{ fontSize:"12px", fontFamily:fontMono, color:C.accent, display:"block", marginBottom:"4px" }}, item.cmd),
+            h("div", { style:{ fontSize:"12px", color:t.sub, lineHeight:"1.5" }}, item.desc));
+        })));
+
+    return h("div", null, hero, howItWorks, stories, arch, commands);
+  }
+
   // ══════════════════════════════════════════════════════════
   // TAB ROUTER
   // ══════════════════════════════════════════════════════════
@@ -980,7 +1237,7 @@ function AgentDashboard() {
     // Footer
     h("div", { style:{ textAlign:"center", padding:"24px", fontSize:"11px", fontFamily:fontMono,
         color:t.dim, borderTop:"1px solid "+t.cardBorder }},
-      "eRegistrations Agent Hub | 5 agents | 24 skills | 120+ MCP tools | 2 countries | ",
+      "eRegistrations Agent Hub | 7 agents | 24 skills | 120+ MCP tools | Form Filler | 2 countries | ",
       h("a", { href:"https://www.npmjs.com/package/mcp-eregistrations-bpa",
         style:{ color:C.accent2, textDecoration:"none" }}, "mcp-eregistrations-bpa v0.17.3"))
   );

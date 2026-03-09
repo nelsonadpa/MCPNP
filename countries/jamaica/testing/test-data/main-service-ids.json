@@ -1,0 +1,54 @@
+{
+  "service": {
+    "id": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "name": "MAIN - Establish a new zone",
+    "copiedFrom": "28bf8aca-6d59-45ce-b81f-5068ab5ae7e1"
+  },
+  "roles": {
+    "documentsCheck": "465d8d48-9c85-4ea1-bcb7-75f26fd03ecc",
+    "complementaryInformation": "d516acd5-c5e7-4cb1-a3d2-7cb7db8f4e61",
+    "legalEvaluation": "998caef5-e46f-474d-9106-266dc6db9423",
+    "technicalEvaluation": "ed093633-19b9-4c88-838c-ad86de772bea",
+    "businessEvaluation": "2a87aeab-3705-44ed-b1fc-a4afc41d0a56",
+    "complianceEvaluation": "32ba8fae-b5cb-451e-bc63-9781806e3fb9",
+    "organizeNocAndInspection": "f447186b-57dd-4d55-8301-08b4e7422baa",
+    "jcaApproval": "0f4d3be1-e251-41f1-bcf8-8d4dca307455",
+    "tajApproval": "89a09269-d970-4451-932e-7c948dafcef3",
+    "businessApproval": "b821ad92-2391-4bef-a2a9-03d87abacbd9",
+    "mofpsApproval": "c656a915-f823-4d9a-9140-01b2bf7399f4",
+    "technicalApproval": "6819d50d-ab96-4482-b560-7389a3fd4f45",
+    "complianceApproval": "2b4e6815-ea08-4a2d-ae8d-f17f48777dd4",
+    "legalApproval": "0d52653d-ffc2-4225-ac73-42e02a83ea21",
+    "arcAppRevCommittee": "a0de7cbd-84de-4f9c-bcf2-f5e7f5dd43c4",
+    "statusLetter": "ccd13b7b-af43-4968-a5e5-fc5dbfe62fdd",
+    "signatureStatusLetter": "ee96d408-aece-44b5-a289-f56ad4424a3e",
+    "complementaryInformationSL": "10ba2395-d0f2-4b7e-affc-15f0fbbe2e46",
+    "boardSubmission": "adb536d2-53b3-4e25-a5e2-b3c58e5e0577",
+    "ceoValidation": "99113077-9c51-41b9-ac0f-b13a3b3bfab3",
+    "board": "59530d8d-c3dc-44d6-a3d0-f96e2a1da0bc",
+    "sezDocuments": "3bc36af7-de6f-4f68-95a1-ab94e259a3a3"
+  },
+  "determinants": {
+    "additionalInfoNotYes": "ff6cca8a-04ce-4b4f-adde-7322bb87901c",
+    "additionalInfoYes": "fc7aa267-ea25-4a6c-ab8a-c35d16a4310b",
+    "ciLegal": "4ffec4a3-eacd-4582-bbb7-199478897176",
+    "ciTechnical": "65d147a7-7797-4fb1-89d5-2ec5631e55f3",
+    "ciCompliance": "ec696538-7672-44c0-9f32-e7fc04f95963",
+    "ciBusiness": "d45f8e03-613d-4b3b-b98d-d79aab44e729"
+  },
+  "arcComponents": {
+    "editGrid3": "applicationReviewingCommitteeArcDecisionEditGrid3",
+    "selectUnits": "applicationReviewingCommitteeArcDecisionSelectUnitsThatWillReview3",
+    "additionalInfoRadio": "applicationReviewingCommitteeArcDecisionDoesTheApplicationRequireAdditionalInformationOrSupportingDocumentationBeforeProceedingToTheNextStage",
+    "requestAdditionalInfoButton": "applicationReviewingCommitteeArcDecisionRequestAdditionalInformation",
+    "sendToBoardButton": "filevalidated_575a341d-4e60-71f0-9de6-58a5dbf4afdf"
+  },
+  "componentActions": {
+    "fileDeclineAction": "0e3b93e0-221c-472e-bc8d-75f259c91099"
+  },
+  "notes": {
+    "camundaNames": "Identical to PARTB - service was copied, forms preserved",
+    "arcButtonKeys": "Identical to PARTB - same form schema",
+    "verified": "2026-03-05 via MCP verification (Phase 1)"
+  }
+}

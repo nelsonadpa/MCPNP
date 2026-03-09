@@ -13,6 +13,36 @@ Registro de todos los cambios aplicados por el Config Agent. El Test Agent usa e
 
 ---
 
+### 2026-03-07 | Bitacora (ffe746aac09241078bad48c9b95cdfe0) | Cambiar Empresa — Page Reload
+- **Problem**: EditGrid permissions don't refresh when user changes company (LISTAR bots only fire once on panel activation)
+- **Fix**: Set `custom: "window.location.reload();"` on button `applicantCambiarEmpresa2` ("Cambiar empresa", Tab 1)
+- When user clicks "Cambiar empresa", page reloads → lands on Tab 0 (default) → selects new company → "Confirmar" → Tab 1+ panels activate fresh → LISTAR bots re-execute with new NIT
+- **Component modified**: `applicantCambiarEmpresa2` (button) — `custom` field changed from `""` to `"window.location.reload();"`
+- **ComponentAction preserved**: `goToPreviousPage` still linked (reload overrides it)
+- **Audit ID**: `27767ac9-acd1-4640-b453-1ca31e9f42c5`
+- **Estado**: NEEDS_RETEST — verify in browser with two different companies
+
+---
+
+### 2026-03-03 | Bitacora (ffe746aac09241078bad48c9b95cdfe0) | My Files Block — Query, View & Delegate
+- Added complete "My Files" panel inside `applicantBlock37` (existing panel titled "Delegar")
+- **Query Bot**: "Get my files" (`d1aebd6f-652e-467d-8756-c33ec95eadb1`) → `DS.DS - Query user files`
+  - Input: constant_1→page, constant_100→page_size
+  - Output: 11 mappings (10 DataGrid columns + count) via save_all
+- **Delegate Bot**: "Delegar file" (`139054c7-13cc-4120-a779-b03046ecd298`) → `DS.Share access to file`
+  - Input: 2 compound mappings (fileId + email) via save_all
+  - Output: 3 compound mappings (status + message + error) via save_all
+- **Components added** (20 total):
+  - Button: applicantGetMyFiles (triggers Query Bot)
+  - DataGrid: applicantFileResults (10 data columns + View link + Delegate button + email + badge + status + debug panel)
+  - TextField: applicantFileCount (Total Files)
+- **Delegated badge**: applicantDelegatedIcon (hidden button, shown by determinant `d3665760` when status != "")
+- **Determinant**: "Delegation completed" (`d3665760-2a0c-4b19-a7ca-3fece52dfb7b`) — text NOT_EQUAL ""
+- **Effect**: show (`82f6d37f`) on applicantDelegatedIcon, behaviour `a86e8a5f`
+- **Debug scan**: 10 issues (2 known false positives for constant_*, 8 pre-existing in other bots), 0 blocking
+- **Published**: OK (audit `c46ba08f`)
+- Estado: **OK — NEEDS_RETEST**
+
 ### 2026-02-14 | Fito (2c91808893792e2b019379310a8003a9) | StatusBitacora determinante + effect
 - Creado radio determinant `daf38ab6` (StatusBitacora = TRUE)
 - Creado behaviour `cd9c2714` con effect activando `applicantBlock12`

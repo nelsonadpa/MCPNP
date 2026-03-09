@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "serviceId": "d51d6c78-5ead-c948-0b82-0d9bc71cd712",
+    "serviceName": "Jamaica - Establish a new zone",
+    "scenario": "test",
+    "generatedAt": "2026-03-05T16:00:00Z",
+    "fieldCount": 30,
+    "mcpServer": "BPA-jamaica"
+  },
+  "applicantProposedNameOfZone": "Test Zone A",
+  "applicantMultiOrSingleOccupant": "single",
+  "applicantMultiOrSingleOccupant2": "single",
+  "applicantCity3": "St. Catherine",
+  "applicantAddress3": "1 Main St",
+  "applicantTotalLandArea3": 100,
+  "applicantUnit3": "Square meters",
+  "applicantCompanyName": "Test Corp",
+  "applicantTaxRegistrationNumberTrn2": "COJ-001",
+  "applicantTaxRegistrationNumberTrn": "111-222-333",
+  "applicantCity": "St. Catherine",
+  "applicantAddress": "1 Main St",
+  "applicantPhone": "8765551111",
+  "applicantEmail": "test@test.com",
+  "applicantNames": "John",
+  "applicantLastName": "Doe",
+  "applicantPhone2": "8765552222",
+  "applicantEmail2": "j.doe@test.com",
+  "applicantCompanyName2": "Test Corp",
+  "applicantLegalType2": "LLC",
+  "applicantCountryOfRegistration": "Jamaica",
+  "applicantEditGrid": [
+    {
+      "applicantName": "John Doe",
+      "applicantNationality": "Jamaica",
+      "applicantRadio": "no",
+      "applicantBeneficialOwner": "yes",
+      "applicantOfTotalShares": 100
+    }
+  ],
+  "applicantIsThisAJointVentureSpecialPurposeVehicleOrNonResidentCompany": "no",
+  "applicantParentCompanies": [
+    {
+      "applicantParentCompanyName": "Test Parent",
+      "applicantLegalType": "Corporation",
+      "applicantCountryOfOrigin": "Jamaica"
+    }
+  ],
+  "applicantParcelsDescriptionGrid": [
+    {
+      "applicantPlotParcelDesignation": "Lot 1",
+      "applicantPrivateOrPublicLand": "private",
+      "applicantDoYouHaveRightsOnThisLand": "held",
+      "applicantWhatTypeOfRightsDoYouHave": "ownership"
+    }
+  ],
+  "applicantUnit2": "Square meters",
+  "applicantNumberOfPlotsBlocksParcels": 1,
+  "applicantTotalLandArea": 100,
+  "applicantUnit": "Square meters",
+  "applicantIndicateWhetherTheTerrainRequiresSubstantialGradingOrSitePreparation": "no",
+  "applicantValueOfLand": 1000,
+  "applicantValueOfLand2": 500,
+  "applicantOnSiteInfrastructure": 500,
+  "applicantBuildingFactoryDevelopmentCost": 100
+}

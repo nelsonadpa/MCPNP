@@ -1,0 +1,68 @@
+{
+  "fileId": "f16763e1-45df-4db8-a1b6-a5982279ac55",
+  "processId": "5cdfcc6a-188a-11f1-899e-b6594fb67add",
+  "steps": [
+    {
+      "phase": "A",
+      "completedRoles": [],
+      "skippedRoles": [],
+      "reachedARC": true
+    },
+    {
+      "phase": "B",
+      "arcAdvanced": true,
+      "hasCi": true,
+      "pendingTasks": [
+        "complementaryInformation"
+      ]
+    },
+    {
+      "phase": "C",
+      "pendingTasks": [
+        "businessEvaluation",
+        "legalEvaluation"
+      ]
+    },
+    {
+      "phase": "D",
+      "selectiveWorks": true,
+      "pendingTasks": [
+        "businessEvaluation",
+        "legalEvaluation"
+      ],
+      "active": {
+        "legalEval": true,
+        "businessEval": true
+      },
+      "skipped": {
+        "technicalEval": false,
+        "complianceEval": false,
+        "nocEval": false,
+        "tajAppr": false,
+        "jcaAppr": false,
+        "mofpsAppr": false
+      }
+    },
+    {
+      "phase": "E",
+      "pendingTasks": [
+        "arcAppRevCommittee"
+      ],
+      "arcBack": true
+    },
+    {
+      "phase": "F",
+      "pendingTasks": [
+        "arcAppRevCommittee"
+      ]
+    }
+  ],
+  "selectiveWorks": true,
+  "finalTasks": {
+    "total": 32,
+    "completed": 31,
+    "pending": [
+      "arcAppRevCommittee"
+    ]
+  }
+}

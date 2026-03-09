@@ -1,6 +1,8 @@
 {
   "redirects": [
     { "source": "/toolkit", "destination": "/#toolkit", "permanent": false },
-    { "source": "/catalogo", "destination": "/#toolkit", "permanent": false }
+    { "source": "/catalogo", "destination": "/#toolkit", "permanent": false },
+    { "source": "/form-filler", "destination": "/#form-filler", "permanent": false },
+    { "source": "/bookmarklet", "destination": "/#form-filler", "permanent": false }
   ]
 }

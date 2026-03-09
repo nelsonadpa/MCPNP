@@ -9,9 +9,9 @@
 #   ./launch-all.sh test man           # Test + Manual only
 #   ./launch-all.sh orq config test    # Coordinator + Config + Test
 
-BASE="$HOME/Desktop/OCAgents"
+BASE="$(cd "$(dirname "$0")" && pwd)"
 HELPER="$BASE/.start-agent.sh"
-AGENTS="${@:-orq config manual testing observer}"
+AGENTS="${@:-orq config manual testing observer designer}"
 
 # Colors
 GREEN='\033[0;32m'
@@ -61,8 +61,13 @@ for agent in $AGENTS; do
       launch_window "$BASE/observer" "Observer Agent"
       sleep 0.5
       ;;
+    designer|d)
+      echo -e "${GREEN}[$COUNT/$TOTAL]${NC} Designer Agent (Architect)..."
+      launch_window "$BASE/designer" "Designer Agent"
+      sleep 0.5
+      ;;
     *)
-      echo "Unknown agent: $agent (use: orq, config, manual, testing, observer)"
+      echo "Unknown agent: $agent (use: orq, config, manual, testing, observer, designer)"
       COUNT=$((COUNT - 1))
       ;;
   esac

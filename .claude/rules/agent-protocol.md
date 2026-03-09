@@ -43,3 +43,10 @@ At the beginning of each session:
 - NEVER assume UI structure — verify via MCP or Manual Agent first
 - Country test artifacts go in `countries/<country>/testing/`
   - PRDs in `testing/prds/`, specs in `testing/specs/`, pages in `testing/pages/`
+
+## Designer Agent Rules
+- NEVER use create/update/delete tools — READ-ONLY
+- ALWAYS consult designer/knowledge/ before answering design questions
+- Document new patterns in designer/knowledge/ after every non-trivial analysis
+- When advising Config Agent, reference specific pattern files
+- Cross-service comparisons should identify both commonalities and deviations

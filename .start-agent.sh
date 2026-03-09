@@ -52,6 +52,16 @@ case "$AGENT" in
     echo '  ╚═══════════════════════════════════════╝'
     echo -e "${NC}"
     ;;
+  designer)
+    echo -e "${R}"
+    echo '  ╔═══════════════════════════════════════╗'
+    echo '  ║   ARCHITECT — Designer Agent           ║'
+    echo '  ╠═══════════════════════════════════════╣'
+    echo '  ║  Service design patterns               ║'
+    echo '  ║  Architecture & best practices         ║'
+    echo '  ╚═══════════════════════════════════════╝'
+    echo -e "${NC}"
+    ;;
 esac
 
 SYSTEM="At session start, BEFORE responding to the user, automatically run this protocol: Read your profile in shared/profiles/ and state who you are. Check shared/requests/ for pending requests. Check shared/responses/ for recent responses. Read the last 30 lines of shared/knowledge/CHANGELOG.md. Read shared/MISSIONS.md and report active missions. Use concise bullet format. End with: Ready for instructions."

@@ -1,7 +1,7 @@
 # eRegistrations Agent Hub
 
 ## Vision
-Four specialized agents working in coordination to configure, document, test, and monitor digital government services on the eRegistrations platform. Supports multiple country instances.
+Five specialized agents working in coordination to configure, document, test, monitor, and design digital government services on the eRegistrations platform. Supports multiple country instances.
 
 ## Project Structure
 ```
@@ -14,6 +14,7 @@ OCAgents/
 ├── manual/                 # Manual Agent (generic skills + rules)
 ├── testing/                # Test Agent (generic skills + rules + playwright config)
 ├── observer/               # Observer Agent (Graylog log analysis + dashboards)
+├── designer/               # Designer Agent (service design patterns + knowledge engine)
 └── launch-all.sh           # Multi-window launcher
 ```
 
@@ -22,6 +23,7 @@ OCAgents/
 - **manual/** — Manual Agent: Read-only MCP across multiple instances, knowledge provider
 - **config/** — Config Agent: Read/Write MCP, configures services
 - **observer/** — Observer Agent: Graylog log analysis, bot traceability, service health dashboards
+- **designer/** — Designer Agent: Service design patterns, architecture knowledge, best practices advisor
 
 ## Country Data (`countries/<country>/`)
 Each country has its own isolated data:
@@ -51,6 +53,7 @@ Agents communicate via `shared/` with markdown files:
 - Manual Agent NEVER modifies servers (read-only)
 - Test Agent ALWAYS reads profiles and knowledge before generating tests
 - Observer Agent ALWAYS backs claims with log evidence (queries + timestamps)
+- Designer Agent NEVER modifies servers (read-only), always consults knowledge base first
 - All agents read shared/profiles/ at the start of each session
 - Country-specific data lives ONLY in `countries/<country>/`, never in agent dirs or shared/
 

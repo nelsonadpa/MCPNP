@@ -6,6 +6,32 @@ Patterns and mistakes to avoid. Review at session start.
 
 ## MCP Tool Gotchas
 
+### NEVER delete system role statuses — breaks BPA UI completely
+- System statuses: FILE VALIDATED, FILE PENDING, SEND BACK TO CORRECTIONS, FILE REJECT
+- Types: `FileValidatedStatus`, `FilePendingStatus`, `FileDeclineStatus`, `FileRejectStatus`
+- `rolestatus_delete` accepts them without warning, BPA API returns 200 OK
+- **But the BPA UI breaks**: all roles disappear from Processing Roles section
+- Data is intact in API (`role_list` still returns all roles), but UI is unusable
+- Only delete `UserDefinedStatus` (type 4+) statuses
+- To change system status destinations, use `rolestatus_update` — never delete + recreate
+- **Bug report**: `~/Desktop/bpa-mcp-reports/2026-03-04-rolestatus-delete-breaks-ui-roles.md`
+
+### `role_get` strips status IDs — use Python workaround to find them
+- The MCP `role_get` tool returns statuses with only `name` and `type` — no `id` field
+- To get status IDs, use the UV Python directly:
+  ```
+  /Users/nelsonperez/.cache/uv/archive-v0/<archive>/bin/python -c "
+  import asyncio, json
+  from mcp_eregistrations_bpa.bpa_client import BPAClient
+  async def main():
+      async with BPAClient.for_instance('jamaica') as client:
+          data = await client.get('/role/{role_id}', path_params={'role_id': '<ROLE_ID>'}, resource_type='role', resource_id='x')
+          for s in data.get('statuses', []):
+              print(json.dumps({k: s.get(k) for k in ['id', 'name', 'roleStatusType']}))
+  asyncio.run(main())
+  ```
+- Find the correct archive: `ps aux | grep mcp-eregistrations-bpa` → check path
+
 ### Always follow up `componentaction_save` with `form_component_update`
 - `componentaction_save` creates the action but does NOT set `componentActionId` on the component
 - Without the follow-up, the action exists in the backend but won't render or fire
@@ -56,12 +82,32 @@ Patterns and mistakes to avoid. Review at session start.
 - NOT inline JSONLogic `{"==": [{"var": "data.field"}, "value"]}` (MCP's wrong format)
 - After creating behaviour, update component with `behaviourId` + `effectsIds`
 
+### bot_create does NOT link Mule service — must bot_update immediately
+- `bot_create` creates bots with `bot_service_id: null` — there's no param to set it at creation time
+- A failed `service_publish` due to "External service is not configured" **reverts ALL form component changes**
+- All `form_component_add` calls succeed, but after the failed publish, every component vanishes
+- **Fix**: Always call `bot_update(bot_id, bot_service_id="DS.xxx")` BEFORE adding form components
+- **Correct order**: bot_create → bot_update (link Mule) → form_component_add → componentaction_save → publish
+
+### componentaction_save response may show "bots":[] but data is correct
+- The save response sometimes returns empty bots array — a display bug in the MCP tool
+- Use `componentaction_get_by_component` to verify — it shows the actual linked bots
+- Don't re-create based on the save response alone
+
 ## Process Mistakes
 
 ### Always take baseline snapshots before modifying a service
 - Before: `service_export_raw` or `analyze_service`
 - After: compare to verify only intended changes were made
 - Broken objects from failed MCP calls can block service export (NullPointerException)
+
+### NEVER create roles with empty "Unit in charge"
+- When assigning an institution to a role, ALWAYS also assign a valid unit
+- BPA UI allows saving empty unit but it creates a null `unit_id` in the database
+- This breaks `service_copy` → Keycloak "Group name is missing" error (500)
+- The error is opaque — doesn't tell you WHICH role has the bad unit
+- **Pre-copy checklist**: audit all roles with `roleunit_list` → verify no null `unit_id`
+- **Bug report**: `countries/jamaica/analysis/mcp-issue-service-copy-keycloak.md`
 
 ### Service copies inherit all garbage
 - Copied services don't validate referential integrity

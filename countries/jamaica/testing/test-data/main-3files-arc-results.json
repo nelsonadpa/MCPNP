@@ -1,0 +1,36 @@
+{
+  "service": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+  "files": [
+    {
+      "fileNum": 1,
+      "fileId": "89a4f996-f129-4bdb-8dd2-043b0d5b66bc",
+      "processId": "deb1afa5-1a92-11f1-899e-b6594fb67add",
+      "status": "AT_ARC",
+      "reachedArc": true,
+      "pendingTasks": [
+        "arcAppRevCommittee"
+      ]
+    },
+    {
+      "fileNum": 2,
+      "fileId": "a5b3c66a-893e-4a22-b582-1edd9cafb6d2",
+      "processId": "93688030-1a93-11f1-899e-b6594fb67add",
+      "status": "AT_ARC",
+      "reachedArc": true,
+      "pendingTasks": [
+        "arcAppRevCommittee"
+      ]
+    },
+    {
+      "fileNum": 3,
+      "fileId": "f5323bbe-7004-442e-a073-87a917bad7ea",
+      "processId": "49762f2b-1a94-11f1-899e-b6594fb67add",
+      "status": "AT_ARC",
+      "reachedArc": true,
+      "pendingTasks": [
+        "arcAppRevCommittee"
+      ]
+    }
+  ],
+  "timestamp": "2026-03-08T02:17:27.468Z"
+}

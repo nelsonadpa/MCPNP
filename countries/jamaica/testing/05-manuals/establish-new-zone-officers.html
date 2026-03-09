@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Establish a New Zone — Officer Guide | Jamaica SEZ</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --jamaica-green: #006847;
+    --jamaica-gold: #FFD700;
+    --jamaica-dark: #003d2b;
+    --jamaica-light: #e8f5e9;
+    --bg-gradient: linear-gradient(135deg, #0a1628 0%, #0d2818 40%, #0a1628 100%);
+  }
+  .reveal {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  .reveal .slides {
+    text-align: left;
+  }
+  .reveal .slides section {
+    background: var(--bg-gradient);
+  }
+  .reveal h1, .reveal h2, .reveal h3 {
+    text-transform: none;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .reveal h1 { color: var(--jamaica-gold); font-size: 2.2em; }
+  .reveal h2 { color: var(--jamaica-gold); font-size: 1.6em; border-bottom: 3px solid var(--jamaica-green); padding-bottom: 0.3em; }
+  .reveal h3 { color: #81c784; font-size: 1.2em; }
+  .reveal p, .reveal li, .reveal td, .reveal th { font-size: 0.72em; line-height: 1.5; }
+  .reveal ul { list-style: none; padding-left: 0; }
+  .reveal ul li::before { content: "▸ "; color: var(--jamaica-gold); font-weight: bold; }
+  .reveal ol li::before { content: none; }
+  .reveal ol { padding-left: 1.2em; }
+  .reveal table { border-collapse: collapse; width: 100%; margin: 0.5em 0; font-size: 0.65em; }
+  .reveal th { background: var(--jamaica-green); color: white; padding: 0.5em 0.8em; text-align: left; font-weight: 600; }
+  .reveal td { padding: 0.4em 0.8em; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .reveal tr:nth-child(even) td { background: rgba(0,104,71,0.1); }
+
+  /* Title slide */
+  .title-slide { text-align: center !important; }
+  .title-slide h1 { font-size: 2.6em; margin-bottom: 0.1em; }
+  .title-slide .subtitle { color: #b0bec5; font-size: 1.1em; margin: 0.5em 0; }
+  .title-slide .meta { color: #78909c; font-size: 0.8em; }
+  .title-slide .flag-bar {
+    height: 6px;
+    background: linear-gradient(90deg, var(--jamaica-green) 33%, var(--jamaica-gold) 33%, var(--jamaica-gold) 66%, #000 66%);
+    margin: 1.5em auto 0;
+    width: 60%;
+    border-radius: 3px;
+  }
+
+  /* Phase badge */
+  .phase-badge {
+    display: inline-block;
+    background: var(--jamaica-green);
+    color: var(--jamaica-gold);
+    padding: 0.2em 0.8em;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.05em;
+  }
+
+  /* Callout boxes */
+  .callout {
+    background: rgba(0,104,71,0.15);
+    border-left: 4px solid var(--jamaica-gold);
+    padding: 0.8em 1em;
+    margin: 0.8em 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.7em;
+  }
+  .callout-warning {
+    background: rgba(255,152,0,0.12);
+    border-left: 4px solid #ff9800;
+    padding: 0.8em 1em;
+    margin: 0.8em 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.7em;
+  }
+  .callout-danger {
+    background: rgba(244,67,54,0.12);
+    border-left: 4px solid #f44336;
+    padding: 0.8em 1em;
+    margin: 0.8em 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.7em;
+  }
+
+  /* Cards grid */
+  .cards { display: grid; gap: 0.8em; margin: 0.8em 0; }
+  .cards-2 { grid-template-columns: 1fr 1fr; }
+  .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,104,71,0.4);
+    border-radius: 10px;
+    padding: 0.8em;
+    transition: border-color 0.3s;
+  }
+  .card:hover { border-color: var(--jamaica-gold); }
+  .card h4 {
+    color: var(--jamaica-gold);
+    font-size: 0.8em;
+    margin: 0 0 0.3em 0;
+    font-weight: 700;
+  }
+  .card p, .card li { font-size: 0.62em !important; }
+
+  /* Button styles */
+  .btn-tag {
+    display: inline-block;
+    background: rgba(0,104,71,0.3);
+    border: 1px solid var(--jamaica-green);
+    color: #a5d6a7;
+    padding: 0.15em 0.6em;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+  }
+
+  /* Stats row */
+  .stats { display: flex; gap: 1.5em; justify-content: center; margin: 1em 0; flex-wrap: wrap; }
+  .stat {
+    text-align: center;
+    background: rgba(0,104,71,0.15);
+    border-radius: 12px;
+    padding: 0.8em 1.5em;
+  }
+  .stat .number { font-size: 2em; font-weight: 800; color: var(--jamaica-gold); display: block; }
+  .stat .label { font-size: 0.6em; color: #b0bec5; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* TOC */
+  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6em; }
+  .toc-item {
+    background: rgba(0,104,71,0.1);
+    border-radius: 8px;
+    padding: 0.6em 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 0.7em;
+  }
+  .toc-item:hover { background: rgba(0,104,71,0.3); }
+  .toc-item .toc-num { color: var(--jamaica-gold); font-weight: 700; margin-right: 0.5em; }
+
+  /* Step numbers */
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.5em; height: 1.5em;
+    background: var(--jamaica-green);
+    color: var(--jamaica-gold);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.8em;
+    margin-right: 0.4em;
+  }
+
+  /* Mermaid */
+  .mermaid { text-align: center; margin: 0.5em 0; }
+  .mermaid svg { max-width: 100%; height: auto; }
+
+  /* Section dividers */
+  .section-title { text-align: center !important; }
+  .section-title h2 { font-size: 2em; border: none; }
+  .section-title .section-num {
+    display: inline-block;
+    background: var(--jamaica-gold);
+    color: var(--jamaica-dark);
+    width: 2em; height: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    font-size: 1.5em;
+    font-weight: 800;
+    margin-bottom: 0.3em;
+  }
+
+  /* Columns */
+  .cols { display: grid; gap: 1.2em; }
+  .cols-2 { grid-template-columns: 1fr 1fr; }
+  .cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* Workflow arrows */
+  .flow-arrow { color: var(--jamaica-gold); font-size: 1.5em; text-align: center; }
+
+  /* Footer */
+  .slide-footer {
+    position: absolute; bottom: 0.5em; right: 1em;
+    font-size: 0.45em; color: #546e7a;
+  }
+
+  /* Print overrides */
+  @media print {
+    .reveal .slides section { background: white; color: #333; }
+    .reveal h1, .reveal h2 { color: var(--jamaica-green); }
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ===================== SECTION 0: TITLE ===================== -->
+
+<section class="title-slide">
+  <h1>Establish a New Zone</h1>
+  <p class="subtitle">Part B Officer Processing Guide</p>
+  <p class="meta">Jamaica Special Economic Zone Authority</p>
+  <p class="meta">Version 1.0 — March 2026</p>
+  <div class="flag-bar"></div>
+</section>
+
+<section>
+  <h2>Contents</h2>
+  <div class="toc-grid">
+    <div class="toc-item"><span class="toc-num">1</span> Fundamentals — System access, navigation, permissions</div>
+    <div class="toc-item"><span class="toc-num">2</span> General Overview — Workflow, phases, institutions</div>
+    <div class="toc-item"><span class="toc-num">3</span> Phase 1 — Intake: Documents Check</div>
+    <div class="toc-item"><span class="toc-num">4</span> Phase 2 — Parallel Evaluations</div>
+    <div class="toc-item"><span class="toc-num">5</span> Phase 3 — External Agency Consultations</div>
+    <div class="toc-item"><span class="toc-num">6</span> Phase 4 — Internal Approvals</div>
+    <div class="toc-item"><span class="toc-num">7</span> Phase 5 — Application Review Committee</div>
+    <div class="toc-item"><span class="toc-num">8</span> Phases 6 & 7 — Decision, Board & Final</div>
+    <div class="toc-item"><span class="toc-num">9</span> Corrections & Rejection Flows</div>
+    <div class="toc-item"><span class="toc-num">10</span> Troubleshooting & Quick Reference</div>
+  </div>
+</section>
+
+<section>
+  <h2>Service at a Glance</h2>
+  <div class="stats">
+    <div class="stat"><span class="number">4</span><span class="label">Institutions</span></div>
+    <div class="stat"><span class="number">21</span><span class="label">Active Roles</span></div>
+    <div class="stat"><span class="number">33</span><span class="label">Documents</span></div>
+    <div class="stat"><span class="number">4</span><span class="label">Registrations</span></div>
+    <div class="stat"><span class="number">7</span><span class="label">Phases</span></div>
+  </div>
+  <div class="cards cards-4" style="margin-top:1em">
+    <div class="card">
+      <h4>SEZA</h4>
+      <p>Lead authority — receives, evaluates, approves, issues license</p>
+    </div>
+    <div class="card">
+      <h4>JCA</h4>
+      <p>Jamaica Customs Agency — customs no-objection</p>
+    </div>
+    <div class="card">
+      <h4>TAJ</h4>
+      <p>Tax Administration Jamaica — tax compliance no-objection</p>
+    </div>
+    <div class="card">
+      <h4>MOFPS</h4>
+      <p>Ministry of Finance — fiscal/financial no-objection</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== SECTION 1: FUNDAMENTALS ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">1</div>
+    <h2>Fundamentals</h2>
+    <p style="color:#b0bec5">System access, navigation, and permissions</p>
+  </section>
+
+  <section>
+    <h2>System Access</h2>
+    <h3>Logging In</h3>
+    <ol>
+      <li><span class="step-num">1</span> Open <strong>https://jamaica.eregistrations.org</strong></li>
+      <li><span class="step-num">2</span> Click the <strong>login link</strong> in the top-right corner</li>
+      <li><span class="step-num">3</span> Enter your assigned email and password</li>
+      <li><span class="step-num">4</span> After login, your name appears in the top navigation bar</li>
+    </ol>
+    <div class="callout">
+      If you cannot log in, contact your SEZA IT administrator to verify your credentials and role assignment.
+    </div>
+  </section>
+
+  <section>
+    <h2>Part B — Back-Office View</h2>
+    <h3>Accessing the Application List</h3>
+    <ol>
+      <li><span class="step-num">1</span> Navigate to <strong>/part-b</strong> after logging in</li>
+      <li><span class="step-num">2</span> You will see all applications visible to your role</li>
+      <li><span class="step-num">3</span> Click an application row to open it for processing</li>
+    </ol>
+    <h3>Status Badges</h3>
+    <table>
+      <tr><th>Badge</th><th>Meaning</th></tr>
+      <tr><td><strong>File pending</strong></td><td>Application waiting for processing at your step</td></tr>
+      <tr><td><strong>File in progress</strong></td><td>Application is being actively processed</td></tr>
+      <tr><td><strong>File complete</strong></td><td>Your step is done — application moved forward</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Processing View — 3 Tabs</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h4>📄 Documents</h4>
+        <p>View and validate uploaded documents. Used primarily in Phase 1 (intake).</p>
+      </div>
+      <div class="card" style="border-color: var(--jamaica-gold);">
+        <h4>⚙️ Processing</h4>
+        <p><strong>Action buttons live here.</strong> Approve, Send, Sign — always switch to this tab before taking action.</p>
+      </div>
+      <div class="card">
+        <h4>📋 Form</h4>
+        <p>View the applicant's submitted form data. Read-only for most roles.</p>
+      </div>
+    </div>
+    <div class="callout-warning">
+      <strong>Key rule:</strong> Action buttons (Approve, Send evaluation, etc.) are on the <strong>Processing</strong> tab. If you don't see your button, switch tabs first.
+    </div>
+  </section>
+
+  <section>
+    <h2>Permissions — Role to Institution</h2>
+    <table>
+      <tr><th>Roles</th><th>Institution</th><th>Registration</th></tr>
+      <tr><td>Documents Check → Compliance Evaluation</td><td>SEZA</td><td>Approval SEZA</td></tr>
+      <tr><td>Organize NOC & Inspection</td><td>SEZA</td><td>Approval SEZA</td></tr>
+      <tr><td>JCA Approval</td><td>JCA</td><td>No objection JCA</td></tr>
+      <tr><td>TAJ Approval</td><td>TAJ</td><td>No objection TAJ</td></tr>
+      <tr><td>MOFPS Approval</td><td>MOFPS</td><td>No objection MOFPS</td></tr>
+      <tr><td>Legal → Compliance Approval</td><td>SEZA</td><td>Approval SEZA</td></tr>
+      <tr><td>ARC → SEZ Documents</td><td>SEZA</td><td>Approval SEZA</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Registrations Produced</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h4>1. Approval SEZA</h4>
+        <p>Primary registration. SEZA grants or denies zone designation after full evaluation cycle.</p>
+      </div>
+      <div class="card">
+        <h4>2. No Objection — JCA</h4>
+        <p>Jamaica Customs Agency issues a no-objection decision on customs-related aspects.</p>
+      </div>
+      <div class="card">
+        <h4>3. No Objection — TAJ</h4>
+        <p>Tax Administration Jamaica issues a no-objection decision on tax compliance.</p>
+      </div>
+      <div class="card">
+        <h4>4. No Objection — MOFPS</h4>
+        <p>Ministry of Finance issues a no-objection decision on fiscal/financial review.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 2: GENERAL OVERVIEW ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">2</div>
+    <h2>General Overview</h2>
+    <p style="color:#b0bec5">Workflow structure, phases, and decision points</p>
+  </section>
+
+  <section>
+    <h2>7-Phase Workflow</h2>
+    <table>
+      <tr><th>Phase</th><th>Name</th><th>Nature</th><th>Key Action</th></tr>
+      <tr><td><strong>1</strong></td><td>Intake</td><td>Sequential</td><td>Verify completeness of 33 required documents</td></tr>
+      <tr><td><strong>2</strong></td><td>Evaluations</td><td>Parallel</td><td>Domain-specific review: Legal, Technical, Business, Compliance</td></tr>
+      <tr><td><strong>3</strong></td><td>External NOC</td><td>Fan-out / Fan-in</td><td>Collect no-objection letters from JCA, TAJ, MOFPS</td></tr>
+      <tr><td><strong>4</strong></td><td>Internal Approvals</td><td>Parallel</td><td>Senior management sign-off per domain</td></tr>
+      <tr><td><strong>5</strong></td><td>ARC</td><td>Sequential</td><td>Committee reviews consolidated evaluations</td></tr>
+      <tr><td><strong>6</strong></td><td>Decision</td><td>Sequential</td><td>Draft and sign status/decision letter</td></tr>
+      <tr><td><strong>7</strong></td><td>Board & Final</td><td>Sequential</td><td>Board review, final approval, license upload</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Workflow Diagram</h2>
+    <div class="mermaid">
+flowchart LR
+  A[Applicant<br/>Submits] --> B[1. Doc<br/>Check]
+  B --> C[2. Evaluations<br/>4 parallel]
+  C --> D[3. External<br/>NOC]
+  D --> E[4. Internal<br/>Approvals]
+  E --> F[5. ARC<br/>Committee]
+  F --> G[6. Decision<br/>& Status]
+  G --> H[7. Board<br/>& Final]
+
+  F -.->|corrections| CI[Applicant<br/>Corrects]
+  CI -.-> F
+  B -.->|corrections| CI2[Applicant<br/>Corrects]
+  CI2 -.-> B
+
+  style A fill:#4CAF50,color:white
+  style B fill:#2196F3,color:white
+  style C fill:#9C27B0,color:white
+  style D fill:#FF9800,color:white
+  style E fill:#00897B,color:white
+  style F fill:#7B1FA2,color:white
+  style G fill:#1565C0,color:white
+  style H fill:#C62828,color:white
+  style CI fill:#FF9800,color:white
+  style CI2 fill:#FF9800,color:white
+    </div>
+  </section>
+
+  <section>
+    <h2>Parallel vs Sequential</h2>
+    <div class="cols cols-2">
+      <div>
+        <h3>Parallel Steps</h3>
+        <p>Multiple roles active <strong>simultaneously</strong>. All must complete before the next phase begins.</p>
+        <table>
+          <tr><th>Group</th><th>Roles</th></tr>
+          <tr><td>Evaluations</td><td>Legal, Technical, Business, Compliance</td></tr>
+          <tr><td>External NOC</td><td>JCA, TAJ, MOFPS</td></tr>
+          <tr><td>Internal Approvals</td><td>Legal, Technical, Business, Compliance</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Sequential Steps</h3>
+        <p>Each step must complete before the next one starts.</p>
+        <table>
+          <tr><th>Phase</th><th>Sequence</th></tr>
+          <tr><td>Decision</td><td>Status Letter → Signature</td></tr>
+          <tr><td>Board</td><td>Submission → CEO → Board → SEZ Docs</td></tr>
+        </table>
+        <div class="callout">
+          The overall workflow is sequential between phases but parallel within phases 2, 3, and 4.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Decision Points</h2>
+    <div class="mermaid">
+flowchart TD
+  DP1[1. Document Completeness<br/>Phase 1] -->|Pass| DP2
+  DP1 -->|Fail| CORR1[Corrections Loop]
+  DP2[2-5. Domain Evaluations<br/>4 evals + 3 NOCs] --> DP3
+  DP3[6. ARC Recommendation<br/>Phase 5] -->|Approve| DP4
+  DP3 -->|Corrections| CORR2[Selective Routing<br/>Back to specific evals]
+  DP4[7. Board Decision<br/>Phase 7] -->|Approve| DONE[License Issued]
+  DP4 -->|Deny| DENY[Rejection Letter]
+
+  style DP1 fill:#2196F3,color:white
+  style DP2 fill:#9C27B0,color:white
+  style DP3 fill:#7B1FA2,color:white
+  style DP4 fill:#C62828,color:white
+  style DONE fill:#4CAF50,color:white
+  style DENY fill:#F44336,color:white
+  style CORR1 fill:#FF9800,color:white
+  style CORR2 fill:#FF9800,color:white
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 3: PHASE 1 — INTAKE ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">3</div>
+    <h2>Phase 1: Intake</h2>
+    <p style="color:#b0bec5">Documents Check</p>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 1 — INTAKE</span>
+    <h2>Documents Check</h2>
+    <div class="cols cols-2">
+      <div>
+        <h3>Purpose</h3>
+        <p>Verify that the applicant has submitted all <strong>33 required documents</strong> and that each is valid and legible.</p>
+        <h3>Assigned Officers</h3>
+        <p>Michelle Hewett, Britania Bryan</p>
+        <h3>Role Type</h3>
+        <p>Revision</p>
+      </div>
+      <div>
+        <h3>Action Button</h3>
+        <p><span class="btn-tag">Approve documents check</span></p>
+        <h3>Possible Outcomes</h3>
+        <table>
+          <tr><td><strong>Approve</strong></td><td>→ Phase 2: all 4 evaluations activate</td></tr>
+          <tr><td><strong>Send back</strong></td><td>→ Corrections loop (applicant fixes)</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 1 — INTAKE</span>
+    <h2>Step-by-Step: Documents Check</h2>
+    <ol>
+      <li><span class="step-num">1</span> Navigate to <strong>Part B</strong> → click "File pending" application</li>
+      <li><span class="step-num">2</span> Switch to the <strong>Documents</strong> tab</li>
+      <li><span class="step-num">3</span> Click the first document link → enter <strong>document carousel</strong></li>
+      <li><span class="step-num">4</span> For each document: review → click <strong>"Yes"</strong> if valid, <strong>"No"</strong> if not</li>
+      <li><span class="step-num">5</span> After all 33 documents validated → <code>FORMDATAVALIDATIONSTATUS</code> is set automatically</li>
+      <li><span class="step-num">6</span> Switch to the <strong>Processing</strong> tab</li>
+      <li><span class="step-num">7</span> Click <span class="btn-tag">Approve documents check</span></li>
+      <li><span class="step-num">8</span> Confirm in the dialog → application moves to Phase 2</li>
+    </ol>
+    <div class="callout-warning">
+      <strong>If the button stays disabled:</strong> Ensure every document has been reviewed ("Yes" clicked). All <code>filestatus</code> fields must be <code>true</code>.
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 4: PHASE 2 — EVALUATIONS ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">4</div>
+    <h2>Phase 2: Evaluations</h2>
+    <p style="color:#b0bec5">4 parallel domain evaluations</p>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 2 — EVALUATIONS</span>
+    <h2>Parallel Evaluations Overview</h2>
+    <p>Four SEZA departments independently evaluate the application. All four must complete before Phase 3.</p>
+    <div class="cards cards-4">
+      <div class="card">
+        <h4>Legal</h4>
+        <p>Corporate structure, regulatory compliance, land use agreements</p>
+        <p><span class="btn-tag">Send evaluation to approval</span></p>
+        <p style="font-size:0.55em;color:#78909c">Joanna Mills, Branttany Oforkaja, Shaquille Douglas</p>
+      </div>
+      <div class="card">
+        <h4>Technical</h4>
+        <p>Infrastructure, feasibility, site suitability, master plan</p>
+        <p><span class="btn-tag">Send evaluation</span></p>
+        <p style="font-size:0.55em;color:#78909c">Krissan Meredith, Leondra Power, Alianne Barrows</p>
+      </div>
+      <div class="card">
+        <h4>Business</h4>
+        <p>Business plan viability, economic impact, job creation</p>
+        <p><span class="btn-tag">Send evaluation for approval</span></p>
+        <p style="font-size:0.55em;color:#78909c">Brittany Johnson</p>
+      </div>
+      <div class="card">
+        <h4>Compliance</h4>
+        <p>6 sub-areas: financial integrity, H&S, disaster, security, licensing, customs</p>
+        <p><span class="btn-tag">Send evaluation for approval</span></p>
+        <p style="font-size:0.55em;color:#78909c">Chevaughn Dacres, Cristena Smith, Abigail Johnston, Carleen Clacken-Reid</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 2 — EVALUATIONS</span>
+    <h2>Common Evaluation Process</h2>
+    <p>All four evaluation roles follow the same pattern:</p>
+    <ol>
+      <li><span class="step-num">1</span> Open the application from the Part B list</li>
+      <li><span class="step-num">2</span> Review the form data relevant to your domain</li>
+      <li><span class="step-num">3</span> Fill in any evaluation form fields assigned to your role</li>
+      <li><span class="step-num">4</span> Switch to the <strong>Processing</strong> tab</li>
+      <li><span class="step-num">5</span> Click your <strong>action button</strong> (see previous slide for exact text)</li>
+      <li><span class="step-num">6</span> Confirm the action if prompted</li>
+    </ol>
+    <div class="callout">
+      <strong>Note:</strong> Button text varies slightly between roles. Legal uses "Send evaluation <em>to</em> approval", while Business and Compliance use "Send evaluation <em>for</em> approval".
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 5: PHASE 3 — EXTERNAL NOC ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">5</div>
+    <h2>Phase 3: External NOC</h2>
+    <p style="color:#b0bec5">Agency consultations — JCA, TAJ, MOFPS</p>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 3 — EXTERNAL NOC</span>
+    <h2>Organize NOC & Inspection</h2>
+    <div class="cols cols-2">
+      <div>
+        <h3>Purpose</h3>
+        <p>Compile consultation packages and send them to all three external agencies (JCA, TAJ, MOFPS).</p>
+        <h3>Steps</h3>
+        <ol>
+          <li><span class="step-num">1</span> Open the application</li>
+          <li><span class="step-num">2</span> Locate the file upload areas (one per agency)</li>
+          <li><span class="step-num">3</span> Upload consultation documents for <strong>each agency</strong></li>
+          <li><span class="step-num">4</span> Save the form</li>
+          <li><span class="step-num">5</span> Click <span class="btn-tag">Send consultation documents</span></li>
+        </ol>
+      </div>
+      <div>
+        <h3>Action Button</h3>
+        <p><span class="btn-tag">Send consultation documents</span></p>
+        <div class="callout-warning">
+          The button stays <strong>disabled</strong> until all required file uploads are complete. Verify every upload slot has a file attached.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 3 — EXTERNAL NOC</span>
+    <h2>Agency Decisions</h2>
+    <p>Each agency independently reviews the application and issues a no-objection decision.</p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h4>JCA Approval</h4>
+        <p><strong>Jamaica Customs Agency</strong></p>
+        <p>Reviews customs-related aspects</p>
+        <p><span class="btn-tag">Send decision to SEZA</span></p>
+      </div>
+      <div class="card">
+        <h4>TAJ Approval</h4>
+        <p><strong>Tax Administration Jamaica</strong></p>
+        <p>Reviews tax compliance</p>
+        <p><span class="btn-tag">Send decision to SEZA</span></p>
+      </div>
+      <div class="card">
+        <h4>MOFPS Approval</h4>
+        <p><strong>Ministry of Finance</strong></p>
+        <p>Reviews fiscal/financial aspects</p>
+        <p><span class="btn-tag">Send decision to SEZA</span></p>
+      </div>
+    </div>
+    <div class="callout-warning">
+      <strong>Required:</strong> You must select the <strong>"No objection"</strong> radio button before the action button becomes functional. Without a selection, the button stays disabled.
+    </div>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 3 — EXTERNAL NOC</span>
+    <h2>Agency Decision Process</h2>
+    <p>All three agency roles follow the same steps:</p>
+    <ol>
+      <li><span class="step-num">1</span> Log in with your agency credentials → navigate to <strong>Part B</strong></li>
+      <li><span class="step-num">2</span> Open the application</li>
+      <li><span class="step-num">3</span> Review the consultation package and relevant documentation</li>
+      <li><span class="step-num">4</span> <strong>Select the "No objection" radio button</strong> on the form</li>
+      <li><span class="step-num">5</span> Click <span class="btn-tag">Send decision to SEZA</span></li>
+      <li><span class="step-num">6</span> Confirm the action if prompted</li>
+    </ol>
+    <div class="callout">
+      The decision is transmitted back to SEZA for consolidation. If you have an objection, select the appropriate alternative option.
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 6: PHASE 4 — INTERNAL APPROVALS ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">6</div>
+    <h2>Phase 4: Internal Approvals</h2>
+    <p style="color:#b0bec5">Senior management sign-off</p>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 4 — APPROVALS</span>
+    <h2>Internal Approvals</h2>
+    <p>Senior SEZA management provides sign-off on each domain evaluation. All four must complete before ARC.</p>
+    <div class="cards cards-4">
+      <div class="card">
+        <h4>Legal Approval</h4>
+        <p>Janis Williams<br/><em>Sr. Director, Legal Services</em></p>
+        <p><span class="btn-tag">Approve</span></p>
+      </div>
+      <div class="card">
+        <h4>Technical Approval</h4>
+        <p>Deborah Broomfield<br/><em>Director, Technical Services</em></p>
+        <p><span class="btn-tag">Approve</span></p>
+      </div>
+      <div class="card">
+        <h4>Business Approval</h4>
+        <p>Licia Grant Mullings<br/>Yeuniek Hinds</p>
+        <p><span class="btn-tag">Approve</span></p>
+      </div>
+      <div class="card">
+        <h4>Compliance Approval</h4>
+        <p>Ainsley Brown<br/><em>COO</em></p>
+        <p><span class="btn-tag">Approve</span></p>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Simple process:</strong> Open application → review evaluation summary → switch to Processing tab → click "Approve" → confirm.
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 7: PHASE 5 — ARC ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">7</div>
+    <h2>Phase 5: ARC</h2>
+    <p style="color:#b0bec5">Application Review Committee</p>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 5 — ARC</span>
+    <h2>Application Review Committee</h2>
+    <div class="cols cols-2">
+      <div>
+        <h3>Purpose</h3>
+        <p>Consolidated review of all evaluations, risk assessments, conditions, and agency recommendations.</p>
+        <h3>Steps</h3>
+        <ol>
+          <li><span class="step-num">1</span> Open application from Part B</li>
+          <li><span class="step-num">2</span> Review consolidated evaluations (aggregated from all 4 domains + 3 agencies)</li>
+          <li><span class="step-num">3</span> Review/edit the <strong>EditGrid</strong> for committee notes, conditions, risks</li>
+          <li><span class="step-num">4</span> <strong>Save all EditGrid rows</strong> before proceeding</li>
+          <li><span class="step-num">5</span> Switch to Processing tab</li>
+          <li><span class="step-num">6</span> Click <span class="btn-tag">Approve</span></li>
+        </ol>
+      </div>
+      <div>
+        <h3>Possible Outcomes</h3>
+        <table>
+          <tr><td><strong>Approve</strong></td><td>→ Phase 6: Status Letter</td></tr>
+          <tr><td><strong>Send back</strong></td><td>→ Corrections loop (selective routing)</td></tr>
+          <tr><td><strong>Deny</strong></td><td>→ Rejection flow</td></tr>
+        </table>
+        <div class="callout-danger">
+          <strong>EditGrid warning:</strong> Rows left in "new" or "editing" state will <strong>block the Approve button</strong>. Always save each row (click the checkmark) before submitting.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 5 — ARC</span>
+    <h2>CI Selective Routing</h2>
+    <p>When ARC requests corrections, the system uses <strong>selective routing</strong> — only the affected evaluation domains are re-activated, not the entire pipeline.</p>
+    <div class="mermaid">
+flowchart LR
+  ARC[ARC sends back<br/>for corrections] --> CI[Applicant<br/>Corrects and Resubmits]
+  CI --> SEL{Selective<br/>Routing}
+  SEL -->|Legal affected| LE[Legal Eval]
+  SEL -->|Business affected| BE[Business Eval]
+  SEL -->|Technical affected| TE[Technical Eval]
+  SEL -->|Compliance affected| CE[Compliance Eval]
+  LE --> LA[Legal Approval]
+  BE --> BA[Business Approval]
+  TE --> TA[Technical Approval]
+  CE --> CA[Compliance Approval]
+  LA --> ARC2[ARC<br/>Re-reviews]
+  BA --> ARC2
+  TA --> ARC2
+  CA --> ARC2
+
+  style ARC fill:#7B1FA2,color:white
+  style CI fill:#FF9800,color:white
+  style SEL fill:#FFD700,color:#333
+  style ARC2 fill:#7B1FA2,color:white
+  style LE fill:#9C27B0,color:white
+  style BE fill:#9C27B0,color:white
+  style TE fill:#9C27B0,color:white
+  style CE fill:#9C27B0,color:white
+  style LA fill:#00897B,color:white
+  style BA fill:#00897B,color:white
+  style TA fill:#00897B,color:white
+  style CA fill:#00897B,color:white
+    </div>
+    <div class="callout">
+      Unaffected evaluations are <strong>skipped</strong> — their previous results carry forward. This speeds up re-processing significantly.
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 8: PHASES 6 & 7 ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">8</div>
+    <h2>Phases 6 & 7</h2>
+    <p style="color:#b0bec5">Decision, Board & Final</p>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 6 — DECISION</span>
+    <h2>Status Letter & Signature</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h4>Role 16: Status Letter</h4>
+        <p><strong>Officers:</strong> Michelle Hewett, Britannia Bryan</p>
+        <p>Draft the official status/decision letter based on ARC recommendation.</p>
+        <ol>
+          <li>Open application</li>
+          <li>Review ARC decision and conditions</li>
+          <li>Complete status letter form fields</li>
+          <li>Save → forward for signature</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h4>Role 17: Signature</h4>
+        <p><strong>Officers:</strong> Licia Grant Mullings, Yeuniek Hinds</p>
+        <p>Review and sign the status letter.</p>
+        <ol>
+          <li>Open application</li>
+          <li>Review drafted status letter</li>
+          <li>Click <span class="btn-tag">Approve</span></li>
+          <li>Letter is signed → moves to Board</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="phase-badge">PHASE 7 — BOARD & FINAL</span>
+    <h2>Board Submission → CEO → Board → SEZ Docs</h2>
+    <div class="cards cards-4">
+      <div class="card">
+        <h4>18. Board Submission</h4>
+        <p>Prepare and package all materials for Board review.</p>
+        <p style="color:#ff9800;font-size:0.6em">⚠ Save EditGrid rows before submitting</p>
+      </div>
+      <div class="card">
+        <h4>19. CEO Validation</h4>
+        <p>Corporate Secretary validates the submission package.</p>
+        <p><span class="btn-tag">Approve</span></p>
+      </div>
+      <div class="card">
+        <h4>20. Board</h4>
+        <p>Final decision on zone establishment.</p>
+        <p><span class="btn-tag">Approve</span> or Reject</p>
+      </div>
+      <div class="card">
+        <h4>21. SEZ Documents</h4>
+        <p>Upload final documents: developer license, operating certificate.</p>
+        <p style="color:#ff9800;font-size:0.6em">⚠ License bot non-functional — upload manually</p>
+      </div>
+    </div>
+    <div class="callout">
+      Phase 7 is strictly sequential: Board Submission → CEO → Board → SEZ Documents. Each step waits for the previous one.
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 9: CORRECTIONS & REJECTION ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">9</div>
+    <h2>Corrections & Rejection</h2>
+    <p style="color:#b0bec5">Handling send-backs and denials</p>
+  </section>
+
+  <section>
+    <h2>Corrections Flow</h2>
+    <div class="cols cols-2">
+      <div>
+        <h3>When Can Corrections Be Requested?</h3>
+        <table>
+          <tr><th>Phase</th><th>Trigger</th></tr>
+          <tr><td><strong>Phase 1</strong> (Doc Check)</td><td>Incomplete, illegible, or incorrect documents</td></tr>
+          <tr><td><strong>Phase 5</strong> (ARC)</td><td>Application requires additional information</td></tr>
+        </table>
+        <h3>What Happens</h3>
+        <ol>
+          <li>Officer selects "Send back for corrections"</li>
+          <li>Application routes to <strong>Complementary Information</strong> (applicant-side)</li>
+          <li>Applicant receives notification</li>
+          <li>Applicant corrects and clicks <strong>"Validate send page"</strong></li>
+          <li>Application returns to the requesting step</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Reviewing a Corrected Submission</h3>
+        <ol>
+          <li>Application reappears with <strong>"File pending"</strong> status</li>
+          <li>Open and review corrected documents/data</li>
+          <li>If satisfactory → proceed with normal approval</li>
+          <li>If still insufficient → send back again</li>
+        </ol>
+        <div class="callout">
+          After ARC send-back, <strong>selective routing</strong> only re-activates the affected evaluation domains, not the entire pipeline.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rejection Flow</h2>
+    <div class="cols cols-2">
+      <div>
+        <h3>When to Reject</h3>
+        <table>
+          <tr><th>Phase</th><th>Decision Maker</th></tr>
+          <tr><td><strong>Phase 5</strong> (ARC)</td><td>Application Review Committee</td></tr>
+          <tr><td><strong>Phase 7</strong> (Board)</td><td>Board of Directors</td></tr>
+        </table>
+        <h3>Required Documentation</h3>
+        <ul>
+          <li>All evaluation notes and risk assessments recorded</li>
+          <li>Rejection reason documented in form fields</li>
+          <li>Status letter communicates decision to applicant</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What the Applicant Sees</h3>
+        <p>Upon rejection:</p>
+        <ul>
+          <li>Notification via platform and/or email</li>
+          <li>Status letter with official decision</li>
+          <li>Reasons for rejection (if provided)</li>
+        </ul>
+        <div class="callout-danger">
+          Rejections are <strong>final</strong>. Ensure all justifications are properly documented before proceeding.
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ===================== SECTION 10: TROUBLESHOOTING ===================== -->
+
+<section>
+  <section class="section-title">
+    <div class="section-num">10</div>
+    <h2>Troubleshooting</h2>
+    <p style="color:#b0bec5">Common issues and quick reference</p>
+  </section>
+
+  <section>
+    <h2>Common Issues</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h4>Disabled Action Button</h4>
+        <p><strong>Cause:</strong> <code>FORMDATAVALIDATIONSTATUS</code> not set to <code>true</code>.</p>
+        <p><strong>Fix:</strong> Ensure all required fields are filled. For Doc Check: validate every document ("Yes"). Save and refresh if needed.</p>
+      </div>
+      <div class="card">
+        <h4>EditGrid Blocking Submission</h4>
+        <p><strong>Cause:</strong> Rows in "new" or "editing" state.</p>
+        <p><strong>Fix:</strong> Find open rows (different background), click the row save button (checkmark) for each one.</p>
+      </div>
+      <div class="card">
+        <h4>NOC — Upload Required</h4>
+        <p><strong>Cause:</strong> Not all consultation documents uploaded.</p>
+        <p><strong>Fix:</strong> Check all "Browse" upload slots. Upload a PDF for each agency. Wait for completion, then save.</p>
+      </div>
+      <div class="card">
+        <h4>Agency — Radio Required</h4>
+        <p><strong>Cause:</strong> "No objection" radio not selected.</p>
+        <p><strong>Fix:</strong> Find the decision radio button group. Select "No objection" (or alternative). Save the form.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>More Issues</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h4>Page Redirects to List</h4>
+        <p><strong>Cause:</strong> Application not at your step, or incorrect role assignment.</p>
+        <p><strong>Fix:</strong> Check "Active task" column. Verify your account role with administrator.</p>
+      </div>
+      <div class="card">
+        <h4>Nothing Happens After Click</h4>
+        <p><strong>Cause:</strong> Confirmation dialog may be behind the window, or system is processing.</p>
+        <p><strong>Fix:</strong> Wait 10-15 seconds. Look for confirmation dialogs. Check for error notifications at top of page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick Reference — All 21 Roles</h2>
+    <table style="font-size:0.55em">
+      <tr><th>#</th><th>Phase</th><th>Role</th><th>Action Button</th></tr>
+      <tr><td>1</td><td>1-Intake</td><td>Documents Check</td><td><span class="btn-tag">Approve documents check</span></td></tr>
+      <tr><td>2</td><td>2-Eval</td><td>Legal Evaluation</td><td><span class="btn-tag">Send evaluation to approval</span></td></tr>
+      <tr><td>3</td><td>2-Eval</td><td>Technical Evaluation</td><td><em>(check processing view)</em></td></tr>
+      <tr><td>4</td><td>2-Eval</td><td>Business Evaluation</td><td><span class="btn-tag">Send evaluation for approval</span></td></tr>
+      <tr><td>5</td><td>2-Eval</td><td>Compliance Evaluation</td><td><span class="btn-tag">Send evaluation for approval</span></td></tr>
+      <tr><td>6</td><td>3-NOC</td><td>Organize NOC</td><td><span class="btn-tag">Send consultation documents</span></td></tr>
+      <tr><td>7</td><td>3-NOC</td><td>JCA Approval</td><td><span class="btn-tag">Send decision to SEZA</span></td></tr>
+      <tr><td>8</td><td>3-NOC</td><td>TAJ Approval</td><td><span class="btn-tag">Send decision to SEZA</span></td></tr>
+      <tr><td>9</td><td>3-NOC</td><td>MOFPS Approval</td><td><span class="btn-tag">Send decision to SEZA</span></td></tr>
+      <tr><td>10</td><td>4-Appr</td><td>Legal Approval</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>11</td><td>4-Appr</td><td>Technical Approval</td><td><span class="btn-tag">Approve</span></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Quick Reference — Continued</h2>
+    <table style="font-size:0.55em">
+      <tr><th>#</th><th>Phase</th><th>Role</th><th>Action Button</th></tr>
+      <tr><td>12</td><td>4-Appr</td><td>Business Approval</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>13</td><td>4-Appr</td><td>Compliance Approval</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>14</td><td>5-ARC</td><td>ARC (App Review Committee)</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>15</td><td>5.5</td><td>Complementary Information</td><td><span class="btn-tag">Validate send page</span> <em>(applicant)</em></td></tr>
+      <tr><td>16</td><td>6-Decision</td><td>Status Letter</td><td><em>(check processing view)</em></td></tr>
+      <tr><td>17</td><td>6-Decision</td><td>Signature Status Letter</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>18</td><td>7-Board</td><td>Board Submission</td><td><em>(check processing view)</em></td></tr>
+      <tr><td>19</td><td>7-Board</td><td>CEO Validation</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>20</td><td>7-Board</td><td>Board</td><td><span class="btn-tag">Approve</span></td></tr>
+      <tr><td>21</td><td>7-Board</td><td>SEZ Documents</td><td><em>(check processing view)</em></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Button Pattern Summary</h2>
+    <table>
+      <tr><th>Button Text</th><th>Used By</th><th>Pre-condition</th></tr>
+      <tr><td><span class="btn-tag">Approve documents check</span></td><td>Documents Check</td><td>All 33 documents validated</td></tr>
+      <tr><td><span class="btn-tag">Send evaluation to/for approval</span></td><td>4 Evaluation roles</td><td>Evaluation fields filled</td></tr>
+      <tr><td><span class="btn-tag">Send consultation documents</span></td><td>Organize NOC</td><td>All agency uploads complete</td></tr>
+      <tr><td><span class="btn-tag">Send decision to SEZA</span></td><td>JCA, TAJ, MOFPS</td><td>"No objection" radio selected</td></tr>
+      <tr><td><span class="btn-tag">Approve</span></td><td>Most approval roles</td><td>Varies — often just review</td></tr>
+      <tr><td><span class="btn-tag">Validate send page</span></td><td>Complementary Info</td><td>Corrections completed (applicant)</td></tr>
+    </table>
+  </section>
+</section>
+
+
+<!-- ===================== CLOSING ===================== -->
+
+<section>
+  <section class="section-title">
+    <h2 style="border:none">Feedback & Contact</h2>
+    <p style="color:#b0bec5">Help us improve this guide</p>
+  </section>
+
+  <section>
+    <h2>How to Give Feedback</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h4>For Officers</h4>
+        <p>Contact your SEZA IT administrator or system support team with:</p>
+        <ul>
+          <li>The phase and role you were processing</li>
+          <li>What you expected to happen vs. what actually happened</li>
+          <li>Any error messages or screenshots</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>For Technical Users</h4>
+        <p>Report issues on GitHub:</p>
+        <p><a href="https://github.com/nelsonadpa/eregistrations-manual/issues" style="color:var(--jamaica-gold)">github.com/nelsonadpa/eregistrations-manual/issues</a></p>
+        <p>Include: role name, button text, file ID, and screenshots if possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="title-slide">
+    <h1>Thank You</h1>
+    <p class="subtitle">Establish a New Zone — Officer Processing Guide</p>
+    <p class="meta">Jamaica Special Economic Zone Authority</p>
+    <p class="meta">Version 1.0 — March 2026</p>
+    <p class="meta" style="margin-top:1em">
+      <a href="https://jamaica.eregistrations.org" style="color:var(--jamaica-gold)">jamaica.eregistrations.org</a>
+    </p>
+    <div class="flag-bar"></div>
+    <p class="meta" style="margin-top:1.5em;font-size:0.6em;color:#546e7a">
+      Generated with AI-assisted documentation tools<br/>
+      Source: eRegistrations Agent Hub
+    </p>
+  </section>
+</section>
+
+
+</div><!-- /slides -->
+</div><!-- /reveal -->
+
+<script>
+  // Initialize Reveal.js first
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    touch: true,
+    progress: true,
+    center: false,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    width: 1280,
+    height: 720,
+    margin: 0.08,
+    minScale: 0.2,
+    maxScale: 2.0,
+    plugins: []
+  }).then(() => {
+    // Then initialize and run Mermaid
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#006847',
+        primaryTextColor: '#fff',
+        primaryBorderColor: '#FFD700',
+        lineColor: '#81c784',
+        secondaryColor: '#003d2b',
+        tertiaryColor: '#1a237e',
+        fontSize: '14px'
+      },
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      }
+    });
+    mermaid.run({ querySelector: '.mermaid' }).catch(e => console.warn('Mermaid:', e));
+  });
+</script>
+</body>
+</html>

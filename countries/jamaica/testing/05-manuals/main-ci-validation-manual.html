@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI Selective Routing — Officer Guide | MAIN Service</title>
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: #f8f9fa;
+            font-size: 16px;
+        }
+
+        /* ========== JAMAICA COLORS ========== */
+        :root {
+            --ja-green: #009B3A;
+            --ja-green-dark: #007a2e;
+            --ja-gold: #FED100;
+            --ja-black: #1a1a1a;
+            --ja-green-light: #e8f5ec;
+            --ja-gold-light: #fff9e0;
+            --accent-blue: #1a73e8;
+            --accent-blue-light: #e8f0fe;
+            --border-light: #dde1e6;
+            --bg-white: #ffffff;
+            --text-muted: #5f6368;
+        }
+
+        /* ========== LAYOUT ========== */
+        .page-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* ========== HEADER ========== */
+        .site-header {
+            background: linear-gradient(135deg, var(--ja-green) 0%, var(--ja-green-dark) 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .site-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .site-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        .site-header .gold-bar {
+            width: 80px;
+            height: 4px;
+            background: var(--ja-gold);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ========== FLOW OVERVIEW ========== */
+        .flow-section {
+            margin-bottom: 48px;
+        }
+        .flow-section h2 {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--ja-black);
+            margin-bottom: 24px;
+        }
+        .flow-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .flow-box {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .flow-box.blue { background: var(--accent-blue-light); color: var(--accent-blue); }
+        .flow-box.gold { background: var(--ja-gold-light); color: #b8860b; }
+        .flow-box.green { background: var(--ja-green-light); color: var(--ja-green); }
+        .flow-box.grey { background: #f0f0f0; color: #666; }
+        .flow-arrow {
+            font-size: 1.2rem;
+            color: #bbb;
+            font-weight: 700;
+        }
+
+        /* ========== SECTION DIVIDERS ========== */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+        }
+        .section-divider .divider-line {
+            flex: 1;
+            height: 2px;
+            background: var(--border-light);
+        }
+        .section-divider .divider-label {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .divider-label.blue { background: var(--accent-blue-light); color: var(--accent-blue); }
+        .divider-label.gold { background: var(--ja-gold-light); color: #b8860b; }
+        .divider-label.green { background: var(--ja-green-light); color: var(--ja-green); }
+        .divider-label.grey { background: #f0f0f0; color: #666; }
+
+        /* ========== STEP CARDS ========== */
+        .step-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--ja-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        .step-header h3 {
+            font-size: 1.1rem;
+            color: var(--ja-black);
+        }
+        .step-badge {
+            margin-left: auto;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .badge-first { background: var(--accent-blue-light); color: var(--accent-blue); }
+        .badge-arc { background: var(--ja-gold-light); color: #b8860b; }
+        .badge-ci { background: var(--ja-green-light); color: var(--ja-green); }
+        .badge-post { background: #f0f0f0; color: #666; }
+
+        .step-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding: 24px;
+        }
+
+        .screenshot-area img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+        .screenshot-area img:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .placeholder {
+            background: #e8e8e8;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            color: #888;
+            font-style: italic;
+        }
+
+        .action-area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .what-to-do {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .action-area ol, .action-area ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .action-area li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .btn-label {
+            display: inline-block;
+            background: var(--ja-green-light);
+            color: var(--ja-green);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        .btn-label.gold {
+            background: var(--ja-gold-light);
+            color: #b8860b;
+        }
+
+        .next-step {
+            margin-top: 12px;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-left: 3px solid var(--ja-green);
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .decision-box {
+            margin: 12px 0;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid;
+        }
+        .decision-box.option-a {
+            background: var(--ja-green-light);
+            border-color: var(--ja-green);
+        }
+        .decision-box.option-b {
+            background: var(--ja-gold-light);
+            border-color: #e6be00;
+        }
+        .decision-box strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ========== QUICK REFERENCE ========== */
+        .quick-ref {
+            background: white;
+            border: 2px solid var(--ja-gold);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 48px;
+        }
+        .quick-ref h2 {
+            font-size: 1.3rem;
+            color: var(--ja-black);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quick-ref h2::before {
+            content: "\1F4CB";
+            font-size: 1.4rem;
+        }
+        .tip-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tip-list li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+        .tip-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ========== LIGHTBOX ========== */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            cursor: zoom-out;
+            padding: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+        }
+        .lightbox-overlay img {
+            max-width: 95%;
+            max-height: 95vh;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .step-body {
+                grid-template-columns: 1fr;
+            }
+            .site-header h1 { font-size: 1.5rem; }
+            .flow-diagram { gap: 6px; padding: 16px; }
+            .flow-box { padding: 6px 12px; font-size: 0.75rem; }
+            .flow-arrow { font-size: 0.9rem; }
+            .page-wrapper { padding: 0 16px 60px; }
+        }
+
+        /* ========== PRINT ========== */
+        @media print {
+            body { background: white; font-size: 11pt; }
+            .site-header { padding: 20px 0; }
+            .step-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+            .step-body { grid-template-columns: 40% 1fr; gap: 16px; padding: 16px; }
+            .screenshot-area img { max-height: 200px; object-fit: contain; }
+            .lightbox-overlay { display: none !important; }
+            .flow-diagram { box-shadow: none; }
+            .quick-ref { border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="site-header">
+    <div class="page-wrapper">
+        <h1>CI Selective Routing &mdash; Officer Guide</h1>
+        <p class="subtitle">Establish a New Zone &mdash; MAIN Service</p>
+        <div class="gold-bar"></div>
+    </div>
+</header>
+
+<main class="page-wrapper">
+
+    <!-- ====== FLOW OVERVIEW ====== -->
+    <section class="flow-section">
+        <h2>Workflow at a Glance</h2>
+        <div class="flow-diagram">
+            <div class="flow-box blue">DocCheck</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box blue">Evaluations</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box blue">NOC</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box blue">Approvals</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box gold">ARC</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box green">CI (if needed)</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box grey">Board</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-box grey">Done</div>
+        </div>
+    </section>
+
+    <!-- ====== FIRST PASS ====== -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-label blue">First Pass</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Documents Check</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/01-documentsCheck.png" alt="Documents Check screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the uploaded documents</li>
+                    <li>Click <span class="btn-label">Approve documents check</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Legal, Technical, Business, and Compliance evaluations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Legal Evaluation</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/02-legalEvaluation.png" alt="Legal Evaluation screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the application from a legal perspective</li>
+                    <li>Write your recommendation in the text area</li>
+                    <li>Click <span class="btn-label">Send evaluation to approval</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Legal Approval (later, after all evaluations finish)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Technical Evaluation</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/03-technicalEvaluation.png" alt="Technical Evaluation screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the application from a technical perspective</li>
+                    <li>Write your recommendation in the text area</li>
+                    <li>Click <span class="btn-label">Send evaluation to approval</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Technical Approval</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Business Evaluation</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/04-businessEvaluation.png" alt="Business Evaluation screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the application from a business perspective</li>
+                    <li>Write your recommendation in the text area</li>
+                    <li>Click <span class="btn-label">Send evaluation to approval</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Business Approval</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Compliance Evaluation</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/05-complianceEvaluation.png" alt="Compliance Evaluation screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the application for compliance requirements</li>
+                    <li>Write your recommendation in the text area</li>
+                    <li>Click <span class="btn-label">Send evaluation to approval</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Compliance Approval</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">6</span>
+            <h3>Organize NOC</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/06-organizeNOC.png" alt="Organize NOC screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Upload the request letters for TAJ, JCA, and MOFPS</li>
+                    <li>Click <span class="btn-label">Send consultation documents</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: TAJ, JCA, and MOFPS review the file simultaneously</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">7</span>
+            <h3>TAJ Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/07-tajApproval.png" alt="TAJ Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the consultation documents</li>
+                    <li>Select <span class="btn-label gold">No objection</span> or <span class="btn-label gold">Objection</span></li>
+                    <li>Click <span class="btn-label">Send decision to SEZA</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Waiting for JCA and MOFPS decisions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">8</span>
+            <h3>JCA Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/08-jcaApproval.png" alt="JCA Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the consultation documents</li>
+                    <li>Select <span class="btn-label gold">No objection</span> or <span class="btn-label gold">Objection</span></li>
+                    <li>Click <span class="btn-label">Send decision to SEZA</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Waiting for remaining agency decisions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 9 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">9</span>
+            <h3>MOFPS Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/09-mofpsApproval.png" alt="MOFPS Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the consultation documents</li>
+                    <li>Select <span class="btn-label gold">No objection</span> or <span class="btn-label gold">Objection</span></li>
+                    <li>Click <span class="btn-label">Send decision to SEZA</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Internal approvals (Legal, Technical, Business, Compliance)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 10 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">10</span>
+            <h3>Legal Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/10-legalApproval.png" alt="Legal Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the legal evaluation and recommendation</li>
+                    <li>Click <span class="btn-label">Approve and send to ARC</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: ARC (once all four approvals are done)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 11 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">11</span>
+            <h3>Technical Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/11-technicalApproval.png" alt="Technical Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the technical evaluation and recommendation</li>
+                    <li>Click <span class="btn-label">Approve and send to ARC</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: ARC (once all four approvals are done)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 12 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">12</span>
+            <h3>Business Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/12-businessApproval.png" alt="Business Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the business evaluation and recommendation</li>
+                    <li>Click <span class="btn-label">Approve and send to ARC</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: ARC (once all four approvals are done)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 13 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">13</span>
+            <h3>Compliance Approval</h3>
+            <span class="step-badge badge-first">First Pass</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/13-complianceApproval.png" alt="Compliance Approval screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the compliance evaluation and recommendation</li>
+                    <li>Click <span class="btn-label">Approve and send to ARC</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: ARC review</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== ARC DECISION ====== -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-label gold">ARC Decision</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Step 14 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">14</span>
+            <h3>ARC &mdash; First Time</h3>
+            <span class="step-badge badge-arc">ARC Decision</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/14-arcFirstTime.png" alt="ARC First Time screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <p style="margin-bottom: 12px;">Review all evaluations and agency decisions. Then choose one option:</p>
+
+                <div class="decision-box option-a">
+                    <strong>If everything is complete:</strong>
+                    Select "No" (no additional information needed) &rarr; Click <span class="btn-label">Send to Board submission</span>
+                </div>
+
+                <div class="decision-box option-b">
+                    <strong>If more information is needed:</strong>
+                    Select "Yes" &rarr; Pick which units should re-review in the table &rarr; Click <span class="btn-label gold">Request additional information</span>
+                </div>
+
+                <p class="next-step">&rarr; Goes to: Board submission <strong>or</strong> back to the applicant for additional info</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== CI FLOW ====== -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-label green">Complementary Information (CI) Flow</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Step 15 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">15</span>
+            <h3>Applicant &mdash; Additional Information</h3>
+            <span class="step-badge badge-ci">CI Flow</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/15-applicantCI.png" alt="Applicant Additional Information screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What the applicant does:</strong></p>
+                <ol>
+                    <li>Fills in the requested additional information</li>
+                    <li>Uploads any required documents</li>
+                    <li>Clicks <span class="btn-label">Validate send page</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Only the selected units re-evaluate (others are skipped)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 16 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">16</span>
+            <h3>Selective Re-evaluation</h3>
+            <span class="step-badge badge-ci">CI Flow</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/16-selectiveReeval.png" alt="Selective Re-evaluation screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What happens:</strong></p>
+                <p style="margin-bottom: 12px;">Only the units selected by ARC will re-evaluate. For example, if only Legal and Business were selected:</p>
+                <ul>
+                    <li>Legal and Business receive the file for re-evaluation</li>
+                    <li>Technical, Compliance, NOC, and agency approvals are <strong>automatically skipped</strong></li>
+                </ul>
+                <p style="margin-top: 12px;">Each selected unit follows the same process: review &rarr; write recommendation &rarr; approve.</p>
+                <p class="next-step">&rarr; Goes to: ARC (second time)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 17 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">17</span>
+            <h3>ARC &mdash; Second Time</h3>
+            <span class="step-badge badge-ci">CI Flow</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/17-arcSecondTime.png" alt="ARC Second Time screen"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>What to do:</strong></p>
+                <ol>
+                    <li>Review the updated evaluations and new documents</li>
+                    <li>Click <span class="btn-label">Send to Board submission</span></li>
+                </ol>
+                <p class="next-step">&rarr; Goes to: Status Letter and remaining steps</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== POST-ARC ====== -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-label grey">Post-ARC Steps</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Step 18 -->
+    <div class="step-card">
+        <div class="step-header">
+            <span class="step-number">18</span>
+            <h3>Remaining Steps</h3>
+            <span class="step-badge badge-post">Post-ARC</span>
+        </div>
+        <div class="step-body">
+            <div class="screenshot-area">
+                <img src="screenshots/main-ci/18-remainingSteps.png" alt="Remaining Steps"
+                     onerror="this.parentElement.innerHTML='<div class=placeholder>Screenshot pending</div>'" />
+            </div>
+            <div class="action-area">
+                <p class="what-to-do"><strong>After ARC approves, the file goes through:</strong></p>
+                <ol>
+                    <li><strong>Status Letter</strong> &mdash; Generate the official status letter</li>
+                    <li><strong>Signature</strong> &mdash; Sign the letter</li>
+                    <li><strong>CI Status Letter</strong> &mdash; Notify the applicant</li>
+                    <li><strong>Board</strong> &mdash; Board reviews and votes</li>
+                    <li><strong>CEO</strong> &mdash; CEO signs off</li>
+                    <li><strong>Board (final)</strong> &mdash; Final board confirmation</li>
+                    <li><strong>SEZ Documents</strong> &mdash; Issue the final certificate</li>
+                </ol>
+                <p class="next-step">&rarr; Process complete. The zone is established.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== QUICK REFERENCE ====== -->
+    <div class="quick-ref">
+        <h2>Key Things to Remember</h2>
+        <ul class="tip-list">
+            <li>
+                <span class="tip-icon">1.</span>
+                <span><strong>Always click the "Processing" tab first.</strong> The action buttons are on the Processing tab, not on the Documents tab.</span>
+            </li>
+            <li>
+                <span class="tip-icon">2.</span>
+                <span><strong>For agency approvals (TAJ, JCA, MOFPS):</strong> Select "No objection" or "Objection" from the dropdown before clicking the green button.</span>
+            </li>
+            <li>
+                <span class="tip-icon">3.</span>
+                <span><strong>If a button is greyed out:</strong> Save any open table rows first (click the checkmark), then try the button again.</span>
+            </li>
+            <li>
+                <span class="tip-icon">4.</span>
+                <span><strong>ARC selective routing:</strong> The table lets you pick which units re-review. Only those units will receive the file back &mdash; the rest are automatically skipped.</span>
+            </li>
+        </ul>
+    </div>
+
+</main>
+
+<!-- ====== LIGHTBOX ====== -->
+<div class="lightbox-overlay" id="lightbox" onclick="this.classList.remove('active')">
+    <img id="lightbox-img" src="" alt="Enlarged screenshot" />
+</div>
+
+<script>
+    // Lightbox: click any screenshot to enlarge
+    document.querySelectorAll('.screenshot-area img').forEach(function(img) {
+        img.addEventListener('click', function() {
+            var overlay = document.getElementById('lightbox');
+            var lbImg = document.getElementById('lightbox-img');
+            lbImg.src = this.src;
+            lbImg.alt = this.alt;
+            overlay.classList.add('active');
+        });
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    });
+</script>
+
+</body>
+</html>

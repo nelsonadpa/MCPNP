@@ -1,0 +1,46 @@
+{
+  "service": "MAIN (Establish a new zone - copy)",
+  "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+  "fileId": "d5bb8b57-1471-4fb1-ba31-7fec292b9ee6",
+  "processId": "3f3e03a2-18fc-11f1-899e-b6594fb67add",
+  "total": 27,
+  "completed": 27,
+  "pending": [],
+  "selectiveRouting": "PASS",
+  "selectiveRoutingDetails": {
+    "expected_active": ["legalEvaluation", "businessEvaluation"],
+    "expected_skipped": ["technicalEvaluation", "complianceEvaluation", "organizeNocAndInspection", "tajApproval", "jcaApproval", "mofpsApproval"],
+    "actual_active": ["legalEvaluation", "businessEvaluation"],
+    "actual_skipped": ["technicalEvaluation", "complianceEvaluation", "organizeNocAndInspection", "tajApproval", "jcaApproval", "mofpsApproval"]
+  },
+  "phases": {
+    "A": "DocCheck → 5 evals → 7 approvals → ARC (12 roles)",
+    "B": "ARC → fileDecline → CI role (complementaryInformation)",
+    "C": "CI applicant submit (saveSENDPAGE)",
+    "D": "Selective routing PASS: Legal + Business only",
+    "E": "Selective evals (2) + approvals (2) → ARC",
+    "F": "ARC → Board submission (DOM click)",
+    "G": "statusLetter → signatureStatusLetter → complementaryInformationSl → boardSubmission → ceoValidation → board → sezDocuments"
+  },
+  "workflow": [
+    "documentsCheck",
+    "businessEvaluation", "organizeNocAndInspection", "complianceEvaluation", "technicalEvaluation", "legalEvaluation",
+    "businessApproval", "tajApproval", "mofpsApproval", "jcaApproval", "complianceApproval", "technicalApproval", "legalApproval",
+    "arcAppRevCommittee",
+    "complementaryInformation",
+    "businessEvaluation", "legalEvaluation",
+    "legalApproval", "businessApproval",
+    "arcAppRevCommittee",
+    "statusLetter", "signatureStatusLetter",
+    "complementaryInformationSl",
+    "boardSubmission", "ceoValidation", "board", "sezDocuments"
+  ],
+  "keyFindings": {
+    "DocCheck_button_disabled": "comp.onClick() works, customEvent emit does NOT work for DocCheck",
+    "Board_button_DOM_click": "Direct DOM click on 'Send to Board submission' works (proven approach from PARTB)",
+    "signatureStatusLetter_wrong_button": "Page shows both 'Send to Board' and 'Approve' — must use btn-block Approve only",
+    "boardSubmission_requires_vote": "Must fill boardSubmissionVoteChairman=Approved + boardSubmissionRiskAnalysis=Low + agency checkboxes before Approve",
+    "applicant_CI_roles": "complementaryInformation* roles use /services/ URL + saveSENDPAGE (not /part-b/)"
+  },
+  "timestamp": "2026-03-06T02:07:39.825Z"
+}

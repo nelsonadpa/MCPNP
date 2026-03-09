@@ -151,15 +151,23 @@
       loadDashboard();
     }
 
-    // Handle hash-based deep links (e.g., /#toolkit)
-    window.addEventListener('hashchange', function() {
-      if (window.location.hash === '#toolkit' && window.__setTab) {
+    // Handle hash-based deep links (e.g., /#toolkit, /#form-filler)
+    function handleHash() {
+      var hash = window.location.hash;
+      if (hash === '#toolkit' && window.__setTab) {
         window.__setTab(3);
+      } else if (hash === '#form-filler' && window.__setTab) {
+        window.__setTab(3);
+        // Small delay to let Toolkit render, then switch to Form Filler sub-tab (index 3)
+        setTimeout(function() {
+          var tabs = document.querySelectorAll('button');
+          tabs.forEach(function(btn) { if (btn.textContent === 'Form Filler') btn.click(); });
+        }, 100);
       }
-    });
-    if (window.location.hash === '#toolkit') {
-      // Will be handled after dashboard loads
-      setTimeout(function() { if (window.__setTab) window.__setTab(3); }, 500);
+    }
+    window.addEventListener('hashchange', handleHash);
+    if (window.location.hash === '#toolkit' || window.location.hash === '#form-filler') {
+      setTimeout(handleHash, 500);
     }
   </script>
 </body>

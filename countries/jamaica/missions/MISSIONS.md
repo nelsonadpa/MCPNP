@@ -8,6 +8,13 @@
 **Status**: PENDING
 **Objective**: Configure Jamaica services as needed.
 
+## M-J004: CI Selective Routing — MAIN Service E2E
+**Status**: PENDING
+**Objective**: Run the proven CI Selective Routing E2E test on the MAIN service (`0d8ca0c6`), verifying selective routing works identically to PARTB.
+**Plan**: `M-J004-ci-main-e2e.md`
+**Blocker**: Need a submitted test file (manual submission ~2 min, 33+ doc requirements)
+**Specs ready**: `main-ci-pipeline.spec.ts`, `main-screenshot-capture.spec.ts`
+
 ## M-J003: Comprehensive Service Testing
 **Status**: IN PROGRESS — Cycle 1 complete, Cycle 2 planned
 **Objective**: Full manual + automated testing of Jamaica service `d51d6c78-5ead-c948-0b82-0d9bc71cd712`
