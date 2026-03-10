@@ -1,0 +1,474 @@
+{
+  "service": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+  "excludedFile": "810ff0d9-369a-4db9-84f0-91c2ad60484f",
+  "totalFiles": 338,
+  "pendingFilesProcessed": 16,
+  "filesStuck": 13,
+  "skippedFiles": [
+    {
+      "fileId": "0ab07e8d-2335-4374-b1e4-c69656b2bfcd",
+      "tasks": [
+        "complementaryInformation"
+      ],
+      "reason": "all tasks in skip list"
+    },
+    {
+      "fileId": "6621189d-b871-49a5-b416-9b088e8338c1",
+      "tasks": [
+        "complementaryInformation"
+      ],
+      "reason": "all tasks in skip list"
+    },
+    {
+      "fileId": "9bd12746-5ad2-4814-b144-91497ffc3ca0",
+      "tasks": [
+        "complementaryInformation"
+      ],
+      "reason": "all tasks in skip list"
+    },
+    {
+      "fileId": "24ccd9b4-9150-4fab-b954-a452a090946f",
+      "tasks": [
+        "processing"
+      ],
+      "reason": "all tasks in skip list"
+    },
+    {
+      "fileId": "2299fa97-b0d7-47cb-9868-dfb1239d550c",
+      "tasks": [
+        "complementaryInformation"
+      ],
+      "reason": "all tasks in skip list"
+    }
+  ],
+  "actionLog": [
+    {
+      "fileId": "9b7143dc-4977-4d93-bccb-94c09e216d89",
+      "role": "businessEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:40:39.288Z"
+    },
+    {
+      "fileId": "9b7143dc-4977-4d93-bccb-94c09e216d89",
+      "role": "complianceEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:41:01.663Z"
+    },
+    {
+      "fileId": "9b7143dc-4977-4d93-bccb-94c09e216d89",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:41:04.315Z"
+    },
+    {
+      "fileId": "7a120cef-95e9-4a0d-bb22-55e69ef848ff",
+      "role": "signatureStatusLetter",
+      "action": "click: Send to Board submission",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:41:25.034Z"
+    },
+    {
+      "fileId": "7a120cef-95e9-4a0d-bb22-55e69ef848ff",
+      "role": "signatureStatusLetter",
+      "action": "click: Send to Board submission",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:41:47.727Z"
+    },
+    {
+      "fileId": "7a120cef-95e9-4a0d-bb22-55e69ef848ff",
+      "role": "signatureStatusLetter",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:41:50.198Z"
+    },
+    {
+      "fileId": "f00ce584-88c0-40cb-8689-b4a060f29ab1",
+      "role": "documentSreview",
+      "action": "fileValidated click",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:42:16.550Z"
+    },
+    {
+      "fileId": "f00ce584-88c0-40cb-8689-b4a060f29ab1",
+      "role": "businessEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:42:38.343Z"
+    },
+    {
+      "fileId": "f00ce584-88c0-40cb-8689-b4a060f29ab1",
+      "role": "complianceEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:43:00.136Z"
+    },
+    {
+      "fileId": "f00ce584-88c0-40cb-8689-b4a060f29ab1",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:43:02.457Z"
+    },
+    {
+      "fileId": "08c749e5-6ed4-457e-9474-60fb2b655267",
+      "role": "statusLetter",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:43:21.963Z"
+    },
+    {
+      "fileId": "08c749e5-6ed4-457e-9474-60fb2b655267",
+      "role": "signatureStatusLetter",
+      "action": "click: Send to Board submission",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:43:43.446Z"
+    },
+    {
+      "fileId": "08c749e5-6ed4-457e-9474-60fb2b655267",
+      "role": "signatureStatusLetter",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:43:45.801Z"
+    },
+    {
+      "fileId": "873484d6-b472-4151-9801-c27bcbf7f2a2",
+      "role": "businessReview",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:44:05.277Z"
+    },
+    {
+      "fileId": "873484d6-b472-4151-9801-c27bcbf7f2a2",
+      "role": "businessReview",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:44:26.699Z"
+    },
+    {
+      "fileId": "873484d6-b472-4151-9801-c27bcbf7f2a2",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:44:29.079Z"
+    },
+    {
+      "fileId": "4515638c-d6d7-4cf1-9a27-9345135aa70e",
+      "role": "documentSreview",
+      "action": "fileValidated click",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:44:55.228Z"
+    },
+    {
+      "fileId": "4515638c-d6d7-4cf1-9a27-9345135aa70e",
+      "role": "businessEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:45:16.793Z"
+    },
+    {
+      "fileId": "4515638c-d6d7-4cf1-9a27-9345135aa70e",
+      "role": "complianceEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:45:38.191Z"
+    },
+    {
+      "fileId": "4515638c-d6d7-4cf1-9a27-9345135aa70e",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:45:40.532Z"
+    },
+    {
+      "fileId": "24b6db9d-0c27-497a-8c3c-97ecc87ac216",
+      "role": "documentSreview",
+      "action": "fileValidated click",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:46:06.773Z"
+    },
+    {
+      "fileId": "24b6db9d-0c27-497a-8c3c-97ecc87ac216",
+      "role": "businessEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:46:28.610Z"
+    },
+    {
+      "fileId": "24b6db9d-0c27-497a-8c3c-97ecc87ac216",
+      "role": "complianceEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:46:50.044Z"
+    },
+    {
+      "fileId": "24b6db9d-0c27-497a-8c3c-97ecc87ac216",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:46:52.386Z"
+    },
+    {
+      "fileId": "0fa19418-eb12-4a87-9ad6-312d7cebea24",
+      "role": "complianceReview",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:47:11.875Z"
+    },
+    {
+      "fileId": "0fa19418-eb12-4a87-9ad6-312d7cebea24",
+      "role": "businessReview",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:47:33.287Z"
+    },
+    {
+      "fileId": "0fa19418-eb12-4a87-9ad6-312d7cebea24",
+      "role": "technicalReview",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:47:35.616Z"
+    },
+    {
+      "fileId": "74ad4ed0-0cdd-43d1-9e03-b20a1d1250dd",
+      "role": "legalReview",
+      "action": "click: Send evaluation to approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:47:54.966Z"
+    },
+    {
+      "fileId": "74ad4ed0-0cdd-43d1-9e03-b20a1d1250dd",
+      "role": "businessApproval",
+      "action": "click: Approve and send to ARC",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:48:16.434Z"
+    },
+    {
+      "fileId": "74ad4ed0-0cdd-43d1-9e03-b20a1d1250dd",
+      "role": "complianceApproval",
+      "action": "click: Approve and send to ARC",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:48:37.911Z"
+    },
+    {
+      "fileId": "74ad4ed0-0cdd-43d1-9e03-b20a1d1250dd",
+      "role": "technicalApproval",
+      "action": "click: Approve and send to ARC",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:48:59.660Z"
+    },
+    {
+      "fileId": "74ad4ed0-0cdd-43d1-9e03-b20a1d1250dd",
+      "role": "legalApproval",
+      "action": "click: Approve and send to ARC",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:49:21.187Z"
+    },
+    {
+      "fileId": "74ad4ed0-0cdd-43d1-9e03-b20a1d1250dd",
+      "role": "-",
+      "action": "no-processable",
+      "result": "remaining tasks need manual action",
+      "timestamp": "2026-03-09T03:49:23.545Z"
+    },
+    {
+      "fileId": "94f2c296-a9d0-4f2d-b7e2-f9200a25ed4b",
+      "role": "documentSreview",
+      "action": "fileValidated click",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:49:49.644Z"
+    },
+    {
+      "fileId": "94f2c296-a9d0-4f2d-b7e2-f9200a25ed4b",
+      "role": "businessEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:50:11.102Z"
+    },
+    {
+      "fileId": "94f2c296-a9d0-4f2d-b7e2-f9200a25ed4b",
+      "role": "complianceEvaluation",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:50:32.501Z"
+    },
+    {
+      "fileId": "94f2c296-a9d0-4f2d-b7e2-f9200a25ed4b",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:50:34.817Z"
+    },
+    {
+      "fileId": "a44ad9e3-36aa-42a6-b53b-6aeb0148b4cb",
+      "role": "documentsCheck",
+      "action": "fileValidated click",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:51:01.084Z"
+    },
+    {
+      "fileId": "a44ad9e3-36aa-42a6-b53b-6aeb0148b4cb",
+      "role": "documentsCheck",
+      "action": "fileValidated click",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:51:29.452Z"
+    },
+    {
+      "fileId": "a44ad9e3-36aa-42a6-b53b-6aeb0148b4cb",
+      "role": "documentsCheck",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:51:31.839Z"
+    },
+    {
+      "fileId": "9f4fa93a-eb76-4db2-b68d-c6c02a4f99f7",
+      "role": "arcAppRevCommittee",
+      "action": "find button",
+      "result": "SKIP: no action button",
+      "timestamp": "2026-03-09T03:51:43.064Z"
+    },
+    {
+      "fileId": "9f4fa93a-eb76-4db2-b68d-c6c02a4f99f7",
+      "role": "-",
+      "action": "no-processable",
+      "result": "remaining tasks need manual action",
+      "timestamp": "2026-03-09T03:51:43.064Z"
+    },
+    {
+      "fileId": "f5323bbe-7004-442e-a073-87a917bad7ea",
+      "role": "arcAppRevCommittee",
+      "action": "click: Send to Board submission",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:52:02.638Z"
+    },
+    {
+      "fileId": "f5323bbe-7004-442e-a073-87a917bad7ea",
+      "role": "arcAppRevCommittee",
+      "action": "click: Send to Board submission",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:52:24.355Z"
+    },
+    {
+      "fileId": "f5323bbe-7004-442e-a073-87a917bad7ea",
+      "role": "arcAppRevCommittee",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:52:26.749Z"
+    },
+    {
+      "fileId": "458b81b3-8a67-4858-b9f7-2393464e6a9e",
+      "role": "review",
+      "action": "click: Approve documents check",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:52:51.700Z"
+    },
+    {
+      "fileId": "458b81b3-8a67-4858-b9f7-2393464e6a9e",
+      "role": "legalReview",
+      "action": "click: Send evaluation to approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:53:13.094Z"
+    },
+    {
+      "fileId": "458b81b3-8a67-4858-b9f7-2393464e6a9e",
+      "role": "complianceReview",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:53:34.558Z"
+    },
+    {
+      "fileId": "458b81b3-8a67-4858-b9f7-2393464e6a9e",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:53:36.869Z"
+    },
+    {
+      "fileId": "b89dadf0-e10e-4c82-a8e9-998b392d85b4",
+      "role": "legalReview",
+      "action": "click: Send evaluation to approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:53:56.305Z"
+    },
+    {
+      "fileId": "b89dadf0-e10e-4c82-a8e9-998b392d85b4",
+      "role": "complianceReview",
+      "action": "click: Send evaluation for approval",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:54:17.632Z"
+    },
+    {
+      "fileId": "b89dadf0-e10e-4c82-a8e9-998b392d85b4",
+      "role": "organizeNocAndInspection",
+      "action": "stuck-detect",
+      "result": "STUCK after 2 retries",
+      "timestamp": "2026-03-09T03:54:19.976Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "legalApproval",
+      "action": "click: Approve and send to ARC",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:54:39.509Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "complianceApproval",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:55:01.175Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "mofpsApproval",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:55:22.818Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "jcaApproval",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:55:44.570Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "tajApproval",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:56:07.585Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "businessApproval",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:56:29.175Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "technicalApproval",
+      "action": "click: Approve",
+      "result": "DONE",
+      "timestamp": "2026-03-09T03:56:50.814Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "applicationReviewingCommitteeArcDecision",
+      "action": "find button",
+      "result": "SKIP: no action button",
+      "timestamp": "2026-03-09T03:57:04.118Z"
+    },
+    {
+      "fileId": "ea63d14a-b2a0-4b43-8fff-3163334411c3",
+      "role": "-",
+      "action": "no-processable",
+      "result": "remaining tasks need manual action",
+      "timestamp": "2026-03-09T03:57:04.118Z"
+    }
+  ],
+  "timestamp": "2026-03-09T03:57:04.120Z"
+}
