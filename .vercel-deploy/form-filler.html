@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eR Form Filler v3.0 — Installation Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2b6cb0 50%, #3b82f6 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header .version {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Sections */
+  .section {
+    padding: 48px 0;
+  }
+  .section + .section {
+    border-top: 1px solid #e2e8f0;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: #64748b;
+    margin-bottom: 28px;
+    max-width: 600px;
+  }
+
+  /* Cards */
+  .card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* Step numbers */
+  .step-num {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    background: #2b6cb0;
+    color: #fff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .step-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  /* Browser shortcuts */
+  .browser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .browser-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .browser-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .browser-item strong {
+    display: block;
+    font-size: 13px;
+    color: #1e293b;
+  }
+  .browser-item span {
+    font-size: 12px;
+    color: #64748b;
+  }
+  .browser-item kbd {
+    display: inline-block;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: -apple-system, system-ui, monospace;
+    font-size: 11px;
+    color: #475569;
+  }
+
+  /* Bookmarklet buttons */
+  .bm-button {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: grab;
+    transition: transform 0.15s, box-shadow 0.15s;
+    user-select: none;
+    -webkit-user-drag: element;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .bm-button:active { cursor: grabbing; }
+  .bm-button:hover {
+    transform: translateY(-3px);
+  }
+
+  .bm-filler {
+    background: linear-gradient(135deg, #1e3a5f, #2b6cb0, #3b82f6);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(43,108,176,0.4);
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  .bm-filler:hover {
+    box-shadow: 0 8px 28px rgba(43,108,176,0.5);
+    color: #fff;
+  }
+
+  .bm-seed {
+    background: linear-gradient(135deg, #276749, #38a169);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(56,161,105,0.35);
+    border: 2px solid rgba(255,255,255,0.15);
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+  .bm-seed:hover {
+    box-shadow: 0 8px 28px rgba(56,161,105,0.45);
+    color: #fff;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .bm-button:hover { animation: none; }
+
+  .bm-hint {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 8px;
+  }
+  .bm-area {
+    text-align: center;
+    padding: 24px;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    margin-top: 16px;
+  }
+
+  /* Tabs (CSS only) */
+  .tabs {
+    margin-top: 28px;
+  }
+  .tabs input[type="radio"] {
+    display: none;
+  }
+  .tab-labels {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 0;
+  }
+  .tab-labels label {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab-labels label:hover {
+    color: #2b6cb0;
+  }
+  .tab-content {
+    display: none;
+    padding: 24px 0;
+  }
+  #tab-a:checked ~ .tab-labels label[for="tab-a"],
+  #tab-b:checked ~ .tab-labels label[for="tab-b"],
+  #tab-c:checked ~ .tab-labels label[for="tab-c"] {
+    color: #2b6cb0;
+    border-bottom-color: #2b6cb0;
+  }
+  #tab-a:checked ~ .tab-content.tc-a,
+  #tab-b:checked ~ .tab-content.tc-b,
+  #tab-c:checked ~ .tab-content.tc-c {
+    display: block;
+  }
+
+  .steps-list {
+    counter-reset: steps;
+    list-style: none;
+    padding: 0;
+  }
+  .steps-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+  }
+  .steps-list li::before {
+    content: counter(steps);
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    background: #eff6ff;
+    color: #2b6cb0;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .steps-list strong {
+    color: #1e293b;
+  }
+
+  /* Table */
+  .services-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  .services-table th {
+    text-align: left;
+    padding: 10px 14px;
+    background: #f1f5f9;
+    border-bottom: 2px solid #e2e8f0;
+    font-weight: 600;
+    color: #475569;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .services-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+  }
+  .services-table tr:hover td {
+    background: #f8fafc;
+  }
+  .check { color: #38a169; font-weight: 700; }
+  .service-name { font-weight: 600; color: #1e293b; }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 16px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 6px;
+  }
+  .faq-a {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  /* Note box */
+  .note {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #92400e;
+    margin-top: 16px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 13px;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+  }
+  .footer a {
+    color: #64748b;
+    text-decoration: none;
+  }
+  .footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .header h1 { font-size: 24px; }
+    .header .subtitle { font-size: 14px; }
+    .section { padding: 32px 0; }
+    .section-title { font-size: 18px; }
+    .bm-button { font-size: 14px; padding: 12px 24px; }
+    .tab-labels label { padding: 8px 12px; font-size: 13px; }
+    .browser-grid { grid-template-columns: 1fr; }
+  }
+
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="container">
+    <h1>eR Form Filler <span class="version">v3.0</span></h1>
+    <p class="subtitle">Fill eRegistrations forms instantly &mdash; any service, any country</p>
+  </div>
+</div>
+
+<!-- SECTION 1: What is this? -->
+<div class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">What is this?</h2>
+    <p class="section-desc">A browser bookmarklet that auto-fills eRegistrations forms with test data. Works on any eRegistrations instance &mdash; Jamaica, Cuba, Lesotho, and more.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+      <div class="card" style="border-left: 3px solid #3b82f6;">
+        <div style="font-size: 20px; margin-bottom: 8px;">&#9889;</div>
+        <div style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Auto Fill</div>
+        <div style="font-size: 13px; color: #64748b;">Generates random valid data for any form. Zero setup required.</div>
+      </div>
+      <div class="card" style="border-left: 3px solid #8b5cf6;">
+        <div style="font-size: 20px; margin-bottom: 8px;">&#127919;</div>
+        <div style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Preset Fill</div>
+        <div style="font-size: 13px; color: #64748b;">Uses pre-built realistic data for specific services and scenarios.</div>
+      </div>
+      <div class="card" style="border-left: 3px solid #10b981;">
+        <div style="font-size: 20px; margin-bottom: 8px;">&#129302;</div>
+        <div style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Auto-Pilot <span style="background:#10b981;color:#fff;font-size:10px;padding:1px 6px;border-radius:8px;font-weight:600;margin-left:4px;">NEW</span></div>
+        <div style="font-size: 13px; color: #64748b;">Part B mode: fills role forms and highlights the action button automatically.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: Install -->
+<div class="section" id="install">
+  <div class="container">
+    <h2 class="section-title">Install in 30 seconds</h2>
+    <p class="section-desc">Three steps to get up and running. No extensions, no accounts, no installs.</p>
+
+    <!-- Step 1 -->
+    <div class="card">
+      <div class="step-header">
+        <span class="step-num">1</span>
+        <h3>Show your bookmarks bar</h3>
+      </div>
+      <p style="font-size: 14px; color: #64748b; margin-bottom: 12px;">Make sure your browser's bookmarks bar is visible:</p>
+      <div class="browser-grid">
+        <div class="browser-item">
+          <span class="browser-icon">&#127760;</span>
+          <div>
+            <strong>Chrome</strong>
+            <span><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (Win) / <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (Mac)</span>
+          </div>
+        </div>
+        <div class="browser-item">
+          <span class="browser-icon">&#128293;</span>
+          <div>
+            <strong>Firefox</strong>
+            <span><kbd>Ctrl</kbd>+<kbd>B</kbd> (Win) / <kbd>Cmd</kbd>+<kbd>B</kbd> (Mac)</span>
+          </div>
+        </div>
+        <div class="browser-item">
+          <span class="browser-icon">&#127758;</span>
+          <div>
+            <strong>Edge</strong>
+            <span><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (Win) / <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (Mac)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="card">
+      <div class="step-header">
+        <span class="step-num">2</span>
+        <h3>Drag this button to your bookmarks bar</h3>
+      </div>
+      <p style="font-size: 14px; color: #64748b;">Click and drag the button below into your bookmarks bar. This is the main tool.</p>
+      <div class="bm-area">
+        <a class="bm-button bm-filler" href="javascript:(function(){var s=document.createElement('script');s.src='https://agent-hub-delta-opal.vercel.app/er-filler.built.js';document.head.appendChild(s);})()">&#9889; eR Form Filler</a>
+        <span class="bm-hint">Drag this button up to your bookmarks bar. It will appear as a clickable bookmark.</span>
+      </div>
+      <div class="note">
+        <strong>Can't drag?</strong> Right-click the button, select "Bookmark this link" or "Add to favorites", then find it in your bookmarks bar.
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="card">
+      <div class="step-header">
+        <span class="step-num">3</span>
+        <h3>Load pre-built presets (optional)</h3>
+      </div>
+      <p style="font-size: 14px; color: #64748b; margin-bottom: 8px;">
+        Want pre-built test data for Jamaica services? First open <strong>any eRegistrations page</strong>, then click this button once.
+        It loads preset data into your browser's local storage. You only need to do this once.
+      </p>
+      <div class="bm-area">
+        <a class="bm-button bm-seed" id="seed-btn" href="#">&#127793; Seed Presets</a>
+        <span class="bm-hint">Open an eRegistrations page first, then drag this to your bookmarks bar and click it once.</span>
+      </div>
+      <div class="note">
+        The Seed Presets button loads its data from the server. Make sure you are on an eRegistrations page when you click it so the presets are stored in the correct browser context.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Seed loader script: fetches seed-presets.js from Vercel and executes it -->
+<script>
+(function() {
+  var seedBtn = document.getElementById('seed-btn');
+  seedBtn.href = "javascript:(function(){var s=document.createElement('script');s.src='https://agent-hub-delta-opal.vercel.app/seed-presets.js';document.head.appendChild(s);})()";
+})();
+</script>
+
+<!-- SECTION 3: How to Use -->
+<div class="section" id="usage">
+  <div class="container">
+    <h2 class="section-title">How to Use</h2>
+    <p class="section-desc">Choose the mode that fits your workflow.</p>
+
+    <div class="tabs">
+      <input type="radio" name="tabs" id="tab-a" checked>
+      <input type="radio" name="tabs" id="tab-b">
+      <input type="radio" name="tabs" id="tab-c">
+
+      <div class="tab-labels">
+        <label for="tab-a">Part A &mdash; Applicant Form</label>
+        <label for="tab-b">Part B &mdash; Processing Roles</label>
+        <label for="tab-c">Custom Presets</label>
+      </div>
+
+      <div class="tab-content tc-a">
+        <ol class="steps-list">
+          <li>Open any eRegistrations service form (Part A) in your browser</li>
+          <li>Click <strong>"eR Form Filler"</strong> in your bookmarks bar</li>
+          <li>A panel appears on the right side of the page</li>
+          <li>Click <strong>"&#9889; Auto Fill"</strong> for random valid data, OR select a scenario (Demo / Test) and click <strong>"Fill Form"</strong> for preset data</li>
+          <li>Click <strong>"&#128206; Fill Files"</strong> to upload placeholder PDF documents to all file fields</li>
+          <li>Review the filled data, then submit the form</li>
+        </ol>
+        <div class="note">
+          <strong>Tip:</strong> Auto Fill works on any form with zero setup. Preset Fill requires presets to be loaded first (Step 3 above or custom import).
+        </div>
+      </div>
+
+      <div class="tab-content tc-b">
+        <ol class="steps-list">
+          <li>Open a Part B task (Document Review, Evaluation, Approval, etc.)</li>
+          <li>Click <strong>"eR Form Filler"</strong> in your bookmarks bar</li>
+          <li>Click <strong>"&#9889; Auto-Pilot"</strong> &mdash; it will:
+            <ul style="margin-top: 8px; margin-left: 24px; list-style: disc; color: #64748b; font-size: 13px;">
+              <li>Detect which role you are on</li>
+              <li>Fill all fields with appropriate data</li>
+              <li>Highlight the action button with a green glow</li>
+            </ul>
+          </li>
+          <li>Click the highlighted button to proceed to the next role</li>
+          <li>Repeat for each role in the workflow</li>
+        </ol>
+        <div class="note">
+          <strong>Tip:</strong> Auto-Pilot uses role presets when available. For best results, load the Seed Presets first (Step 3 above).
+        </div>
+      </div>
+
+      <div class="tab-content tc-c">
+        <ol class="steps-list">
+          <li>Generate a preset: ask Claude Code to run <strong>/fill-form</strong> for your service</li>
+          <li>Copy the JSON output that Claude produces</li>
+          <li>Open the bookmarklet panel on any eRegistrations page, go to the <strong>Manage</strong> tab</li>
+          <li>Paste the JSON into the import area and click <strong>Import</strong></li>
+          <li>Now use <strong>Fill Form</strong> with your custom preset for that service</li>
+        </ol>
+        <div class="note">
+          <strong>Tip:</strong> Custom presets persist in your browser's localStorage across sessions. You can export and share them with teammates.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: Supported Services -->
+<div class="section" id="services">
+  <div class="container">
+    <h2 class="section-title">Supported Services</h2>
+    <p class="section-desc">Pre-built presets are included for these services. More can be added by generating presets with Claude Code.</p>
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Country</th>
+            <th>Part A</th>
+            <th>Part B Roles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-name">Establish a new special economic zone</td>
+            <td>Jamaica</td>
+            <td><span class="check">&#10003;</span> 144 fields</td>
+            <td><span class="check">&#10003;</span> 13 roles</td>
+          </tr>
+          <tr>
+            <td class="service-name">Film production permit</td>
+            <td>Jamaica</td>
+            <td><span class="check">&#10003;</span> 46 fields</td>
+            <td><span class="check">&#10003;</span> 3 roles</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size: 13px; color: #94a3b8; margin-top: 12px;">
+      Need a preset for another service? Run <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:12px;">/fill-form</code> in Claude Code to generate one automatically from the live form schema.
+    </p>
+  </div>
+</div>
+
+<!-- SECTION 5: FAQ -->
+<div class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="card">
+      <div class="faq-item">
+        <div class="faq-q">Does this modify real data?</div>
+        <div class="faq-a">No. It only fills form fields in your browser. Nothing is saved to the server until you click Submit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does it work on production?</div>
+        <div class="faq-a">Yes, but use with caution. It is designed for test and staging environments. If you use it on production, review all filled data before submitting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I add my own presets?</div>
+        <div class="faq-a">Yes. Use the Manage tab in the bookmarklet panel to import custom JSON presets. You can also generate them automatically with the <code>/fill-form</code> command in Claude Code.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What about file uploads?</div>
+        <div class="faq-a">Click "Fill Files" in the bookmarklet panel to upload a placeholder PDF to every file field. The PDF is generated in-memory and uploaded via the Form.io API.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">It didn't fill some select dropdowns</div>
+        <div class="faq-a">Some dropdowns load their options from the server asynchronously. Try clicking Auto Fill again after a few seconds, or navigate to the tab first and then fill.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Which browsers are supported?</div>
+        <div class="faq-a">Chrome, Firefox, Edge, and any Chromium-based browser. Safari may work but is not officially tested.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    Built with Claude Code &middot; <a href="/">eRegistrations Agent Hub</a> &middot; v3.0 &middot; 2026-03-11
+  </div>
+</div>
+
+</body>
+</html>

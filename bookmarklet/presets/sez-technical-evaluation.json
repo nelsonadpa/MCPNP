@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Technical evaluation",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "technicalServicesInfrastructureComments": "Infrastructure layout plan is complete and meets all regulatory requirements.",
+  "technicalReviewComments": "Reviewed and found satisfactory. No issues identified.",
+  "technicalServicesInfrastructureRecomendation": "ministerialApproval",
+  "technicalReviewConditions": "no",
+  "technicalReviewConditions2": "no",
+  "technicalReviewCommentsForApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "technicalServicesInfrastructureeditgrid": [],
+  "technicalReviewCondition": "Standard conditions apply as per JSEZA operational guidelines.",
+  "technicalReviewCondition2": "Standard conditions apply as per JSEZA operational guidelines.",
+  "technicalReviewType": "Precedent",
+  "technicalEvaluationEntity": "ARC",
+  "technicalReviewTimeline": "30 days",
+  "technicalReviewSpecify": "",
+  "technicalReviewRisksAssessment": [],
+  "technicalReviewIdentifiedRisk": "Low risk. No significant concerns identified during evaluation.",
+  "technicalReviewLikelihood": "Low",
+  "technicalReviewLikelihood2": "Low",
+  "technicalReviewMitigationStrategy": "Standard monitoring and compliance verification procedures to be applied.",
+  "technicalEvaluationEditGrid": [],
+  "technicalEvaluationRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "technicalEvaluationReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "technicalEvaluationRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year."
+}

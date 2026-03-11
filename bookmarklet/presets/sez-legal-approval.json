@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Legal approval",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "legalApprovalCommentsForTheApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "legalApprovalCommentsFromTheApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "legalApprovalEditGrid": [],
+  "legalApprovalRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "legalApprovalReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "legalApprovalRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year.",
+  "legalApprovalLsuRRecommendation": "preApproval",
+  "legalApprovalConditionsxx": "no",
+  "legalApprovalRisksxx": "no",
+  "legalApprovalCommentsxx": "Reviewed and found satisfactory. No issues identified.",
+  "legalApprovalLsuRConditionsGrid2": [],
+  "legalApprovalCondition": "Standard conditions apply as per JSEZA operational guidelines.",
+  "legalApprovalJustification": "Condition is standard practice for all new SEZ applications per JSEZA guidelines.",
+  "legalApprovalBeforeAfter": "Precedent",
+  "legalApprovalMilestone": "ARC",
+  "legalApprovalTimeline": "30 days",
+  "legalApprovalSpecify": "",
+  "legalApprovalTsiRRisksGrid": [],
+  "legalApprovalIdentifiedRiskxx": "Low risk. No significant concerns identified during evaluation.",
+  "legalApprovalLikelihoodxx": "Low",
+  "legalApprovalImpactxx": "Low",
+  "legalApprovalMitigationStrategyxx": "Standard monitoring and compliance verification procedures to be applied."
+}

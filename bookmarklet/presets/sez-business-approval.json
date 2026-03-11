@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Business approval",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "businessApprovalCommentsFromEvaluator": "Application thoroughly evaluated. All criteria satisfactorily met. Recommend approval.",
+  "businessApprovalCommentsToEvaluator": "Application thoroughly evaluated. All criteria satisfactorily met. Recommend approval.",
+  "businessApprovalEditGrid": [],
+  "businessApprovalRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "businessApprovalReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "businessApprovalRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year.",
+  "businessApprovalRecommendation": "preApproval",
+  "businessApprovalConditions": "no",
+  "businessApprovalRisks": "no",
+  "businessApprovalComments": "Business plan reviewed and found to be comprehensive. Financial projections are realistic and well-supported.",
+  "businessApprovalBpssRConditionsGrid": [],
+  "businessApprovalCondition2": "Standard conditions apply as per JSEZA operational guidelines.",
+  "businessApprovalJustification2": "Condition is standard practice for all new SEZ applications per JSEZA guidelines.",
+  "businessApprovalBeforeAfter": "Precedent",
+  "businessApprovalMilestone": "ARC",
+  "businessApprovalTimeline2": "30 days",
+  "businessApprovalSpecify2": "",
+  "businessApprovalRisksGrid": [],
+  "businessApprovalIdentifiedRisk": "Low risk. No significant concerns identified during evaluation.",
+  "businessApprovalLikelihood": "Low",
+  "businessApprovalImpact": "Low",
+  "businessApprovalMitigationStrategy": "Standard monitoring and compliance verification procedures to be applied."
+}

@@ -1,0 +1,184 @@
+{
+  "_meta": {
+    "serviceId": "2d3c18a3-be2b-4533-a898-ed0bd946afd3",
+    "serviceName": "Film production permit",
+    "scenario": "demo - full workflow",
+    "generatedAt": "2026-03-11T14:30:00.000Z",
+    "roles": {
+      "applicant": {
+        "roleDescription": "Part A - Applicant form (all tabs)",
+        "fieldCount": 46,
+        "fileFields": ["applicantUploadTheCompletedExcelTemplateSCorrespondingToTheItemsListedAbove", "applicantUploadWardrobeList", "applicantUpload"]
+      },
+      "review": {
+        "roleId": "63bb5a19-ff48-4210-b9ec-e573756f24eb",
+        "roleName": "Review",
+        "fieldCount": 1,
+        "note": "All other fields are readonly (copyValueFrom applicant)"
+      },
+      "approval": {
+        "roleId": "bfa78b70-2ee3-477f-ac2f-a72504f5f828",
+        "roleName": "Approval",
+        "fieldCount": 4,
+        "fileFields": ["approvalPermitFile", "approvalBondWaiverFile", "approvalStampedListFile", "approvalEquipmentList", "approvalWardrobeList"],
+        "note": "Most fields readonly. Editable: payment checkbox, permit number, bond waiver numbers, approver comments"
+      },
+      "payment": {
+        "roleId": "76621ee9-64e0-42cc-b7f8-6eb6f0e49be2",
+        "roleName": "Payment",
+        "fieldCount": 0,
+        "fileFields": ["paymentUpload"],
+        "note": "Only has a file upload for payment receipt. No text fields to fill via bookmarklet."
+      },
+      "applicantPartB": {
+        "roleId": "b826f58c-c15e-4ee8-82d0-75340187f1d0",
+        "roleName": "Applicant (Part B)",
+        "fieldCount": 0,
+        "note": "Only has a validate/send button. No fillable fields."
+      }
+    },
+    "catalogs": {
+      "type": {"id": "e4a89764-1e5f-470f-8461-df6b689698aa", "values": ["Feature film", "Television series", "Television commercial", "Music video", "Documentary", "Still photography", "Animation"]},
+      "parish": {"id": "90b10436-2859-4ee1-09c7-c8d2f8beb2cf", "values": ["Kingston", "St. Andrew", "Portland", "St. Thomas", "St. Catherine", "St. Mary", "St. Ann", "Manchester", "Clarendon", "Hanover", "Westmoreland", "St. James", "Trelawny", "St. Elizabeth"]},
+      "typeOfApplicant": {"id": "fd1f27d9-d458-4c6b-be96-0fa956aa6995", "values": ["Company", "Individual", "Non-for-profit", "Student"]},
+      "nationality": {"id": "country_selection", "note": "Built-in country list"},
+      "importMethod": {"id": "1783331a-b4f4-44c8-b95b-ad88c86e33b8", "values": ["by air cargo", "by air with excess bagage", "by sea cargo"]},
+      "portOfEntry": {"note": "SubCatalog — depends on importMethod selection. parentCatalogField: FORM.2d3c18a3-be2b-4533-a898-ed0bd946afd3.applicantSelectMethod"},
+      "airline": {"id": "b817ab42-9405-46c6-accd-23f9c51171a5", "values": ["American Airlines", "JetBlue Airways", "Delta Air Lines", "United Airlines", "Caribbean Airlines", "Air Canada", "British Airways", "Virgin Atlantic", "Copa Airlines", "Spirit Airlines", "Southwest Airlines", "Other"]}
+    },
+    "radioValues": {
+      "applicantWillYouImportEquipmentInJamaica": ["yes", "no"],
+      "applicantDoYouAlreadyKnowYourImportMethodAndDetails": ["yes", "no"],
+      "applicantWhenWouldYouLikeToCompleteThePayment": ["now", "later"]
+    },
+    "selectboxesValues": {
+      "applicantDoesYourProductionInvolveAnyOfTheFollowingSelectAllThatApply": ["drones", "radios", "cellularPhones", "gunsAndExplosives", "underwaterFilming", "airports"]
+    }
+  },
+  "applicant": {
+    "applicantTitle": "Caribbean Storm: The Kingston Protocol",
+    "applicantType": "Feature film",
+    "applicantHhortSynopsisMaximum600Characters": "A retired intelligence officer is pulled back into action when a rogue operative threatens to destabilize the Caribbean. Filming across Kingston and Montego Bay, the production features high-octane chase sequences through downtown Kingston, scenic helicopter shots over the Blue Mountains, and dramatic confrontations at Port Royal. The story celebrates Jamaica's culture while delivering world-class action cinema.",
+    "applicantProductionFrom": "2026-06-15T00:00:00",
+    "applicantProductionEnd": "2026-08-30T00:00:00",
+    "applicantTotalFilmingDuration": 55,
+    "applicantParish": "Kingston",
+    "applicantProposedProductionLocations": "1. Downtown Kingston — New Kingston business district (chase sequences, office interiors)\n2. Port Royal — Historic fort and waterfront (climactic confrontation scenes)\n3. Blue Mountains — John Crow Peak trail area (helicopter aerial shots, mountain hideout scenes)\n4. Montego Bay — Hip Strip and Doctor's Cave Beach (resort scenes, undercover meetings)\n5. Trelawny — Cockpit Country (jungle pursuit sequences)\n6. Kingston Harbour — Industrial waterfront (night action sequences)",
+    "applicantTypeOfApplicant": "Company",
+    "applicantNationality": "United States of America",
+    "applicantSelectIfApplicable": false,
+    "applicantFullName": "Marcus J. Wellington",
+    "applicantName": "Trident Bay Productions LLC",
+    "applicantContactPersonaName": "Samantha R. Chen",
+    "applicantProductionTitle2": "+1-310-555-7842",
+    "applicantAdress": "4200 Wilshire Boulevard, Suite 1100, Los Angeles, CA 90010, United States",
+    "applicantEmail": "samantha.chen@tridentbayproductions.com",
+    "applicantLocalProductionManager": "Island Light Film Services Ltd.",
+    "applicantemail": "bookings@islandlightfilms.com.jm",
+    "applicantLocalProducer": "Devon A. Campbell",
+    "applicantemail2": "devon.campbell@islandlightfilms.com.jm",
+    "applicantEquipmentRentalManagerName": "Natasha K. Browne",
+    "applicantemail3": "natasha.browne@caribgear.com.jm",
+    "applicantJamaicanPersonnel": 85,
+    "applicantNonJamaicanPersonnel": 42,
+    "applicantBudgetedExpenditureInJamaica": 12500000,
+    "applicantBudgetedExpenditureInJamaica2": 4800000,
+    "applicantWillYouImportEquipmentInJamaica": "yes",
+    "applicantDoYouAlreadyKnowYourImportMethodAndDetails": "yes",
+    "applicantImportAndEquipment": [
+      {
+        "applicantSelectMethod": "by air cargo",
+        "applicantSelectPortOfEntry2": "Norman Manley International Airport",
+        "applicantArrivalDate": "2026-06-10T00:00:00",
+        "applicantFlightNumber": "AA2417",
+        "applicantAirline": "American Airlines",
+        "applicantAirwayBill": "001-7845-2936",
+        "applicantPassengerName": "Robert M. Tanner",
+        "applicantVesselName": "",
+        "applicantBillOfLading": "",
+        "applicantName2": "Caribbean Customs Brokers Ltd.",
+        "applicantCustomsBrokerEmail": "clearance@caribcustoms.com.jm",
+        "applicantPhone": "+1-876-922-4500",
+        "applicantEditGrid": [
+          {
+            "applicantCategory": "Camera",
+            "applicantDescription": "ARRI ALEXA Mini LF cinema camera body with accessories",
+            "applicantBrandModel": "ARRI ALEXA Mini LF",
+            "applicantSerial": "K1.0024873",
+            "applicantQuantity": 3,
+            "applicantWeight": 12.5,
+            "applicantUnitPrice": 65000
+          },
+          {
+            "applicantCategory": "Lens",
+            "applicantDescription": "Cooke Anamorphic/i SF prime lens set (32mm, 50mm, 75mm, 100mm)",
+            "applicantBrandModel": "Cooke Anamorphic/i SF",
+            "applicantSerial": "SF-SET-00482",
+            "applicantQuantity": 4,
+            "applicantWeight": 8.2,
+            "applicantUnitPrice": 28000
+          }
+        ]
+      },
+      {
+        "applicantSelectMethod": "by sea cargo",
+        "applicantSelectPortOfEntry2": "Kingston",
+        "applicantArrivalDate": "2026-06-08T00:00:00",
+        "applicantFlightNumber": "",
+        "applicantAirline": "",
+        "applicantAirwayBill": "",
+        "applicantPassengerName": "",
+        "applicantVesselName": "MV Atlantic Carrier",
+        "applicantBillOfLading": "KKLU-2026-JAM-04872",
+        "applicantName2": "Caribbean Customs Brokers Ltd.",
+        "applicantCustomsBrokerEmail": "clearance@caribcustoms.com.jm",
+        "applicantPhone": "+1-876-922-4500",
+        "applicantEditGrid": [
+          {
+            "applicantCategory": "Grip",
+            "applicantDescription": "Chapman Leonard PeeWee IV dolly with accessories and track",
+            "applicantBrandModel": "Chapman PeeWee IV",
+            "applicantSerial": "PW4-11287",
+            "applicantQuantity": 2,
+            "applicantWeight": 185,
+            "applicantUnitPrice": 42000
+          },
+          {
+            "applicantCategory": "Lighting",
+            "applicantDescription": "ARRI SkyPanel S360-C LED soft light panel",
+            "applicantBrandModel": "ARRI SkyPanel S360-C",
+            "applicantSerial": "SP360-07823",
+            "applicantQuantity": 6,
+            "applicantWeight": 25.4,
+            "applicantUnitPrice": 18500
+          }
+        ]
+      }
+    ],
+    "applicantDoesYourProductionInvolveAnyOfTheFollowingSelectAllThatApply": {
+      "drones": true,
+      "radios": true,
+      "cellularPhones": false,
+      "gunsAndExplosives": true,
+      "underwaterFilming": false,
+      "airports": true
+    },
+    "applicantWhenWouldYouLikeToCompleteThePayment": "now"
+  },
+  "review": {
+    "reviewReviewersComments": "Application reviewed and verified. Production details are complete and consistent. All equipment import declarations match the uploaded lists. Local production service provider (Island Light Film Services Ltd.) is a known and reputable company. Budget allocation appears realistic for the scope of production. Recommended for approval."
+  },
+  "approval": {
+    "approvalPaymentConfirmed": true,
+    "approvalPermitNumber": "FPP-2026-0147",
+    "approvalImportOperations": [
+      {
+        "approvalBondWaiverNumber": "BW-2026-KGN-00312"
+      },
+      {
+        "approvalBondWaiverNumber": "BW-2026-KGN-00313"
+      }
+    ],
+    "approvalReviewersComments2": "Application approved. Payment of USD 300 administrative fee has been verified and confirmed. Permit number FPP-2026-0147 issued. Bond waiver numbers assigned for both import operations. All documentation is in order. Production may proceed as scheduled from June 15, 2026."
+  }
+}

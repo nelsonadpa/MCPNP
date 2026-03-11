@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "serviceId": "2d3c18a3-be2b-4533-a898-ed0bd946afd3",
+    "serviceName": "Film production permit",
+    "role": "Approval",
+    "roleId": "bfa78b70-2ee3-477f-ac2f-a72504f5f828",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T14:30:00.000Z",
+    "fieldCount": 4,
+    "notes": "Most Approval role fields are disabled/readonly (copyValueFrom review/applicant). Editable fields: approvalPaymentConfirmed (checkbox), approvalPermitNumber (textfield), approvalBondWaiverNumber (textfield inside editgrid), approvalReviewersComments2 (textarea). The editgrid approvalImportOperations copies from applicant and its inner fields are disabled except for officer document fields (bond waiver number, file uploads)."
+  },
+  "approvalPaymentConfirmed": true,
+  "approvalPermitNumber": "FPP-2026-0147",
+  "approvalImportOperations": [
+    {
+      "approvalBondWaiverNumber": "BW-2026-KGN-00312"
+    },
+    {
+      "approvalBondWaiverNumber": "BW-2026-KGN-00313"
+    }
+  ],
+  "approvalReviewersComments2": "Application approved. Payment of USD 300 administrative fee has been verified and confirmed. Permit number FPP-2026-0147 issued. Bond waiver numbers assigned for both import operations. All documentation is in order. Production may proceed as scheduled from June 15, 2026."
+}

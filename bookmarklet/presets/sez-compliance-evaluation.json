@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Compliance evaluation",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "complianceReviewCommentsFromReviewer": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "complianceReviewCommentsFromApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "complianceReviewRecommendation": "preApproval",
+  "complianceReviewConditions": "no",
+  "complianceReviewRisks": "no",
+  "complianceReviewComments": "Reviewed and found satisfactory. No issues identified.",
+  "complianceRevieweditgrid": [],
+  "complianceReviewCondition": "Standard conditions apply as per JSEZA operational guidelines.",
+  "complianceReviewJustification": "Condition is standard practice for all new SEZ applications per JSEZA guidelines.",
+  "complianceReviewType": "Precedent",
+  "complianceEvaluationEntity": "ARC",
+  "complianceReviewTimeline": "30 days",
+  "complianceReviewSpecify": "",
+  "complianceReviewRisksGrid": [],
+  "complianceReviewIdentifiedRisk": "Low risk. No significant concerns identified during evaluation.",
+  "complianceReviewLikelihood": "Low",
+  "complianceReviewImpact": "Low",
+  "complianceReviewMitigationStrategy": "Standard monitoring and compliance verification procedures to be applied.",
+  "complianceEvaluationEditGrid": [],
+  "complianceEvaluationRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "complianceEvaluationReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "complianceEvaluationRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year."
+}

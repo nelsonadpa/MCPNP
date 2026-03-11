@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Legal evaluation",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "legalReviewCommentsForApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "legalReviewCommentsFromApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "legalReviewRecommendation": "preApproval",
+  "legalReviewConditions": "no",
+  "legalReviewRisks": "no",
+  "legalReviewComments": "Reviewed and found satisfactory. No issues identified.",
+  "legalReviewTsiRConditionsGrid": [],
+  "legalReviewCondition": "Standard conditions apply as per JSEZA operational guidelines.",
+  "legalReviewJustification": "Condition is standard practice for all new SEZ applications per JSEZA guidelines.",
+  "legalReviewType": "Precedent",
+  "legalEvaluationEntity": "ARC",
+  "legalReviewTimeline": "30 days",
+  "legalReviewSpecify": "",
+  "legalReviewTsiRRisksGrid": [],
+  "legalReviewIdentifiedRisk": "Low risk. No significant concerns identified during evaluation.",
+  "legalReviewLikelihood": "Low",
+  "legalReviewImpact": "Low",
+  "legalReviewMitigationStrategy": "Standard monitoring and compliance verification procedures to be applied.",
+  "legalEvaluationEditGrid": [],
+  "legalEvaluationRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "legalEvaluationReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "legalEvaluationRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year."
+}

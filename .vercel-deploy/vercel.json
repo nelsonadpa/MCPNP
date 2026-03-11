@@ -2,7 +2,23 @@
   "redirects": [
     { "source": "/toolkit", "destination": "/#toolkit", "permanent": false },
     { "source": "/catalogo", "destination": "/#toolkit", "permanent": false },
-    { "source": "/form-filler", "destination": "/#form-filler", "permanent": false },
+    { "source": "/form-filler", "destination": "/form-filler.html" },
     { "source": "/bookmarklet", "destination": "/#form-filler", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/er-filler.built.js",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Type", "value": "application/javascript" }
+      ]
+    },
+    {
+      "source": "/seed-presets.js",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Type", "value": "application/javascript" }
+      ]
+    }
   ]
 }

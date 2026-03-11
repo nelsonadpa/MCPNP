@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Signature status letter",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 0,
+    "note": "File upload and button components only - no fillable fields for bookmarklet"
+  }
+}

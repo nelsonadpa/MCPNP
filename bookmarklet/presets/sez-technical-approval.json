@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Technical approval",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "technicalApprovalCommentsForApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "technicalApprovalCommentsFromApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "technicalApprovalEditGrid": [],
+  "technicalApprovalRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "technicalApprovalReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "technicalApprovalRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year.",
+  "technicalApprovalTsiRRecommendation": "preApproval",
+  "technicalApprovalConditions": "no",
+  "technicalApprovalRisks": "no",
+  "technicalApprovalComments2": "Reviewed and found satisfactory. No issues identified.",
+  "technicalApprovalTsiRConditionsGrid": [],
+  "technicalApprovalCondition2": "Standard conditions apply as per JSEZA operational guidelines.",
+  "technicalApprovalJustification2": "Condition is standard practice for all new SEZ applications per JSEZA guidelines.",
+  "technicalApprovalBeforeAfter": "Precedent",
+  "technicalApprovalMilestone": "ARC",
+  "technicalApprovalTimeline2": "30 days",
+  "technicalApprovalSpecify2": "",
+  "technicalApprovalRisksGrid": [],
+  "technicalApprovalIdentifiedRisk": "Low risk. No significant concerns identified during evaluation.",
+  "technicalApprovalLikelihood": "Low",
+  "technicalApprovalImpact": "Low",
+  "technicalApprovalMitigationStrategy": "Standard monitoring and compliance verification procedures to be applied."
+}

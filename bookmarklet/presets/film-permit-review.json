@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "serviceId": "2d3c18a3-be2b-4533-a898-ed0bd946afd3",
+    "serviceName": "Film production permit",
+    "role": "Review",
+    "roleId": "63bb5a19-ff48-4210-b9ec-e573756f24eb",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T14:30:00.000Z",
+    "fieldCount": 1,
+    "notes": "Most Review role fields are disabled/readonly (copyValueFrom applicant). Only reviewReviewersComments is editable."
+  },
+  "reviewReviewersComments": "Application reviewed and verified. Production details are complete and consistent. All equipment import declarations match the uploaded lists. Local production service provider (Island Light Film Services Ltd.) is a known and reputable company. Budget allocation appears realistic for the scope of production. Recommended for approval."
+}

@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "serviceId": "0d8ca0c6-2a74-4d10-8c64-0b4e4a186adc",
+    "serviceName": "SEZ - Business evaluation",
+    "scenario": "approve",
+    "generatedAt": "2026-03-11T21:15:03.097687+00:00",
+    "fieldCount": 22
+  },
+  "businessReviewComments": "Business plan reviewed and found to be comprehensive. Financial projections are realistic and well-supported.",
+  "businessReviewCommentsForApprover": "Evaluation report reviewed and approved. Findings are consistent and well-documented.",
+  "businessReviewRecommendation": "preApproval",
+  "businessReviewConditions": "no",
+  "businessReviewRisks": "no",
+  "businessReviewComments2": "Business plan reviewed and found to be comprehensive. Financial projections are realistic and well-supported.",
+  "businessRevieweditgrid": [],
+  "businessReviewCondition": "Standard conditions apply as per JSEZA operational guidelines.",
+  "businessReviewJustification": "Condition is standard practice for all new SEZ applications per JSEZA guidelines.",
+  "businessReviewType": "Precedent",
+  "businessEvaluationBeforeStep": "ARC",
+  "businessReviewTimeline": "30 days",
+  "businessReviewSpecify": "",
+  "businessReviewRisksGrid": [],
+  "businessReviewIdentifiedRisk": "Low risk. No significant concerns identified during evaluation.",
+  "businessReviewLikelihood": "Low",
+  "businessReviewImpact": "Low",
+  "businessReviewMitigationStrategy": "Standard monitoring and compliance verification procedures to be applied.",
+  "businessEvaluationEditGrid": [],
+  "businessEvaluationRowArcAppRevCommitteeTypeOfInformationRequested": "Compliance verification report",
+  "businessEvaluationReasonsExplanations": "Required for due diligence verification as per JSEZA standard procedures.",
+  "businessEvaluationRequiredData": "Updated compliance certificates and financial statements for the most recent fiscal year."
+}

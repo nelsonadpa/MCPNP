@@ -1061,11 +1061,12 @@ function AgentDashboard() {
           h("div", { style:{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"8px" }},
             h("span", { style:{ fontSize:"28px" }}, "\uD83D\uDCCB"),
             h("span", { style:{ fontSize:"20px", fontWeight:"700", color:t.text }}, "eR Form Filler"),
-            h("span", { style:{ fontSize:"11px", padding:"2px 8px", borderRadius:"4px", background:C.done+"22", color:C.done, fontWeight:"600" }}, "v2.2")),
-          h("div", { style:{ color:t.sub, fontSize:"13px", lineHeight:"1.7", marginBottom:"16px" }},
-            "A browser bookmarklet that fills eRegistrations forms instantly. Auto Fill works on any form with zero setup. One click to populate 100+ fields, save EditGrid rows, and upload documents."),
+            h("span", { style:{ fontSize:"11px", padding:"2px 8px", borderRadius:"4px", background:C.done+"22", color:C.done, fontWeight:"600" }}, "v3.0")),
+          h("div", { style:{ color:t.sub, fontSize:"13px", lineHeight:"1.7", marginBottom:"12px" }},
+            "A browser bookmarklet that fills eRegistrations forms instantly. Auto Fill works on any form with zero setup. Auto-Pilot mode fills Part B role forms and highlights the action button."),
+          h("a", { href:"/form-filler.html", style:{ display:"inline-flex", alignItems:"center", gap:"6px", fontSize:"13px", fontWeight:"600", color:C.accent2, textDecoration:"none", marginBottom:"16px", padding:"6px 14px", borderRadius:"8px", background:C.accent2+"12", border:"1px solid "+C.accent2+"30" }}, "\uD83D\uDCD6 Full Installation Guide"),
           h("div", { style:{ display:"flex", gap:"8px", flexWrap:"wrap" }},
-            ["Auto Fill","Form.io API","EditGrid Save","File Upload","Multi-tab","Preset Manager","Key Scanner"].map(function(tag, i) {
+            ["Auto Fill","Auto-Pilot","Form.io API","EditGrid Save","File Upload","Multi-tab","Preset Manager","Key Scanner"].map(function(tag, i) {
               return h("span", { key:i, style:{ padding:"3px 10px", borderRadius:"12px", fontSize:"11px",
                 background:C.accent2+"18", color:C.accent2, border:"1px solid "+C.accent2+"40" }}, tag);
             }))),
